@@ -1,0 +1,12 @@
+{
+  "name": "customstrat-site",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd customstrat-advisory && npm run dev",
+    "build": "cd customstrat-advisory && npm run build",
+    "start": "cd customstrat-advisory && npm start",
+    "lint": "cd customstrat-advisory && npm run lint"
+  }
+}
+
