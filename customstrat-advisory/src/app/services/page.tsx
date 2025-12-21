@@ -1,24 +1,22 @@
-import { Metadata } from 'next';
-import Hero from '@/components/Hero';
-import CaseStudyCards from '@/components/CaseStudyCards';
-import CTASection from '@/components/CTASection';
-import { siteContent } from '@/content/siteContent';
+import type { Metadata } from "next";
+import Hero from "@/components/Hero";
+import CaseStudyCards from "@/components/CaseStudyCards";
+import CTASection from "@/components/CTASection";
+import { siteContent } from "@/content/siteContent";
 
 export const metadata: Metadata = {
-  title: 'Case Studies',
-  description: 'Explore our work in strategy development, transformation, and operational improvements.',
+  title: "Case Studies",
+  description:
+    "Explore our work in strategy development, transformation, and operational improvements.",
 };
 
 export default function ServicesPage() {
   return (
     <>
-      <Hero
-        title={siteContent.services.hero.title}
-        image="/images/hero-case-studies.jpg"
-      />
+      <Hero title={siteContent.services.hero.title} image="/images/hero-case-studies.jpg" />
 
       <CaseStudyCards
-        categories={siteContent.services.categories}
+        categories={siteContent.services.categories ?? []}
         subtitle={siteContent.services.sectors}
       />
 
@@ -27,12 +25,12 @@ export default function ServicesPage() {
           <h2 className="text-primary mb-8 text-center">Our Approach</h2>
           <div className="prose prose-lg mx-auto text-gray-700">
             <p>
-              We work collaboratively with our clients to deliver practical, actionable strategies 
-              that drive measurable results. Our experience spans the full spectrum of financial 
+              We work collaboratively with our clients to deliver practical, actionable strategies
+              that drive measurable results. Our experience spans the full spectrum of financial
               services, from community banks to global institutions.
             </p>
             <p>
-              Each engagement is tailored to your specific needs, whether you require strategic 
+              Each engagement is tailored to your specific needs, whether you require strategic
               planning support, transformation expertise, or operational improvement initiatives.
             </p>
           </div>

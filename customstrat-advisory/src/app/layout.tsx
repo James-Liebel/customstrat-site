@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import SeasonalEffects from '@/components/SeasonalEffects';
 import '@/styles/globals.css';
 import { siteContent } from '@/content/siteContent';
 
@@ -25,11 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en" className="scroll-smooth">
+      <body className="flex flex-col min-h-screen antialiased">
+        <SeasonalEffects enabled={true} />
+        
+        <div className="relative z-10 flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

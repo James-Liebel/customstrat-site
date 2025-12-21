@@ -1,23 +1,53 @@
-import Link from 'next/link';
+import Link from "next/link";
 
 interface CTASectionProps {
   title: string;
-  description: string;
-  buttonText: string;
-  buttonHref: string;
+  subtitle?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
 }
 
-export default function CTASection({ title, description, buttonText, buttonHref }: CTASectionProps) {
+export default function CTASection({
+  title,
+  subtitle,
+  primaryCta = { label: "Start a conversation", href: "/contact" },
+  secondaryCta = { label: "View services", href: "/services" },
+}: CTASectionProps) {
   return (
-    <section className="section-padding bg-primary text-white">
-      <div className="container-custom text-center">
-        <h2 className="mb-6">{title}</h2>
-        <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto font-light">
-          {description}
-        </p>
-        <Link href={buttonHref} className="inline-block btn-secondary bg-white hover:bg-gray-100 text-primary">
-          {buttonText}
-        </Link>
+    <section className="section-padding relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary via-accent to-primary" />
+      <div className="absolute inset-0 opacity-20">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 2px 2px, rgba(255,255,255,.6) 1px, transparent 0)",
+            backgroundSize: "28px 28px",
+          }}
+        />
+      </div>
+      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold/20 blur-3xl animate-[float_18s_ease-in-out_infinite]" />
+      <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-3xl animate-[float_22s_ease-in-out_infinite_1.5s]" />
+
+      <div className="container-custom relative z-10">
+        <div className="max-w-4xl mx-auto text-center text-white">
+          <h2 className="text-balance">{title}</h2>
+          {subtitle && <p className="mt-6 text-white/90 text-lg leading-relaxed">{subtitle}</p>}
+
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href={primaryCta.href} className="btn-primary glow-effect">
+              {primaryCta.label}
+            </Link>
+            <Link href={secondaryCta.href} className="btn-secondary">
+              {secondaryCta.label}
+            </Link>
+          </div>
+
+          <div className="mt-10 text-sm text-white/70">
+            Practical, board-ready strategy • Proven transformation execution • Financial-services specialists
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,147 +1,110 @@
-'use client';
+"use client";
 
-import { useState, FormEvent } from 'react';
-import { CheckCircle } from 'lucide-react';
+import { useMemo, useState } from "react";
+import { siteContent } from "@/content/siteContent";
+
+type FormState = "idle" | "submitting" | "success" | "error";
 
 export default function ContactForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    message: '',
-  });
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [submitted, setSubmitted] = useState(false);
+  const [state, setState] = useState<FormState>("idle");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [message, setMessage] = useState("");
 
-  const validateForm = () => {
-    const newErrors: Record<string, string> = {};
-    
-    if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
-    }
-    
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
-    }
-    
-    if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
-    }
-    
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  const canSubmit = useMemo(() => {
+    return name.trim().length > 1 && email.includes("@") && message.trim().length > 10;
+  }, [name, email, message]);
 
-  const handleSubmit = (e: FormEvent) => {
+  const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    if (validateForm()) {
-      // In a real application, you would send this data to your backend
-      console.log('Form submitted:', formData);
-      setSubmitted(true);
-      
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setFormData({ name: '', email: '', company: '', message: '' });
-        setSubmitted(false);
-      }, 3000);
+    if (!canSubmit) return;
+
+    try {
+      setState("submitting");
+
+      const subject = encodeURIComponent(`CustomStrat Advisory inquiry from ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\nCompany: ${company}\n\nMessage:\n${message}\n`
+      );
+
+      const to = siteContent.company.email;
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
+      setState("success");
+    } catch {
+      setState("error");
     }
   };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
-  };
-
-  if (submitted) {
-    return (
-      <div className="bg-green-50 border-2 border-green-500 rounded-lg p-12 text-center">
-        <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-        <h3 className="text-2xl font-semibold text-gray-800 mb-2">Thank You!</h3>
-        <p className="text-gray-600">Your message has been received. We'll be in touch soon.</p>
-      </div>
-    );
-  }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl mx-auto">
-      <div>
-        <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
-          Name *
+    <form onSubmit={onSubmit} className="card">
+      <div className="flex items-center justify-between mb-6">
+        <h3 className="text-gray-900">Send a message</h3>
+        <div className="text-sm text-gray-500">Response typically within 1–2 business days</div>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-4">
+        <label className="block">
+          <span className="text-sm font-medium text-gray-700">Name</span>
+          <input
+            className="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-accent/40 transition"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Your name"
+            autoComplete="name"
+          />
         </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition ${
-            errors.name ? 'border-red-500' : 'border-gray-300'
+
+        <label className="block">
+          <span className="text-sm font-medium text-gray-700">Email</span>
+          <input
+            className="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-accent/40 transition"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="you@company.com"
+            autoComplete="email"
+          />
+        </label>
+
+        <label className="block md:col-span-2">
+          <span className="text-sm font-medium text-gray-700">Company (optional)</span>
+          <input
+            className="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-accent/40 transition"
+            value={company}
+            onChange={(e) => setCompany(e.target.value)}
+            placeholder="Your organization"
+            autoComplete="organization"
+          />
+        </label>
+
+        <label className="block md:col-span-2">
+          <span className="text-sm font-medium text-gray-700">Message</span>
+          <textarea
+            className="mt-2 w-full rounded-2xl border border-gray-200 px-4 py-3 outline-none focus:ring-2 focus:ring-accent/40 transition min-h-[140px]"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="What are you working on, and where can we help?"
+          />
+        </label>
+      </div>
+
+      <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <button
+          type="submit"
+          className={`btn-primary ${
+            !canSubmit || state === "submitting" ? "opacity-60 pointer-events-none" : ""
           }`}
-        />
-        {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
-      </div>
+        >
+          {state === "submitting" ? "Sending..." : "Send message"}
+        </button>
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
-          Email *
-        </label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition ${
-            errors.email ? 'border-red-500' : 'border-gray-300'
-          }`}
-        />
-        {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+        <div className="text-sm">
+          {state === "success" && <span className="text-green-700">Email draft opened — hit send when ready.</span>}
+          {state === "error" && <span className="text-red-700">Something went wrong. Please try again.</span>}
+          {state === "idle" && <span className="text-gray-500">Prefer email? Use the button above.</span>}
+        </div>
       </div>
-
-      <div>
-        <label htmlFor="company" className="block text-sm font-semibold text-gray-700 mb-2">
-          Company
-        </label>
-        <input
-          type="text"
-          id="company"
-          name="company"
-          value={formData.company}
-          onChange={handleChange}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
-          Message *
-        </label>
-        <textarea
-          id="message"
-          name="message"
-          rows={6}
-          value={formData.message}
-          onChange={handleChange}
-          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition ${
-            errors.message ? 'border-red-500' : 'border-gray-300'
-          }`}
-        />
-        {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
-      </div>
-
-      <button
-        type="submit"
-        className="w-full btn-primary"
-      >
-        Send Message
-      </button>
     </form>
   );
 }

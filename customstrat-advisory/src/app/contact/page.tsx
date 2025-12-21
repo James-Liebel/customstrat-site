@@ -28,7 +28,7 @@ export default function ContactPage() {
               <div className="mb-8">
                 <div className="relative w-64 h-64 mx-auto md:mx-0 rounded-lg overflow-hidden shadow-xl mb-6">
                   <Image
-                    src="/images/katie-liebel.jpg"
+                    src="/images/katie-liebel.webp"
                     alt={contact.name}
                     fill
                     className="object-cover"
