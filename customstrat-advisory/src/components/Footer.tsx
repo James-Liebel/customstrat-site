@@ -28,7 +28,7 @@ export default function Footer() {
                   src="/images/new logo.png"
                   alt="CustomStrat Advisory"
                   fill
-                  className="object-contain brightness-0 invert"
+                  className="object-contain"
                 />
               </div>
               <div className="text-xl font-semibold brand-name">{siteContent.company.shortName}</div>
