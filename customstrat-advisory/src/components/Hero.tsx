@@ -105,13 +105,21 @@ export default function Hero({
           {subtitle && (
             <div className="flex items-center gap-4 mb-8 animate-[fadeInUp_800ms_ease-out]">
               <div className="relative group">
-                <div className="absolute inset-0 bg-white rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity duration-500" />
-                <div className="relative w-32 h-32 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                {/* Ambient halo */}
+                <div className="absolute -inset-6 rounded-full bg-white/20 blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
+
+                {/*
+                  Logo badge:
+                  - Round mask to remove any square edges
+                  - Subtle glass fill + ring to feel institutional/premium
+                */}
+                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-white/90 ring-1 ring-white/30 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-transform duration-700 group-hover:scale-[1.06] group-hover:rotate-3">
                   <Image
                     src="/images/logo.png"
                     alt="CustomStrat Advisory"
                     fill
-                    className="object-contain drop-shadow-2xl"
+                    priority
+                    className="object-contain p-3"
                   />
                 </div>
               </div>

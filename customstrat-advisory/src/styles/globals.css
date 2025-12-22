@@ -59,9 +59,14 @@
     font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
+  /*
+    IMPORTANT: Do not hardcode heading colors globally.
+    It breaks dark sections (e.g., hero) where headings are intended to inherit `text-white`.
+    Set heading colors contextually using Tailwind classes.
+  */
   h1, h2, h3, h4, h5, h6 {
     font-weight: 600;
-    color: var(--color-gray-900);
+    color: inherit;
     letter-spacing: -0.02em;
   }
 
@@ -838,11 +843,11 @@
     letter-spacing: -0.015em;
   }
 
-
-  
-
-
-
-  
-
 }
+  
+
+
+
+  
+
+  
