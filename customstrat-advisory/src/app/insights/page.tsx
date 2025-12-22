@@ -11,46 +11,74 @@ export const metadata: Metadata = {
 
 const articles = [
   {
-    title: "The Softer Side of Transformation",
-    slug: "the-softer-side-of-transformation",
-    date: "2024-04-12",
-    excerpt:
-      "Why culture and change management are critical success factors in business transformation. Learn about the 5Cs approach: Commitment, Capabilities, Culture, Communication, and Change management.",
+    title: "Beyond Scale: Winning Strategies for Today's P&C Insurers",
+    date: "August 2025",
+    category: "Insurance Strategy",
+    excerpt: "How mid-sized carriers can compete effectively through specialized expertise, superior customer experience, and strategic partnerships rather than pure scale.",
+    readTime: "8 min read",
   },
   {
-    title: "A Strategic Planning Tune-Up for Uncertain Times",
-    slug: "a-strategic-planning-tune-up-for-uncertain-times",
-    date: "2024-05-18",
-    excerpt:
-      "How to build resilient strategic plans that adapt to changing market conditions through assumption-based planning and agile execution.",
+    title: "Secrets to Survival in Community Banking",
+    date: "February 2025",
+    category: "Banking",
+    excerpt: "Essential strategies for community banks to thrive in an era of consolidation, focusing on relationship banking, local market expertise, and digital transformation.",
+    readTime: "7 min read",
+  },
+  {
+    title: "Linking Customer Experience to Strategy and Value",
+    date: "November 2022",
+    category: "Customer Experience",
+    excerpt: "A practical framework for connecting CX investments to measurable business outcomes and demonstrating the ROI of customer experience initiatives.",
+    readTime: "10 min read",
   },
   {
     title: "Strategic Planning Best Practices for Board Directors",
-    slug: "strategic-planning-best-practices-for-board-directors",
-    date: "2024-06-05",
-    excerpt:
-      "Essential elements of effective strategic planning in today's complex financial environment, with key questions for board oversight.",
+    date: "September 2022",
+    category: "Governance",
+    excerpt: "Essential elements of effective strategic planning in today's complex financial environment, with key questions for board oversight and strategy validation.",
+    readTime: "9 min read",
   },
   {
-    title: "P&C Carriers – Preparing for the Stormy Seas",
-    slug: "pc-carriers-preparing-for-the-stormy-seas",
-    date: "2024-07-10",
-    excerpt:
-      "Five priorities to guide Property & Casualty insurance carriers through challenging market conditions while building long-term strategy.",
+    title: "Integrated Planning Amidst the Headwinds",
+    date: "September 2022",
+    category: "Strategy",
+    excerpt: "How to build resilient strategic plans that adapt to changing market conditions through assumption-based planning and agile execution frameworks.",
+    readTime: "8 min read",
   },
   {
-    title: "Linking Customer Experience to Business Results",
-    slug: "linking-customer-experience-to-business-results",
-    date: "2024-08-22",
-    excerpt:
-      "A practical framework for connecting CX investments to measurable business outcomes and demonstrating the ROI of customer experience initiatives.",
+    title: "The Softer Side of Transformation - The 5 C's",
+    date: "August 2022",
+    category: "Change Management",
+    excerpt: "Why culture and change management are critical success factors in business transformation. Learn about the 5Cs approach: Commitment, Capabilities, Culture, Communication, and Change management.",
+    readTime: "12 min read",
   },
   {
-    title: "Beyond Scale: Winning Strategies for Mid-Sized Banks",
-    slug: "beyond-scale-winning-strategies-for-mid-sized-banks",
-    date: "2024-09-15",
-    excerpt:
-      "How regional and community banks can compete effectively against larger institutions through differentiation and customer focus.",
+    title: "A Strategic Planning Tune-Up for Uncertain Times",
+    date: "August 2022",
+    category: "Strategy",
+    excerpt: "Adjusting your strategic planning approach for global uncertainty through scenario planning, assumption testing, and flexible execution models.",
+    readTime: "9 min read",
+  },
+  {
+    title: "P&C Carriers - Preparing for the Stormy Seas",
+    date: "July 2022",
+    category: "Insurance Strategy",
+    excerpt: "Five priorities to guide Property & Casualty insurance carriers through challenging market conditions while building long-term strategic positioning.",
+    readTime: "10 min read",
+  },
+  {
+    title: "Contingency Planning for the Next Worst-Case Scenario",
+    date: "April 2021",
+    category: "Risk Management",
+    excerpt: "Building organizational resilience through comprehensive contingency planning, stress testing, and adaptive strategy frameworks for financial institutions.",
+    readTime: "11 min read",
+  },
+  {
+    title: "Banking on a Better Position After the Crisis",
+    date: "May 2020",
+    category: "Banking",
+    excerpt: "Strategic imperatives for banks emerging from crisis: strengthening core capabilities, accelerating digital transformation, and repositioning for growth.",
+    readTime: "8 min read",
   },
 ];
 
