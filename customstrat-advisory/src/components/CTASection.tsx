@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 interface CTASectionProps {
   title: string;
   subtitle?: string;
+  description: string;
   primaryCta?: { label: string; href: string };
   secondaryCta?: { label: string; href: string };
 }
