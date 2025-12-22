@@ -808,6 +808,50 @@
     pointer-events: none;
   }
   
+  /* Diamond-outline glow wave (hero only) */
+  .hero-diamond-wave {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.55; /* overall intensity */
+  }
+
+  .hero-diamond-wave .wave {
+    animation: diamondWaveMove 14s ease-in-out infinite;
+  }
+
+  @keyframes diamondWaveMove {
+    0%   { transform: translateX(-35%); opacity: 0.0; }
+    10%  { opacity: 1.0; }
+    90%  { opacity: 1.0; }
+    100% { transform: translateX(35%); opacity: 0.0; }
+  }
+
+    /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-diamond-wave .wave {
+      animation: none;
+      transform: translateX(0);
+      opacity: 0.6;
+    }
+  }
+
+  :root {
+    --font-body: var(--font-inter);
+    --font-brand: var(--font-brand);
+  }
+  
+  body {
+    font-family: var(--font-body);
+  }
+  
+  .brand-name {
+    font-family: var(--font-brand);
+    letter-spacing: -0.015em;
+  }
+  
+
+
 
   
 

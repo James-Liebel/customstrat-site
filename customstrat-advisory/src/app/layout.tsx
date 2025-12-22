@@ -4,6 +4,18 @@ import Footer from '@/components/Footer';
 import SeasonalEffects from '@/components/SeasonalEffects';
 import '@/styles/globals.css';
 import { siteContent } from '@/content/siteContent';
+import { Inter, Manrope } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+});
+
+const manrope = Manrope({
+  subsets: ['latin'],
+  variable: '--font-brand',
+  weight: ['500', '600', '700'],
+});
 
 export const metadata: Metadata = {
   title: {
@@ -26,10 +38,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
       <body className="flex flex-col min-h-screen antialiased">
         <SeasonalEffects enabled={true} />
         
+
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
           <main className="flex-1">{children}</main>

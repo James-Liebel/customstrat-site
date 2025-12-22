@@ -25,7 +25,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 relative">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/new logo.png"
                   alt="CustomStrat Advisory"
                   fill
                   className="object-contain brightness-0 invert"
@@ -72,7 +72,7 @@ export default function Footer() {
             </div>
 
             <div className="mt-6">
-              <Link href="/contact" className="btn-secondary">
+              <Link href="/contact" className="btn-secondary !text-[#0B2E57]">
                 Get in touch
               </Link>
             </div>

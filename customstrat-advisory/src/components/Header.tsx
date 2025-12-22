@@ -25,7 +25,7 @@ export default function Header() {
     { label: 'About Us', href: '/about' },
     { label: 'Case Studies', href: '/services' },
     { label: 'Articles', href: '/insights' },
-    { label: 'Endorsements', href: '/#endorsements' },
+    { label: 'Endorsements', href: '/endorsements' },
     { label: 'Contact', href: '/contact' },
   ];
 
@@ -48,14 +48,14 @@ export default function Header() {
             <div className="relative">
               <div className="w-12 h-12 relative transition-transform duration-300 group-hover:scale-110">
                 <Image
-                  src="/images/logo.png"
+                  src="/images/new logo.png"
                   alt="CustomStrat Advisory Logo"
                   fill
                   className="object-contain"
                 />
               </div>
             </div>
-            <span className="text-xl font-semibold brand-name text-gradient">{siteContent.company.shortName}</span>
+            <span className="text-xl font-semibold text-primary">{siteContent.company.shortName}</span>
           </Link>
 
           <ul className="hidden lg:flex items-center gap-2">

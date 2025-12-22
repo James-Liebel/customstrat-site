@@ -39,7 +39,7 @@ export default function CTASection({
             <Link href={primaryCta.href} className="btn-primary glow-effect">
               {primaryCta.label}
             </Link>
-            <Link href={secondaryCta.href} className="btn-secondary">
+            <Link href={secondaryCta.href} className="btn-secondary !text-[#0B2E57]">
               {secondaryCta.label}
             </Link>
           </div>

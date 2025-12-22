@@ -45,7 +45,7 @@ export default function HomePage() {
 
           {/* Company Title */}
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-6 animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards]">
-            Custom Strat Advisory, LLC
+            CustomStrat Advisory, LLC
           </h1>
 
           {/* Tagline */}
