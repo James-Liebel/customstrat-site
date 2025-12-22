@@ -1,55 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
+/*
+  Design tokens
+  - Use standard CSS variables (Tailwind v3 compatible)
+  - Fonts are loaded via next/font in app/layout.tsx
+*/
+:root {
+  /* Brand */
+  --color-primary: #2c5f8d;
+  --color-primary-dark: #1a3a5c;
+  --color-primary-light: #4a7ba7;
 
-@theme {
-  /* Colors - Updated to match new logo */
-  --color-primary: #2C5F8D;
-  --color-primary-dark: #1A3A5C;
-  --color-primary-light: #4A7BA7;
-  
-  --color-accent: #5B8FC4;
-  --color-accent-dark: #3D6B9E;
-  --color-accent-light: #7DAAD4;
-  
-  --color-gold: #C9A961;
-  --color-gold-light: #E5D4A6;
-  
-  /* Gray scale */
-  --color-gray-50: #F9FAFB;
-  --color-gray-100: #F3F4F6;
-  --color-gray-200: #E5E7EB;
-  --color-gray-300: #D1D5DB;
-  --color-gray-400: #9CA3AF;
-  --color-gray-500: #6B7280;
+  --color-accent: #5b8fc4;
+  --color-accent-dark: #3d6b9e;
+  --color-accent-light: #7daad4;
+
+  --color-gold: #c9a961;
+  --color-gold-light: #e5d4a6;
+
+  /* Neutrals (high contrast, boardroom-grade) */
+  --color-gray-50: #f8fafc;
+  --color-gray-100: #f1f5f9;
+  --color-gray-200: #e2e8f0;
+  --color-gray-300: #cbd5e1;
+  --color-gray-400: #94a3b8;
+  --color-gray-500: #64748b;
   --color-gray-600: #475569;
-  --color-gray-700: #374151;
-  --color-gray-800: #1F2937;
-  --color-gray-900: #111827;
-  
+  --color-gray-700: #334155;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #0f172a;
+
   /* Shadows */
-  --shadow-soft: 0 2px 8px rgba(44, 95, 141, 0.04);
-  --shadow-soft-md: 0 4px 16px rgba(44, 95, 141, 0.08);
-  --shadow-soft-lg: 0 8px 24px rgba(44, 95, 141, 0.12);
-  --shadow-glow: 0 0 40px rgba(91, 143, 196, 0.15);
-  
-  /* Font family */
-  --font-family-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-family-display: 'Playfair Display', Georgia, serif;
-  
-  /* Spacing */
-  --spacing-18: 4.5rem;
-  --spacing-88: 22rem;
-  
-  /* Border radius */
+  --shadow-soft: 0 2px 8px rgba(15, 23, 42, 0.06);
+  --shadow-soft-md: 0 6px 18px rgba(15, 23, 42, 0.10);
+  --shadow-soft-lg: 0 14px 34px rgba(15, 23, 42, 0.14);
+  --shadow-glow: 0 0 40px rgba(91, 143, 196, 0.18);
+
+  /* Radii */
   --radius-2xl: 16px;
   --radius-3xl: 20px;
 }
 
-@layer base{
+@layer base {
   /* Base styles */
   html {
     scroll-behavior: smooth;
@@ -62,7 +56,7 @@
     background-color: white;
     font-size: 16px;
     line-height: 1.7;
-    font-family: var(--font-family-sans);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -86,9 +80,11 @@
     line-height: 1.3;
   }
 
-  p {
-    color: var(--color-gray-600);
-  }
+  /*
+    Avoid forcing a paragraph color globally.
+    Global element selectors can unintentionally override section-level text colors
+    (e.g., `text-white` on dark hero backgrounds).
+  */
 
   strong {
     font-weight: 600;
@@ -283,8 +279,8 @@
   }
 }
 
-/* Components */
-/* Buttons */
+@layer components {
+  /* Buttons */
   .btn-primary {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
     color: white;
@@ -510,6 +506,7 @@
   }
   
   .hero-overlay::before {
+}
     content: '';
     position: absolute;
     inset: 0;
@@ -836,19 +833,12 @@
     }
   }
 
-  :root {
-    --font-body: var(--font-inter);
-    --font-brand: var(--font-brand);
-  }
-  
-  body {
-    font-family: var(--font-body);
-  }
-  
   .brand-name {
-    font-family: var(--font-brand);
+    font-family: var(--font-brand), var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     letter-spacing: -0.015em;
   }
+
+
   
 
 

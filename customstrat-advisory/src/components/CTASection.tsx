@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 interface CTASectionProps {
   title: string;
@@ -30,18 +31,18 @@ export default function CTASection({
       <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full bg-gold/20 blur-3xl animate-[float_18s_ease-in-out_infinite]" />
       <div className="absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-white/10 blur-3xl animate-[float_22s_ease-in-out_infinite_1.5s]" />
 
-      <div className="container-custom relative z-10">
+      <div className="container relative z-10">
         <div className="max-w-4xl mx-auto text-center text-white">
           <h2 className="text-balance">{title}</h2>
           {subtitle && <p className="mt-6 text-white/90 text-lg leading-relaxed">{subtitle}</p>}
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={primaryCta.href} className="btn-primary glow-effect">
-              {primaryCta.label}
-            </Link>
-            <Link href={secondaryCta.href} className="btn-secondary !text-[#0B2E57]">
-              {secondaryCta.label}
-            </Link>
+            <Button asChild variant="primary" className="shadow-glow">
+              <Link href={primaryCta.href}>{primaryCta.label}</Link>
+            </Button>
+            <Button asChild variant="secondary" className="text-[#0B2E57]">
+              <Link href={secondaryCta.href}>{secondaryCta.label}</Link>
+            </Button>
           </div>
 
           <div className="mt-10 text-sm text-white/70">

@@ -39,7 +39,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
-      <body className="flex flex-col min-h-screen antialiased">
+      <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 bg-white overflow-x-hidden">
         <SeasonalEffects enabled={true} />
         
 

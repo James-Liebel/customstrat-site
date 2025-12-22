@@ -7,6 +7,17 @@ const config: Config = {
     './src/content/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '1.5rem',
+        lg: '2rem',
+      },
+      screens: {
+        '2xl': '80rem',
+      },
+    },
     extend: {
       colors: {
         primary: {
@@ -25,8 +36,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Playfair Display', 'Georgia', 'serif'],
+        // Prefer next/font CSS variables to prevent double-loading + layout shift
+        sans: ['var(--font-inter)', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['var(--font-brand)', 'var(--font-inter)', 'Georgia', 'serif'],
       },
       spacing: {
         '18': '4.5rem',
@@ -41,6 +53,18 @@ const config: Config = {
       borderRadius: {
         '2xl': '16px',
         '3xl': '20px',
+      },
+      zIndex: {
+        base: '0',
+        header: '50',
+        dropdown: '60',
+        overlay: '70',
+        modal: '80',
+        toast: '90',
+      },
+      transitionTimingFunction: {
+        // Felt-not-seen easing (quint-ish)
+        'out-quint': 'cubic-bezier(0.22, 1, 0.36, 1)',
       },
     },
   },
