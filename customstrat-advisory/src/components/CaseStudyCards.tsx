@@ -4,7 +4,6 @@ type Category = {
   title: string;
   slug?: string;
   href?: string;
-  description?: string; // exists in content, but we ignore it
 };
 
 type Props = {
@@ -16,26 +15,33 @@ export default function CaseStudyCards({ categories = [], subtitle }: Props) {
   return (
     <section className="section-padding bg-white">
       <div className="container-custom">
-        {subtitle ? <p className="text-center text-gray-600 mb-10">{subtitle}</p> : null}
+        {subtitle && (
+          <p className="text-center text-gray-600 mb-10">
+            {subtitle}
+          </p>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {categories.map((c, idx) => {
-            const href = c.href ?? (c.slug ? `/services/${c.slug}` : "/services");
+            const href =
+              c.href ?? (c.slug ? `/services/${c.slug}` : "/services");
 
             return (
               <Link
                 key={`${href}-${idx}`}
                 href={href}
                 className="
-                  group relative block rounded-2xl overflow-hidden
-                  shadow-soft hover:shadow-soft-lg transition-all duration-300
+                  group relative block overflow-hidden rounded-2xl
+                  cs-glow-card
+                  shadow-soft
+                  transition-[transform,box-shadow] duration-300
                   focus:outline-none focus:ring-2 focus:ring-primary/40
                 "
               >
-                {/* Background — must not block clicks */}
+                {/* Background gradient */}
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#3B5AA9] to-[#0B2E57]" />
 
-                {/* Optional texture — must not block clicks */}
+                {/* Subtle texture */}
                 <div
                   className="pointer-events-none absolute inset-0 opacity-25"
                   style={{
@@ -45,9 +51,9 @@ export default function CaseStudyCards({ categories = [], subtitle }: Props) {
                   }}
                 />
 
-                {/* Title only (no description) */}
+                {/* Content */}
                 <div className="relative z-10 p-10 min-h-[260px] flex items-center justify-center text-center">
-                  <h3 className="text-3xl font-semibold leading-tight text-white whitespace-pre-line">
+                  <h3 className="text-3xl font-semibold leading-tight text-white">
                     {c.title}
                   </h3>
                 </div>

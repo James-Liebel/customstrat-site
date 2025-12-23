@@ -49,7 +49,46 @@ export default function Hero({
               />
             </pattern>
 
-            {/* Band gradient (logo blues) */}
+            {/* POP-OUT “scales” effect (keeps same diamond color; uses only light/shadow) */}
+            <filter id="cs-popOut" x="-45%" y="-45%" width="190%" height="190%">
+              {/* Create an expanded stroke silhouette to fake thickness */}
+              <feMorphology in="SourceAlpha" operator="dilate" radius="1.6" result="thick" />
+
+              {/* Shadow rim (down-right) */}
+              <feOffset in="thick" dx="5" dy="6" result="shadowOff" />
+              <feGaussianBlur in="shadowOff" stdDeviation="3.0" result="shadowBlur" />
+              <feColorMatrix
+                in="shadowBlur"
+                type="matrix"
+                values="0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0 0
+                        0 0 0 0.55 0"
+                result="shadow"
+              />
+
+              {/* Highlight rim (up-left) */}
+              <feOffset in="thick" dx="-4" dy="-4" result="hiOff" />
+              <feGaussianBlur in="hiOff" stdDeviation="2.6" result="hiBlur" />
+              <feColorMatrix
+                in="hiBlur"
+                type="matrix"
+                values="0 0 0 0 1
+                        0 0 0 0 1
+                        0 0 0 0 1
+                        0 0 0 0.38 0"
+                result="highlight"
+              />
+
+              {/* Combine: shadow + original + highlight */}
+              <feMerge>
+                <feMergeNode in="shadow" />
+                <feMergeNode in="SourceGraphic" />
+                <feMergeNode in="highlight" />
+              </feMerge>
+            </filter>
+
+            {/* Band gradient (logo blues) */} 
             <linearGradient id="cs-waveBand" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="rgba(93,130,195,0.0)" />
               <stop offset="40%" stopColor="rgba(93,130,195,0.0)" />
@@ -96,7 +135,16 @@ export default function Hero({
             filter="url(#cs-softGlow)"
             opacity="0.95"
           />
-        </svg>
+        
+          {/* POP-OUT pass: same diamonds, under the wave, with 3D rims (no color change) */}
+          <rect
+            width="1200"
+            height="600"
+            fill="url(#cs-diamondGrid)"
+            mask="url(#cs-waveMask)"
+            filter="url(#cs-popOut)"
+            opacity="1"
+          /></svg>
       </div>
 
       {/* Content */}
