@@ -1326,6 +1326,158 @@
   margin-top: 0.5rem;
 }
 
+/* Footer CTA: disable giant hover aura/glow from .btn-secondary */
+footer .btn-secondary {
+  /* keep sizing stable */
+  box-sizing: border-box;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
+              box-shadow 200ms ease, transform 200ms ease;
+}
+
+footer .btn-secondary:hover {
+  /* override any huge glow */
+  filter: none !important;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* If .btn-secondary uses a pseudo-element glow, kill it in footer only */
+footer .btn-secondary::before,
+footer .btn-secondary::after {
+  content: none !important;
+  display: none !important;
+}
+
+  /* =========================
+   Contact Page – Premium CTA
+   Use on the "Email Katie" / primary contact button
+   ========================= */
+
+/* Contact page primary CTA (premium + stable) */
+.cs-contact-cta{
+  display:inline-flex !important;
+  align-items:center;
+  justify-content:center;
+  gap:.6rem;
+
+  min-height:52px;
+  padding: 0.95rem 1.65rem !important;
+
+  border-radius:999px !important;
+  box-sizing:border-box;
+
+  font-weight:750;
+  letter-spacing:-0.01em;
+
+  color:#fff !important;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%) !important;
+  border: 1px solid rgba(255,255,255,0.22) !important;
+
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.28);
+  text-decoration:none !important;
+  white-space:nowrap;
+
+  position:relative;
+  overflow:hidden;
+  transform: translateZ(0);
+
+  transition: transform 180ms ease, box-shadow 220ms ease, filter 220ms ease, border-color 220ms ease;
+}
+
+/* sheen sweep */
+.cs-contact-cta::before{
+  content:"";
+  position:absolute;
+  inset:-45%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.18) 45%,
+    rgba(255,255,255,0.32) 50%,
+    rgba(255,255,255,0.18) 55%,
+    transparent 100%
+  );
+  filter: blur(16px);
+  transform: translate3d(-18%,-10%,0) rotate(10deg);
+  opacity:0;
+  pointer-events:none;
+}
+
+/* subtle rotating glow ring (reuses your existing keyframes) */
+.cs-contact-cta::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:999px;
+  padding:2px;
+  background: conic-gradient(
+    from 180deg,
+    rgba(91,143,196,0.0),
+    rgba(91,143,196,0.55),
+    rgba(201,169,97,0.55),
+    rgba(91,143,196,0.55),
+    rgba(91,143,196,0.0)
+  );
+  opacity:0;
+  pointer-events:none;
+
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.cs-contact-cta:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.34) !important;
+  box-shadow: 0 20px 52px rgba(15, 23, 42, 0.35), 0 0 40px rgba(91,143,196,0.20);
+  filter: saturate(1.03);
+}
+
+.cs-contact-cta:hover::before{
+  opacity:0.9;
+  animation: cs-sheen-sweep 1.4s ease-in-out infinite;
+}
+
+.cs-contact-cta:hover::after{
+  opacity:0.75;
+  animation: cs-glow-rotate 2.2s linear infinite;
+}
+
+.cs-contact-cta:active{
+  transform: translateY(0);
+  filter: saturate(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-contact-cta:hover::before,
+  .cs-contact-cta:hover::after {
+    animation: none !important;
+  }
+}
+/* Footer CTA: disable giant hover aura/glow from .btn-secondary */
+footer .btn-secondary {
+  /* keep sizing stable */
+  box-sizing: border-box;
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
+              box-shadow 200ms ease, transform 200ms ease;
+}
+
+footer .btn-secondary:hover {
+  /* override any huge glow */
+  filter: none !important;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* If .btn-secondary uses a pseudo-element glow, kill it in footer only */
+footer .btn-secondary::before,
+footer .btn-secondary::after {
+  content: none !important;
+  display: none !important;
+}
+
+
 }
   
 
