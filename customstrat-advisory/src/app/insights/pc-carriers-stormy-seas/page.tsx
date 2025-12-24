@@ -1,127 +1,107 @@
-import type { Metadata } from 'next';
-import Link from 'next/link';
-import { Calendar, ArrowLeft, HeartHandshake, ShieldCheck, Compass, MonitorSmartphone, Rocket } from 'lucide-react';
+// PCcarriersPreparingForTheStormySeas.tsx
+import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "P&C Carriers: Preparing for the Stormy Seas",
-  description: "Five strategic priorities for P&C insurance carriers to navigate inflation, rising claims costs, and long-term industry shifts.",
-};
-
-export default function InsightArticlePage() {
+export default function PCcarriersPreparingForTheStormySeas() {
   return (
-    <main className="bg-white">
-      <section className="border-b border-slate-200/70 bg-white">
-        <div className="container py-10 md:py-12">
-          <Link
-            href="/insights"
-            className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back to Articles
-          </Link>
+    <article className="cs-article">
+      {/* Back link */}
+      <div className="cs-back-wrapper">
+        <Link href="/insights" className="cs-back-link">
+          ← Back to Articles
+        </Link>
+      </div>
 
-          <div className="mt-6 max-w-3xl">
-            <h1 className="text-3xl md:text-4xl font-semibold tracking-tight text-slate-900 leading-tight">
-              P&C Carriers: Preparing for the Stormy Seas
-            </h1>
+      {/* Header band */}
+      <header className="cs-hero">
+        <div className="cs-hero-inner">
+          <h1 className="cs-title">P&amp;C Carriers - Preparing for the Stormy Seas</h1>
 
-            <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-600">
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4" />
-                <span>July 10, 2022</span>
-              </div>
-              <div className="h-4 w-px bg-slate-200 hidden sm:block" />
-              <div className="font-medium text-slate-700">By Katie Liebel & TV Kumaresh</div>
-            </div>
-
-            {/* Article body */}
-            <div className="mt-10 space-y-8 text-base leading-relaxed text-slate-700">
-              <p>
-                As P&C carriers look to uncertain times ahead, it&apos;s much like a boat looking to cross stormy seas—needing to prepare the vessel while setting a calculated course for the horizon. Customers are pinched by inflation and rising interest rates, while carriers face escalating operating and claims costs.
-              </p>
-
-              <p className="font-medium text-slate-900">
-                To &quot;batten down the hatches&quot; and arrive at a sunny port of call, we suggest five guiding priorities:
-              </p>
-
-              {/* Priority 1 */}
-              <div className="group space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-blue-50 rounded-lg group-hover:bg-blue-100 transition-colors">
-                    <HeartHandshake className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <h2 className="text-xl font-bold text-slate-900">1. Exceptional Experience & Deepened Relationships</h2>
-                </div>
-                <p>
-                  In an environment of inevitable price increases, superior CX is the primary driver of retention. Prioritize &quot;moments that matter&quot; like vehicle crashes and claims payments. Invest in a human-digital interface that demonstrates empathy. Additionally, leverage advanced analytics to help agents mine existing relationships for cross-selling opportunities, reducing acquisition costs.
-                </p>
-              </div>
-
-              {/* Priority 2 */}
-              <div className="group space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-green-50 rounded-lg group-hover:bg-green-100 transition-colors">
-                    <ShieldCheck className="h-6 w-6 text-green-600" />
-                  </div>
-                  <h2 className="text-xl font-bold text-slate-900">2. Addressing the Entire Cost Base</h2>
-                </div>
-                <p>
-                  Carriers often address underwriting expenses but leave claims untouched. Since claims constitute 50–60% of total costs, even small efficiencies with third-party vendors can deliver significant savings. Capture these through rigorous tracking and clear accountability.
-                </p>
-              </div>
-
-              
-
-              {/* Priority 3 */}
-              <div className="group space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-amber-50 rounded-lg group-hover:bg-amber-100 transition-colors">
-                    <Compass className="h-6 w-6 text-amber-600" />
-                  </div>
-                  <h2 className="text-xl font-bold text-slate-900">3. Long-term Strategic Clarity</h2>
-                </div>
-                <p>
-                  When dollars are scarce, be surgical about where to compete. We have seen situations where product segments accounting for 40% of premium contributed to over 100% of profits. Pinpoint these winning sectors and re-allocate resources to benefit from industry tailwinds like IOT and emerging coverages.
-                </p>
-              </div>
-
-              {/* Priority 4 */}
-              <div className="group space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-purple-50 rounded-lg group-hover:bg-purple-100 transition-colors">
-                    <MonitorSmartphone className="h-6 w-6 text-purple-600" />
-                  </div>
-                  <h2 className="text-xl font-bold text-slate-900">4. Aligning the Digital Agenda</h2>
-                </div>
-                <p>
-                  Re-invest cost savings into foundational data and analytics. Success depends on granularity—pricing at the individual risk level and integrating external data to drive actionable insights across the end-to-end customer journey.
-                </p>
-              </div>
-
-              {/* Priority 5 */}
-              <div className="group space-y-3">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 bg-rose-50 rounded-lg group-hover:bg-rose-100 transition-colors">
-                    <Rocket className="h-6 w-6 text-rose-600" />
-                  </div>
-                  <h2 className="text-xl font-bold text-slate-900">5. Surgical M&A and Partnerships</h2>
-                </div>
-                <p>
-                  Consider inorganic options to accelerate momentum. For small-to-medium carriers, innovative partnerships with insurtechs can offer an up-to-date tech stack in exchange for scale and customer access.
-                </p>
-              </div>
-
-              <hr className="my-12 border-slate-200" />
-
-              <div className="bg-slate-50 border border-slate-200 p-8 rounded-2xl text-center">
-                <p className="text-slate-700 font-medium italic">
-                  &quot;To weather the storm, elevate experiences and drive efficiencies now. To succeed long-term, align on where to compete and accelerate the journey through data and partnerships.&quot;
-                </p>
-              </div>
-            </div>
+          <div className="cs-meta">
+            <span>
+              <strong>By Katie Liebel &amp; TV Kumaresh</strong>
+            </span>
+            <span className="cs-meta-dot">•</span>
+            <span>July 10, 2022</span>
           </div>
         </div>
-      </section>
-    </main>
+      </header>
+
+      {/* White reading surface */}
+      <div className="cs-surface">
+        <div className="cs-body">
+          <section className="cs-section">
+            <p>
+              As P&amp;C carriers look to uncertain times ahead, it’s much like a boat looking to cross the stormy seas, needing to prepare the vessel and also set a calculated course for the horizon. Insurance customers are pinched by inflation, a short supply of vehicles, homes, and rising interest rates. Carriers also face rising operating and claims costs given the same market pressures. In addition to these near-term issues, significant long-term pressures exist: a.) the ‘winners take all’ trend due to scale benefits of technology and branding and b.) fundamental shifts in the underlying markets (e.g., auto).
+            </p>
+
+            <p>
+              Carriers need to batten down the hatches for the near-term storm while also building the long-term strategy to arrive at a sunny port of call. The article below highlights five priorities to guide the journey.
+            </p>
+          </section>
+
+          <section className="cs-section">
+            <h2 className="cs-h2">1. Invest in exceptional customer experience to retain, while deepening relationships to grow.</h2>
+
+            <p>
+              In the current environment, increased pricing is inevitable for carriers&apos; health and typically leads to increased rate shopping from customers. In these times, superior customer experience and benefits help drive carrier differentiation and retention.
+            </p>
+
+            <p>
+              Make the customer experience easy, transparent, and free from anxiety. Prioritize moments that matter (e.g., vehicle crashes, claims payments, coverage clarity) and invest in a human-digital interface that demonstrates much-needed empathy with customers. Another approach in these times is to provide more customer benefits - regular policy reviews to highlight saving/coverage opportunities, advice on higher deductibles, missed bundling discounts, and other ways to help save money and time for customers. It’s an opportune time to promote usage-based and behavior-based insurance products, showcasing the savings benefits of lower vehicle usage, safer driving, etc. Lastly, granular price adjustments (e.g., less on long tenure and higher on early monoline) will demonstrate the value of tenure and loyalty.
+            </p>
+
+            <p>
+              With marketing budgets under pressure, find growth through deepening existing relationships. Cross-selling helps reduce acquisition costs and drives retention. Leverage advanced analytic tools to help agents mine existing customer relationships and provide valuable customer offers. Enable customer deepening with the right agent incentives and robust training.
+            </p>
+          </section>
+
+          <section className="cs-section">
+            <h2 className="cs-h2">2. Address the entire cost base (including claims) to drive meaningful savings:</h2>
+
+            <p>
+              Given current cost pressures, evaluate all organizational activities to eliminate non-value-added efforts and capture savings. In our experience, carriers tend to actively address underwriting expenses but often leave claims out of the purview. Claims should be part of this exercise as it constitutes 50–60% of total costs in the case of most carriers. Even small actions like jointly eliminating waste in the system with third-party claims vendors deliver significant savings due to the large cost base / installed vehicles/homes in force. Capturing savings hinges on a thorough tracking mechanism, incorporating the savings in the financial plan, and establishing clear accountability.
+            </p>
+          </section>
+
+          <section className="cs-section">
+            <h2 className="cs-h2">3. Drive strategic clarity for the long-term:</h2>
+
+            <p>
+              When investment dollars are scarce, companies must be clear on “where to compete” in the long term and concentrate resources accordingly. Each of the P&amp;C segments faces different dynamics (advanced driver assistance, autonomous, sharing, new competition, etc., in auto; climate change, capital needs in property; IOT/ new emerging coverages in commercial, etc.). The agent landscape is also changing with consolidation and increased digital needs.
+            </p>
+
+            <p>
+              Each carrier has its own set of unique advantages driving its growth today. Be sure that the top-line successes translate to bottom-line successes as well, supported by a granular understanding of losses and operating costs. Then, re-allocate resources to where current strengths and new capabilities will benefit from the tailwinds of long-term industry and channel dynamics.
+            </p>
+
+            <p>
+              Having led many such portfolio shifts, we have seen situations where a strategic analysis of product/segment level profitability can pinpoint required resource shifts. In one case, we discovered that product segments accounting for ~40% of premium contributed to over 100% of the profits. In another situation, we found similar results when such an analysis was done across customer segments. After reviewing the struggling segments, the linkages, and the carrier’s ability to compete, sales efforts were refocused on the winning sectors/segments, and operating resources were re-allocated to drive long-term success.
+            </p>
+          </section>
+
+          <section className="cs-section">
+            <h2 className="cs-h2">4. Ensure the digital agenda is aligned with the strategy:</h2>
+
+            <p>
+              Digitization has become integral to insurance sales and operations. Digital is a fixed-cost investment with benefits across cost, quality, and speed, translating over the years. The savings (from Priority 2) must be re-invested at least in part to digital activities such as end-to-end customer experiences, claims operations, advanced data &amp; analytics, and sales enablement. Of all the above, data and analytics capabilities are foundational to success in the chosen strategic segments. Earning sufficient capital returns requires granularity and precision in picking what and whom to write, pricing it at the individual risk level, and integrating internal and external data to drive actionable insights.
+            </p>
+          </section>
+
+          <section className="cs-section">
+            <h2 className="cs-h2">5. Use surgical M&amp;A and partnerships to accelerate momentum:</h2>
+
+            <p>
+              Once the product portfolio and digital / tech path are decided, consider what in-organic options might accelerate the journey. M&amp;A could be a choice, given targets could be available at a reasonable price in these times. In new product areas and digital / tech, partnerships can add value. For small to medium carriers, innovative partnerships could be formed with insurtechs looking for customers and scale while offering an up-to-date tech stack in return.
+            </p>
+
+            <p className="cs-divider">****</p>
+
+            <p>
+              These are times not seen in the last two decades. To weather the storm and emerge successfully, elevate customer experiences, deepen relationships and drive efficiencies in the short term. For success in the medium to long-term, align at a granular level on where to compete, re-allocate resources accordingly, invest in digital / data, and accelerate the journey through M&amp;A and partnerships.
+            </p>
+          </section>
+        </div>
+      </div>
+    </article>
   );
 }

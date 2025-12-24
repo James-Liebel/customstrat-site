@@ -1117,6 +1117,215 @@
   }
   
 
+  /* =========================
+   Shared Insights Article UI
+   (Use for ALL articles)
+   ========================= */
+
+.cs-article {
+  max-width: 980px;
+  margin: 4rem auto;
+}
+
+/* Back button sits on dark page background */
+.cs-back-wrapper {
+  max-width: 980px;
+  margin: 0 auto 0.9rem;
+  padding: 0 0.25rem;
+}
+
+.cs-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-decoration: none;
+
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(15, 23, 42, 0.38);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+
+  padding: 0.55rem 0.85rem;
+  border-radius: 999px;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.cs-back-link:hover {
+  transform: translateY(-1px);
+  background: rgba(15, 23, 42, 0.52);
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+/* Hero */
+.cs-hero {
+  background: linear-gradient(135deg, #0b2545, #133b5c);
+  color: #ffffff;
+  padding: 3.25rem 3rem;
+  border-radius: 18px 18px 0 0;
+}
+
+.cs-hero-inner {
+  max-width: 760px;
+}
+
+.cs-title {
+  font-size: 2.75rem;
+  line-height: 1.1;
+  margin: 0 0 0.75rem;
+  font-weight: 760;
+}
+
+.cs-subtitle {
+  font-size: 1.35rem;
+  line-height: 1.35;
+  margin: 0 0 1.75rem;
+  opacity: 0.9;
+  font-weight: 520;
+}
+
+.cs-meta {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* White surface */
+.cs-surface {
+  background: #ffffff;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
+}
+
+.cs-body {
+  padding: 3rem;
+  color: #1f2933;
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+/* Consistent “document” typography */
+.cs-body p {
+  margin: 0 0 1.15rem;
+}
+
+.cs-body a {
+  color: #0b2545;
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cs-body a:hover {
+  opacity: 0.9;
+}
+
+.cs-body strong {
+  color: #0b2545;
+  font-weight: 750;
+}
+
+/* Headings */
+.cs-h2 {
+  font-size: 1.9rem;
+  line-height: 1.25;
+  color: #0b2545;
+  margin: 2.5rem 0 1.15rem;
+}
+
+.cs-h3 {
+  font-size: 1.2rem;
+  line-height: 1.4;
+  color: #133b5c;
+  margin: 2rem 0 0.75rem;
+}
+
+.cs-lead {
+  font-size: 1.15rem;
+}
+
+/* Lists (future-proofing for other articles) */
+.cs-body ul,
+.cs-body ol {
+  margin: 0 0 1.25rem 1.2rem;
+  padding: 0;
+}
+
+.cs-body li {
+  margin: 0.45rem 0;
+}
+
+/* Exhibits */
+.cs-exhibit {
+  margin: 3rem 0;
+}
+
+.cs-exhibit-title {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #6b7280;
+  margin: 0 0 0.75rem;
+}
+
+.cs-exhibit-frame {
+  height: 360px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cs-exhibit-placeholder-text {
+  color: #9ca3af;
+  font-size: 0.95rem;
+}
+
+/* Divider + footer */
+.cs-divider {
+  text-align: center;
+  letter-spacing: 0.2em;
+  margin: 2.5rem 0;
+}
+
+.cs-copyright {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cs-hero {
+    padding: 2.5rem 1.5rem 2.25rem;
+  }
+
+  .cs-body {
+    padding: 2.1rem 1.5rem 2.5rem;
+  }
+
+  .cs-title {
+    font-size: 2.15rem;
+  }
+
+  .cs-subtitle {
+    font-size: 1.2rem;
+  }
+}
+
+.cs-body ul {
+  margin-top: 0.5rem;
+}
+
 }
   
 
