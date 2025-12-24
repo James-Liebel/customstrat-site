@@ -1,7 +1,5 @@
-import CTASection from '@/components/CTASection';
-import { siteContent } from '@/content/siteContent';
-import Image from 'next/image';
-
+import { siteContent } from "@/content/siteContent";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -11,7 +9,7 @@ export default function HomePage() {
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/images/hero-home.jpg)' }}
+          style={{ backgroundImage: "url(/images/hero-home.jpg)" }}
         >
           <div className="absolute inset-0 bg-gray-900/60"></div>
         </div>
@@ -37,7 +35,6 @@ export default function HomePage() {
                     height={95}
                     className="object-contain"
                   />
-
                 </div>
               </div>
             </div>
@@ -68,16 +65,20 @@ export default function HomePage() {
                 {siteContent.home.sections.servicesOffered.title}
               </h2>
               <ul className="space-y-4 mt-8">
-                {siteContent.home.sections.servicesOffered.items.map((item, index) => (
-                  <li 
-                    key={index}
-                    className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="group-hover:text-primary transition-colors duration-300">{item}</span>
-                  </li>
-                ))}
+                {siteContent.home.sections.servicesOffered.items.map(
+                  (item, index) => (
+                    <li
+                      key={index}
+                      className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-300"></div>
+                      <span className="group-hover:text-primary transition-colors duration-300">
+                        {item}
+                      </span>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
 
@@ -87,16 +88,20 @@ export default function HomePage() {
                 {siteContent.home.sections.clientsServed.title}
               </h2>
               <ul className="space-y-4 mt-8">
-                {siteContent.home.sections.clientsServed.items.map((item, index) => (
-                  <li 
-                    key={index}
-                    className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="group-hover:text-primary transition-colors duration-300">{item}</span>
-                  </li>
-                ))}
+                {siteContent.home.sections.clientsServed.items.map(
+                  (item, index) => (
+                    <li
+                      key={index}
+                      className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                    >
+                      <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-300"></div>
+                      <span className="group-hover:text-primary transition-colors duration-300">
+                        {item}
+                      </span>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
 
@@ -107,13 +112,15 @@ export default function HomePage() {
               </h2>
               <ul className="space-y-4 mt-8">
                 {siteContent.home.sections.approach.items.map((item, index) => (
-                  <li 
+                  <li
                     key={index}
                     className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-300"></div>
-                    <span className="group-hover:text-primary transition-colors duration-300">{item}</span>
+                    <span className="group-hover:text-primary transition-colors duration-300">
+                      {item}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -129,12 +136,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <CTASection
-        title="Ready to Transform Your Strategy?"
-        description="Let's discuss how we can help your organization grow and succeed."
-        buttonText="Get in Touch"
-        buttonHref="/contact"
-      />
+      {/* Removed CTASection so the only thing at the bottom is the global Footer */}
     </>
   );
 }
