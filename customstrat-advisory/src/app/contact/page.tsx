@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Hero from "@/components/Hero";
+import Atmosphere from "@/components/Atmosphere";
 import { siteContent } from "@/content/siteContent";
 import { Mail, Phone, MapPin } from "lucide-react";
 
@@ -13,10 +14,13 @@ export default function ContactPage() {
   const contact = siteContent.contact.info;
 
   return (
-    <>
-      <Hero title={siteContent.contact.hero.title} image="/images/hero-contact.jpg" />
+    <main className="cs-shell--editorial relative">
+      {/* Atmosphere: signal-grid theme */}
+      <Atmosphere themeKey="signal-grid" />
+      <div className="relative z-10">
+        <Hero title={siteContent.contact.hero.title} image="/images/hero-contact.jpg" themeKey="signal-grid" />
 
-      <section className="section-padding bg-white">
+        <section className="cs-section">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Info (keep photo) */}
@@ -80,7 +84,7 @@ export default function ContactPage() {
 
                 <a
                   href={`mailto:${contact.email}`}
-                  className="btn-primary inline-flex items-center justify-center w-full sm:w-auto"
+                  className="cs-btn cs-btn--primary cs-contact-cta w-full sm:w-auto"
                 >
                   Send an Email
                 </a>
@@ -92,7 +96,8 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
-    </>
+        </section>
+      </div>
+    </main>
   );
 }

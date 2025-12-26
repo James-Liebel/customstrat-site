@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Hero from "@/components/Hero";
+import Atmosphere from "@/components/Atmosphere";
 import { siteContent } from "@/content/siteContent";
 import { ExternalLink } from "lucide-react";
 
@@ -51,12 +52,14 @@ export default function AboutPage() {
   };
 
   return (
-    <main className="cs-page cs-page--lightToDark">
-      <div className="cs-page-canvas">
-        <Hero title={siteContent.about.hero.title} image="/images/hero-about.jpg" />
+    <main className="cs-shell--editorial relative">
+      {/* Atmosphere: aura-strata theme */}
+      <Atmosphere themeKey="aura-strata" />
+      <div className="relative z-10">
+        <Hero title={siteContent.about.hero.title} image="/images/hero-about.jpg" themeKey="aura-strata" />
 
         {/* Leadership Section */}
-        <section className="section-padding">
+        <section className="cs-section">
           <div className="container-custom">
             <div className="mx-auto max-w-6xl">
               <div className="cs-section-head">
@@ -119,7 +122,7 @@ export default function AboutPage() {
         </section>
 
         {/* How We Engage Section */}
-        <section className="section-padding">
+        <section className="cs-section">
           <div className="container-custom">
             <div className="mx-auto max-w-6xl">
               <div className="cs-section-head">

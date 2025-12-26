@@ -173,7 +173,7 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
             <article
               className={cn(
                 'relative overflow-hidden rounded-3xl border border-gray-200 bg-white',
-                'shadow-soft transition-all duration-500 hover:-translate-y-1 hover:shadow-soft-lg'
+                'shadow-soft transition-all duration-[var(--motion-duration-slow)] var(--motion-easing-premium) hover:-translate-y-1 hover:shadow-soft-lg'
               )}
             >
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-primary" />
@@ -243,20 +243,6 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
         </div>
       )}
 
-      {/* Footer CTA */}
-      <div className="mt-16 rounded-3xl border border-gray-200 bg-gradient-to-br from-white to-gray-50 p-10 shadow-soft">
-        <div className="text-[11px] tracking-[0.28em] uppercase text-gray-500">Stay Informed</div>
-        <div className="mt-2 h-px w-28 bg-gradient-to-r from-primary to-transparent" />
-        <div className="mt-5 text-2xl font-semibold text-gray-900">Interested in receiving insights and updates?</div>
-        <p className="mt-3 text-gray-700 max-w-2xl leading-relaxed">
-          Contact us to learn more about our thought leadership and speaking engagements.
-        </p>
-        <div className="mt-7">
-          <Link href="/contact" className="btn-primary inline-block">
-            Get in Touch
-          </Link>
-        </div>
-      </div>
     </div>
   );
 }

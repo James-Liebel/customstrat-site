@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Hero from "@/components/Hero";
+import Atmosphere from "@/components/Atmosphere";
 
 export const metadata: Metadata = {
   title: "Operational Improvements – Cost and Customer Experience",
@@ -29,13 +30,17 @@ const examples = [
 
 export default function OperationalImprovementsPage() {
   return (
-    <>
-      <Hero
-        title="Operational Improvements – Cost and Customer Experience"
-        image="/images/hero-home.jpg"
-      />
+    <main className="cs-shell--proof relative">
+      {/* Atmosphere: gilded-diamond theme */}
+      <Atmosphere themeKey="gilded-diamond" />
+      <div className="relative z-10">
+        <Hero
+          title="Operational Improvements – Cost and Customer Experience"
+          image="/images/hero-home.jpg"
+          themeKey="gilded-diamond"
+        />
 
-      <section className="section-padding bg-white">
+        <section className="cs-section">
         <div className="container-custom">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-4 border-b border-gray-200">
             <div className="text-primary text-xl font-medium">Project Summary</div>
@@ -53,7 +58,8 @@ export default function OperationalImprovementsPage() {
             ))}
           </div>
         </div>
-      </section>
-    </>
+        </section>
+      </div>
+    </main>
   );
 }

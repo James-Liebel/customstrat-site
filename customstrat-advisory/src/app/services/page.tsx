@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
+import Atmosphere from "@/components/Atmosphere";
 import { siteContent } from "@/content/siteContent";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -12,11 +13,13 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <main className="cs-services-page">
+    <main className="cs-shell--proof cs-services-page relative">
+      {/* Atmosphere: gilded-diamond theme */}
+      <Atmosphere themeKey="gilded-diamond" />
       {/* Shell gives us a continuous background that blends into footer */}
-      <div className="cs-services-shell">
+      <div className="cs-services-shell relative z-10">
         {/* Hero stays as-is, but we visually stitch content below into it */}
-        <Hero title={siteContent.services.hero.title} image="/images/hero-case-studies.jpg" />
+        <Hero title={siteContent.services.hero.title} image="/images/hero-case-studies.jpg" themeKey="gilded-diamond" />
 
         {/* Continuous canvas starts immediately under the hero */}
         <section className="cs-services-stage">

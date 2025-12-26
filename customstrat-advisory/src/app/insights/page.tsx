@@ -1,6 +1,7 @@
 // src/app/insights/page.tsx
 import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
+import Atmosphere from '@/components/Atmosphere';
 import InsightsClient from './InsightsClient';
 
 export const metadata: Metadata = {
@@ -105,15 +106,19 @@ const articles = [
 
 export default function InsightsPage() {
   return (
-    <>
-      {/* Keep your hero usage; image path may still 404 if it isn't in public/images */}
-      <Hero title="Articles" image="/images/hero-home.jpg" />
+    <main className="cs-shell--library relative">
+      {/* Atmosphere: ink-dots theme */}
+      <Atmosphere themeKey="ink-dots" />
+      <div className="relative z-10">
+        {/* Keep your hero usage; image path may still 404 if it isn't in public/images */}
+        <Hero title="Articles" image="/images/hero-home.jpg" themeKey="ink-dots" />
 
-      <section className="section-padding bg-white">
+        <section className="cs-section">
         <div className="container-custom">
           <InsightsClient articles={articles} />
         </div>
-      </section>
-    </>
+        </section>
+      </div>
+    </main>
   );
 }

@@ -1,26 +1,47 @@
+'use client';
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { getThemeForRoute, pageThemes } from "@/theme/pageThemes";
 
 interface HeroProps {
   title: string;
   subtitle?: string;
   image?: string;
   centered?: boolean;
+  themeKey?: string; // Optional override, otherwise uses route-based theme
 }
 
 /**
  * Hero with:
- * - Background image + existing .hero-overlay (from globals.css)
+ * - Background image + theme-based hero overlay (darker than body)
  * - Subtle diamond grid outlines
- * - A left-to-right “glow wave” that lights up diamond outlines and fades out as it passes
+ * - A left-to-right "glow wave" that lights up diamond outlines and fades out as it passes
  *
  * No global animated layers, no click blocking (pointer-events-none everywhere).
+ * Hero overlay is always darker than page body for clear visual separation.
  */
 export default function Hero({
   title,
   subtitle,
   image = "/images/hero-home.jpg",
   centered = false,
+  themeKey,
 }: HeroProps) {
+  // Get theme for hero overlay (darker than body)
+  const pathname = usePathname();
+  const theme = themeKey 
+    ? (pageThemes[themeKey] || pageThemes['default-clean'])
+    : getThemeForRoute(pathname);
+  
+  // Hero overlay must be darker than body
+  // Combine linear gradient with optional radial accents
+  const heroOverlayStyle = {
+    background: [
+      `linear-gradient(${theme.heroOverlay.angle}, ${theme.heroOverlay.linearStops.join(', ')})`,
+      ...(theme.heroOverlay.radialAccents || [])
+    ].join(', '),
+  };
   return (
     <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Background image */}
@@ -28,7 +49,10 @@ export default function Hero({
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <div className="absolute inset-0 hero-overlay" />
+        <div 
+          className="absolute inset-0 hero-overlay" 
+          style={heroOverlayStyle}
+        />
       </div>
 
       {/* Animated diamond-outline glow wave (hero-only) */}
@@ -186,8 +210,7 @@ export default function Hero({
         </div>
       </div>
 
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent" />
+      {/* Bottom fade - removed, now handled by hero-overlay::after for better transition */}
     </section>
   );
 }

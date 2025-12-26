@@ -1,9 +1,14 @@
 // PCcarriersPreparingForTheStormySeas.tsx
 import Link from "next/link";
+import Atmosphere from "@/components/Atmosphere";
 
 export default function PCcarriersPreparingForTheStormySeas() {
   return (
-    <article className="cs-article">
+    <main className="cs-shell--library relative">
+      {/* Atmosphere: ink-dots theme (reading-focused) */}
+      <Atmosphere themeKey="ink-dots" intensity="low" />
+      <div className="relative z-10">
+        <article className="cs-article">
       {/* Back link */}
       <div className="cs-back-wrapper">
         <Link href="/insights" className="cs-back-link">
@@ -102,6 +107,8 @@ export default function PCcarriersPreparingForTheStormySeas() {
           </section>
         </div>
       </div>
-    </article>
+        </article>
+      </div>
+    </main>
   );
 }

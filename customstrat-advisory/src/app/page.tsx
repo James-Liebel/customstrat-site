@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <>
+    <main className="cs-shell--home">
       {/* Hero Section with Company Branding */}
       <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
@@ -56,7 +56,7 @@ export default function HomePage() {
       </section>
 
       {/* Main Content Section - Three Columns */}
-      <section className="section-padding bg-white animated-bg relative">
+      <section className="cs-section bg-white animated-bg relative">
         <div className="container-custom relative z-10">
           <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
             {/* Services Offered */}
@@ -72,7 +72,7 @@ export default function HomePage() {
                       className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-300"></div>
+                      <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-[var(--motion-duration-base)]"></div>
                       <span className="group-hover:text-primary transition-colors duration-300">
                         {item}
                       </span>
@@ -95,7 +95,7 @@ export default function HomePage() {
                       className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-300"></div>
+                      <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-[var(--motion-duration-base)]"></div>
                       <span className="group-hover:text-primary transition-colors duration-300">
                         {item}
                       </span>
@@ -135,8 +135,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Removed CTASection so the only thing at the bottom is the global Footer */}
-    </>
+    </main>
   );
 }

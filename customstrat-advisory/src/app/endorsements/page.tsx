@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/Hero';
+import Atmosphere from '@/components/Atmosphere';
 import { siteContent } from '@/content/siteContent';
 import EndorsementsClient from './EndorsementsClient';
 
@@ -10,13 +11,17 @@ export const metadata: Metadata = {
 
 export default function EndorsementsPage() {
   return (
-    <>
-      <Hero
-        title={siteContent.endorsements.hero.title}
-        image="/images/hero-home.jpg"
-      />
+    <main className="cs-shell--editorial relative">
+      {/* Atmosphere: soft-rings theme */}
+      <Atmosphere themeKey="soft-rings" />
+      <div className="relative z-10">
+        <Hero
+          title={siteContent.endorsements.hero.title}
+          image="/images/hero-home.jpg"
+          themeKey="soft-rings"
+        />
 
-      <section className="section-padding bg-white">
+        <section className="cs-section">
         <div className="container-custom max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-14 flex items-end justify-between gap-6">
@@ -33,7 +38,8 @@ export default function EndorsementsPage() {
             testimonials={siteContent.endorsements.testimonials}
           />
         </div>
-      </section>
-    </>
+        </section>
+      </div>
+    </main>
   );
 }

@@ -41,6 +41,31 @@
   /* Radii */
   --radius-2xl: 16px;
   --radius-3xl: 20px;
+  --radius-full: 999px;
+
+  /* Motion Tokens */
+  --motion-duration-fast: 180ms;
+  --motion-duration-base: 320ms;
+  --motion-duration-slow: 500ms;
+  --motion-easing-premium: cubic-bezier(0.23, 1, 0.32, 1);
+  --motion-easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Hero vs Page Background Variables */
+  /* Hero must be noticeably darker than page body */
+  --hero-bg-start: rgba(10, 20, 35, 0.95); /* Dark start */
+  --hero-bg-end: rgba(26, 58, 92, 0.88); /* Slightly lighter end */
+  --hero-bg-accent-1: rgba(201, 169, 97, 0.08); /* Subtle gold accent */
+  --hero-bg-accent-2: rgba(91, 143, 196, 0.10); /* Subtle blue accent */
+  
+  /* Page body backgrounds (lighter than hero) */
+  --page-bg-base: rgba(255, 255, 255, 0.98); /* Light base */
+  --page-bg-mid: rgba(245, 248, 252, 0.95); /* Mid tone */
+  --page-bg-dark: rgba(14, 24, 38, 0.92); /* Dark end (but lighter than hero) */
+  
+  /* Glow colors for atmosphere */
+  --glow-primary: rgba(91, 143, 196, 0.20);
+  --glow-secondary: rgba(201, 169, 97, 0.15);
+  --glow-tertiary: rgba(74, 123, 167, 0.18);
 }
 
 @layer base {
@@ -284,6 +309,111 @@
   }
 }
 
+/* Atmosphere component animations - Theme-based motion types */
+
+/* Drift motion - gentle floating */
+@keyframes atmosphere-drift-a {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  }
+  33% {
+    transform: translate(-50%, -50%) translate3d(25px, -18px, 0);
+  }
+  66% {
+    transform: translate(-50%, -50%) translate3d(-18px, 25px, 0);
+  }
+}
+
+@keyframes atmosphere-drift-b {
+  0%, 100% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translate3d(-30px, 20px, 0);
+  }
+}
+
+/* Orbit motion - circular movement */
+@keyframes atmosphere-orbit-a {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(35px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) translateX(35px) rotate(-360deg);
+  }
+}
+
+@keyframes atmosphere-orbit-b {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) translateX(-28px) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-360deg) translateX(-28px) rotate(360deg);
+  }
+}
+
+/* Scanline motion - horizontal sweep */
+@keyframes atmosphere-scanline-a {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(40px);
+    opacity: 0.7;
+  }
+}
+
+@keyframes atmosphere-scanline-b {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateX(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) translateX(-35px);
+    opacity: 0.6;
+  }
+}
+
+@keyframes atmosphere-scanline-sweep {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Float motion - vertical gentle movement */
+@keyframes atmosphere-float-a {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(-22px);
+  }
+}
+
+@keyframes atmosphere-float-b {
+  0%, 100% {
+    transform: translate(-50%, -50%) translateY(0);
+  }
+  50% {
+    transform: translate(-50%, -50%) translateY(18px);
+  }
+}
+
+/* Respect reduced motion for all atmosphere animations */
+@media (prefers-reduced-motion: reduce) {
+  [class*="atmosphere-"],
+  [style*="atmosphere-drift"],
+  [style*="atmosphere-orbit"],
+  [style*="atmosphere-scanline"],
+  [style*="atmosphere-float"] {
+    animation: none !important;
+  }
+}
+
 @layer components {
   /* Buttons */
   .btn-primary {
@@ -504,20 +634,28 @@
     animation: float 20s ease-in-out infinite;
   }
   
-  /* Hero gradient overlay */
+  /* Hero gradient overlay - DARKER than page body */
+  /* Theme-based overlay is applied via inline styles from Hero component */
   .hero-overlay {
-    background: linear-gradient(135deg, rgba(44, 95, 141, 0.92) 0%, rgba(91, 143, 196, 0.85) 100%);
     position: relative;
   }
   
-  .hero-overlay::before {
-
+  /* Bottom fade transition from dark hero to lighter page body */
+  .hero-overlay::after {
     content: '';
     position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 80%, rgba(91, 143, 196, 0.1) 0%, transparent 50%);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 30%,
+      rgba(255, 255, 255, 0.15) 70%,
+      rgba(255, 255, 255, 0.25) 100%
+    );
+    pointer-events: none;
   }
   
   /* Subtle background gradient for sections */
@@ -2555,6 +2693,201 @@ footer .btn-secondary::after {
     transition: none !important;
   }
 }
+
+  /* =========================
+   Design System: Cluster Shells
+   ========================= */
+
+  /* Cluster A: Editorial / Authority */
+  .cs-shell--editorial {
+    position: relative;
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 700px at 20% 20%, rgba(93,130,195,0.22), rgba(29,58,98,0.85) 45%, rgba(10,20,35,0.96) 100%),
+      linear-gradient(180deg, rgba(29,58,98,0.72), rgba(10,20,35,0.98));
+    overflow: hidden;
+  }
+
+  .cs-shell--editorial::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(900px 520px at 16% 18%, rgba(93,130,195,0.16), rgba(93,130,195,0) 70%),
+      radial-gradient(900px 520px at 86% 76%, rgba(201,169,97,0.11), rgba(201,169,97,0) 70%);
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  /* Cluster B: Library / Research Vault */
+  .cs-shell--library {
+    position: relative;
+    min-height: 100vh;
+    background:
+      radial-gradient(1100px 680px at 18% 0%, rgba(91,143,196,0.20), rgba(26,58,92,0.85) 50%, rgba(10,20,35,0.96) 100%),
+      linear-gradient(180deg, rgba(26,58,92,0.70), rgba(10,20,35,0.98));
+    overflow: hidden;
+  }
+
+  .cs-shell--library::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(800px 480px at 20% 15%, rgba(91,143,196,0.12), rgba(91,143,196,0) 65%),
+      radial-gradient(800px 480px at 80% 25%, rgba(201,169,97,0.08), rgba(201,169,97,0) 60%);
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* Cluster C: Case Studies / Proof */
+  .cs-shell--proof {
+    position: relative;
+    min-height: 100vh;
+    background:
+      radial-gradient(1100px 680px at 18% 0%, rgba(91,143,196,0.22), transparent 60%),
+      radial-gradient(1000px 640px at 86% 12%, rgba(201,169,97,0.18), transparent 58%),
+      radial-gradient(900px 700px at 55% 70%, rgba(74,123,167,0.16), transparent 62%),
+      linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,248,252,1) 32%, rgba(14,24,38,0.96) 100%);
+    overflow: hidden;
+  }
+
+  .cs-shell--proof::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(1000px 600px at 25% 10%, rgba(91,143,196,0.18), rgba(91,143,196,0) 60%),
+      radial-gradient(1000px 600px at 85% 25%, rgba(201,169,97,0.14), rgba(201,169,97,0) 55%);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  /* Cluster D: Home (minimal, preserve distinct layout) */
+  .cs-shell--home {
+    /* Home keeps its own background; only normalize tokens */
+    position: relative;
+  }
+
+  /* =========================
+   Design System: Base Components
+   ========================= */
+
+  /* Standardized Section Spacing */
+  .cs-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @media (min-width: 1024px) {
+    .cs-section {
+      padding-top: 5rem;
+      padding-bottom: 5rem;
+    }
+  }
+
+  /* Systematized Cards */
+  .cs-card {
+    position: relative;
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+    overflow: hidden;
+  }
+
+  .cs-card--soft {
+    background: rgba(255, 255, 255, 0.07);
+  }
+
+  .cs-card--hover {
+    transition: transform var(--motion-duration-base) var(--motion-easing-premium),
+                border-color var(--motion-duration-base) var(--motion-easing-premium),
+                background var(--motion-duration-base) var(--motion-easing-premium);
+  }
+
+  .cs-card--hover:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.075);
+  }
+
+  .cs-card-inner {
+    position: relative;
+    z-index: 2;
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .cs-card-inner {
+      padding: 1.75rem;
+    }
+  }
+
+  /* Systematized Buttons */
+  .cs-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-2xl);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--motion-duration-base) var(--motion-easing-premium);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+  }
+
+  .cs-btn--primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(44, 95, 141, 0.25);
+  }
+
+  .cs-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(44, 95, 141, 0.35);
+  }
+
+  .cs-btn--primary:active {
+    transform: translateY(0);
+  }
+
+  .cs-btn--secondary {
+    background-color: white;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .cs-btn--secondary:hover {
+    background-color: var(--color-primary);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft-md);
+  }
+
+  .cs-btn--ghost {
+    background: transparent;
+    color: var(--color-primary);
+    border: 1px solid rgba(255, 255, 255, 0.20);
+  }
+
+  .cs-btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.30);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cs-btn:hover,
+    .cs-card--hover:hover {
+      transform: none !important;
+    }
+  }
 
   
 }
