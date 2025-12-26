@@ -31,8 +31,8 @@ export default function HomePage() {
                   <Image
                     src="/images/new logo.png"
                     alt="CustomStrat Advisory logo"
-                    width={95}
-                    height={95}
+                    width={110}
+                    height={110}
                     className="object-contain"
                   />
                 </div>

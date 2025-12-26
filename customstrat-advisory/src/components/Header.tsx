@@ -47,25 +47,58 @@ export default function Header() {
     >
       <nav className="container py-4">
         <div className="flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-all duration-300 group">
-            <div className="relative">
+          <Link
+            href="/"
+            className="flex items-center gap-3 transition-all duration-300 group"
+          >
+            {/* LOGO STACK */}
+            <div className="relative flex-shrink-0">
+              {/* Soft halo (behind everything) */}
               <div
-                className={`w-12 h-12 relative transition-transform duration-300 group-hover:scale-110 rounded-2xl ${
-                  !scrolled && isHome ? 'bg-white/90 backdrop-blur-sm shadow-soft p-1' : ''
+                className={`absolute -inset-6 rounded-full blur-2xl transition-opacity duration-700 ${
+                  !scrolled && isHome
+                    ? "bg-primary/25 opacity-55 group-hover:opacity-80"
+                    : "bg-primary/18 opacity-35 group-hover:opacity-55"
                 }`}
+              />
+
+              {/* WHITE RING (outer boundary) */}
+              <div
+                className="relative w-12 h-12 rounded-full bg-white flex items-center justify-center
+                          shadow-[0_14px_40px_rgba(0,0,0,0.28)]
+                          transition-transform duration-700 group-hover:scale-[1.06]"
               >
-                <Image
-                  src="/images/new logo.png"
-                  alt="CustomStrat Advisory Logo"
-                  fill
-                  className="object-contain drop-shadow-[0_1px_6px_rgba(15,23,42,0.15)]"
-                />
+                {/* BLUE GRADIENT DISK (inside white ring) */}
+                <div
+                  className="w-[38px] h-[38px] rounded-full flex items-center justify-center
+                            bg-gradient-to-br
+                            from-[rgba(93,130,195,0.95)]
+                            via-[rgba(63,111,163,0.95)]
+                            to-[rgba(26,58,92,0.95)]"
+                >
+                  <Image
+                    src="/images/new logo.png"
+                    alt="CustomStrat Advisory"
+                    width={35}
+                    height={35}
+                    priority
+                    className="object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.22)]"
+                  />
+                </div>
               </div>
             </div>
-            <span className={`text-xl font-semibold ${!scrolled && isHome ? 'text-white' : 'text-primary'}`}>
+
+            {/* TEXT LABEL (unchanged, stays visible) */}
+            <span
+              className={`text-xl font-semibold transition-colors duration-300 ${
+                !scrolled && isHome ? "text-white" : "text-primary"
+              }`}
+            >
               {siteContent.company.shortName}
             </span>
           </Link>
+
+
 
           <ul className="hidden lg:flex items-center gap-2">
             {navItems.map((item, index) => (
