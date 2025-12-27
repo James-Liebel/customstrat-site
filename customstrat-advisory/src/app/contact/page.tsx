@@ -14,7 +14,7 @@ export default function ContactPage() {
   const contact = siteContent.contact.info;
 
   return (
-    <main className="cs-shell--editorial relative">
+    <main className="cs-shell--editorial relative text-slate-100">
       {/* Atmosphere: signal-grid theme */}
       <Atmosphere themeKey="signal-grid" />
       <div className="relative z-10">
@@ -36,23 +36,23 @@ export default function ContactPage() {
                   />
                 </div>
 
-                <h2 className="text-3xl font-semibold text-gray-800 mb-2">{contact.name}</h2>
-                <p className="text-gray-600">{contact.title}</p>
+                <h2 className="text-3xl font-semibold text-slate-100 mb-2">{contact.name}</h2>
+                <p className="text-slate-600">{contact.title}</p>
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-start gap-3">
-                  <MapPin className="text-primary mt-1 flex-shrink-0" size={20} />
+                  <MapPin className="text-primary-light mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-800">Location</p>
-                    <p className="text-gray-600">{contact.location}</p>
+                    <p className="font-semibold text-slate-200">Location</p>
+                    <p className="text-slate-300">{contact.location}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail className="text-primary mt-1 flex-shrink-0" size={20} />
+                  <Mail className="text-primary-light mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-800">Email</p>
+                    <p className="font-semibold text-slate-200">Email</p>
                     <a
                       href={`mailto:${contact.email}`}
                       className="text-primary hover:text-primary-dark transition-colors"
@@ -63,12 +63,12 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Phone className="text-primary mt-1 flex-shrink-0" size={20} />
+                  <Phone className="text-primary-light mt-1 flex-shrink-0" size={20} />
                   <div>
-                    <p className="font-semibold text-gray-800">Phone</p>
+                    <p className="font-semibold text-slate-200">Phone</p>
                     <a
                       href={`tel:${contact.phone.replace(/[^0-9]/g, "")}`}
-                      className="text-primary hover:text-primary-dark transition-colors"
+                      className="text-primary-light hover:text-white transition-colors"
                     >
                       {contact.phone}
                     </a>
