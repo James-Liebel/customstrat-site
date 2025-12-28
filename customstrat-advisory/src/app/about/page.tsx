@@ -64,12 +64,9 @@ export default function AboutPage() {
             <div className="mx-auto max-w-6xl">
               <div className="cs-section-head">
                 <h2 className="cs-section-title text-white">{siteContent.about.leadership.title}</h2>
-                <p className="cs-section-subtitle text-white/75">
-                  Operator-grade perspective, board-ready clarity, and a bias toward action.
-                </p>
               </div>
 
-              <div className="mt-10 grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
+              <div className="mt-16 grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
                 <div className="relative mx-auto md:mx-0 w-full max-w-md">
                   <div className="cs-float-shape cs-float-shape--a" aria-hidden="true" />
                   <div className="cs-float-shape cs-float-shape--b" aria-hidden="true" />
@@ -127,9 +124,6 @@ export default function AboutPage() {
             <div className="mx-auto max-w-6xl">
               <div className="cs-section-head">
                 <h2 className="cs-section-title text-white">{siteContent.about.engagement.title}</h2>
-                <p className="cs-section-subtitle text-white/75">
-                  Less “big reveal,” more momentum. Here’s how we keep work crisp, collaborative, and high-impact.
-                </p>
               </div>
 
               <div className="mt-10 cs-engage">

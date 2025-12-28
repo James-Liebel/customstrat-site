@@ -53,38 +53,25 @@ export default function Header() {
           >
             {/* LOGO STACK */}
             <div className="relative flex-shrink-0">
-              {/* Soft halo (behind everything) */}
+              {/* Soft halo (optional: provides a subtle glow behind the logo) */}
               <div
-                className={`absolute -inset-6 rounded-full blur-2xl transition-opacity duration-700 ${
+                className={`absolute -inset-4 rounded-full blur-2xl transition-opacity duration-700 ${
                   !scrolled && isHome
                     ? "bg-primary/25 opacity-55 group-hover:opacity-80"
                     : "bg-primary/18 opacity-35 group-hover:opacity-55"
                 }`}
               />
 
-              {/* WHITE RING (outer boundary) */}
-              <div
-                className="relative w-12 h-12 rounded-full bg-white flex items-center justify-center
-                          shadow-[0_14px_40px_rgba(0,0,0,0.28)]
-                          transition-transform duration-700 group-hover:scale-[1.06]"
-              >
-                {/* BLUE GRADIENT DISK (inside white ring) */}
-                <div
-                  className="w-[38px] h-[38px] rounded-full flex items-center justify-center
-                            bg-gradient-to-br
-                            from-[rgba(93,130,195,0.95)]
-                            via-[rgba(63,111,163,0.95)]
-                            to-[rgba(26,58,92,0.95)]"
-                >
-                  <Image
-                    src="/images/new logo.png"
-                    alt="CustomStrat Advisory"
-                    width={35}
-                    height={35}
-                    priority
-                    className="object-contain drop-shadow-[0_2px_10px_rgba(0,0,0,0.22)]"
-                  />
-                </div>
+              {/* LOGO PNG ONLY */}
+              <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-700 group-hover:scale-[1.06]">
+                <Image
+                  src="/images/new logo.png"
+                  alt="CustomStrat Advisory"
+                  width={48} 
+                  height={48}
+                  priority
+                  className="object-contain"
+                />
               </div>
             </div>
 

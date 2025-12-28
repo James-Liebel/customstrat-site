@@ -80,7 +80,7 @@ export default function ContactPage() {
             {/* Minimal Email Action (replaces the form completely) */}
             <div className="flex">
               <div className="w-full rounded-2xl border border-gray-200 bg-white shadow-soft p-6 sm:p-8 self-start">
-                <h2 className="text-3xl font-semibold text-gray-800 mb-4">Email Katie</h2>
+                <h2 className="text-3xl font-semibold text-gray-800 mb-4">Email Us</h2>
 
                 <a
                   href={`mailto:${contact.email}`}

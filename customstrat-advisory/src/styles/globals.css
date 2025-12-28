@@ -2089,6 +2089,19 @@ footer .btn-secondary::after {
   cursor: pointer;
 }
 
+.cs-services-page .cs-service-btn__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cs-services-page .cs-service-btn__subtitle {
+  font-weight: 400;          /* normal weight */
+  letter-spacing: normal;   /* undo headline tracking */
+  opacity: 0.7;              /* softer presence */
+}
+
+
 /* subtle shine so it reads “interactive” */
 .cs-services-page .cs-service-btn::before{
   content:"";
@@ -2122,6 +2135,7 @@ footer .btn-secondary::after {
   gap: 10px;
 }
 .cs-services-page .cs-service-btn__icon{
+  flex-shrink: 0;
   width: 18px;
   height: 18px;
   opacity: 0.9;

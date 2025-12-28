@@ -35,10 +35,7 @@ export default function Footer() {
             </div>
             <p className="text-white/75 leading-relaxed">{siteContent.footer.description}</p>
 
-            <div className="mt-6 flex items-center gap-3">
-              <span className="inline-block w-10 h-1 rounded-full bg-gradient-to-r from-gold to-accent" />
-              <span className="text-sm text-white/70">Board-ready clarity. Operator-grade execution.</span>
-            </div>
+            
           </div>
 
           <div>

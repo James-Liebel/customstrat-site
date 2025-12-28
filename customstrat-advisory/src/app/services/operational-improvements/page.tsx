@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Operational Improvements – Cost and Customer Experience",
@@ -31,8 +32,8 @@ const examples = [
 export default function OperationalImprovementsPage() {
   return (
     <main className="cs-shell--proof relative">
-      {/* Atmosphere: gilded-diamond theme */}
       <Atmosphere themeKey="gilded-diamond" />
+
       <div className="relative z-10">
         <Hero
           title="Operational Improvements – Cost and Customer Experience"
@@ -40,24 +41,34 @@ export default function OperationalImprovementsPage() {
           themeKey="gilded-diamond"
         />
 
-        <section className="cs-section">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-4 border-b border-gray-200">
-            <div className="text-primary text-xl font-medium">Project Summary</div>
-            <div className="text-primary text-xl font-medium">Problem to be Solved</div>
-            <div className="text-primary text-xl font-medium">Approach and Results</div>
-          </div>
-
-          <div className="divide-y divide-gray-200">
-            {examples.map((ex, i) => (
-              <div key={i} className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
-                <div className="text-gray-900 font-semibold text-lg">{ex.projectSummary}</div>
-                <div className="text-gray-700 leading-relaxed">{ex.problem}</div>
-                <div className="text-gray-700 leading-relaxed">{ex.approach}</div>
-              </div>
-            ))}
-          </div>
+        {/* Back button – same styling as Articles */}
+        <div className="cs-back-wrapper !mt-8">
+          <Link href="/services" className="cs-back-link">
+            ← Back to Case Studies
+          </Link>
         </div>
+
+        <section className="cs-section">
+          <div className="container-custom">
+            {/* White panel to separate content from background */}
+            <div className="bg-white rounded-[18px] shadow-[0_18px_50px_rgba(0,0,0,0.15)] border border-black/10 p-6 md:p-10">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-4 border-b border-gray-200">
+                <div className="text-primary text-xl font-medium">Project Summary</div>
+                <div className="text-primary text-xl font-medium">Problem to be Solved</div>
+                <div className="text-primary text-xl font-medium">Approach and Results</div>
+              </div>
+
+              <div className="divide-y divide-gray-200">
+                {examples.map((ex, i) => (
+                  <div key={i} className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8">
+                    <div className="text-gray-900 font-semibold text-lg">{ex.projectSummary}</div>
+                    <div className="text-gray-700 leading-relaxed">{ex.problem}</div>
+                    <div className="text-gray-700 leading-relaxed">{ex.approach}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </section>
       </div>
     </main>

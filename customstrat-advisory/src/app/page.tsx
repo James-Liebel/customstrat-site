@@ -22,26 +22,25 @@ export default function HomePage() {
 
         {/* Content */}
         <div className="container-custom relative z-10 text-white py-20 text-center">
-          {/* Logo */}
+          {/* Logo (halo only; no badge / no gradient background) */}
           <div className="flex justify-center mb-8 animate-[fadeInUp_800ms_ease-out]">
-            <div className="relative group">
-              <div className="absolute inset-0 bg-white rounded-full blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
-              <div className="relative w-32 h-32 bg-white rounded-full flex items-center justify-center shadow-soft-lg">
-                <div className="w-28 h-28 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                  <Image
-                    src="/images/new logo.png"
-                    alt="CustomStrat Advisory logo"
-                    width={110}
-                    height={110}
-                    className="object-contain"
-                  />
-                </div>
-              </div>
+            <div className="relative group w-40 h-40">
+              {/* Halo */}
+              <div className="absolute -inset-6 bg-white rounded-full blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+
+              {/* Logo only */}
+              <Image
+                src="/images/new logo.png"
+                alt="CustomStrat Advisory logo"
+                fill
+                priority
+                className="object-contain relative z-10"
+              />
             </div>
           </div>
 
           {/* Company Title */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-6 animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards]">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-2 animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards]">
             CustomStrat Advisory, LLC
           </h1>
 
@@ -65,20 +64,18 @@ export default function HomePage() {
                 {siteContent.home.sections.servicesOffered.title}
               </h2>
               <ul className="space-y-4 mt-8">
-                {siteContent.home.sections.servicesOffered.items.map(
-                  (item, index) => (
-                    <li
-                      key={index}
-                      className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-[var(--motion-duration-base)]"></div>
-                      <span className="group-hover:text-primary transition-colors duration-300">
-                        {item}
-                      </span>
-                    </li>
-                  )
-                )}
+                {siteContent.home.sections.servicesOffered.items.map((item, index) => (
+                  <li
+                    key={index}
+                    className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-[var(--motion-duration-base)]"></div>
+                    <span className="group-hover:text-primary transition-colors duration-300">
+                      {item}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -88,20 +85,18 @@ export default function HomePage() {
                 {siteContent.home.sections.clientsServed.title}
               </h2>
               <ul className="space-y-4 mt-8">
-                {siteContent.home.sections.clientsServed.items.map(
-                  (item, index) => (
-                    <li
-                      key={index}
-                      className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
-                      style={{ animationDelay: `${index * 100}ms` }}
-                    >
-                      <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-[var(--motion-duration-base)]"></div>
-                      <span className="group-hover:text-primary transition-colors duration-300">
-                        {item}
-                      </span>
-                    </li>
-                  )
-                )}
+                {siteContent.home.sections.clientsServed.items.map((item, index) => (
+                  <li
+                    key={index}
+                    className="text-gray-700 text-lg flex items-start gap-3 group justify-center md:justify-start"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="w-2 h-2 bg-accent rounded-full mt-2 group-hover:scale-150 transition-transform duration-[var(--motion-duration-base)]"></div>
+                    <span className="group-hover:text-primary transition-colors duration-300">
+                      {item}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
 
