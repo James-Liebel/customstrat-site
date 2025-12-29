@@ -37,7 +37,7 @@ export default function ServicesPage() {
                 </h1>
 
                 <p className="cs-services-subtitle mx-auto">
-                  Strategy, transformation, and execution support built for institutions that need clarity and momentum.
+                  Explore Past Client Engagements
                 </p>
               </div>
             </div>

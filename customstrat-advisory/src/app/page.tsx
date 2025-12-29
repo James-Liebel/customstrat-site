@@ -1,5 +1,6 @@
 import { siteContent } from "@/content/siteContent";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -119,6 +120,12 @@ export default function HomePage() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-10">
+              <Link href="/about#how-we-engage" className="btn-primary inline-flex items-center gap-2">
+                How We Engage
+                <span className="text-xl">→</span>
+              </Link>
+            </div>
             </div>
           </div>
 

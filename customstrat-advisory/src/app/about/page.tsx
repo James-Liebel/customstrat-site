@@ -119,7 +119,7 @@ export default function AboutPage() {
         </section>
 
         {/* How We Engage Section */}
-        <section className="cs-section">
+        <section id="how-we-engage" className="cs-section">
           <div className="container-custom">
             <div className="mx-auto max-w-6xl">
               <div className="cs-section-head">

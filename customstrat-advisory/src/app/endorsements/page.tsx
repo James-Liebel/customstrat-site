@@ -27,7 +27,7 @@ export default function EndorsementsPage() {
           <div className="mb-14 flex items-end justify-between gap-6">
             <div>
               <div className="text-[11px] tracking-[0.28em] uppercase text-gray-500">
-                Client Signals
+                Endorsements
               </div>
               <div className="mt-2 h-px w-28 bg-gradient-to-r from-primary to-transparent" />
             </div>

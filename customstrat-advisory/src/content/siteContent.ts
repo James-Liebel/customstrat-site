@@ -39,11 +39,10 @@ export const siteContent = {
       approach: {
         title: "Approach to Working",
         items: [
-          "Customer-based orientation",
-          "Rigorous analysis & data",
-          "Collaboration with clients",
-          "Hypothesis-driven",
-          "Unbiased evaluation of competitive context",
+          "CEO and Executive Advisory",
+          "Workshop Sessions",
+          "Full-Time Teams",
+          "Speaking Engagements",
         ]
       }
     }
