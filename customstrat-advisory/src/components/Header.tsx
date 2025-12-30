@@ -11,6 +11,8 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // No longer using "isDarkPage" or transparency for background
   const isHome = pathname === '/';
 
   useEffect(() => {
@@ -35,104 +37,66 @@ export default function Header() {
     return pathname.startsWith(href);
   };
 
+  // Gradient: gentle, always showing
+  // Example: from-white to-slate-100, subtle angle, never transparent
+  const headerGradient = "bg-gradient-to-b from-white to-slate-100";
+
   return (
-    <header 
-      className={`sticky top-0 z-header transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-soft-md border-b border-slate-200/60'
-          : isHome
-            ? 'bg-transparent'
-            : 'bg-white border-b border-slate-200'
-      }`}
+    <header
+      className={`sticky top-0 z-[100] transition-all duration-300 ${headerGradient} shadow-md border-b border-slate-200`}
+      style={{ background: 'linear-gradient(180deg, #fff 80%, #f1f5f9 100%)' }} // override for even gentler gradient
     >
       <nav className="container py-4">
         <div className="flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-3 transition-all duration-300 group"
-          >
-            {/* LOGO STACK */}
-            <div className="relative flex-shrink-0">
-              {/* Soft halo (optional: provides a subtle glow behind the logo) */}
-              <div
-                className={`absolute -inset-4 rounded-full blur-2xl transition-opacity duration-700 ${
-                  !scrolled && isHome
-                    ? "bg-primary/25 opacity-55 group-hover:opacity-80"
-                    : "bg-primary/18 opacity-35 group-hover:opacity-55"
-                }`}
-              />
-
-              {/* LOGO PNG ONLY */}
-              <div className="relative w-12 h-12 flex items-center justify-center transition-transform duration-700 group-hover:scale-[1.06]">
-                <Image
-                  src="/images/new logo.png"
-                  alt="CustomStrat Advisory"
-                  width={48} 
-                  height={48}
-                  priority
-                  className="object-contain"
-                />
-              </div>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-10 h-10">
+              <Image src="/images/new logo.png" alt="Logo" fill className="object-contain" />
             </div>
-
-            {/* TEXT LABEL (unchanged, stays visible) */}
-            <span
-              className={`text-xl font-semibold transition-colors duration-300 ${
-                !scrolled && isHome ? "text-white" : "text-primary"
-              }`}
-            >
+            <span className="text-xl font-semibold text-primary">
               {siteContent.company.shortName}
             </span>
           </Link>
 
-
-
           <ul className="hidden lg:flex items-center gap-2">
-            {navItems.map((item, index) => (
-              <li key={item.href} style={{ animationDelay: `${index * 50}ms` }}>
-                <Link
-                  href={item.href}
-                  className={`px-4 py-2 rounded-xl font-medium transition-all duration-300 relative overflow-hidden group ${
-                    isActive(item.href)
-                      ? 'bg-gradient-to-r from-primary to-accent text-white shadow-soft'
-                      : !scrolled && isHome
-                        ? 'text-white/85 hover:text-white'
-                        : 'text-slate-600 hover:text-primary'
-                  }`}
-                >
-                  {!isActive(item.href) && !(!scrolled && isHome) && (
-                    <span className="absolute inset-0 bg-slate-50 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-xl"></span>
-                  )}
-                  <span className="relative">{item.label}</span>
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const active = isActive(item.href);
+
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
+                      active
+                        ? 'bg-primary text-white shadow-lg'
+                        : 'text-slate-600 hover:text-primary hover:bg-slate-100'
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <button
-            className={`lg:hidden p-2 rounded-xl transition-all duration-300 ${
-              !scrolled && isHome ? 'hover:bg-white/10' : 'hover:bg-slate-100'
-            }`}
+            className={`lg:hidden p-2 text-slate-700`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? 
-              <X size={24} className={!scrolled && isHome ? 'text-white' : 'text-slate-700'} /> : 
-              <Menu size={24} className={!scrolled && isHome ? 'text-white' : 'text-slate-700'} />
-            }
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <ul className="lg:hidden mt-4 space-y-2 pb-4 border-t border-slate-200/60 pt-4 stagger-fade">
+          <ul className="lg:hidden mt-4 space-y-2 p-4 rounded-2xl bg-white border border-slate-200">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className={`block px-4 py-3 rounded-xl font-medium transition-all duration-300 ${
+                  className={`block px-4 py-3 rounded-xl font-medium ${
                     isActive(item.href)
-                      ? 'bg-gradient-to-r from-primary to-accent text-white shadow-soft'
-                      : 'text-slate-700 hover:text-primary hover:bg-slate-50'
+                      ? 'bg-primary text-white'
+                      : 'text-slate-700'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
