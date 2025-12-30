@@ -14,88 +14,111 @@ export default function ContactPage() {
   const contact = siteContent.contact.info;
 
   return (
-    <main className="cs-shell--editorial relative text-slate-100">
+    <main className="cs-shell--editorial relative text-white">
       {/* Atmosphere: signal-grid theme */}
       <Atmosphere themeKey="signal-grid" />
+      
       <div className="relative z-10">
-        <Hero title={siteContent.contact.hero.title} image="/images/hero-contact.jpg" themeKey="signal-grid" />
+        <Hero 
+          title={siteContent.contact.hero.title} 
+          image="/images/hero-contact.jpg" 
+          themeKey="signal-grid" 
+        />
 
         <section className="cs-section">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            {/* Contact Info (keep photo) */}
-            <div>
-              <div className="mb-8">
-                <div className="relative w-64 h-64 mx-auto md:mx-0 rounded-lg overflow-hidden shadow-xl mb-6">
-                  <Image
-                    src="/images/katie-liebel.webp"
-                    alt={contact.name}
-                    fill
-                    className="object-cover"
-                    priority
-                  />
+          <div className="container-custom">
+            <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+              
+              {/* Profile Side */}
+              <div className="animate-[fadeInUp_800ms_ease-out]">
+                <div className="mb-8">
+                  <div className="relative w-64 h-64 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-2xl mb-8 ring-1 ring-white/20">
+                    <Image
+                      src="/images/katie-liebel.webp"
+                      alt={contact.name}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+
+                  <h2 className="text-4xl font-semibold text-white mb-2">
+                    {contact.name}
+                  </h2>
+                  {/* Changed to text-white and increased size for prominence */}
+                  <p className="text-xl text-white font-light tracking-wide">
+                    {contact.title}
+                  </p>
                 </div>
 
-                <h2 className="text-3xl font-semibold text-slate-100 mb-2">{contact.name}</h2>
-                <p className="text-slate-600">{contact.title}</p>
+                <div className="space-y-6">
+                  {/* Location */}
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center ring-1 ring-white/10 group-hover:bg-primary/20 transition-colors">
+                      <MapPin className="text-accent-light" size={20} />
+                    </div>
+                    <div>
+                      <p className="text-sm uppercase tracking-widest text-white/50 font-semibold">Location</p>
+                      <p className="text-lg text-white">{contact.location}</p>
+                    </div>
+                  </div>
+
+                  {/* Email */}
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center ring-1 ring-white/10 group-hover:bg-primary/20 transition-colors">
+                      <Mail className="text-accent-light" size={20} />
+                    </div>
+                    <div>
+                      <p className="text-sm uppercase tracking-widest text-white/50 font-semibold">Email</p>
+                      <a
+                        href={`mailto:${contact.email}`}
+                        className="text-lg text-white hover:text-accent-light transition-colors underline underline-offset-4 decoration-white/20"
+                      >
+                        {contact.email}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Phone */}
+                  <div className="flex items-start gap-4 group">
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center ring-1 ring-white/10 group-hover:bg-primary/20 transition-colors">
+                      <Phone className="text-accent-light" size={20} />
+                    </div>
+                    <div>
+                      <p className="text-sm uppercase tracking-widest text-white/50 font-semibold">Phone</p>
+                      <a
+                        href={`tel:${contact.phone.replace(/[^0-9]/g, "")}`}
+                        className="text-lg text-white hover:text-accent-light transition-colors"
+                      >
+                        {contact.phone}
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              <div className="space-y-6">
-                <div className="flex items-start gap-3">
-                  <MapPin className="text-primary-light mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-slate-200">Location</p>
-                    <p className="text-slate-300">{contact.location}</p>
-                  </div>
+              {/* Action Card Side */}
+              <div className="flex animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards]">
+                <div className="w-full rounded-3xl border border-white/10 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-8 sm:p-10 self-start">
+                  <h2 className="text-3xl font-semibold text-gray-900 mb-4">Direct Inquiry</h2>
+                  <p className="text-gray-600 mb-8 leading-relaxed">
+                    Ready to discuss a project? Click below to send an email directly to our leadership team.
+                  </p>
+
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="btn-primary w-full text-center flex justify-center items-center py-4"
+                  >
+                    Send an Email
+                  </a>
+
+                  <p className="mt-6 text-xs text-center text-gray-400">
+                    Typically responds within 24 hours.
+                  </p>
                 </div>
-
-                <div className="flex items-start gap-3">
-                  <Mail className="text-primary-light mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-slate-200">Email</p>
-                    <a
-                      href={`mailto:${contact.email}`}
-                      className="text-primary hover:text-primary-dark transition-colors"
-                    >
-                      {contact.email}
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Phone className="text-primary-light mt-1 flex-shrink-0" size={20} />
-                  <div>
-                    <p className="font-semibold text-slate-200">Phone</p>
-                    <a
-                      href={`tel:${contact.phone.replace(/[^0-9]/g, "")}`}
-                      className="text-primary-light hover:text-white transition-colors"
-                    >
-                      {contact.phone}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Minimal Email Action (replaces the form completely) */}
-            <div className="flex">
-              <div className="w-full rounded-2xl border border-gray-200 bg-white shadow-soft p-6 sm:p-8 self-start">
-                <h2 className="text-3xl font-semibold text-gray-800 mb-4">Email Us</h2>
-
-                <a
-                  href={`mailto:${contact.email}`}
-                  className="cs-btn cs-btn--primary cs-contact-cta w-full sm:w-auto"
-                >
-                  Send an Email
-                </a>
-
-                <p className="mt-4 text-sm text-gray-600">
-                  This opens your email client with a blank message.
-                </p>
               </div>
             </div>
           </div>
-        </div>
         </section>
       </div>
     </main>

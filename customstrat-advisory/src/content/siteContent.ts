@@ -58,7 +58,7 @@ export const siteContent = {
       members: [
         {
           name: "Katie Liebel",
-          title: "Founder and Managing Principal",
+          title: "Founder & Managing Principal",
           company: "CustomStrat Advisory, LLC",
           bio: "Katie is a financial services leader with 30 years of executive and consulting experience focused on strategic planning, customer experience, and transformational change in banks, insurance companies, wealth management firms, and FinTechs.",
           extended: [
@@ -374,7 +374,7 @@ Banks that successfully execute this strategy will find sustainable competitive 
     },
     info: {
       name: "Katie Liebel",
-      title: "Managing Principal",
+      title: "Founder & Managing Principal",
       company: "CustomStrat Advisory, LLC",
       location: "Cincinnati, Ohio",
       email: "kliebel@customstrat.com",
