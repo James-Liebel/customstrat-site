@@ -52,16 +52,23 @@
 
   /* Hero vs Page Background Variables */
   /* Hero must be noticeably darker than page body */
-  --hero-bg-start: rgba(10, 20, 35, 0.95); /* Dark start */
-  --hero-bg-end: rgba(26, 58, 92, 0.88); /* Slightly lighter end */
-  --hero-bg-accent-1: rgba(201, 169, 97, 0.08); /* Subtle gold accent */
-  --hero-bg-accent-2: rgba(91, 143, 196, 0.10); /* Subtle blue accent */
-  
+  --hero-bg-start: rgba(10, 20, 35, 0.95);
+  /* Dark start */
+  --hero-bg-end: rgba(26, 58, 92, 0.88);
+  /* Slightly lighter end */
+  --hero-bg-accent-1: rgba(201, 169, 97, 0.08);
+  /* Subtle gold accent */
+  --hero-bg-accent-2: rgba(91, 143, 196, 0.10);
+  /* Subtle blue accent */
+
   /* Page body backgrounds (lighter than hero) */
-  --page-bg-base: rgba(255, 255, 255, 0.98); /* Light base */
-  --page-bg-mid: rgba(245, 248, 252, 0.95); /* Mid tone */
-  --page-bg-dark: rgba(14, 24, 38, 0.92); /* Dark end (but lighter than hero) */
-  
+  --page-bg-base: rgba(255, 255, 255, 0.98);
+  /* Light base */
+  --page-bg-mid: rgba(245, 248, 252, 0.95);
+  /* Mid tone */
+  --page-bg-dark: rgba(14, 24, 38, 0.92);
+  /* Dark end (but lighter than hero) */
+
   /* Glow colors for atmosphere */
   --glow-primary: rgba(91, 143, 196, 0.20);
   --glow-secondary: rgba(201, 169, 97, 0.15);
@@ -69,6 +76,7 @@
 }
 
 @layer base {
+
   /* Base styles */
   html {
     scroll-behavior: smooth;
@@ -89,7 +97,12 @@
     It breaks dark sections (e.g., hero) where headings are intended to inherit `text-white`.
     Set heading colors contextually using Tailwind classes.
   */
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-weight: 600;
     color: inherit;
     letter-spacing: -0.02em;
@@ -132,9 +145,11 @@
     h1 {
       font-size: 3rem;
     }
+
     h2 {
       font-size: 2.25rem;
     }
+
     h3 {
       font-size: 1.875rem;
     }
@@ -144,19 +159,23 @@
     h1 {
       font-size: 3.75rem;
     }
+
     h2 {
       font-size: 3rem;
     }
+
     h3 {
       font-size: 1.875rem;
     }
   }
 }
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -164,9 +183,12 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -176,36 +198,47 @@
   0% {
     background-position: -1000px 0;
   }
+
   100% {
     background-position: 1000px 0;
   }
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 20px rgba(91, 143, 196, 0.3);
   }
+
   50% {
     box-shadow: 0 0 40px rgba(91, 143, 196, 0.5);
   }
 }
 
 @keyframes parallax-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) translateX(0px);
   }
+
   33% {
     transform: translateY(-20px) translateX(10px);
   }
+
   66% {
     transform: translateY(-10px) translateX(-10px);
   }
 }
 
 @keyframes image-zoom {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.05);
   }
@@ -215,18 +248,23 @@
   0% {
     transform: translateX(0%) scale(1);
   }
+
   50% {
     transform: translateX(5%) scale(1.05);
   }
+
   100% {
     transform: translateX(0%) scale(1);
   }
 }
 
 @keyframes gradient-shift {
-  0%, 100% {
+
+  0%,
+  100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
@@ -237,12 +275,15 @@
     transform: translateY(0) translateX(0) rotate(0deg);
     opacity: 0;
   }
+
   10% {
     opacity: 1;
   }
+
   90% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(-100vh) translateX(100px) rotate(360deg);
     opacity: 0;
@@ -250,10 +291,13 @@
 }
 
 @keyframes sparkle {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0;
     transform: scale(0);
   }
+
   50% {
     opacity: 1;
     transform: scale(1);
@@ -261,73 +305,66 @@
 }
 
 @keyframes wave {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(0) translateY(0);
   }
+
   25% {
     transform: translateX(10px) translateY(-5px);
   }
+
   50% {
     transform: translateX(0) translateY(-10px);
   }
+
   75% {
     transform: translateX(-10px) translateY(-5px);
   }
 }
 
 @keyframes morphing-gradient {
-  0%, 100% {
+
+  0%,
+  100% {
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
   }
+
   50% {
     border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
   }
 }
 
-@keyframes snowflake-fall {
-  0% {
-    transform: translateY(-100vh) rotate(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg);
-    opacity: 0.3;
-  }
-}
 
-@keyframes leaf-fall {
-  0% {
-    transform: translateY(-100vh) rotate(0deg) translateX(0);
-    opacity: 1;
-  }
-  50% {
-    transform: translateY(50vh) rotate(180deg) translateX(50px);
-  }
-  100% {
-    transform: translateY(100vh) rotate(360deg) translateX(-50px);
-    opacity: 0;
-  }
-}
+
 
 /* Atmosphere component animations - Theme-based motion types */
 
 /* Drift motion - gentle floating */
 @keyframes atmosphere-drift-a {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) translate3d(0, 0, 0);
   }
+
   33% {
     transform: translate(-50%, -50%) translate3d(25px, -18px, 0);
   }
+
   66% {
     transform: translate(-50%, -50%) translate3d(-18px, 25px, 0);
   }
 }
 
 @keyframes atmosphere-drift-b {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) translate3d(0, 0, 0);
   }
+
   50% {
     transform: translate(-50%, -50%) translate3d(-30px, 20px, 0);
   }
@@ -338,6 +375,7 @@
   0% {
     transform: translate(-50%, -50%) rotate(0deg) translateX(35px) rotate(0deg);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(360deg) translateX(35px) rotate(-360deg);
   }
@@ -347,6 +385,7 @@
   0% {
     transform: translate(-50%, -50%) rotate(0deg) translateX(-28px) rotate(0deg);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(-360deg) translateX(-28px) rotate(360deg);
   }
@@ -354,10 +393,13 @@
 
 /* Scanline motion - horizontal sweep */
 @keyframes atmosphere-scanline-a {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) translateX(0);
     opacity: 0.4;
   }
+
   50% {
     transform: translate(-50%, -50%) translateX(40px);
     opacity: 0.7;
@@ -365,10 +407,13 @@
 }
 
 @keyframes atmosphere-scanline-b {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) translateX(0);
     opacity: 0.3;
   }
+
   50% {
     transform: translate(-50%, -50%) translateX(-35px);
     opacity: 0.6;
@@ -379,6 +424,7 @@
   0% {
     background-position: -100% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -386,18 +432,24 @@
 
 /* Float motion - vertical gentle movement */
 @keyframes atmosphere-float-a {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) translateY(0);
   }
+
   50% {
     transform: translate(-50%, -50%) translateY(-22px);
   }
 }
 
 @keyframes atmosphere-float-b {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(-50%, -50%) translateY(0);
   }
+
   50% {
     transform: translate(-50%, -50%) translateY(18px);
   }
@@ -405,6 +457,7 @@
 
 /* Respect reduced motion for all atmosphere animations */
 @media (prefers-reduced-motion: reduce) {
+
   [class*="atmosphere-"],
   [style*="atmosphere-drift"],
   [style*="atmosphere-orbit"],
@@ -415,6 +468,7 @@
 }
 
 @layer components {
+
   /* Buttons */
   .btn-primary {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
@@ -427,7 +481,7 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .btn-primary::before {
     content: '';
     position: absolute;
@@ -438,20 +492,20 @@
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 600ms;
   }
-  
+
   .btn-primary:hover::before {
     left: 100%;
   }
-  
+
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(44, 95, 141, 0.35);
   }
-  
+
   .btn-primary:active {
     transform: translateY(0);
   }
-  
+
   .btn-secondary {
     background-color: white;
     color: var(--color-primary);
@@ -464,7 +518,7 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .btn-secondary::before {
     content: '';
     position: absolute;
@@ -478,19 +532,19 @@
     transition: width 400ms, height 400ms;
     z-index: -1;
   }
-  
+
   .btn-secondary:hover::before {
     width: 300%;
     height: 300%;
   }
-  
+
   .btn-secondary:hover {
     color: white;
     border-color: var(--color-primary);
     transform: translateY(-2px);
     box-shadow: var(--shadow-soft-md);
   }
-  
+
   .btn-link {
     color: var(--color-accent);
     font-weight: 600;
@@ -499,22 +553,22 @@
     position: relative;
     display: inline-block;
   }
-  
+
   .btn-link::after {
     content: '→';
     margin-left: 0.5rem;
     transition: margin-left 200ms;
   }
-  
+
   .btn-link:hover::after {
     margin-left: 0.75rem;
   }
-  
+
   .btn-link:hover {
     color: var(--color-accent-dark);
     text-decoration: underline;
   }
-  
+
   /* Container */
   .container-custom {
     max-width: 72rem;
@@ -523,21 +577,21 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   @media (min-width: 640px) {
     .container-custom {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
-  
+
   @media (min-width: 1024px) {
     .container-custom {
       padding-left: 2rem;
       padding-right: 2rem;
     }
   }
-  
+
   .container-wide {
     max-width: 80rem;
     margin-left: auto;
@@ -545,34 +599,34 @@
     padding-left: 1rem;
     padding-right: 1rem;
   }
-  
+
   @media (min-width: 640px) {
     .container-wide {
       padding-left: 1.5rem;
       padding-right: 1.5rem;
     }
   }
-  
+
   @media (min-width: 1024px) {
     .container-wide {
       padding-left: 2rem;
       padding-right: 2rem;
     }
   }
-  
+
   /* Section spacing */
   .section-padding {
     padding-top: 4rem;
     padding-bottom: 4rem;
   }
-  
+
   @media (min-width: 1024px) {
     .section-padding {
       padding-top: 5rem;
       padding-bottom: 5rem;
     }
   }
-  
+
   /* Cards */
   .card {
     background: white;
@@ -584,7 +638,7 @@
     position: relative;
     overflow: hidden;
   }
-  
+
   .card::before {
     content: '';
     position: absolute;
@@ -597,32 +651,32 @@
     transform-origin: left;
     transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .card:hover::before {
     transform: scaleX(1);
   }
-  
+
   .card:hover {
     box-shadow: var(--shadow-soft-lg);
     border-color: var(--color-accent-light);
   }
-  
+
   @media (min-width: 1024px) {
     .card {
       padding: 2.5rem;
     }
   }
-  
+
   .card-hover:hover {
     transform: translateY(-8px);
   }
-  
+
   /* Animated background elements */
   .animated-bg {
     position: relative;
     overflow: hidden;
   }
-  
+
   .animated-bg::before {
     content: '';
     position: absolute;
@@ -633,13 +687,13 @@
     background: radial-gradient(circle, rgba(91, 143, 196, 0.03) 0%, transparent 70%);
     animation: float 20s ease-in-out infinite;
   }
-  
+
   /* Hero gradient overlay - DARKER than page body */
   /* Theme-based overlay is applied via inline styles from Hero component */
   .hero-overlay {
     position: relative;
   }
-  
+
   /* Bottom fade transition from dark hero to lighter page body */
   .hero-overlay::after {
     content: '';
@@ -648,22 +702,20 @@
     left: 0;
     right: 0;
     height: 120px;
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgba(255, 255, 255, 0.05) 30%,
-      rgba(255, 255, 255, 0.15) 70%,
-      rgba(255, 255, 255, 0.25) 100%
-    );
+    background: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(255, 255, 255, 0.05) 30%,
+        rgba(255, 255, 255, 0.15) 70%,
+        rgba(255, 255, 255, 0.25) 100%);
     pointer-events: none;
   }
-  
+
   /* Subtle background gradient for sections */
   .bg-gradient-subtle {
     background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
     position: relative;
   }
-  
+
   .bg-gradient-subtle::before {
     content: '';
     position: absolute;
@@ -671,18 +723,18 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: 
+    background-image:
       radial-gradient(circle at 1px 1px, rgba(91, 143, 196, 0.05) 1px, transparent 0);
     background-size: 40px 40px;
     opacity: 0.5;
   }
-  
+
   /* Accent line decorations */
   .accent-line {
     position: relative;
     display: inline-block;
   }
-  
+
   .accent-line::after {
     content: '';
     position: absolute;
@@ -693,65 +745,82 @@
     background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
     border-radius: 2px;
   }
-  
+
   /* Glowing effect for special elements */
   .glow-effect {
     animation: pulse-glow 3s ease-in-out infinite;
   }
-  
+
   /* Stagger animation for lists */
-  .stagger-fade > * {
+  .stagger-fade>* {
     opacity: 0;
     animation: fadeInUp 600ms ease-out forwards;
   }
-  
-  .stagger-fade > *:nth-child(1) { animation-delay: 100ms; }
-  .stagger-fade > *:nth-child(2) { animation-delay: 200ms; }
-  .stagger-fade > *:nth-child(3) { animation-delay: 300ms; }
-  .stagger-fade > *:nth-child(4) { animation-delay: 400ms; }
-  .stagger-fade > *:nth-child(5) { animation-delay: 500ms; }
-  .stagger-fade > *:nth-child(6) { animation-delay: 600ms; }
-  
+
+  .stagger-fade>*:nth-child(1) {
+    animation-delay: 100ms;
+  }
+
+  .stagger-fade>*:nth-child(2) {
+    animation-delay: 200ms;
+  }
+
+  .stagger-fade>*:nth-child(3) {
+    animation-delay: 300ms;
+  }
+
+  .stagger-fade>*:nth-child(4) {
+    animation-delay: 400ms;
+  }
+
+  .stagger-fade>*:nth-child(5) {
+    animation-delay: 500ms;
+  }
+
+  .stagger-fade>*:nth-child(6) {
+    animation-delay: 600ms;
+  }
+
   /* Brand name styling */
   .brand-name {
     font-family: var(--font-family-display);
     font-weight: 600;
     letter-spacing: -0.01em;
   }
-  
+
   /* Advanced image animations */
   .image-parallax {
     animation: parallax-float 20s ease-in-out infinite;
     will-change: transform;
   }
-  
+
   .image-zoom {
     transition: transform 8s ease-in-out;
     will-change: transform;
   }
-  
+
   .image-zoom:hover {
     animation: image-zoom 4s ease-in-out infinite;
   }
-  
+
   .image-pan {
     animation: image-pan 15s ease-in-out infinite;
     will-change: transform;
   }
-  
+
   /* Moving background gradients */
   .gradient-animated {
     background: linear-gradient(-45deg, var(--color-primary), var(--color-accent), var(--color-primary-light), var(--color-accent-light));
     background-size: 400% 400%;
     animation: gradient-shift 15s ease infinite;
   }
-  
+
   /* Floating particles effect */
   .particle-container {
     position: relative;
     overflow: hidden;
   }
-  
+
   .particle {
     position: absolute;
     width: 4px;
@@ -761,7 +830,7 @@
     opacity: 0.6;
     animation: particle-float 20s linear infinite;
   }
-  
+
   /* Sparkle effect */
   .sparkle {
     position: absolute;
@@ -772,67 +841,74 @@
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     animation: sparkle 2s ease-in-out infinite;
   }
-  
+
   /* Wave animation */
   .wave-animation {
     animation: wave 3s ease-in-out infinite;
   }
-  
+
   /* Morphing gradient background */
   .morphing-bg {
     background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent));
     animation: morphing-gradient 8s ease-in-out infinite;
   }
-  
+
   /* Parallax scroll effect */
   .parallax-slow {
     transform: translateZ(0);
     will-change: transform;
   }
-  
+
   /* Image hover effects */
   .image-hover-lift {
     transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s;
   }
-  
+
   .image-hover-lift:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: var(--shadow-soft-lg);
   }
-  
+
   /* Glitch effect for special elements */
   @keyframes glitch {
-    0%, 100% {
+
+    0%,
+    100% {
       transform: translate(0);
     }
+
     20% {
       transform: translate(-2px, 2px);
     }
+
     40% {
       transform: translate(-2px, -2px);
     }
+
     60% {
       transform: translate(2px, 2px);
     }
+
     80% {
       transform: translate(2px, -2px);
     }
   }
-  
+
   .glitch-effect:hover {
     animation: glitch 0.3s ease-in-out;
   }
-  
+
   /* Rotating gradient border */
   @keyframes rotate-border {
     0% {
       background-position: 0% 50%;
     }
+
     100% {
       background-position: 100% 50%;
     }
   }
-  
+
   .rotating-border {
     position: relative;
     background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary-light), var(--color-primary));
@@ -841,59 +917,42 @@
     padding: 2px;
     border-radius: var(--radius-2xl);
   }
-  
-  .rotating-border > * {
+
+  .rotating-border>* {
     background: white;
     border-radius: calc(var(--radius-2xl) - 2px);
   }
-  
+
   /* 3D tilt effect */
   .tilt-3d {
     transform-style: preserve-3d;
     transition: transform 0.3s;
   }
-  
+
   .tilt-3d:hover {
     transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
   }
-  
+
   /* Magnetic hover effect */
   .magnetic-hover {
     transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   }
-  
-  /* Snowflake animation */
-  .snowflake {
-    position: absolute;
-    color: white;
-    font-size: 1em;
-    font-family: Arial;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    animation: snowflake-fall linear infinite;
-    pointer-events: none;
-  }
-  
-  /* Leaf fall animation */
-  .leaf {
-    position: absolute;
-    color: #8B4513;
-    font-size: 1.5em;
-    animation: leaf-fall linear infinite;
-    pointer-events: none;
-  }
 
-/* Utilities */
-.text-balance {
+
+
+
+  /* Utilities */
+  .text-balance {
     text-wrap: balance;
   }
-  
+
   .text-gradient {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   .text-gold-gradient {
     background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
     -webkit-background-clip: text;
@@ -903,7 +962,6 @@
 
   .background-overlay,
   .particle-container,
-  .snow-container,
   .animated-bg,
   .animated-bg::before,
   .bg-gradient-subtle::before,
@@ -911,8 +969,9 @@
   .animated-bg::after {
     pointer-events: none;
   }
+
   /* Re-enable interactions for real content inside the section */
-  .animated-bg > * {
+  .animated-bg>* {
     pointer-events: auto;
   }
 
@@ -931,7 +990,7 @@
     z-index: -2;
     background: url("/images/hero-home.jpg") center / cover no-repeat;
   }
-  
+
   /* Soft white overlay like your screenshot */
   body::after {
     content: "";
@@ -939,21 +998,22 @@
     inset: 0;
     z-index: -1;
     background: radial-gradient(1200px 700px at 20% 20%,
-      rgba(93, 130, 195, 0.22),
-      rgba(29, 58, 98, 0.85) 45%,
-      rgba(10, 20, 35, 0.96) 100%),
-    linear-gradient(180deg,
-      rgba(29, 58, 98, 0.72),
-      rgba(10, 20, 35, 0.98));
+        rgba(93, 130, 195, 0.22),
+        rgba(29, 58, 98, 0.85) 45%,
+        rgba(10, 20, 35, 0.96) 100%),
+      linear-gradient(180deg,
+        rgba(29, 58, 98, 0.72),
+        rgba(10, 20, 35, 0.98));
     pointer-events: none;
   }
-  
+
   /* Diamond-outline glow wave (hero only) */
   .hero-diamond-wave {
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.55; /* overall intensity */
+    opacity: 0.55;
+    /* overall intensity */
   }
 
   .hero-diamond-wave .wave {
@@ -961,13 +1021,26 @@
   }
 
   @keyframes diamondWaveMove {
-    0%   { transform: translateX(-35%); opacity: 0.0; }
-    10%  { opacity: 1.0; }
-    90%  { opacity: 1.0; }
-    100% { transform: translateX(35%); opacity: 0.0; }
+    0% {
+      transform: translateX(-35%);
+      opacity: 0.0;
+    }
+
+    10% {
+      opacity: 1.0;
+    }
+
+    90% {
+      opacity: 1.0;
+    }
+
+    100% {
+      transform: translateX(35%);
+      opacity: 0.0;
+    }
   }
 
-    /* Respect reduced motion */
+  /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .hero-diamond-wave .wave {
       animation: none;
@@ -982,48 +1055,105 @@
   }
 
   @keyframes cs-line-drift-a {
-    0% { background-position: 0px 0px; }
-    100% { background-position: 520px 320px; }
+    0% {
+      background-position: 0px 0px;
+    }
+
+    100% {
+      background-position: 520px 320px;
+    }
   }
+
   @keyframes cs-line-drift-b {
-    0% { background-position: 0px 0px; }
-    100% { background-position: -420px 260px; }
+    0% {
+      background-position: 0px 0px;
+    }
+
+    100% {
+      background-position: -420px 260px;
+    }
   }
+
   @keyframes cs-line-drift-c {
-    0% { background-position: 0px 0px; }
-    100% { background-position: 300px -420px; }
+    0% {
+      background-position: 0px 0px;
+    }
+
+    100% {
+      background-position: 300px -420px;
+    }
   }
-  
+
   @keyframes cs-blob-drift-a {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(44px, 30px, 0); }
+
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+      transform: translate3d(44px, 30px, 0);
+    }
   }
+
   @keyframes cs-blob-drift-b {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(-38px, -26px, 0); }
+
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+      transform: translate3d(-38px, -26px, 0);
+    }
   }
+
   @keyframes cs-blob-drift-c {
-    0%, 100% { transform: translate3d(0, 0, 0); }
-    50% { transform: translate3d(18px, -22px, 0); }
+
+    0%,
+    100% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+      transform: translate3d(18px, -22px, 0);
+    }
   }
-  
+
   /* Slow “shine” sweep across the whole site */
   @keyframes cs-sheen-sweep {
-    0%   { transform: translate3d(-18%, -10%, 0) rotate(10deg); opacity: 0.0; }
-    15%  { opacity: 1.0; }
-    50%  { transform: translate3d(18%, 10%, 0) rotate(10deg); opacity: 0.55; }
-    85%  { opacity: 1.0; }
-    100% { transform: translate3d(-18%, -10%, 0) rotate(10deg); opacity: 0.0; }
+    0% {
+      transform: translate3d(-18%, -10%, 0) rotate(10deg);
+      opacity: 0.0;
+    }
+
+    15% {
+      opacity: 1.0;
+    }
+
+    50% {
+      transform: translate3d(18%, 10%, 0) rotate(10deg);
+      opacity: 0.55;
+    }
+
+    85% {
+      opacity: 1.0;
+    }
+
+    100% {
+      transform: translate3d(-18%, -10%, 0) rotate(10deg);
+      opacity: 0.0;
+    }
   }
-  
+
   /* Soft depth spotlight (dimension without “gaming UI”) */
   .cs-depth-spotlight {
     background:
-      radial-gradient(900px 520px at 16% 18%, rgba(93,130,195,0.16), rgba(93,130,195,0) 70%),
-      radial-gradient(900px 520px at 86% 76%, rgba(201,169,97,0.11), rgba(201,169,97,0) 70%),
-      radial-gradient(700px 420px at 50% 35%, rgba(255,255,255,0.10), rgba(255,255,255,0) 70%);
+      radial-gradient(900px 520px at 16% 18%, rgba(93, 130, 195, 0.16), rgba(93, 130, 195, 0) 70%),
+      radial-gradient(900px 520px at 86% 76%, rgba(201, 169, 97, 0.11), rgba(201, 169, 97, 0) 70%),
+      radial-gradient(700px 420px at 50% 35%, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0) 70%);
   }
-  
+
   /* Base line-field style (thin, modern, subtle) */
   .cs-line-field {
     /* Feather edges so it feels atmospheric */
@@ -1031,105 +1161,114 @@
     -webkit-mask-image: radial-gradient(circle at 40% 18%, black 0%, transparent 72%);
     mix-blend-mode: soft-light;
   }
-  
+
   /* Layer A: diagonal lines */
   .cs-line-field-a {
-    background-image: repeating-linear-gradient(
-      115deg,
-      rgba(15, 23, 42, 0.10) 0px,
-      rgba(15, 23, 42, 0.10) 1px,
-      transparent 1px,
-      transparent 30px
-    );
+    background-image: repeating-linear-gradient(115deg,
+        rgba(15, 23, 42, 0.10) 0px,
+        rgba(15, 23, 42, 0.10) 1px,
+        transparent 1px,
+        transparent 30px);
     animation: cs-line-drift-a 16s linear infinite;
   }
-  
+
   /* Layer B: opposite diagonal lines (creates cross-hatch motion) */
   .cs-line-field-b {
-    background-image: repeating-linear-gradient(
-      65deg,
-      rgba(255, 255, 255, 0.10) 0px,
-      rgba(255, 255, 255, 0.10) 1px,
-      transparent 1px,
-      transparent 34px
-    );
+    background-image: repeating-linear-gradient(65deg,
+        rgba(255, 255, 255, 0.10) 0px,
+        rgba(255, 255, 255, 0.10) 1px,
+        transparent 1px,
+        transparent 34px);
     animation: cs-line-drift-b 22s linear infinite;
   }
-  
+
   /* Layer C: ultra-fine micro-lines for “premium texture” */
   .cs-line-field-c {
-    background-image: repeating-linear-gradient(
-      135deg,
-      rgba(148, 163, 184, 0.12) 0px,
-      rgba(148, 163, 184, 0.12) 1px,
-      transparent 1px,
-      transparent 44px
-    );
+    background-image: repeating-linear-gradient(135deg,
+        rgba(148, 163, 184, 0.12) 0px,
+        rgba(148, 163, 184, 0.12) 1px,
+        transparent 1px,
+        transparent 44px);
     animation: cs-line-drift-c 28s linear infinite;
   }
-  
+
   /* Global sheen overlay */
   .cs-global-sheen {
     position: relative;
     overflow: hidden;
   }
+
   .cs-global-sheen::before {
     content: "";
     position: absolute;
     inset: -40%;
-    background: linear-gradient(
-      90deg,
-      transparent 0%,
-      rgba(255,255,255,0.26) 45%,
-      rgba(255,255,255,0.40) 50%,
-      rgba(255,255,255,0.26) 55%,
-      transparent 100%
-    );
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.26) 45%,
+        rgba(255, 255, 255, 0.40) 50%,
+        rgba(255, 255, 255, 0.26) 55%,
+        transparent 100%);
     filter: blur(18px);
     animation: cs-sheen-sweep 12s ease-in-out infinite;
     mix-blend-mode: overlay;
   }
-  
+
   /* Blobs tuned for depth */
-  .cs-blob { opacity: 0.30; mix-blend-mode: soft-light; }
+  .cs-blob {
+    opacity: 0.30;
+    mix-blend-mode: soft-light;
+  }
+
   .cs-blob-a {
-    background: radial-gradient(circle, rgba(91,143,196,0.55), transparent 65%);
+    background: radial-gradient(circle, rgba(91, 143, 196, 0.55), transparent 65%);
     animation: cs-blob-drift-a 18s ease-in-out infinite;
   }
+
   .cs-blob-b {
-    background: radial-gradient(circle, rgba(201,169,97,0.42), transparent 65%);
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.42), transparent 65%);
     animation: cs-blob-drift-b 22s ease-in-out infinite;
   }
+
   .cs-blob-c {
-    background: radial-gradient(circle, rgba(255,255,255,0.26), transparent 62%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.26), transparent 62%);
     animation: cs-blob-drift-c 20s ease-in-out infinite;
   }
-  
+
   /* Accessibility: reduce motion */
   @media (prefers-reduced-motion: reduce) {
-    .cs-line-field-a, .cs-line-field-b, .cs-line-field-c,
-    .cs-blob-a, .cs-blob-b, .cs-blob-c,
+
+    .cs-line-field-a,
+    .cs-line-field-b,
+    .cs-line-field-c,
+    .cs-blob-a,
+    .cs-blob-b,
+    .cs-blob-c,
     .cs-global-sheen::before {
       animation: none !important;
     }
   }
-  
+
   @keyframes cs-pop-out {
-    0%   { transform: scale(1); }
-    100% { transform: scale(1.04); }
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.04);
+    }
   }
 
   .cs-glow-card:hover {
     animation: cs-pop-out 260ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    box-shadow: 0 18px 42px rgba(15,23,42,0.25);
+    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.25);
   }
-      
+
   /* Apply this class to the 3 Case Study cards */
   .cs-glow-card {
     position: relative;
     transform: translateZ(0);
   }
-  
+
   /* Constant animated glowing outline */
   .cs-glow-card::before {
     content: "";
@@ -1137,19 +1276,17 @@
     inset: -2px;
     border-radius: var(--radius-3xl);
     padding: 2px;
-  
-    background: conic-gradient(
-      from 0deg,
-      rgba(44,95,141,0.00) 0deg,
-      rgba(44,95,141,0.00) 300deg,
-      rgba(201,169,97,1) 330deg,
-      rgba(44,95,141,0.00) 360deg
-    );
-  
-    
+
+    background: conic-gradient(from 0deg,
+        rgba(44, 95, 141, 0.00) 0deg,
+        rgba(44, 95, 141, 0.00) 300deg,
+        rgba(201, 169, 97, 1) 330deg,
+        rgba(44, 95, 141, 0.00) 360deg);
+
+
     animation: cs-glow-rotate 2.6s linear infinite;
     opacity: 0.85;
-  
+
     /* Mask so only the border shows */
     -webkit-mask:
       linear-gradient(#000 0 0) content-box,
@@ -1159,41 +1296,40 @@
       linear-gradient(#000 0 0) content-box,
       linear-gradient(#000 0 0);
     mask-composite: exclude;
-  
+
     pointer-events: none;
   }
-  
+
   /* Subtle internal sheen */
   .cs-glow-card::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: calc(var(--radius-3xl) - 2px);
-    background: radial-gradient(
-      500px 260px at 30% 15%,
-      rgba(255,255,255,0.18),
-      transparent 60%
-    );
+    background: radial-gradient(500px 260px at 30% 15%,
+        rgba(255, 255, 255, 0.18),
+        transparent 60%);
     opacity: 0.55;
     transition: opacity 250ms ease;
     pointer-events: none;
   }
-  
-  
+
+
   .cs-glow-card:hover::before {
     opacity: 1;
     animation-duration: 2.0s;
   }
-  
+
   .cs-glow-card:hover::after {
     opacity: 0.8;
   }
-  
+
   /* Respect reduced motion */
   @media (prefers-reduced-motion: reduce) {
     .cs-glow-card::before {
       animation: none;
     }
+
     .cs-glow-card:hover {
       animation: none;
       transform: none;
@@ -1201,473 +1337,494 @@
   }
 
   @keyframes cs-orbit {
-    0%   { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
   }
-  
+
   .cs-glow-card {
     position: relative;
   }
-  
-  .cs-outline-tracer{
-    position:absolute;
-    inset:0;
-    pointer-events:none;
-    z-index:50;
+
+  .cs-outline-tracer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
   }
-  
-  .cs-outline-svg{
-    width:100%;
-    height:100%;
-    display:block;
+
+  .cs-outline-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
   }
-  
+
   /* ONE segment tracing the rounded rectangle */
-  .cs-outline-rect{
+  .cs-outline-rect {
     /* Draw very close to the edge */
     x: 1px;
     y: 1px;
     width: calc(100% - 2px);
     height: calc(100% - 2px);
-  
+
     /* Match your Tailwind rounded-2xl (16px). If yours is different, change this once. */
     rx: 16px;
     ry: 16px;
-  
-    fill:none;
+
+    fill: none;
     stroke: url(#beamGradient);
     stroke-width: 3px;
     stroke-linecap: round;
-  
+
     /* Single moving dash */
-    stroke-dasharray: 50 1950; /* total = 2000 */
+    stroke-dasharray: 50 1950;
+    /* total = 2000 */
 
     animation: cs-trace 2.6s linear infinite;
-    
-  
-    filter: drop-shadow(0 0 8px rgba(201,169,97,0.7));
+
+
+    filter: drop-shadow(0 0 8px rgba(201, 169, 97, 0.7));
 
   }
-  
+
   @keyframes cs-trace {
-    from { stroke-dashoffset: 0; }
-    to   { stroke-dashoffset: -2000; }
+    from {
+      stroke-dashoffset: 0;
+    }
+
+    to {
+      stroke-dashoffset: -2000;
+    }
   }
-  
+
 
   /* =========================
    Shared Insights Article UI
    (Use for ALL articles)
    ========================= */
 
-.cs-article {
-  max-width: 980px;
-  margin: 4rem auto;
-}
-
-/* Back button sits on dark page background */
-.cs-back-wrapper {
-  max-width: 980px;
-  margin: 0 auto 0.9rem;
-  padding: 0 0.25rem;
-}
-
-.cs-back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-
-  font-size: 0.95rem;
-  font-weight: 650;
-  text-decoration: none;
-
-  color: rgba(255, 255, 255, 0.88);
-  background: rgba(15, 23, 42, 0.38);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-
-  padding: 0.55rem 0.85rem;
-  border-radius: 999px;
-
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-}
-
-.cs-back-link:hover {
-  transform: translateY(-1px);
-  background: rgba(15, 23, 42, 0.52);
-  border-color: rgba(255, 255, 255, 0.24);
-}
-
-/* Hero */
-.cs-hero {
-  background: linear-gradient(135deg, #0b2545, #133b5c);
-  color: #ffffff;
-  padding: 3.25rem 3rem;
-  border-radius: 18px 18px 0 0;
-}
-
-.cs-hero-inner {
-  max-width: 760px;
-}
-
-.cs-title {
-  font-size: 2.75rem;
-  line-height: 1.1;
-  margin: 0 0 0.75rem;
-  font-weight: 760;
-}
-
-.cs-subtitle {
-  font-size: 1.35rem;
-  line-height: 1.35;
-  margin: 0 0 1.75rem;
-  opacity: 0.9;
-  font-weight: 520;
-}
-
-.cs-meta {
-  display: flex;
-  gap: 0.75rem;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-/* White surface */
-.cs-surface {
-  background: #ffffff;
-  border-radius: 0 0 18px 18px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
-}
-
-.cs-body {
-  padding: 3rem;
-  color: #1f2933;
-  line-height: 1.75;
-  font-size: 1.05rem;
-}
-
-/* Consistent “document” typography */
-.cs-body p {
-  margin: 0 0 1.15rem;
-}
-
-.cs-body a {
-  color: #0b2545;
-  font-weight: 650;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.cs-body a:hover {
-  opacity: 0.9;
-}
-
-.cs-body strong {
-  color: #0b2545;
-  font-weight: 750;
-}
-
-/* Headings */
-.cs-h2 {
-  font-size: 1.9rem;
-  line-height: 1.25;
-  color: #0b2545;
-  margin: 2.5rem 0 1.15rem;
-}
-
-.cs-h3 {
-  font-size: 1.2rem;
-  line-height: 1.4;
-  color: #133b5c;
-  margin: 2rem 0 0.75rem;
-}
-
-.cs-lead {
-  font-size: 1.15rem;
-}
-
-/* Lists (future-proofing for other articles) */
-.cs-body ul,
-.cs-body ol {
-  margin: 0 0 1.25rem 1.2rem;
-  padding: 0;
-}
-
-.cs-body li {
-  margin: 0.45rem 0;
-}
-
-/* Exhibits */
-.cs-exhibit {
-  margin: 3rem 0;
-}
-
-.cs-exhibit-title {
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: #6b7280;
-  margin: 0 0 0.75rem;
-}
-
-.cs-exhibit-frame {
-  height: 360px;
-  border-radius: 14px;
-  border: 1px solid #e5e7eb;
-  background: #f8fafc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.cs-exhibit-placeholder-text {
-  color: #9ca3af;
-  font-size: 0.95rem;
-}
-
-/* Divider + footer */
-.cs-divider {
-  text-align: center;
-  letter-spacing: 0.2em;
-  margin: 2.5rem 0;
-}
-
-.cs-copyright {
-  font-size: 0.85rem;
-  color: #6b7280;
-  margin-top: 2rem;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .cs-hero {
-    padding: 2.5rem 1.5rem 2.25rem;
+  .cs-article {
+    max-width: 980px;
+    margin: 4rem auto;
   }
 
-  .cs-body {
-    padding: 2.1rem 1.5rem 2.5rem;
+  /* Back button sits on dark page background */
+  .cs-back-wrapper {
+    max-width: 980px;
+    margin: 0 auto 0.9rem;
+    padding: 0 0.25rem;
+  }
+
+  .cs-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+
+    font-size: 0.95rem;
+    font-weight: 650;
+    text-decoration: none;
+
+    color: rgba(255, 255, 255, 0.88);
+    background: rgba(15, 23, 42, 0.38);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+
+    padding: 0.55rem 0.85rem;
+    border-radius: 999px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+  }
+
+  .cs-back-link:hover {
+    transform: translateY(-1px);
+    background: rgba(15, 23, 42, 0.52);
+    border-color: rgba(255, 255, 255, 0.24);
+  }
+
+  /* Hero */
+  .cs-hero {
+    background: linear-gradient(135deg, #0b2545, #133b5c);
+    color: #ffffff;
+    padding: 3.25rem 3rem;
+    border-radius: 18px 18px 0 0;
+  }
+
+  .cs-hero-inner {
+    max-width: 760px;
   }
 
   .cs-title {
-    font-size: 2.15rem;
+    font-size: 2.75rem;
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+    font-weight: 760;
   }
 
   .cs-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
+    line-height: 1.35;
+    margin: 0 0 1.75rem;
+    opacity: 0.9;
+    font-weight: 520;
   }
-}
 
-.cs-body ul {
-  margin-top: 0.5rem;
-}
+  .cs-meta {
+    display: flex;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    opacity: 0.85;
+    color: #ffffff;
+  }
 
-/* Footer CTA: disable giant hover aura/glow from .btn-secondary */
-footer .btn-secondary {
-  /* keep sizing stable */
-  box-sizing: border-box;
-  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
-              box-shadow 200ms ease, transform 200ms ease;
-}
+  .cs-meta strong {
+    color: #ffffff;
+  }
 
-footer .btn-secondary:hover {
-  /* override any huge glow */
-  filter: none !important;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20) !important;
-  transform: translateY(-1px) !important;
-}
+  /* White surface */
+  .cs-surface {
+    background: #ffffff;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
+  }
 
-/* If .btn-secondary uses a pseudo-element glow, kill it in footer only */
-footer .btn-secondary::before,
-footer .btn-secondary::after {
-  content: none !important;
-  display: none !important;
-}
+  .cs-body {
+    padding: 3rem;
+    color: #1f2933;
+    line-height: 1.75;
+    font-size: 1.05rem;
+  }
+
+  /* Consistent “document” typography */
+  .cs-body p {
+    margin: 0 0 1.15rem;
+  }
+
+  .cs-body a {
+    color: #0b2545;
+    font-weight: 650;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .cs-body a:hover {
+    opacity: 0.9;
+  }
+
+  .cs-body strong {
+    color: #0b2545;
+    font-weight: 750;
+  }
+
+  /* Headings */
+  .cs-h2 {
+    font-size: 1.9rem;
+    line-height: 1.25;
+    color: #0b2545;
+    margin: 2.5rem 0 1.15rem;
+  }
+
+  .cs-h3 {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #133b5c;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .cs-lead {
+    font-size: 1.15rem;
+  }
+
+  /* Lists (future-proofing for other articles) */
+  .cs-body ul,
+  .cs-body ol {
+    margin: 0 0 1.25rem 1.2rem;
+    padding: 0;
+  }
+
+  .cs-body li {
+    margin: 0.45rem 0;
+  }
+
+  /* Exhibits */
+  .cs-exhibit {
+    margin: 3rem 0;
+  }
+
+  .cs-exhibit-title {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin: 0 0 0.75rem;
+  }
+
+  .cs-exhibit-frame {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .cs-exhibit-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .cs-exhibit-placeholder-text {
+    color: #9ca3af;
+    font-size: 0.95rem;
+  }
+
+  /* Divider + footer */
+  .cs-divider {
+    text-align: center;
+    letter-spacing: 0.2em;
+    margin: 2.5rem 0;
+  }
+
+  .cs-copyright {
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-top: 2rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .cs-hero {
+      padding: 2.5rem 1.5rem 2.25rem;
+    }
+
+    .cs-body {
+      padding: 2.1rem 1.5rem 2.5rem;
+    }
+
+    .cs-title {
+      font-size: 2.15rem;
+    }
+
+    .cs-subtitle {
+      font-size: 1.2rem;
+    }
+  }
+
+  .cs-body ul {
+    margin-top: 0.5rem;
+  }
+
+  /* Footer CTA: disable giant hover aura/glow from .btn-secondary */
+  footer .btn-secondary {
+    /* keep sizing stable */
+    box-sizing: border-box;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
+      box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  footer .btn-secondary:hover {
+    /* override any huge glow */
+    filter: none !important;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* If .btn-secondary uses a pseudo-element glow, kill it in footer only */
+  footer .btn-secondary::before,
+  footer .btn-secondary::after {
+    content: none !important;
+    display: none !important;
+  }
 
   /* =========================
    Contact Page – Premium CTA
    Use on the "Email Katie" / primary contact button
    ========================= */
 
-/* Contact page primary CTA (premium + stable) */
-.cs-contact-cta{
-  display:inline-flex !important;
-  align-items:center;
-  justify-content:center;
-  gap:.6rem;
+  /* Contact page primary CTA (premium + stable) */
+  .cs-contact-cta {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: .6rem;
 
-  min-height:52px;
-  padding: 0.95rem 1.65rem !important;
+    min-height: 52px;
+    padding: 0.95rem 1.65rem !important;
 
-  border-radius:999px !important;
-  box-sizing:border-box;
+    border-radius: 999px !important;
+    box-sizing: border-box;
 
-  font-weight:750;
-  letter-spacing:-0.01em;
+    font-weight: 750;
+    letter-spacing: -0.01em;
 
-  color:#fff !important;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%) !important;
-  border: 1px solid rgba(255,255,255,0.22) !important;
+    color: #fff !important;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.22) !important;
 
-  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.28);
-  text-decoration:none !important;
-  white-space:nowrap;
+    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.28);
+    text-decoration: none !important;
+    white-space: nowrap;
 
-  position:relative;
-  overflow:hidden;
-  transform: translateZ(0);
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
 
-  transition: transform 180ms ease, box-shadow 220ms ease, filter 220ms ease, border-color 220ms ease;
-}
-
-/* sheen sweep */
-.cs-contact-cta::before{
-  content:"";
-  position:absolute;
-  inset:-45%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255,255,255,0.18) 45%,
-    rgba(255,255,255,0.32) 50%,
-    rgba(255,255,255,0.18) 55%,
-    transparent 100%
-  );
-  filter: blur(16px);
-  transform: translate3d(-18%,-10%,0) rotate(10deg);
-  opacity:0;
-  pointer-events:none;
-}
-
-/* subtle rotating glow ring (reuses your existing keyframes) */
-.cs-contact-cta::after{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:999px;
-  padding:2px;
-  background: conic-gradient(
-    from 180deg,
-    rgba(91,143,196,0.0),
-    rgba(91,143,196,0.55),
-    rgba(201,169,97,0.55),
-    rgba(91,143,196,0.55),
-    rgba(91,143,196,0.0)
-  );
-  opacity:0;
-  pointer-events:none;
-
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  mask-composite: exclude;
-}
-
-.cs-contact-cta:hover{
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,0.34) !important;
-  box-shadow: 0 20px 52px rgba(15, 23, 42, 0.35), 0 0 40px rgba(91,143,196,0.20);
-  filter: saturate(1.03);
-}
-
-.cs-contact-cta:hover::before{
-  opacity:0.9;
-  animation: cs-sheen-sweep 1.4s ease-in-out infinite;
-}
-
-.cs-contact-cta:hover::after{
-  opacity:0.75;
-  animation: cs-glow-rotate 2.2s linear infinite;
-}
-
-.cs-contact-cta:active{
-  transform: translateY(0);
-  filter: saturate(0.98);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cs-contact-cta:hover::before,
-  .cs-contact-cta:hover::after {
-    animation: none !important;
+    transition: transform 180ms ease, box-shadow 220ms ease, filter 220ms ease, border-color 220ms ease;
   }
-}
-/* Footer CTA: disable giant hover aura/glow from .btn-secondary */
-footer .btn-secondary {
-  /* keep sizing stable */
-  box-sizing: border-box;
-  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
-              box-shadow 200ms ease, transform 200ms ease;
-}
 
-footer .btn-secondary:hover {
-  /* override any huge glow */
-  filter: none !important;
-  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20) !important;
-  transform: translateY(-1px) !important;
-}
+  /* sheen sweep */
+  .cs-contact-cta::before {
+    content: "";
+    position: absolute;
+    inset: -45%;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.18) 45%,
+        rgba(255, 255, 255, 0.32) 50%,
+        rgba(255, 255, 255, 0.18) 55%,
+        transparent 100%);
+    filter: blur(16px);
+    transform: translate3d(-18%, -10%, 0) rotate(10deg);
+    opacity: 0;
+    pointer-events: none;
+  }
 
-/* If .btn-secondary uses a pseudo-element glow, kill it in footer only */
-footer .btn-secondary::before,
-footer .btn-secondary::after {
-  content: none !important;
-  display: none !important;
-}
-/* =========================
+  /* subtle rotating glow ring (reuses your existing keyframes) */
+  .cs-contact-cta::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 999px;
+    padding: 2px;
+    background: conic-gradient(from 180deg,
+        rgba(91, 143, 196, 0.0),
+        rgba(91, 143, 196, 0.55),
+        rgba(201, 169, 97, 0.55),
+        rgba(91, 143, 196, 0.55),
+        rgba(91, 143, 196, 0.0));
+    opacity: 0;
+    pointer-events: none;
+
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    mask-composite: exclude;
+  }
+
+  .cs-contact-cta:hover {
+    transform: translateY(-2px);
+    border-color: rgba(255, 255, 255, 0.34) !important;
+    box-shadow: 0 20px 52px rgba(15, 23, 42, 0.35), 0 0 40px rgba(91, 143, 196, 0.20);
+    filter: saturate(1.03);
+  }
+
+  .cs-contact-cta:hover::before {
+    opacity: 0.9;
+    animation: cs-sheen-sweep 1.4s ease-in-out infinite;
+  }
+
+  .cs-contact-cta:hover::after {
+    opacity: 0.75;
+    animation: cs-glow-rotate 2.2s linear infinite;
+  }
+
+  .cs-contact-cta:active {
+    transform: translateY(0);
+    filter: saturate(0.98);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .cs-contact-cta:hover::before,
+    .cs-contact-cta:hover::after {
+      animation: none !important;
+    }
+  }
+
+  /* Footer CTA: disable giant hover aura/glow from .btn-secondary */
+  footer .btn-secondary {
+    /* keep sizing stable */
+    box-sizing: border-box;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
+      box-shadow 200ms ease, transform 200ms ease;
+  }
+
+  footer .btn-secondary:hover {
+    /* override any huge glow */
+    filter: none !important;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* If .btn-secondary uses a pseudo-element glow, kill it in footer only */
+  footer .btn-secondary::before,
+  footer .btn-secondary::after {
+    content: none !important;
+    display: none !important;
+  }
+
+  /* =========================
    Services Page (scoped)
    ========================= */
 
-   .cs-services-page .cs-services-titlebox{
+  .cs-services-page .cs-services-titlebox {
     position: relative;
     overflow: hidden;
     border-radius: 24px;
     padding: clamp(22px, 4vw, 40px);
     background:
-      radial-gradient(900px 420px at 20% 10%, rgba(201,169,97,0.22), transparent 60%),
-      radial-gradient(900px 420px at 85% 30%, rgba(91,143,196,0.30), transparent 55%),
-      linear-gradient(135deg, rgba(26,58,92,0.96), rgba(10,20,35,0.96));
-    border: 1px solid rgba(255,255,255,0.12);
-    box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+      radial-gradient(900px 420px at 20% 10%, rgba(201, 169, 97, 0.22), transparent 60%),
+      radial-gradient(900px 420px at 85% 30%, rgba(91, 143, 196, 0.30), transparent 55%),
+      linear-gradient(135deg, rgba(26, 58, 92, 0.96), rgba(10, 20, 35, 0.96));
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
   }
-  
-  .cs-services-page .cs-services-kicker{
+
+  .cs-services-page .cs-services-kicker {
     display: inline-flex;
     align-items: center;
     gap: 10px;
     padding: 8px 12px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.10);
-    color: rgba(255,255,255,0.82);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.82);
     font-weight: 700;
     font-size: 0.85rem;
   }
-  
-  .cs-services-page .cs-services-title{
+
+  .cs-services-page .cs-services-title {
     margin-top: 14px;
     color: #fff;
     font-weight: 800;
     letter-spacing: -0.03em;
     font-size: clamp(2rem, 4.2vw, 3.1rem);
     line-height: 1.05;
-    text-shadow: 0 14px 40px rgba(0,0,0,0.35);
+    text-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
   }
-  .cs-services-page .cs-services-title span{
-    background: linear-gradient(90deg, rgba(201,169,97,1), rgba(91,143,196,1));
+
+  .cs-services-page .cs-services-title span {
+    background: linear-gradient(90deg, rgba(201, 169, 97, 1), rgba(91, 143, 196, 1));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
-  
-  .cs-services-page .cs-services-subtitle{
+
+  .cs-services-page .cs-services-subtitle {
     margin-top: 10px;
-    color: rgba(255,255,255,0.82);
+    color: rgba(255, 255, 255, 0.82);
     font-size: 1.1rem;
     max-width: 52ch;
   }
-  
-  .cs-services-page .cs-services-orb{
+
+  .cs-services-page .cs-services-orb {
     position: absolute;
     width: 260px;
     height: 260px;
@@ -1677,133 +1834,154 @@ footer .btn-secondary::after {
     animation: float 10s ease-in-out infinite;
     pointer-events: none;
   }
-  .cs-services-page .cs-services-orb--a{ left:-80px; top:-80px; background: rgba(201,169,97,0.55); }
-  .cs-services-page .cs-services-orb--b{ right:-90px; top:20px; background: rgba(91,143,196,0.55); animation-duration: 13s; }
-  .cs-services-page .cs-services-orb--c{ right:20px; bottom:-110px; background: rgba(74,123,167,0.45); animation-duration: 16s; }
-  
-  .cs-services-page .cs-focus-card{
+
+  .cs-services-page .cs-services-orb--a {
+    left: -80px;
+    top: -80px;
+    background: rgba(201, 169, 97, 0.55);
+  }
+
+  .cs-services-page .cs-services-orb--b {
+    right: -90px;
+    top: 20px;
+    background: rgba(91, 143, 196, 0.55);
+    animation-duration: 13s;
+  }
+
+  .cs-services-page .cs-services-orb--c {
+    right: 20px;
+    bottom: -110px;
+    background: rgba(74, 123, 167, 0.45);
+    animation-duration: 16s;
+  }
+
+  .cs-services-page .cs-focus-card {
     border-radius: 20px;
     padding: 22px;
     background: #fff;
-    border: 1px solid rgba(15,23,42,0.10);
-    box-shadow: 0 18px 50px rgba(15,23,42,0.08);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
     transition: transform 220ms ease, box-shadow 220ms ease;
   }
-  .cs-services-page .cs-focus-card:hover{
+
+  .cs-services-page .cs-focus-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 26px 70px rgba(15,23,42,0.12);
+    box-shadow: 0 26px 70px rgba(15, 23, 42, 0.12);
   }
-  
-  .cs-services-page .cs-focus-badge{
+
+  .cs-services-page .cs-focus-badge {
     display: inline-flex;
     padding: 6px 10px;
     border-radius: 999px;
     font-size: 0.8rem;
     font-weight: 800;
     color: var(--color-primary-dark);
-    background: rgba(44,95,141,0.10);
-    border: 1px solid rgba(44,95,141,0.16);
+    background: rgba(44, 95, 141, 0.10);
+    border: 1px solid rgba(44, 95, 141, 0.16);
   }
-  
-  .cs-services-page .cs-focus-title{
+
+  .cs-services-page .cs-focus-title {
     margin-top: 10px;
     font-size: 1.35rem;
     font-weight: 900;
     color: #0f172a;
     letter-spacing: -0.02em;
   }
-  .cs-services-page .cs-focus-text{
+
+  .cs-services-page .cs-focus-text {
     margin-top: 8px;
-    color: rgba(15,23,42,0.72);
+    color: rgba(15, 23, 42, 0.72);
     font-size: 1rem;
     line-height: 1.6;
   }
-  
-  .cs-services-page .cs-services-note{
+
+  .cs-services-page .cs-services-note {
     border-radius: 16px;
     padding: 14px 16px;
-    background: rgba(44,95,141,0.06);
-    border: 1px solid rgba(44,95,141,0.12);
-    color: rgba(15,23,42,0.74);
+    background: rgba(44, 95, 141, 0.06);
+    border: 1px solid rgba(44, 95, 141, 0.12);
+    color: rgba(15, 23, 42, 0.74);
   }
-  
+
   /* Our Approach section */
-  .cs-services-page .cs-approach-wrap{
+  .cs-services-page .cs-approach-wrap {
     position: relative;
     background:
-      radial-gradient(900px 520px at 25% 10%, rgba(91,143,196,0.30), transparent 60%),
-      radial-gradient(900px 520px at 85% 25%, rgba(201,169,97,0.22), transparent 55%),
-      linear-gradient(135deg, rgba(10,20,35,0.96), rgba(26,58,92,0.96));
+      radial-gradient(900px 520px at 25% 10%, rgba(91, 143, 196, 0.30), transparent 60%),
+      radial-gradient(900px 520px at 85% 25%, rgba(201, 169, 97, 0.22), transparent 55%),
+      linear-gradient(135deg, rgba(10, 20, 35, 0.96), rgba(26, 58, 92, 0.96));
     overflow: hidden;
   }
-  
-  .cs-services-page .cs-approach-kicker{
+
+  .cs-services-page .cs-approach-kicker {
     display: inline-flex;
     padding: 7px 12px;
     border-radius: 999px;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.10);
-    color: rgba(255,255,255,0.85);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 800;
     font-size: 0.85rem;
   }
-  
-  .cs-services-page .cs-approach-title{
+
+  .cs-services-page .cs-approach-title {
     margin-top: 12px;
     color: #fff;
     font-weight: 900;
     letter-spacing: -0.03em;
     font-size: clamp(2.1rem, 4.6vw, 3.4rem);
     line-height: 1.03;
-    text-shadow: 0 20px 60px rgba(0,0,0,0.40);
+    text-shadow: 0 20px 60px rgba(0, 0, 0, 0.40);
   }
-  
-  .cs-services-page .cs-approach-underline{
+
+  .cs-services-page .cs-approach-underline {
     margin: 18px auto 0;
     height: 6px;
     width: min(220px, 56vw);
     border-radius: 999px;
-    background: linear-gradient(90deg, rgba(201,169,97,1), rgba(91,143,196,1), rgba(201,169,97,1));
+    background: linear-gradient(90deg, rgba(201, 169, 97, 1), rgba(91, 143, 196, 1), rgba(201, 169, 97, 1));
     background-size: 200% 100%;
     animation: gradient-shift 2.8s ease-in-out infinite;
-    box-shadow: 0 0 24px rgba(91,143,196,0.25);
+    box-shadow: 0 0 24px rgba(91, 143, 196, 0.25);
   }
-  
-  .cs-services-page .cs-approach-card{
+
+  .cs-services-page .cs-approach-card {
     border-radius: 22px;
     padding: 22px;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(10px);
-    box-shadow: 0 22px 70px rgba(0,0,0,0.25);
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25);
     transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
   }
-  .cs-services-page .cs-approach-card:hover{
+
+  .cs-services-page .cs-approach-card:hover {
     transform: translateY(-6px);
-    border-color: rgba(255,255,255,0.22);
-    box-shadow: 0 28px 90px rgba(0,0,0,0.30);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.30);
   }
-  
-  .cs-services-page .cs-approach-card-top{
+
+  .cs-services-page .cs-approach-card-top {
     font-weight: 900;
-    color: rgba(255,255,255,0.65);
+    color: rgba(255, 255, 255, 0.65);
     letter-spacing: 0.12em;
     margin-bottom: 8px;
   }
-  
-  .cs-services-page .cs-approach-card-title{
+
+  .cs-services-page .cs-approach-card-title {
     color: #fff;
     font-weight: 900;
     letter-spacing: -0.02em;
     font-size: 1.25rem;
   }
-  .cs-services-page .cs-approach-card-text{
+
+  .cs-services-page .cs-approach-card-text {
     margin-top: 8px;
-    color: rgba(255,255,255,0.78);
+    color: rgba(255, 255, 255, 0.78);
     line-height: 1.6;
   }
-  
-  .cs-services-page .cs-approach-shape{
+
+  .cs-services-page .cs-approach-shape {
     position: absolute;
     border-radius: 999px;
     filter: blur(26px);
@@ -1811,33 +1989,42 @@ footer .btn-secondary::after {
     animation: float 12s ease-in-out infinite;
     pointer-events: none;
   }
-  .cs-services-page .cs-approach-shape--a{
-    width: 220px; height: 220px;
-    left: -90px; top: 80px;
-    background: rgba(91,143,196,0.55);
+
+  .cs-services-page .cs-approach-shape--a {
+    width: 220px;
+    height: 220px;
+    left: -90px;
+    top: 80px;
+    background: rgba(91, 143, 196, 0.55);
   }
-  .cs-services-page .cs-approach-shape--b{
-    width: 280px; height: 280px;
-    right: -120px; top: 140px;
-    background: rgba(201,169,97,0.45);
+
+  .cs-services-page .cs-approach-shape--b {
+    width: 280px;
+    height: 280px;
+    right: -120px;
+    top: 140px;
+    background: rgba(201, 169, 97, 0.45);
     animation-duration: 15s;
   }
-  .cs-services-page .cs-approach-shape--c{
-    width: 240px; height: 240px;
-    left: 22%; bottom: -120px;
-    background: rgba(74,123,167,0.50);
+
+  .cs-services-page .cs-approach-shape--c {
+    width: 240px;
+    height: 240px;
+    left: 22%;
+    bottom: -120px;
+    background: rgba(74, 123, 167, 0.50);
     animation-duration: 18s;
   }
-  
-  .cs-services-page .cs-approach-marquee{
+
+  .cs-services-page .cs-approach-marquee {
     margin-top: 34px;
-    border-top: 1px solid rgba(255,255,255,0.12);
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.04);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
     overflow: hidden;
   }
-  
-  .cs-services-page .cs-approach-marquee__track{
+
+  .cs-services-page .cs-approach-marquee__track {
     display: flex;
     gap: 28px;
     padding: 14px 0;
@@ -1845,632 +2032,678 @@ footer .btn-secondary::after {
     animation: cs-services-marquee 18s linear infinite;
     will-change: transform;
   }
-  .cs-services-page .cs-approach-marquee__track span{
-    color: rgba(255,255,255,0.70);
+
+  .cs-services-page .cs-approach-marquee__track span {
+    color: rgba(255, 255, 255, 0.70);
     font-weight: 800;
     letter-spacing: 0.02em;
     text-transform: uppercase;
     font-size: 0.85rem;
   }
-  
-  @keyframes cs-services-marquee{
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+
+  @keyframes cs-services-marquee {
+    0% {
+      transform: translateX(0);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
   }
-  
+
   @media (prefers-reduced-motion: reduce) {
+
     .cs-services-page .cs-approach-marquee__track,
     .cs-services-page .cs-services-orb,
     .cs-services-page .cs-approach-shape,
-    .cs-services-page .cs-approach-underline{
+    .cs-services-page .cs-approach-underline {
       animation: none !important;
     }
   }
+
   /* Services page – service navigation pills */
-.cs-services-page .cs-service-pill{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 14px 18px;
-  border-radius: 999px;
-  font-weight: 800;
-  letter-spacing: -0.01em;
-  color: #fff;
-  text-decoration: none;
+  .cs-services-page .cs-service-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: #fff;
+    text-decoration: none;
 
-  background:
-    linear-gradient(135deg,
-      rgba(255,255,255,0.18),
-      rgba(255,255,255,0.06)
-    );
-  border: 1px solid rgba(255,255,255,0.22);
-  backdrop-filter: blur(10px);
+    background:
+      linear-gradient(135deg,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.06));
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    backdrop-filter: blur(10px);
 
-  box-shadow: 0 10px 34px rgba(0,0,0,0.25);
-  transition:
-    transform 200ms ease,
-    box-shadow 200ms ease,
-    background 200ms ease,
-    border-color 200ms ease;
-}
-
-.cs-services-page .cs-service-pill:hover{
-  transform: translateY(-3px);
-  border-color: rgba(255,255,255,0.35);
-  background:
-    linear-gradient(135deg,
-      rgba(201,169,97,0.35),
-      rgba(91,143,196,0.35)
-    );
-  box-shadow: 0 18px 55px rgba(0,0,0,0.35);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cs-services-page .cs-service-pill:hover{
-    transform: none;
+    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.25);
+    transition:
+      transform 200ms ease,
+      box-shadow 200ms ease,
+      background 200ms ease,
+      border-color 200ms ease;
   }
-}
-/* =========================
+
+  .cs-services-page .cs-service-pill:hover {
+    transform: translateY(-3px);
+    border-color: rgba(255, 255, 255, 0.35);
+    background:
+      linear-gradient(135deg,
+        rgba(201, 169, 97, 0.35),
+        rgba(91, 143, 196, 0.35));
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cs-services-page .cs-service-pill:hover {
+      transform: none;
+    }
+  }
+
+  /* =========================
    Services Integration Layer
    ========================= */
 
-   .cs-services-page .cs-services-stage{
+  .cs-services-page .cs-services-stage {
     position: relative;
     padding: 64px 0 22px;
     background:
-      radial-gradient(900px 500px at 15% 0%, rgba(91,143,196,0.16), transparent 62%),
-      radial-gradient(900px 500px at 85% 15%, rgba(201,169,97,0.12), transparent 55%),
-      linear-gradient(180deg, rgba(255,255,255,0.0), rgba(255,255,255,1) 42%);
+      radial-gradient(900px 500px at 15% 0%, rgba(91, 143, 196, 0.16), transparent 62%),
+      radial-gradient(900px 500px at 85% 15%, rgba(201, 169, 97, 0.12), transparent 55%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 1) 42%);
   }
-  
+
   /* Make title box feel like it belongs to the same system as “Our Approach” */
-  .cs-services-page .cs-services-titlebox{
+  .cs-services-page .cs-services-titlebox {
     margin: 0 auto;
     max-width: 980px;
   }
-  
+
   /* New: Navigation band that visually connects title -> approach */
-  .cs-services-page .cs-services-navband{
+  .cs-services-page .cs-services-navband {
     max-width: 980px;
     margin: 18px auto 0;
     position: relative;
   }
-  
-  .cs-services-page .cs-services-navband__inner{
+
+  .cs-services-page .cs-services-navband__inner {
     border-radius: 22px;
     padding: 18px;
     background:
-      linear-gradient(135deg, rgba(255,255,255,0.92), rgba(255,255,255,0.80));
-    border: 1px solid rgba(15,23,42,0.10);
-    box-shadow: 0 16px 60px rgba(15,23,42,0.10);
+      linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.80));
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow: 0 16px 60px rgba(15, 23, 42, 0.10);
     backdrop-filter: blur(10px);
   }
-  
-  .cs-services-page .cs-services-navband__label{
+
+  .cs-services-page .cs-services-navband__label {
     font-weight: 900;
     letter-spacing: -0.01em;
-    color: rgba(15,23,42,0.78);
+    color: rgba(15, 23, 42, 0.78);
     font-size: 0.95rem;
     margin-bottom: 12px;
   }
-  
+
   /* Grid for the 3 buttons */
-  .cs-services-page .cs-services-navgrid{
+  .cs-services-page .cs-services-navgrid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 12px;
   }
-  
-  @media (min-width: 640px){
-    .cs-services-page .cs-services-navgrid{
+
+  @media (min-width: 640px) {
+    .cs-services-page .cs-services-navgrid {
       grid-template-columns: repeat(3, 1fr);
     }
   }
-  
+
   /* Harmonize pills: same palette as title highlight + approach underline */
-  .cs-services-page .cs-service-pill{
+  .cs-services-page .cs-service-pill {
     min-height: 54px;
     border-radius: 999px;
     font-weight: 900;
     letter-spacing: -0.01em;
-  
-    color: rgba(15,23,42,0.86);
+
+    color: rgba(15, 23, 42, 0.86);
     background:
-      radial-gradient(120px 80px at 20% 20%, rgba(201,169,97,0.22), transparent 65%),
-      radial-gradient(140px 90px at 80% 30%, rgba(91,143,196,0.18), transparent 70%),
-      linear-gradient(135deg, rgba(15,23,42,0.04), rgba(15,23,42,0.02));
-  
-    border: 1px solid rgba(15,23,42,0.10);
-    box-shadow: 0 10px 30px rgba(15,23,42,0.08);
+      radial-gradient(120px 80px at 20% 20%, rgba(201, 169, 97, 0.22), transparent 65%),
+      radial-gradient(140px 90px at 80% 30%, rgba(91, 143, 196, 0.18), transparent 70%),
+      linear-gradient(135deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.02));
+
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
     transition: transform 180ms ease, box-shadow 200ms ease, border-color 200ms ease, color 200ms ease;
   }
-  
-  .cs-services-page .cs-service-pill:hover{
+
+  .cs-services-page .cs-service-pill:hover {
     transform: translateY(-3px);
-    border-color: rgba(91,143,196,0.28);
-    box-shadow: 0 18px 48px rgba(15,23,42,0.12);
-    color: rgba(11,46,87,1);
+    border-color: rgba(91, 143, 196, 0.28);
+    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
+    color: rgba(11, 46, 87, 1);
   }
-  
+
   /* Add subtle differentiation to approach cards (ties into button color cues) */
-  .cs-services-page .cs-approach-card--a{
-    box-shadow: 0 22px 70px rgba(0,0,0,0.25), 0 0 0 1px rgba(201,169,97,0.06);
+  .cs-services-page .cs-approach-card--a {
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(201, 169, 97, 0.06);
   }
-  .cs-services-page .cs-approach-card--b{
-    box-shadow: 0 22px 70px rgba(0,0,0,0.25), 0 0 0 1px rgba(91,143,196,0.07);
+
+  .cs-services-page .cs-approach-card--b {
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(91, 143, 196, 0.07);
   }
-  .cs-services-page .cs-approach-card--c{
-    box-shadow: 0 22px 70px rgba(0,0,0,0.25), 0 0 0 1px rgba(74,123,167,0.07);
+
+  .cs-services-page .cs-approach-card--c {
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(74, 123, 167, 0.07);
   }
-  
-  @media (prefers-reduced-motion: reduce){
-    .cs-services-page .cs-service-pill:hover{ transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cs-services-page .cs-service-pill:hover {
+      transform: none;
+    }
   }
+
   /* =========================
    Services: continuous canvas
    ========================= */
 
-/* One long background for title + buttons + approach */
-.cs-services-page .cs-services-stage{
-  position: relative;
-  padding: 64px 0 0;
-  background:
-    radial-gradient(1100px 680px at 18% 0%, rgba(91,143,196,0.22), transparent 60%),
-    radial-gradient(1000px 640px at 86% 12%, rgba(201,169,97,0.18), transparent 58%),
-    radial-gradient(900px 700px at 55% 70%, rgba(74,123,167,0.16), transparent 62%),
-    linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,248,252,1) 35%, rgba(10,20,35,0.92) 100%);
-  overflow: hidden;
-}
-
-/* Keep titlebox as the “hero card” on top of the canvas */
-.cs-services-page .cs-services-titlebox{
-  margin: 0 auto;
-  max-width: 980px;
-}
-
-/* Nav band stays light so it reads as controls */
-.cs-services-page .cs-services-navband{
-  max-width: 980px;
-  margin: 18px auto 0;
-}
-.cs-services-page .cs-services-navband__inner{
-  border-radius: 22px;
-  padding: 18px;
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(15,23,42,0.10);
-  box-shadow: 0 16px 60px rgba(15,23,42,0.10);
-  backdrop-filter: blur(10px);
-}
-.cs-services-page .cs-services-navband__label{
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  color: rgba(15,23,42,0.75);
-  font-size: 0.95rem;
-  margin-bottom: 12px;
-}
-.cs-services-page .cs-services-navgrid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-@media (min-width: 640px){
-  .cs-services-page .cs-services-navgrid{
-    grid-template-columns: repeat(3, 1fr);
+  /* One long background for title + buttons + approach */
+  .cs-services-page .cs-services-stage {
+    position: relative;
+    padding: 64px 0 0;
+    background:
+      radial-gradient(1100px 680px at 18% 0%, rgba(91, 143, 196, 0.22), transparent 60%),
+      radial-gradient(1000px 640px at 86% 12%, rgba(201, 169, 97, 0.18), transparent 58%),
+      radial-gradient(900px 700px at 55% 70%, rgba(74, 123, 167, 0.16), transparent 62%),
+      linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 248, 252, 1) 35%, rgba(10, 20, 35, 0.92) 100%);
+    overflow: hidden;
   }
-}
 
-/* =========================
+  /* Keep titlebox as the “hero card” on top of the canvas */
+  .cs-services-page .cs-services-titlebox {
+    margin: 0 auto;
+    max-width: 980px;
+  }
+
+  /* Nav band stays light so it reads as controls */
+  .cs-services-page .cs-services-navband {
+    max-width: 980px;
+    margin: 18px auto 0;
+  }
+
+  .cs-services-page .cs-services-navband__inner {
+    border-radius: 22px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow: 0 16px 60px rgba(15, 23, 42, 0.10);
+    backdrop-filter: blur(10px);
+  }
+
+  .cs-services-page .cs-services-navband__label {
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: rgba(15, 23, 42, 0.75);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .cs-services-page .cs-services-navgrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 640px) {
+    .cs-services-page .cs-services-navgrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* =========================
    Make the 3 items OBVIOUSLY buttons
    ========================= */
-.cs-services-page .cs-service-btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  min-height: 56px;
-  padding: 14px 18px;
+  .cs-services-page .cs-service-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 56px;
+    padding: 14px 18px;
 
-  border-radius: 16px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
+    border-radius: 16px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
 
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
 
-  background:
-    linear-gradient(135deg, rgba(26,58,92,0.98), rgba(44,95,141,0.92));
-  border: 1px solid rgba(15,23,42,0.18);
-  box-shadow: 0 14px 40px rgba(15,23,42,0.18);
+    background:
+      linear-gradient(135deg, rgba(26, 58, 92, 0.98), rgba(44, 95, 141, 0.92));
+    border: 1px solid rgba(15, 23, 42, 0.18);
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.18);
 
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(0);
-  transition: transform 160ms ease, box-shadow 200ms ease, filter 200ms ease;
-  cursor: pointer;
-}
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    transition: transform 160ms ease, box-shadow 200ms ease, filter 200ms ease;
+    cursor: pointer;
+  }
 
-.cs-services-page .cs-service-btn__content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+  .cs-services-page .cs-service-btn__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-.cs-services-page .cs-service-btn__subtitle {
-  font-weight: 400;          /* normal weight */
-  letter-spacing: normal;   /* undo headline tracking */
-  opacity: 0.7;              /* softer presence */
-}
+  .cs-services-page .cs-service-btn__subtitle {
+    font-weight: 400;
+    /* normal weight */
+    letter-spacing: normal;
+    /* undo headline tracking */
+    opacity: 0.7;
+    /* softer presence */
+  }
 
 
-/* subtle shine so it reads “interactive” */
-.cs-services-page .cs-service-btn::before{
-  content:"";
-  position:absolute;
-  inset:-60% -40%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
-  transform: translateX(-30%) rotate(12deg);
-  opacity: 0;
-  pointer-events: none;
-}
-.cs-services-page .cs-service-btn:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 20px 58px rgba(15,23,42,0.24);
-  filter: saturate(1.05);
-}
-.cs-services-page .cs-service-btn:hover::before{
-  opacity: 0.95;
-  animation: cs-services-shine 1.2s ease-in-out infinite;
-}
-.cs-services-page .cs-service-btn:active{
-  transform: translateY(-1px);
-}
-@keyframes cs-services-shine{
-  0% { transform: translateX(-30%) rotate(12deg); }
-  100% { transform: translateX(30%) rotate(12deg); }
-}
+  /* subtle shine so it reads “interactive” */
+  .cs-services-page .cs-service-btn::before {
+    content: "";
+    position: absolute;
+    inset: -60% -40%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+    transform: translateX(-30%) rotate(12deg);
+    opacity: 0;
+    pointer-events: none;
+  }
 
-.cs-services-page .cs-service-btn__text{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-.cs-services-page .cs-service-btn__icon{
-  flex-shrink: 0;
-  width: 18px;
-  height: 18px;
-  opacity: 0.9;
-  transition: transform 180ms ease, opacity 180ms ease;
-}
-.cs-services-page .cs-service-btn:hover .cs-service-btn__icon{
-  transform: translateX(4px);
-  opacity: 1;
-}
+  .cs-services-page .cs-service-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 58px rgba(15, 23, 42, 0.24);
+    filter: saturate(1.05);
+  }
 
-/* =========================
+  .cs-services-page .cs-service-btn:hover::before {
+    opacity: 0.95;
+    animation: cs-services-shine 1.2s ease-in-out infinite;
+  }
+
+  .cs-services-page .cs-service-btn:active {
+    transform: translateY(-1px);
+  }
+
+  @keyframes cs-services-shine {
+    0% {
+      transform: translateX(-30%) rotate(12deg);
+    }
+
+    100% {
+      transform: translateX(30%) rotate(12deg);
+    }
+  }
+
+  .cs-services-page .cs-service-btn__text {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .cs-services-page .cs-service-btn__icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    opacity: 0.9;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .cs-services-page .cs-service-btn:hover .cs-service-btn__icon {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  /* =========================
    Make Approach cards NOT look clickable
    ========================= */
-.cs-services-page .cs-approach-card--static{
-  cursor: default !important;
-}
-
-/* Remove “button-like” hover lift (keep a subtle, non-interactive polish) */
-.cs-services-page .cs-approach-card--static:hover{
-  transform: none !important;
-  box-shadow: 0 22px 70px rgba(0,0,0,0.25) !important;
-  border-color: rgba(255,255,255,0.12) !important;
-}
-
-/* Approach shell uses same canvas (transparent background) */
-.cs-services-page .cs-services-approach-shell{
-  background: transparent;
-  padding-top: 56px;
-  padding-bottom: 72px;
-}
-
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce){
-  .cs-services-page .cs-service-btn:hover{
-    transform: none;
+  .cs-services-page .cs-approach-card--static {
+    cursor: default !important;
   }
-  .cs-services-page .cs-service-btn:hover::before{
-    animation: none !important;
-    opacity: 0.25;
+
+  /* Remove “button-like” hover lift (keep a subtle, non-interactive polish) */
+  .cs-services-page .cs-approach-card--static:hover {
+    transform: none !important;
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
   }
-}/* =========================================================
+
+  /* Approach shell uses same canvas (transparent background) */
+  .cs-services-page .cs-services-approach-shell {
+    background: transparent;
+    padding-top: 56px;
+    padding-bottom: 72px;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .cs-services-page .cs-service-btn:hover {
+      transform: none;
+    }
+
+    .cs-services-page .cs-service-btn:hover::before {
+      animation: none !important;
+      opacity: 0.25;
+    }
+  }
+
+  /* =========================================================
    Services: connect better to Header + Footer
    (scoped so other pages keep their current look)
    ========================================================= */
 
-.cs-services-page .cs-services-shell{
-  position: relative;
-  overflow: hidden;
+  .cs-services-page .cs-services-shell {
+    position: relative;
+    overflow: hidden;
 
-  /* ONE continuous background: light near top -> dark near bottom,
+    /* ONE continuous background: light near top -> dark near bottom,
      so it visually hands off to your footer’s dark gradient */
-  background:
-    radial-gradient(1100px 680px at 18% 0%, rgba(91,143,196,0.20), transparent 60%),
-    radial-gradient(1000px 640px at 86% 12%, rgba(201,169,97,0.16), transparent 58%),
-    radial-gradient(900px 700px at 55% 70%, rgba(74,123,167,0.14), transparent 62%),
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,1) 0%,
-      rgba(245,248,252,1) 32%,
-      rgba(14,24,38,0.96) 100%
-    );
-}
+    background:
+      radial-gradient(1100px 680px at 18% 0%, rgba(91, 143, 196, 0.20), transparent 60%),
+      radial-gradient(1000px 640px at 86% 12%, rgba(201, 169, 97, 0.16), transparent 58%),
+      radial-gradient(900px 700px at 55% 70%, rgba(74, 123, 167, 0.14), transparent 62%),
+      linear-gradient(180deg,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(245, 248, 252, 1) 32%,
+        rgba(14, 24, 38, 0.96) 100%);
+  }
 
-/* This makes the stage feel attached to the hero instead of “starting later” */
-.cs-services-page .cs-services-stage{
-  background: transparent; /* shell owns the canvas */
-  margin-top: -18px;
-  padding-top: 32px;
-}
+  /* This makes the stage feel attached to the hero instead of “starting later” */
+  .cs-services-page .cs-services-stage {
+    background: transparent;
+    /* shell owns the canvas */
+    margin-top: -18px;
+    padding-top: 32px;
+  }
 
-/* Header connection: subtle top fade so the sticky white header feels intentional */
-.cs-services-page .cs-services-shell::before{
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  top:0;
-  height: 120px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.0));
-  pointer-events:none;
-  z-index: 1;
-}
+  /* Header connection: subtle top fade so the sticky white header feels intentional */
+  .cs-services-page .cs-services-shell::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 120px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.0));
+    pointer-events: none;
+    z-index: 1;
+  }
 
-/* Footer connection: bottom fade so the content melts into the footer gradient */
-.cs-services-page .cs-services-shell::after{
-  content:"";
-  position:absolute;
-  left:0; right:0;
-  bottom:0;
-  height: 170px;
-  background: linear-gradient(180deg, rgba(14,24,38,0.0), rgba(14,24,38,0.98));
-  pointer-events:none;
-  z-index: 1;
-}
+  /* Footer connection: bottom fade so the content melts into the footer gradient */
+  .cs-services-page .cs-services-shell::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 170px;
+    background: linear-gradient(180deg, rgba(14, 24, 38, 0.0), rgba(14, 24, 38, 0.98));
+    pointer-events: none;
+    z-index: 1;
+  }
 
-/* Keep content above the fades */
-.cs-services-page .cs-services-shell > *{
-  position: relative;
-  z-index: 2;
-}
+  /* Keep content above the fades */
+  .cs-services-page .cs-services-shell>* {
+    position: relative;
+    z-index: 2;
+  }
 
-/* =========================================================
+  /* =========================================================
    Make the 3 items VERY clearly buttons
    ========================================================= */
 
-.cs-services-page .cs-services-navband{
-  max-width: 980px;
-  margin: 18px auto 0;
-}
-
-.cs-services-page .cs-services-navband__inner{
-  border-radius: 22px;
-  padding: 18px;
-  background: rgba(255,255,255,0.82);
-  border: 1px solid rgba(15,23,42,0.10);
-  box-shadow: 0 16px 60px rgba(15,23,42,0.10);
-  backdrop-filter: blur(10px);
-}
-
-.cs-services-page .cs-services-navband__label{
-  font-weight: 900;
-  letter-spacing: -0.01em;
-  color: rgba(15,23,42,0.72);
-  font-size: 0.95rem;
-  margin-bottom: 12px;
-}
-
-.cs-services-page .cs-services-navgrid{
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
-}
-@media (min-width: 640px){
-  .cs-services-page .cs-services-navgrid{
-    grid-template-columns: repeat(3, 1fr);
+  .cs-services-page .cs-services-navband {
+    max-width: 980px;
+    margin: 18px auto 0;
   }
-}
 
-.cs-services-page .cs-service-btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+  .cs-services-page .cs-services-navband__inner {
+    border-radius: 22px;
+    padding: 18px;
+    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(15, 23, 42, 0.10);
+    box-shadow: 0 16px 60px rgba(15, 23, 42, 0.10);
+    backdrop-filter: blur(10px);
+  }
 
-  min-height: 58px;
-  padding: 14px 18px;
+  .cs-services-page .cs-services-navband__label {
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: rgba(15, 23, 42, 0.72);
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
 
-  border-radius: 16px;
-  font-weight: 900;
-  letter-spacing: -0.01em;
+  .cs-services-page .cs-services-navgrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
 
-  color: #fff;
-  text-decoration: none;
+  @media (min-width: 640px) {
+    .cs-services-page .cs-services-navgrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 
-  /* strong “button” fill */
-  background:
-    radial-gradient(220px 120px at 20% 20%, rgba(201,169,97,0.35), transparent 60%),
-    radial-gradient(260px 140px at 80% 30%, rgba(91,143,196,0.30), transparent 62%),
-    linear-gradient(135deg, rgba(26,58,92,0.98), rgba(44,95,141,0.92));
-  border: 1px solid rgba(255,255,255,0.18);
-  box-shadow: 0 14px 44px rgba(15,23,42,0.22);
+  .cs-services-page .cs-service-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
 
-  position: relative;
-  overflow: hidden;
-  transform: translateZ(0);
-  transition: transform 160ms ease, box-shadow 200ms ease, filter 200ms ease;
-  cursor: pointer;
-}
+    min-height: 58px;
+    padding: 14px 18px;
 
-/* shine sweep = “interactive” cue */
-.cs-services-page .cs-service-btn::before{
-  content:"";
-  position:absolute;
-  inset:-60% -40%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
-  transform: translateX(-30%) rotate(12deg);
-  opacity: 0;
-  pointer-events: none;
-}
+    border-radius: 16px;
+    font-weight: 900;
+    letter-spacing: -0.01em;
 
-.cs-services-page .cs-service-btn:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 22px 62px rgba(15,23,42,0.28);
-  filter: saturate(1.06);
-}
+    color: #fff;
+    text-decoration: none;
 
-.cs-services-page .cs-service-btn:hover::before{
-  opacity: 1;
-  animation: cs-services-shine 1.15s ease-in-out infinite;
-}
+    /* strong “button” fill */
+    background:
+      radial-gradient(220px 120px at 20% 20%, rgba(201, 169, 97, 0.35), transparent 60%),
+      radial-gradient(260px 140px at 80% 30%, rgba(91, 143, 196, 0.30), transparent 62%),
+      linear-gradient(135deg, rgba(26, 58, 92, 0.98), rgba(44, 95, 141, 0.92));
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 14px 44px rgba(15, 23, 42, 0.22);
 
-.cs-services-page .cs-service-btn:active{
-  transform: translateY(-1px);
-}
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0);
+    transition: transform 160ms ease, box-shadow 200ms ease, filter 200ms ease;
+    cursor: pointer;
+  }
 
-@keyframes cs-services-shine{
-  0% { transform: translateX(-30%) rotate(12deg); }
-  100% { transform: translateX(30%) rotate(12deg); }
-}
+  /* shine sweep = “interactive” cue */
+  .cs-services-page .cs-service-btn::before {
+    content: "";
+    position: absolute;
+    inset: -60% -40%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+    transform: translateX(-30%) rotate(12deg);
+    opacity: 0;
+    pointer-events: none;
+  }
 
-.cs-services-page .cs-service-btn__icon{
-  width: 18px;
-  height: 18px;
-  opacity: 0.92;
-  transition: transform 180ms ease, opacity 180ms ease;
-}
-.cs-services-page .cs-service-btn:hover .cs-service-btn__icon{
-  transform: translateX(4px);
-  opacity: 1;
-}
+  .cs-services-page .cs-service-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 62px rgba(15, 23, 42, 0.28);
+    filter: saturate(1.06);
+  }
 
-/* =========================================================
+  .cs-services-page .cs-service-btn:hover::before {
+    opacity: 1;
+    animation: cs-services-shine 1.15s ease-in-out infinite;
+  }
+
+  .cs-services-page .cs-service-btn:active {
+    transform: translateY(-1px);
+  }
+
+  @keyframes cs-services-shine {
+    0% {
+      transform: translateX(-30%) rotate(12deg);
+    }
+
+    100% {
+      transform: translateX(30%) rotate(12deg);
+    }
+  }
+
+  .cs-services-page .cs-service-btn__icon {
+    width: 18px;
+    height: 18px;
+    opacity: 0.92;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .cs-services-page .cs-service-btn:hover .cs-service-btn__icon {
+    transform: translateX(4px);
+    opacity: 1;
+  }
+
+  /* =========================================================
    Make approach cards feel like CONTENT (not buttons)
    ========================================================= */
 
-.cs-services-page .cs-approach-card--static{
-  cursor: default !important;
-}
-
-.cs-services-page .cs-approach-card--static:hover{
-  transform: none !important;
-  /* keep whatever base shadow you already have, but no “lift” */
-  box-shadow: 0 22px 70px rgba(0,0,0,0.25) !important;
-  border-color: rgba(255,255,255,0.12) !important;
-}
-
-/* Give extra room so the footer fade looks intentional */
-.cs-services-page .cs-services-approach-shell{
-  background: transparent;
-  padding-bottom: 120px;
-}
-
-/* Reduce motion */
-@media (prefers-reduced-motion: reduce){
-  .cs-services-page .cs-service-btn:hover{ transform: none; }
-  .cs-services-page .cs-service-btn:hover::before{
-    animation: none !important;
-    opacity: 0.25;
+  .cs-services-page .cs-approach-card--static {
+    cursor: default !important;
   }
-}
 
-/* =========================
+  .cs-services-page .cs-approach-card--static:hover {
+    transform: none !important;
+    /* keep whatever base shadow you already have, but no “lift” */
+    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* Give extra room so the footer fade looks intentional */
+  .cs-services-page .cs-services-approach-shell {
+    background: transparent;
+    padding-bottom: 120px;
+  }
+
+  /* Reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    .cs-services-page .cs-service-btn:hover {
+      transform: none;
+    }
+
+    .cs-services-page .cs-service-btn:hover::before {
+      animation: none !important;
+      opacity: 0.25;
+    }
+  }
+
+  /* =========================
    About Page (matches Services vibe)
    Minimal + reusable styling
    ========================= */
 
-   .cs-section-head {
+  .cs-section-head {
     max-width: 58rem;
     margin: 0 auto;
     text-align: center;
   }
-  
+
   .cs-section-title {
     letter-spacing: -0.02em;
   }
-  
+
   .cs-section-subtitle {
     margin-top: 0.75rem;
   }
-  
+
   .cs-card {
     position: relative;
     border-radius: 22px;
     border: 1px solid rgba(255, 255, 255, 0.10);
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(10px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
     overflow: hidden;
   }
-  
+
   .cs-card--soft {
     background: rgba(255, 255, 255, 0.07);
   }
-  
+
   .cs-card-inner {
     position: relative;
     z-index: 2;
     padding: 1.5rem;
   }
-  
+
   @media (min-width: 640px) {
-    .cs-card-inner { padding: 1.75rem; }
+    .cs-card-inner {
+      padding: 1.75rem;
+    }
   }
-  
+
   .cs-card--hover {
     transition: transform 320ms ease, border-color 320ms ease, background 320ms ease;
   }
-  
+
   .cs-card--hover:hover {
     transform: translateY(-3px);
     border-color: rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.075);
   }
-  
+
   .cs-cardGlow {
     position: absolute;
     inset: -40%;
-    background: radial-gradient(circle at 30% 30%, rgba(91,143,196,0.35), transparent 55%),
-                radial-gradient(circle at 70% 70%, rgba(201,169,97,0.25), transparent 60%);
+    background: radial-gradient(circle at 30% 30%, rgba(91, 143, 196, 0.35), transparent 55%),
+      radial-gradient(circle at 70% 70%, rgba(201, 169, 97, 0.25), transparent 60%);
     opacity: 0;
     transition: opacity 420ms ease;
     z-index: 1;
     pointer-events: none;
   }
-  
+
   .cs-card--hover:hover .cs-cardGlow {
     opacity: 1;
   }
-  
+
   /* Photo frame */
   .cs-about-photo {
     position: relative;
     border-radius: 22px;
-    border: 1px solid rgba(255,255,255,0.12);
-    background: rgba(255,255,255,0.04);
-    box-shadow: 0 26px 70px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.35);
     overflow: hidden;
   }
-  
+
   .cs-about-photoGlow {
     position: absolute;
     inset: -40%;
-    background: radial-gradient(circle at 35% 30%, rgba(91,143,196,0.40), transparent 55%),
-                radial-gradient(circle at 65% 70%, rgba(201,169,97,0.22), transparent 60%);
+    background: radial-gradient(circle at 35% 30%, rgba(91, 143, 196, 0.40), transparent 55%),
+      radial-gradient(circle at 65% 70%, rgba(201, 169, 97, 0.22), transparent 60%);
     opacity: 0.75;
     pointer-events: none;
   }
-  
+
   .cs-about-photoImg {
     transition: transform 700ms ease;
   }
-  
+
   .cs-about-photo:hover .cs-about-photoImg {
     transform: scale(1.04);
   }
-  
+
   /* Lightweight floating shapes (keeps “fun” without being noisy) */
   .cs-float-shape {
     position: absolute;
@@ -2480,45 +2713,43 @@ footer .btn-secondary::after {
     pointer-events: none;
     animation: parallax-float 9s ease-in-out infinite;
   }
-  
+
   .cs-float-shape--a {
     width: 120px;
     height: 120px;
     left: -18px;
     top: -18px;
-    background: radial-gradient(circle at 30% 30%, rgba(201,169,97,0.55), transparent 60%);
+    background: radial-gradient(circle at 30% 30%, rgba(201, 169, 97, 0.55), transparent 60%);
   }
-  
+
   .cs-float-shape--b {
     width: 160px;
     height: 160px;
     right: -26px;
     bottom: -26px;
-    background: radial-gradient(circle at 30% 30%, rgba(91,143,196,0.55), transparent 60%);
+    background: radial-gradient(circle at 30% 30%, rgba(91, 143, 196, 0.55), transparent 60%);
     animation-duration: 11s;
   }
-  
+
   /* Engage flow */
   .cs-engage {
     position: relative;
   }
-  
+
   .cs-engage-line {
     position: absolute;
     left: 18px;
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.05),
-      rgba(91,143,196,0.28),
-      rgba(201,169,97,0.18),
-      rgba(255,255,255,0.05)
-    );
+    background: linear-gradient(to bottom,
+        rgba(255, 255, 255, 0.05),
+        rgba(91, 143, 196, 0.28),
+        rgba(201, 169, 97, 0.18),
+        rgba(255, 255, 255, 0.05));
     opacity: 0.8;
   }
-  
+
   @media (min-width: 768px) {
     .cs-engage-line {
       left: 50%;
@@ -2527,12 +2758,12 @@ footer .btn-secondary::after {
       opacity: 0.55;
     }
   }
-  
+
   .cs-step {
     flex: 0 0 auto;
     padding-top: 2px;
   }
-  
+
   .cs-step-badge {
     width: 38px;
     height: 38px;
@@ -2541,172 +2772,172 @@ footer .btn-secondary::after {
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    color: rgba(10,20,35,0.95);
-    background: linear-gradient(135deg, rgba(201,169,97,1), rgba(91,143,196,1));
-    box-shadow: 0 14px 34px rgba(0,0,0,0.30);
+    color: rgba(10, 20, 35, 0.95);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 1), rgba(91, 143, 196, 1));
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30);
   }
-  
+
   .cs-pill {
     display: inline-flex;
     align-items: center;
     padding: 0.25rem 0.55rem;
     border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.14);
-    background: rgba(255,255,255,0.06);
-    color: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.75);
     font-size: 12px;
     font-weight: 650;
   }
-  
+
   /* Inline link */
   .cs-link-inline {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: rgba(255,255,255,0.82);
+    color: rgba(255, 255, 255, 0.82);
     font-weight: 700;
     transition: transform 220ms ease, color 220ms ease;
   }
-  
+
   .cs-link-inline:hover {
-    color: rgba(255,255,255,0.98);
+    color: rgba(255, 255, 255, 0.98);
     transform: translateX(2px);
   }
-  
+
   .cs-link-inlineIcon {
     opacity: 0.85;
     transition: transform 220ms ease;
   }
-  
+
   .cs-link-inline:hover .cs-link-inlineIcon {
     transform: translateX(2px);
   }
+
   /* =========================================
    Seamless Header/Footer Integration Layer
    - Header starts transparent and fades in after hero
    - Footer becomes "glass" that inherits the page canvas
    ========================================= */
 
-:root{
-  /* How strong the header/footer glass should be */
-  --cs-header-glass: 0.70; /* max opacity when scrolled */
-  --cs-footer-glass: 0.14;
-}
-
-/* Use this on pages that should blend header/footer into the canvas */
-.cs-seamless-shell{
-  position: relative;
-}
-
-/* ===== Header: transparent -> glass fade ===== */
-.cs-header-seamless{
-  /* keep your sticky behavior; we’re only controlling the background feel */
-  background: transparent !important;
-  border-bottom: 1px solid rgba(255,255,255,0.08) !important;
-  box-shadow: none !important;
-  backdrop-filter: none !important;
-}
-
-/* This overlay is the actual fading background */
-.cs-header-seamless .cs-header-bg{
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-
-  /* matches your site palette / dark hero vibe */
-  background:
-    radial-gradient(1200px 700px at 20% 20%,
-      rgba(93,130,195,0.16),
-      rgba(29,58,98,0.64) 45%,
-      rgba(10,20,35,0.86) 100%),
-    linear-gradient(180deg,
-      rgba(29,58,98,0.58),
-      rgba(10,20,35,0.92));
-
-  opacity: var(--cs-header-bg-opacity, 0);
-  transition: opacity 220ms ease;
-  pointer-events: none;
-}
-
-/* Optional: subtle shadow only after fade begins */
-.cs-header-seamless.cs-header--on .cs-header-bg{
-  box-shadow: 0 10px 28px rgba(0,0,0,0.20);
-}
-
-/* ===== Main: top/bottom “bridge” gradients so transitions are invisible ===== */
-.cs-seamless-main{
-  position: relative;
-}
-
-/* top bridge (under header) */
-.cs-seamless-main::before{
-  content:"";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  height: 72px; /* bridge thickness */
-  pointer-events: none;
-
-  background: linear-gradient(
-    180deg,
-    rgba(10,20,35,0.85) 0%,
-    rgba(10,20,35,0.0) 100%
-  );
-}
-
-/* bottom bridge (into footer) */
-.cs-seamless-main::after{
-  content:"";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  height: 110px;
-  pointer-events: none;
-
-  background: linear-gradient(
-    0deg,
-    rgba(10,20,35,0.92) 0%,
-    rgba(10,20,35,0.0) 100%
-  );
-}
-
-/* ===== Footer: make it inherit the page background instead of a separate block ===== */
-.cs-footer-seamless{
-  background: transparent !important;
-}
-
-/* Hide the footer’s hard-coded gradient layer so it blends (we’ll rely on your global canvas) */
-.cs-footer-seamless > .cs-footer-bg{
-  display: none !important;
-}
-
-/* Keep your grid + dots, but make them glassy and consistent */
-.cs-footer-seamless .cs-footer-inner{
-  position: relative;
-  background: rgba(255,255,255,var(--cs-footer-glass));
-  border-top: 1px solid rgba(255,255,255,0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-}
-
-/* Prevent footer CTA hover from “jumping” size */
-.cs-footer-seamless .btn-secondary{
-  transform: translateZ(0);
-}
-.cs-footer-seamless .btn-secondary:hover{
-  transform: translateY(-1px) !important;
-}
-
-/* Accessibility */
-@media (prefers-reduced-motion: reduce){
-  .cs-header-seamless .cs-header-bg{
-    transition: none !important;
+  :root {
+    /* How strong the header/footer glass should be */
+    --cs-header-glass: 0.70;
+    /* max opacity when scrolled */
+    --cs-footer-glass: 0.14;
   }
-}
+
+  /* Use this on pages that should blend header/footer into the canvas */
+  .cs-seamless-shell {
+    position: relative;
+  }
+
+  /* ===== Header: transparent -> glass fade ===== */
+  .cs-header-seamless {
+    /* keep your sticky behavior; we’re only controlling the background feel */
+    background: transparent !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+  }
+
+  /* This overlay is the actual fading background */
+  .cs-header-seamless .cs-header-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    /* matches your site palette / dark hero vibe */
+    background:
+      radial-gradient(1200px 700px at 20% 20%,
+        rgba(93, 130, 195, 0.16),
+        rgba(29, 58, 98, 0.64) 45%,
+        rgba(10, 20, 35, 0.86) 100%),
+      linear-gradient(180deg,
+        rgba(29, 58, 98, 0.58),
+        rgba(10, 20, 35, 0.92));
+
+    opacity: var(--cs-header-bg-opacity, 0);
+    transition: opacity 220ms ease;
+    pointer-events: none;
+  }
+
+  /* Optional: subtle shadow only after fade begins */
+  .cs-header-seamless.cs-header--on .cs-header-bg {
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.20);
+  }
+
+  /* ===== Main: top/bottom “bridge” gradients so transitions are invisible ===== */
+  .cs-seamless-main {
+    position: relative;
+  }
+
+  /* top bridge (under header) */
+  .cs-seamless-main::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: 72px;
+    /* bridge thickness */
+    pointer-events: none;
+
+    background: linear-gradient(180deg,
+        rgba(10, 20, 35, 0.85) 0%,
+        rgba(10, 20, 35, 0.0) 100%);
+  }
+
+  /* bottom bridge (into footer) */
+  .cs-seamless-main::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 110px;
+    pointer-events: none;
+
+    background: linear-gradient(0deg,
+        rgba(10, 20, 35, 0.92) 0%,
+        rgba(10, 20, 35, 0.0) 100%);
+  }
+
+  /* ===== Footer: make it inherit the page background instead of a separate block ===== */
+  .cs-footer-seamless {
+    background: transparent !important;
+  }
+
+  /* Hide the footer’s hard-coded gradient layer so it blends (we’ll rely on your global canvas) */
+  .cs-footer-seamless>.cs-footer-bg {
+    display: none !important;
+  }
+
+  /* Keep your grid + dots, but make them glassy and consistent */
+  .cs-footer-seamless .cs-footer-inner {
+    position: relative;
+    background: rgba(255, 255, 255, var(--cs-footer-glass));
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Prevent footer CTA hover from “jumping” size */
+  .cs-footer-seamless .btn-secondary {
+    transform: translateZ(0);
+  }
+
+  .cs-footer-seamless .btn-secondary:hover {
+    transform: translateY(-1px) !important;
+  }
+
+  /* Accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    .cs-header-seamless .cs-header-bg {
+      transition: none !important;
+    }
+  }
 
   /* =========================
    Design System: Cluster Shells
@@ -2717,8 +2948,8 @@ footer .btn-secondary::after {
     position: relative;
     min-height: 100vh;
     background:
-      radial-gradient(1200px 700px at 20% 20%, rgba(93,130,195,0.22), rgba(29,58,98,0.85) 45%, rgba(10,20,35,0.96) 100%),
-      linear-gradient(180deg, rgba(29,58,98,0.72), rgba(10,20,35,0.98));
+      radial-gradient(1200px 700px at 20% 20%, rgba(93, 130, 195, 0.22), rgba(29, 58, 98, 0.85) 45%, rgba(10, 20, 35, 0.96) 100%),
+      linear-gradient(180deg, rgba(29, 58, 98, 0.72), rgba(10, 20, 35, 0.98));
     overflow: hidden;
   }
 
@@ -2727,8 +2958,8 @@ footer .btn-secondary::after {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(900px 520px at 16% 18%, rgba(93,130,195,0.16), rgba(93,130,195,0) 70%),
-      radial-gradient(900px 520px at 86% 76%, rgba(201,169,97,0.11), rgba(201,169,97,0) 70%);
+      radial-gradient(900px 520px at 16% 18%, rgba(93, 130, 195, 0.16), rgba(93, 130, 195, 0) 70%),
+      radial-gradient(900px 520px at 86% 76%, rgba(201, 169, 97, 0.11), rgba(201, 169, 97, 0) 70%);
     pointer-events: none;
     opacity: 0.6;
   }
@@ -2738,8 +2969,8 @@ footer .btn-secondary::after {
     position: relative;
     min-height: 100vh;
     background:
-      radial-gradient(1100px 680px at 18% 0%, rgba(91,143,196,0.20), rgba(26,58,92,0.85) 50%, rgba(10,20,35,0.96) 100%),
-      linear-gradient(180deg, rgba(26,58,92,0.70), rgba(10,20,35,0.98));
+      radial-gradient(1100px 680px at 18% 0%, rgba(91, 143, 196, 0.20), rgba(26, 58, 92, 0.85) 50%, rgba(10, 20, 35, 0.96) 100%),
+      linear-gradient(180deg, rgba(26, 58, 92, 0.70), rgba(10, 20, 35, 0.98));
     overflow: hidden;
   }
 
@@ -2748,8 +2979,8 @@ footer .btn-secondary::after {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(800px 480px at 20% 15%, rgba(91,143,196,0.12), rgba(91,143,196,0) 65%),
-      radial-gradient(800px 480px at 80% 25%, rgba(201,169,97,0.08), rgba(201,169,97,0) 60%);
+      radial-gradient(800px 480px at 20% 15%, rgba(91, 143, 196, 0.12), rgba(91, 143, 196, 0) 65%),
+      radial-gradient(800px 480px at 80% 25%, rgba(201, 169, 97, 0.08), rgba(201, 169, 97, 0) 60%);
     pointer-events: none;
     opacity: 0.5;
   }
@@ -2759,10 +2990,10 @@ footer .btn-secondary::after {
     position: relative;
     min-height: 100vh;
     background:
-      radial-gradient(1100px 680px at 18% 0%, rgba(91,143,196,0.22), transparent 60%),
-      radial-gradient(1000px 640px at 86% 12%, rgba(201,169,97,0.18), transparent 58%),
-      radial-gradient(900px 700px at 55% 70%, rgba(74,123,167,0.16), transparent 62%),
-      linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(245,248,252,1) 32%, rgba(14,24,38,0.96) 100%);
+      radial-gradient(1100px 680px at 18% 0%, rgba(91, 143, 196, 0.22), transparent 60%),
+      radial-gradient(1000px 640px at 86% 12%, rgba(201, 169, 97, 0.18), transparent 58%),
+      radial-gradient(900px 700px at 55% 70%, rgba(74, 123, 167, 0.16), transparent 62%),
+      linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 248, 252, 1) 32%, rgba(14, 24, 38, 0.96) 100%);
     overflow: hidden;
   }
 
@@ -2771,8 +3002,8 @@ footer .btn-secondary::after {
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(1000px 600px at 25% 10%, rgba(91,143,196,0.18), rgba(91,143,196,0) 60%),
-      radial-gradient(1000px 600px at 85% 25%, rgba(201,169,97,0.14), rgba(201,169,97,0) 55%);
+      radial-gradient(1000px 600px at 25% 10%, rgba(91, 143, 196, 0.18), rgba(91, 143, 196, 0) 60%),
+      radial-gradient(1000px 600px at 85% 25%, rgba(201, 169, 97, 0.14), rgba(201, 169, 97, 0) 55%);
     pointer-events: none;
     opacity: 0.7;
   }
@@ -2808,7 +3039,7 @@ footer .btn-secondary::after {
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.28);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
     overflow: hidden;
   }
 
@@ -2818,8 +3049,8 @@ footer .btn-secondary::after {
 
   .cs-card--hover {
     transition: transform var(--motion-duration-base) var(--motion-easing-premium),
-                border-color var(--motion-duration-base) var(--motion-easing-premium),
-                background var(--motion-duration-base) var(--motion-easing-premium);
+      border-color var(--motion-duration-base) var(--motion-easing-premium),
+      background var(--motion-duration-base) var(--motion-easing-premium);
   }
 
   .cs-card--hover:hover {
@@ -2897,18 +3128,12 @@ footer .btn-secondary::after {
   }
 
   @media (prefers-reduced-motion: reduce) {
+
     .cs-btn:hover,
     .cs-card--hover:hover {
       transform: none !important;
     }
   }
 
-  
+
 }
-  
-
-
-
-  
-
-  

@@ -19,7 +19,7 @@ const articles = [
     category: 'Insurance Strategy',
     excerpt:
       'How mid-sized carriers can compete effectively through specialized expertise, superior customer experience, and strategic partnerships rather than pure scale.',
-    readTime: '8 min read',
+    readTime: '5 min read',
   },
   {
     title: 'Secrets to Survival in Community Banking',
@@ -28,7 +28,7 @@ const articles = [
     category: 'Banking',
     excerpt:
       'Essential strategies for community banks to thrive in an era of consolidation, focusing on relationship banking, local market expertise, and digital transformation.',
-    readTime: '7 min read',
+    readTime: '6 min read',
   },
   {
     title: 'Linking Customer Experience to Strategy and Value',
@@ -37,7 +37,7 @@ const articles = [
     category: 'Customer Experience',
     excerpt:
       'A practical framework for connecting CX investments to measurable business outcomes and demonstrating the ROI of customer experience initiatives.',
-    readTime: '10 min read',
+    readTime: '5 min read',
   },
   {
     title: 'Strategic Planning Best Practices for Board Directors',
@@ -46,7 +46,7 @@ const articles = [
     category: 'Governance',
     excerpt:
       "Essential elements of effective strategic planning in today's complex financial environment, with key questions for board oversight and strategy validation.",
-    readTime: '9 min read',
+    readTime: '5 min read',
   },
   {
     title: 'Integrated Planning Amidst the Headwinds',
@@ -55,7 +55,7 @@ const articles = [
     category: 'Strategy',
     excerpt:
       'How to build resilient strategic plans that adapt to changing market conditions through assumption-based planning and agile execution frameworks.',
-    readTime: '8 min read',
+    readTime: '7 min read',
   },
   {
     title: "The Softer Side of Transformation - The 5 C's",
@@ -64,7 +64,7 @@ const articles = [
     category: 'Change Management',
     excerpt:
       "Why culture and change management are critical success factors in business transformation. Learn about the 5Cs approach: Commitment, Capabilities, Culture, Communication, and Change management.",
-    readTime: '12 min read',
+    readTime: '5 min read',
   },
   {
     title: 'A Strategic Planning Tune-Up for Uncertain Times',
@@ -73,7 +73,7 @@ const articles = [
     category: 'Strategy',
     excerpt:
       'Adjusting your strategic planning approach for global uncertainty through scenario planning, assumption testing, and flexible execution models.',
-    readTime: '9 min read',
+    readTime: '5 min read',
   },
   {
     title: 'P&C Carriers - Preparing for the Stormy Seas',
@@ -82,7 +82,7 @@ const articles = [
     category: 'Insurance Strategy',
     excerpt:
       'Five priorities to guide Property & Casualty insurance carriers through challenging market conditions while building long-term strategic positioning.',
-    readTime: '10 min read',
+    readTime: '5 min read',
   },
   {
     title: 'Contingency Planning for the Next Worst-Case Scenario',
@@ -91,7 +91,7 @@ const articles = [
     category: 'Risk Management',
     excerpt:
       'Building organizational resilience through comprehensive contingency planning, stress testing, and adaptive strategy frameworks for financial institutions.',
-    readTime: '11 min read',
+    readTime: '4 min read',
   },
   {
     title: 'Banking on a Better Position After the Crisis',
@@ -100,7 +100,7 @@ const articles = [
     category: 'Banking',
     excerpt:
       'Strategic imperatives for banks emerging from crisis: strengthening core capabilities, accelerating digital transformation, and repositioning for growth.',
-    readTime: '8 min read',
+    readTime: '5 min read',
   },
 ];
 
@@ -114,9 +114,9 @@ export default function InsightsPage() {
         <Hero title="Articles" image="/images/hero-home.jpg" themeKey="ink-dots" />
 
         <section className="cs-section">
-        <div className="container-custom">
-          <InsightsClient articles={articles} />
-        </div>
+          <div className="container-custom">
+            <InsightsClient articles={articles} />
+          </div>
         </section>
       </div>
     </main>
