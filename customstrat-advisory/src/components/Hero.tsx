@@ -30,10 +30,10 @@ export default function Hero({
 }: HeroProps) {
   // Get theme for hero overlay (darker than body)
   const pathname = usePathname();
-  const theme = themeKey 
+  const theme = themeKey
     ? (pageThemes[themeKey] || pageThemes['default-clean'])
     : getThemeForRoute(pathname);
-  
+
   // Hero overlay must be darker than body
   // Combine linear gradient with optional radial accents
   const heroOverlayStyle = {
@@ -43,14 +43,14 @@ export default function Hero({
     ].join(', '),
   };
   return (
-    <section className="relative min-h-[450px] lg:min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[140px] lg:min-h-[180px] flex items-center justify-center overflow-hidden">
       {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${image})` }}
       >
-        <div 
-          className="absolute inset-0 hero-overlay" 
+        <div
+          className="absolute inset-0 hero-overlay"
           style={heroOverlayStyle}
         />
       </div>
@@ -112,7 +112,7 @@ export default function Hero({
               </feMerge>
             </filter>
 
-            {/* Band gradient (logo blues) */} 
+            {/* Band gradient (logo blues) */}
             <linearGradient id="cs-waveBand" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor="rgba(93,130,195,0.0)" />
               <stop offset="40%" stopColor="rgba(93,130,195,0.0)" />
@@ -159,7 +159,7 @@ export default function Hero({
             filter="url(#cs-softGlow)"
             opacity="0.95"
           />
-        
+
           {/* POP-OUT pass: same diamonds, under the wave, with 3D rims (no color change) */}
           <rect
             width="1200"
@@ -172,41 +172,11 @@ export default function Hero({
       </div>
 
       {/* Content */}
-      <div className="container-custom relative z-10 text-white py-20">
+      <div className="container-custom relative z-10 text-white py-8">
         <div className={centered ? "text-center max-w-4xl mx-auto" : "max-w-4xl"}>
-          {subtitle && (
-            <div className="flex items-center gap-4 mb-8 animate-[fadeInUp_800ms_ease-out]">
-              <div className="relative group">
-                {/* Ambient halo */}
-                <div className="absolute -inset-6 rounded-full bg-white/20 blur-2xl opacity-50 group-hover:opacity-80 transition-opacity duration-700" />
-
-                {/*
-                  Logo badge:
-                  - Round mask to remove any square edges
-                  - Subtle glass fill + ring to feel institutional/premium
-                */}
-                <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden bg-white/90 ring-1 ring-white/30 shadow-[0_20px_60px_rgba(0,0,0,0.35)] transition-transform duration-700 group-hover:scale-[1.06] group-hover:rotate-3">
-                  <Image
-                    src="/images/logo.png"
-                    alt="CustomStrat Advisory"
-                    fill
-                    priority
-                    className="object-contain p-3"
-                  />
-                </div>
-              </div>
-            </div>
-          )}
-
-          <h1 className="font-semibold mb-6 leading-tight text-balance animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards] brand-name">
+          <h1 className="font-semibold mb-0 leading-tight text-balance animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards] brand-name">
             {title}
           </h1>
-
-          {subtitle && (
-            <p className="text-xl lg:text-2xl text-white/95 font-light max-w-3xl leading-relaxed animate-[fadeInUp_800ms_ease-out_400ms] opacity-0 [animation-fill-mode:forwards]">
-              {subtitle}
-            </p>
-          )}
         </div>
       </div>
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Strategy Execution & Transformation",
-  description: "Implementation and organizational transformation initiatives.",
+  description: "Accelerating change through the design of workstreams, governance, and roadmaps, supported by rigorous delivery oversight and deep knowledge of change management.",
 };
 
 const examples = [

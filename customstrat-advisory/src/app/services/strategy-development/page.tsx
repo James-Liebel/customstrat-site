@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Strategy Development",
-  description: "Comprehensive strategic planning and business strategy development.",
+  description: "Defining corporate and business unit strategies that identify where to compete and how to sharpen competitive advantage.",
 };
 
 const examples = [

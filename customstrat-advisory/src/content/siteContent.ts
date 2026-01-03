@@ -18,7 +18,7 @@ export const siteContent = {
     successMessage: "Successfully serving financial services companies for 5+ years",
     sections: {
       servicesOffered: {
-        title: "Services Offered",
+        title: "Areas of Expertise",
         items: [
           "Business Strategy",
           "Strategy Execution",
@@ -37,11 +37,11 @@ export const siteContent = {
         ]
       },
       approach: {
-        title: "Approach to Working",
+        title: "Services Offered",
         items: [
           "CEO and Executive Advisory",
           "Workshop Sessions",
-          "Full-Time Teams",
+          "Dedicated Client Service Teams",
           "Speaking Engagements",
         ]
       }
@@ -60,13 +60,12 @@ export const siteContent = {
           name: "Katie Liebel",
           title: "Founder & Managing Principal",
           company: "CustomStrat Advisory, LLC",
-          bio: "Katie is a financial services leader with 30 years of executive and consulting experience focused on strategic planning, customer experience, and transformational change in banks, insurance companies, wealth management firms, and FinTechs.",
           extended: [
-            "Katie founded CustomStrat Advisory in 2019 to help financial services companies define winning growth strategies and drive tangible change, while incorporating a customer focus.",
-            "Katie currently sits on the Board of Directors for Credit First National Association (CFNA), which is Bridgestone / Firestone's wholly owned bank subsidiary.",
-            "Previously, Katie served as Chief Strategy Officer and Chief Customer Experience Officer for Fifth Third Bank. Prior to that, she was Managing Director and Head of Strategy in Consumer Banking for JPMorgan Chase & Co.",
-            "She worked at Nationwide Insurance as Chief Strategy Officer and SVP of Property & Casualty Transformation, heading the transformation of Nationwide's largest business unit. Earlier, Katie held Senior Vice President roles at National City Bank and led various life insurance product lines at Genworth Financial. She began her career at McKinsey & Co., serving large banking clients globally in the firm's Financial Services Practice.",
-            "Katie holds an MBA from Harvard Business School and a BS in Systems Engineering from the University of Virginia, with Highest Distinction."
+            "Katie founded **CustomStrat Advisory** in 2019 to help financial services companies define winning growth strategies and drive tangible change, while incorporating a customer focus.",
+            "Katie currently sits on the **Board of Directors** for Credit First National Association (CFNA), which is Bridgestone / Firestone's wholly owned bank subsidiary.",
+            "Previously, Katie served as **Chief Strategy Officer** and **Chief Customer Experience Officer** for **Fifth Third Bank**. Prior to that, she was Managing Director and Head of Strategy in Consumer Banking for **JPMorgan Chase**.",
+            "She worked at **Nationwide Insurance** as **Chief Strategy Officer** and SVP of Property & Casualty Transformation, heading the transformation of Nationwide's largest business unit. Earlier, Katie held Senior Vice President roles at National City Bank and led various life insurance product lines at Genworth Financial. She began her career at **McKinsey.**, serving large banking clients globally in the firm's Financial Services Practice.",
+            "Katie holds an MBA from **Harvard Business School** and a BS in Systems Engineering from the University of Virginia, with Highest Distinction."
           ],
           linkedin: "https://www.linkedin.com/in/katie-liebel/",
         }
@@ -78,7 +77,7 @@ export const siteContent = {
         "Speaking Engagements",
         "CEO and Executive Advisory",
         "Workshop Sessions",
-        "Full-Time Teams, leveraging proven independent consultants",
+        "Dedicated Client Service Teams",
       ]
     }
   },
@@ -92,17 +91,17 @@ export const siteContent = {
       {
         title: "Strategy Development",
         slug: "strategy-development",
-        description: "Comprehensive strategic planning and business strategy development",
+        description: "Defining corporate and business unit strategies that identify where to compete and how to sharpen competitive advantage.",
       },
       {
         title: "Strategy Execution & Transformation",
         slug: "strategy-execution",
-        description: "Implementation and organizational transformation initiatives",
+        description: "Accelerating change through the design of workstreams, governance, and roadmaps, supported by rigorous delivery oversight and deep knowledge of change management.",
       },
       {
-        title: "Operational Improvements – Cost and Customer Experience",
+        title: "Customer Experience & Performance Improvement",
         slug: "operational-improvements",
-        description: "Process optimization and customer experience enhancement",
+        description: "Driving bottom-line performance and client impact by leveraging data-driven insights to prioritize operational improvements and optimize end-to-end customer journeys.",
       }
     ],
     sectors: "Insurance, Banking, Wealth & Fintech"

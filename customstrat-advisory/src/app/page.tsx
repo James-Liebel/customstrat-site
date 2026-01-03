@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <main className="cs-shell--home">
       {/* Hero Section with Company Branding */}
-      <section className="relative min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[300px] flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -22,12 +22,12 @@ export default function HomePage() {
         </div>
 
         {/* Content */}
-        <div className="container-custom relative z-10 text-white py-20 text-center">
+        <div className="container-custom relative z-10 text-white py-8 text-center">
           {/* Logo (halo only; no badge / no gradient background) */}
-          <div className="flex justify-center mb-8 animate-[fadeInUp_800ms_ease-out]">
+          <div className="flex justify-center mb-6 animate-[fadeInUp_800ms_ease-out]">
             <div className="relative group w-40 h-40">
               {/* Halo */}
-              <div className="absolute -inset-6 bg-white rounded-full blur-2xl opacity-50 group-hover:opacity-75 transition-opacity duration-500"></div>
+              <div className="absolute -inset-4 bg-white rounded-full blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-500"></div>
 
               {/* Logo only */}
               <Image
@@ -41,18 +41,12 @@ export default function HomePage() {
           </div>
 
           {/* Company Title */}
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-2 animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards]">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-light mb-0 animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards]">
             CustomStrat Advisory, LLC
           </h1>
-
-          {/* Tagline */}
-          <p className="text-2xl md:text-3xl lg:text-4xl text-white/95 font-light max-w-5xl mx-auto leading-relaxed animate-[fadeInUp_800ms_ease-out_400ms] opacity-0 [animation-fill-mode:forwards]">
-            {siteContent.home.hero.title}
-          </p>
         </div>
 
-        {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent"></div>
+
       </section>
 
       {/* Main Content Section - Three Columns */}
@@ -121,11 +115,11 @@ export default function HomePage() {
                 ))}
               </ul>
               <div className="mt-10">
-              <Link href="/about#how-we-engage" className="btn-primary inline-flex items-center gap-2">
-                How We Engage
-                <span className="text-xl">→</span>
-              </Link>
-            </div>
+                <Link href="/about#how-we-engage" className="btn-primary inline-flex items-center gap-2">
+                  How We Engage
+                  <span className="text-xl">→</span>
+                </Link>
+              </div>
             </div>
           </div>
 

@@ -50,9 +50,7 @@ export default function BeyondScalePCInsurers() {
                   To succeed in these turbulent waters, carriers must make thoughtful strategic choices and execute aggressively. Over this period, the gap between top and bottom performers has widened considerably, signaling that competitive advantage now compounds over time.
                 </p>
 
-                <p>
-                  What exactly are the winning choices?
-                </p>
+                <h3 className="cs-h3">What exactly are winning choices?</h3>
 
                 <p>
                   We analyzed the largest 100 U.S. P&amp;C carriers to identify the key factors that most strongly drive success. The top 100 P&amp;C carriers by premium in the U.S. range in size from about $1B to over $100B.
@@ -68,15 +66,17 @@ export default function BeyondScalePCInsurers() {
               </section>
 
               <section className="cs-section">
-                <h2 className="cs-h2">Why trying to learn from the top 3 may lead to wrong decisions</h2>
+                <div className="cs-callout">
+                  <h2 className="cs-h2">Why trying to learn from the top 3 may lead to wrong decisions</h2>
 
-                <p>
-                  We excluded from the analysis the top 3 carriers – State Farm, Berkshire Hathaway and Progressive – as their scale economies in marketing and technology so far exceed the others that the lessons are less transferable. They have an expense ratio of ~20% vs the rest of the industry with 28% expense ratio.
-                </p>
+                  <p>
+                    We excluded from the analysis the top 3 carriers – State Farm, Berkshire Hathaway and Progressive – as their scale economies in marketing and technology so far exceed the others that the lessons are less transferable. They have an expense ratio of ~20% vs the rest of the industry with 28% expense ratio.
+                  </p>
 
-                <p>
-                  Collectively, the largest 3 carriers own nearly 25% of the U.S. P&amp;C market and nearly half of the auto insurance market, which also leads to pricing power. All 3 of these companies demonstrated growth above industry average, with Progressive and Berkshire also performing above average on returns.
-                </p>
+                  <p>
+                    Collectively, the largest 3 carriers own nearly 25% of the U.S. P&amp;C market and nearly half of the auto insurance market, which also leads to pricing power. All 3 of these companies demonstrated growth above industry average, with Progressive and Berkshire also performing above average on returns.
+                  </p>
+                </div>
               </section>
 
               {/* Exhibit 1 */}

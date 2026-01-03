@@ -18,32 +18,32 @@ export default function AboutPage() {
    */
   const getEngagementDetails = (method: string) => {
     const m = method.toLowerCase();
-    
+
     if (m.includes("speaking")) {
       return {
-        description: "Compelling insights that spark organizational change and shift perspectives.",
-        pills: ["Provocative Insights", "Actionable Frameworks", "Audience Mobilization"]
+        description: "Delivering insight-driven presentations that bridge FS market shifts with proven strategy and transformation practices to prepare leadership teams for industry evolution.",
+        pills: ["Strategic Foresight", "Transformation Logic", "Pragmatic Frameworks"]
       };
     }
     if (m.includes("ceo") || m.includes("advisory")) {
       return {
-        description: "A trusted thought partner for navigating high-stakes decisions with clarity and absolute discretion.",
-        pills: ["Strategic Neutrality", "Decision Confidence", "Unfiltered Candor"]
+        description: "A trusted thought partner who applies structured thinking and financial services market perspectives to formulate actionable strategies and ensure sufficient stretch in transformation plans.",
+        pills: ["Decision confidence", "Unbiased perspective", "Calibrated ambition"]
       };
     }
     if (m.includes("workshop")) {
       return {
-        description: "High-energy, facilitated intensives designed to break through silos and solve specific bottlenecks.",
-        pills: ["Rapid Problem-Solving", "Cross-Functional Buy-in", "Immediate Implementation"]
+        description: "Designing and facilitating intensive sessions that leverage structured frameworks to align financial service leadership teams and convert complex hurdles into prioritized action plans.",
+        pills: ["Guided Consensus", "Informed Synthesis", "Mobilization Clarity"]
       };
     }
     if (m.includes("teams") || m.includes("consultants")) {
       return {
-        description: "On-demand squads of elite independent consultants deployed to execute your most complex transformations.",
-        pills: ["Elite Expertise", "Reduced Overhead", "Outcome-Linked Delivery"]
+        description: "Deploying bespoke teams of elite independent consultants who combine top-tier strategic pedigree with proven financial services operating experience to architect complex strategic plans, perform rigorous analysis, and drive large-scale transformation.",
+        pills: ["Rigorous strategic analysis", "Operational Pragmatism", "Deployment-Ready Roadmaps"]
       };
     }
-    
+
     // Fallback
     return {
       description: "Clear steps, tight feedback loops, and steady progress—no drama, just results.",
@@ -94,9 +94,10 @@ export default function AboutPage() {
                     </div>
 
                     <div className="mt-6 space-y-4 text-white/80 leading-relaxed">
-                      <p className="text-base font-medium text-white">{leader.bio}</p>
                       {leader.extended.map((paragraph, index) => (
-                        <p key={index}>{paragraph}</p>
+                        <p key={index} className={index === 0 ? "text-base font-medium text-white" : ""}>
+                          {paragraph}
+                        </p>
                       ))}
                     </div>
 

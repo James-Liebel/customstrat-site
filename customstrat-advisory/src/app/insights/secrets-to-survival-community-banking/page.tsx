@@ -38,9 +38,11 @@ export default function SecretsToSurvivalCommunityBanking() {
             <div className="cs-body">
 
               <section className="cs-section">
-                <p className="cs-lead">
-                  <strong>1 out of every 2 banks open for business 2 decades ago no longer exists today</strong>
-                </p>
+                <div className="cs-callout">
+                  <p className="cs-lead">
+                    <strong>1 out of every 2 banks open for business 2 decades ago no longer exists today</strong>
+                  </p>
+                </div>
 
                 <p>
                   The number of community banks has declined by 34%, or over 2000 institutions, in the past 10 years. The past 20 years saw the number of banks in the U.S. fall by 50%.

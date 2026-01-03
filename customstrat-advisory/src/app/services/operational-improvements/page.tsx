@@ -4,8 +4,8 @@ import Atmosphere from "@/components/Atmosphere";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Operational Improvements – Cost and Customer Experience",
-  description: "Process optimization and customer experience enhancement.",
+  title: "Customer Experience & Performance Improvement",
+  description: "Driving bottom-line performance and client impact by leveraging data-driven insights to prioritize operational improvements and optimize end-to-end customer journeys.",
 };
 
 const examples = [
@@ -36,7 +36,7 @@ export default function OperationalImprovementsPage() {
 
       <div className="relative z-10">
         <Hero
-          title="Operational Improvements – Cost and Customer Experience"
+          title="Customer Experience & Performance Improvement"
           image="/images/hero-home.jpg"
           themeKey="gilded-diamond"
         />
