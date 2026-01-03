@@ -86,8 +86,14 @@ export default function ContingencyPlanningForTheNextWorstCaseScenarioInsuranceE
                 </p>
 
                 <p>
-                  Compare insurance policy premiums with sites like Zebra or ValuePenguin. Pro tip: If you’ve been with the same carrier for a while, rates start low at first to attract new customers and then move up slowly over time. By switching to a new carrier, you may be able to save 10-20%.
+                  Compare insurance policy premiums with sites like Zebra or ValuePenguin.
                 </p>
+
+                <div className="cs-callout">
+                  <p className="mb-0">
+                    <strong>Pro tip:</strong> If you’ve been with the same carrier for a while, rates start low at first to attract new customers and then move up slowly over time. By switching to a new carrier, you may be able to save 10-20%.
+                  </p>
+                </div>
 
                 <p>
                   Look at increasing your deductible/s to lower premiums in the short term. Another way to save money is to bundle products with one carrier for discounted rates and/or enroll in automatic payments for further discounts.

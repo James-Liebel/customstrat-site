@@ -95,8 +95,13 @@ export default function AboutPage() {
 
                     <div className="mt-6 space-y-4 text-white/80 leading-relaxed">
                       {leader.extended.map((paragraph, index) => (
-                        <p key={index} className={index === 0 ? "text-base font-medium text-white" : ""}>
-                          {paragraph}
+                        <p key={index} className="">
+                          {paragraph.split(/(\*\*.*?\*\*)/g).map((part, i) => {
+                            if (part.startsWith('**') && part.endsWith('**')) {
+                              return <strong key={i} className="font-bold text-inherit">{part.slice(2, -2)}</strong>;
+                            }
+                            return <span key={i}>{part}</span>;
+                          })}
                         </p>
                       ))}
                     </div>

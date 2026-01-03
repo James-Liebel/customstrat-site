@@ -74,10 +74,10 @@ export const siteContent = {
     engagement: {
       title: "How We Engage with Clients",
       methods: [
-        "Speaking Engagements",
         "CEO and Executive Advisory",
         "Workshop Sessions",
         "Dedicated Client Service Teams",
+        "Speaking Engagements",
       ]
     }
   },

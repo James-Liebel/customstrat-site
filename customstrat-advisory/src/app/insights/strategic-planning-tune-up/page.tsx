@@ -80,11 +80,9 @@ export default function AStrategicPlanningTuneUpForUncertainTimes() {
                   Ensure the company thoroughly understands its strengths and weaknesses unique to volatile times. Here are three main approaches to address this:
                 </p>
 
-                <div className="cs-callout">
-                  <p className="mb-0">
-                    Explicitly apply the learning from the company's response to the crises of 2001, 2008-09, or Covid. While the current situation might be different, documenting lessons learned from past experiences will be a great starting point to address current issues. Consider whether new ways of working might impact future response plans.
-                  </p>
-                </div>
+                <p>
+                  Explicitly apply the learning from the company's response to the crises of 2001, 2008-09, or Covid. While the current situation might be different, documenting lessons learned from past experiences will be a great starting point to address current issues. Consider whether new ways of working might impact future response plans.
+                </p>
 
                 <p>
                   Ensure that the strategic priorities align with recent structural changes in the marketplace. For example, in retail banking, customers that were digital hold-outs are now required to adopt digital banking. How does a bank strategy account for the accelerated shift away from in-person interactions and its impact on physical footprint?
