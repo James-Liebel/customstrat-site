@@ -15,19 +15,10 @@ const articles = [
     title: 'Secrets to Survival in Community Banking',
     slug: 'secrets-to-survival-community-banking',
     date: 'February 2025',
-    categories: ['Community Banking', 'Strategy'],
+    categories: ['Banking', 'Strategy'],
     excerpt:
       'What is and is NOT correlated to Success',
     readTime: '6 min read',
-  },
-  {
-    title: 'P&C Carriers - Preparing for the Stormy Seas',
-    slug: 'pc-carriers-stormy-seas',
-    date: 'July 2022',
-    categories: ['Insurance'],
-    excerpt:
-      'Five strategic priorities for insurers to navigate economic volatility and industry disruption',
-    readTime: '5 min read',
   },
   {
     title: "Beyond Scale: Winning Strategies for Today's P&C Insurers",
@@ -84,10 +75,19 @@ const articles = [
     readTime: '5 min read',
   },
   {
+    title: 'P&C Carriers - Preparing for the Stormy Seas',
+    slug: 'pc-carriers-stormy-seas',
+    date: 'July 2022',
+    categories: ['Insurance'],
+    excerpt:
+      'Five strategic priorities for insurers to navigate economic volatility and industry disruption',
+    readTime: '5 min read',
+  },
+  {
     title: 'Contingency Planning for the Next Worst-Case Scenario',
     slug: 'contingency-planning-worst-case',
     date: 'April 2021',
-    categories: ['Risk Management'],
+    categories: ['Risk Management', 'Insurance'],
     excerpt:
       'Building organizational resilience through comprehensive risk assessment and adaptive strategy',
     readTime: '4 min read',
@@ -96,7 +96,7 @@ const articles = [
     title: 'Banking on a Better Position After the Crisis',
     slug: 'banking-better-position-after-crisis',
     date: 'May 2020',
-    categories: ['Community Banking'],
+    categories: ['Banking'],
     excerpt:
       'Strategic imperatives for banks to emerge stronger from short-term financial disruption',
     readTime: '5 min read',

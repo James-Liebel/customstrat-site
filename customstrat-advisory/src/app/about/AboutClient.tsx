@@ -106,7 +106,7 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                                 </div>
                             </div>
                             {bio.hasMore && (
-                                <button onClick={() => setIsExpanded(!isExpanded)} className="mt-8 flex items-center justify-center md:justify-start gap-3 w-full md:w-auto py-3 px-8 rounded-full bg-gold text-primary hover:bg-white hover:text-primary transition-all text-xs font-black uppercase tracking-widest shadow-lg">
+                                <button onClick={() => setIsExpanded(!isExpanded)} className="mt-auto pt-6 flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto text-gold-light hover:text-white transition-all text-[11px] font-black uppercase tracking-[0.2em]">
                                     {isExpanded ? <><span className="font-black">Show Less</span><ChevronUp size={16} /></> : <><span className="font-black">Read Full Bio</span><ChevronDown size={16} /></>}
                                 </button>
                             )}
@@ -160,14 +160,14 @@ export default function AboutClient({ members }: { members: Member[] }) {
 
     // Manual highlights application
     const restWithHighlights = rest.map(m => {
-        if (m.name === "Luiz Zorzella") return { ...m, highlights: ["Published Author", "McKinsey Alumna", "JP Morgan"] };
-        if (m.name === "Rohini Reddy") return { ...m, highlights: ["20+ Years P&C", "Deloitte Alumna", "Michigan MBA"] };
+        if (m.name === "Luiz Zorzella") return { ...m, highlights: ["McKinsey Alumnus", "JP Morgan", "Published Author",] };
+        if (m.name === "Rohini Reddy") return { ...m, highlights: ["Deloitte Alumna", "Progressive Alumna", "Michigan MBA"] };
         return m;
     });
 
     const leaderWithHighlights = {
         ...leader,
-        highlights: ["Harvard Business School", "McKinsey Alumna", "Former CSO & CXO"]
+        highlights: ["McKinsey Alumna", "Former CSO & CXO", "Harvard Business School"]
     };
 
     // Split remaining members into two vertical columns

@@ -22,25 +22,25 @@ export default function AboutPage() {
 
     if (m.includes("speaking")) {
       return {
-        description: "High-impact presentations bridging market shifts with strategy to prepare leadership for industry evolution.",
-        pills: ["Market Insights", "Strategic Foresight", "Leadership Prep"]
+        description: "High-impact presentations bridging market shifts with strategic best practices to prepare leadership to effectively compete.",
+        pills: ["Market Insights", "Strategic Foresight", "Interactive"]
       };
     }
     if (m.includes("ceo") || m.includes("advisory")) {
       return {
-        description: "Strategic thought partnership applying structured thinking to formulate and stress-test growth plans.",
+        description: "Strategic thought partnership applying structured thinking to formulate and stress-test strategic plans.",
         pills: ["Decision Confidence", "Strategic Clarity", "Executive Alignment"]
       };
     }
     if (m.includes("workshop")) {
       return {
-        description: "Facilitated intensive sessions using structured frameworks to align leadership teams and mobilize action.",
+        description: "Facilitated interactive sessions using structured frameworks to align leadership teams and mobilize for action.",
         pills: ["Guided Consensus", "Rapid Synthesis", "Mobilization Clarity"]
       };
     }
     if (m.includes("teams") || m.includes("consultants")) {
       return {
-        description: "Bespoke teams of elite consultants combining top-tier strategy with deep financial services operating experience.",
+        description: "Bespoke teams of elite consultants combining top-tier strategic consulting with deep financial services operating experience.",
         pills: ["Strategic Rigor", "Operational Depth", "Expert Execution"]
       };
     }
@@ -65,9 +65,6 @@ export default function AboutPage() {
 
           <div className="container-custom">
             <div className="mx-auto max-w-6xl">
-              <div className="cs-section-head mb-12">
-                <h2 className="cs-section-title text-white">{siteContent.about.leadership.title}</h2>
-              </div>
 
               <AboutClient members={siteContent.about.leadership.members} />
             </div>

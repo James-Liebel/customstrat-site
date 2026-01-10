@@ -99,7 +99,7 @@ export const siteContent = {
           company: "CustomStrat Advisory, LLC",
           image: "/images/team/rohini.jpg",
           extended: [
-            "20 years P&C insurance experience across operating and management consultant roles",
+            "Rohini is a senior strategy consultant with 20 years of experience in the P&C insurance industry, both as an operator and a management consultant",
             "Since 2019, she has been independently advising insurance companies across customer segmentation, strategy, product management, operations and competitor analysis efforts",
             "Former pricing and product analyst at Progressive Insurance",
             "Former Engagement Manager at Deloitte's Strategy and Operation Insurance practice",
@@ -154,166 +154,49 @@ export const siteContent = {
     },
     articles: [
       {
-        title: "The Softer Side of Transformation",
-        slug: "the-softer-side-of-transformation",
-        excerpt: "Why culture and change management are critical success factors in business transformation. Learn about the 5Cs approach: Commitment, Capabilities, Culture, Communication, and Change management.",
-        date: "2024-04-12",
-        content: `This article addresses the soft elements and how the 5Cs approach - Commitment, Capabilities, Culture, Communication, and Change management - will help achieve the intended transformation outcomes.
+        title: "Secrets to Survival in Community Banking",
+        slug: "secrets-to-survival-community-banking",
+        excerpt: "What is and is NOT correlated to Success - Analysis of 230 banks reveals the strategic choices that drive growth and returns.",
+        date: "2025-02-01",
+        content: `1 out of every 2 banks open for business 2 decades ago no longer exists today. The number of community banks has declined by 34%, or over 2000 institutions, in the past 10 years.
 
-As we all know, successful transformation must address tangible elements—such as granular strategy, resource allocations, tactical work plans—and 'soft' elements—such as commitment, culture, and communication. Research indicates that well over half of business transformations fail, and the vast majority of those failures are due to inadequate attention to the softer elements.
+This begs the question, what does it take to survive and thrive as a Community Bank?
 
-## Commitment
+We studied 230 banks between $3-$20B in assets over the last 5 years to analyze what factors are correlated to success and which ones are not. We divided the banks into top performers on both growth and returns and assessed the factors causing the largest difference between the leaders and the laggards.
 
-The first step in any transformation journey is tight alignment at the senior-most level on the case for change, overall strategy, required investments, and associated risks. The core leadership team must have a team-first mindset where the enterprise takes priority over and above individual areas of responsibility.
+## 3 Factors that are NOT Linked to Winning
 
-For added measure, extend the executive team's commitment to Board-Level assurances for critical outcomes such as expense reduction or experience improvement to maintain accountability.
+Three elements that one might assume are drivers: size, geography and M&A, are in fact not correlated to success.
 
-## Capabilities
+### 1. Size
 
-Transformation success depends on identifying the right talent to lead the change program and investing in capabilities in critical parts of the organization to sustain the change.
+Surprisingly, the facts show that the outperformers are actually a bit smaller than the laggards, with the leaders having a median of $4.3 billion in assets and laggards with $6.1B.
 
-**Tangible Tip:** The core team comprised of 5-6 individuals can serve as the driving force behind the transformation. The core team members must be senior enough to make decisions (e.g., SVP or VP-level), smart enough to solve challenging problems, and humble enough to roll up their sleeves.
+### 2. M&A
 
-## Culture
+Simply acquiring other banks did not guarantee success: in fact, while 35% of the leading banks made acquisitions, 47% of the lagging banks acquired other banks in the period.
 
-Address culture at the leadership level and the overall organization. At the leadership level, a transformation requires a high level of candor to address potential obstacles or risks.
+### 3. Regional Location
 
-**Tangible Tip:** Create company-wide awards to align with the fundamental cultural values required in the new organization. The CEO and executive leadership team can leverage an all-associate forum to recognize winners and underscore the cultural norms that get rewarded.
+The data shows that underlying market growth is basically the same for leading and lagging banks. The winning banks have deposits located in states with a median GDP growth of 5.8% vs. the lower-performing banks reside in states with a 5.7% GDP growth.
 
-## Communication
+## Two Factors that DO Drive Success
 
-There are many aspects to address here—frequency of communication, the content, who communicates, timing, and tools. Given all the marketplace changes and new approaches to working, communicate more often than usual.
+The leading banks tend to have 2 common drivers: efficiency and targeted markets.
 
-## Change Management
+### 1. Effective Efficiency
 
-People managers play a critical role here as individual contributors view the broader organization through them. Ensure clear communication cascades through all levels of the organization.`,
-      },
-      {
-        title: "A Strategic Planning Tune-Up for Uncertain Times",
-        slug: "strategic-planning-tune-up",
-        excerpt: "How to build resilient strategic plans that adapt to changing market conditions through assumption-based planning and agile execution.",
-        date: "2024-05-18",
-        content: `These times of global uncertainty require an adjustment to the strategic planning approach. Strategy is about making choices and building a sustainable competitive advantage to win in the marketplace.
+Winners have a median efficiency of 55% vs. Laggards of 65%. What we found to be surprising is the composition of the expenses. Winners have a higher proportion of investment in personnel, with 64% of total expenses targeted to personnel vs. 56% at lagging banks. The leaders appear to over-invest in talent.
 
-There are three main building blocks for formulating a strategy. First, understand how the external environment is evolving and how customers can be served in a differentiated manner today and in the future. Second, have crystal clarity on the company's starting position – its current advantages and the capabilities required for tomorrow. Third, set the vision, strategy, and strategic priorities, and ensure execution with clear linkage to financial and other outcome metrics.
+### 2. Targeted Local Markets
 
-## External Environment Analysis
+The winners are disposed to disproportionately grow through concentration in MSAs. Leading banks grew their MSA-based deposits at 20% per year, while laggard banks grew MSA deposits at only 13%.
 
-An external environment analysis evaluates the macro-environment (e.g., GDP, household formation), demand-supply drivers (car sales, home builds, for example, in insurance), consumer behavior, technology/disruption, competition, and regulation.
+## The Value of Strategic Commitment
 
-### Incorporate Structural Changes
+Our analysis shows that strategic commitment substantially impacts a bank's results. For example, true commitment to M&A (as evidenced by 3+ acquisitions) shows that serial acquirers are 4½ times more likely to be winners than losers.
 
-The last two years have seen several structural changes occur rapidly - accelerated consumer digital acceptance, the emergence of hybrid work, skill-set shortages, shifting populations between cities, local supply chains vs. global supply chains.
-
-### Competitive Analysis
-
-Another approach related to the competition is to conduct competitive game boarding/ war games. Evaluate different competitive scenarios and use an "if-then" approach, which allows you to prepare pivots and responses.
-
-## Strategic Priorities
-
-Measure strategic progress through objectives and key results, making pivots as applicable. Monitor the key results quantitatively, and through progress milestones on initiatives like investments in the growth of a new business, a large tech program, and expense competitiveness.
-
-### Be Bold and Force More Choices
-
-Resources are always limited and particularly constrained in the current environment. Decide which initiatives will not be touched and which can be delayed or stopped altogether. Explore inorganic growth, given valuation levels of targets, and attract top-tier tech talent.`,
-      },
-      {
-        title: "Strategic Planning Best Practices for Board Directors",
-        slug: "strategic-planning-best-practices",
-        excerpt: "Essential elements of effective strategic planning in today's complex financial environment, with key questions for board oversight.",
-        date: "2024-06-05",
-        content: `This article suggests an over-arching question to keep in the back of your mind to test strategy effectiveness, as well as some supporting questions to facilitate healthy dialog in the Board Room.
-
-## The Core Test
-
-'Test' to keep in mind: **If the opposite of the strategy is "stupid", then there is no strategy.**
-
-Allow me to explain: let's say the strategy is to provide high-touch in-person service to high net-worth customers. The opposite of that is to provide a low-touch digital offering to mass market customers. Both of these are perfectly rational strategic paths.
-
-Now, let's say the strategy is to "grow profitably with all consumers leveraging a strong customer experience". The opposite is to "shrink unprofitably with no consumers based on a poor customer experience". That doesn't make any sense, highlighting no real choices have been made.
-
-## Key Questions for Board Directors
-
-### Market Segmentation
-What segments of the market (customer segments, geographies or product/service cuts) are we targeting and why? What segments are we explicitly not pursuing?
-
-### Competitive Advantage
-What is our sustainable competitive advantage? How do we create value for customers in a way that competitors cannot easily replicate?
-
-### Strategic Choices
-What are the hard choices we're making? What are we saying "no" to in order to focus resources on our strategic priorities?
-
-### Execution Capability
-Do we have the capabilities, resources, and organizational structure to execute this strategy? What gaps exist and how will we close them?`,
-      },
-      {
-        title: "P&C Carriers - Preparing for the Stormy Seas",
-        slug: "pc-carriers-stormy-seas",
-        excerpt: "Five priorities to guide Property & Casualty insurance carriers through challenging market conditions while building long-term strategy.",
-        date: "2024-07-10",
-        content: `Carriers need to batten down the hatches for the near-term storm while also building the long-term strategy to arrive at a sunny port of call. The article below highlights five priorities to guide the journey.
-
-## Priority 1: Superior Customer Experience
-
-In the current environment, increased pricing is inevitable for carriers' health and typically leads to increased rate shopping from customers. In these times, superior customer experience and benefits help drive carrier differentiation and retention.
-
-Make the customer experience easy, transparent, and free from anxiety. Prioritize moments that matter (e.g., vehicle crashes, claims payments, coverage clarity) and invest in a human-digital interface that demonstrates much-needed empathy with customers.
-
-## Priority 2: Enhanced Customer Benefits
-
-Another approach in these times is to provide more customer benefits - regular policy reviews to highlight saving/coverage opportunities, advice on higher deductibles, missed bundling discounts, and other ways to help save money and time for customers.
-
-## Priority 3: Operational Efficiency
-
-Focus on streamlining operations and reducing costs without compromising service quality. This includes automation of routine processes and optimization of claims handling.
-
-## Priority 4: Risk Management
-
-Strengthen underwriting practices and risk assessment capabilities to navigate the challenging market environment while maintaining profitability.
-
-## Priority 5: Strategic Positioning
-
-Build the long-term strategy that positions the carrier for success when market conditions improve, including investments in technology, talent, and customer relationships.`,
-      },
-      {
-        title: "Linking Customer Experience to Business Results",
-        slug: "linking-cx-business-results",
-        excerpt: "A practical framework for connecting CX investments to measurable business outcomes and demonstrating the ROI of customer experience initiatives.",
-        date: "2024-08-22",
-        content: `Customer experience has become a critical differentiator in financial services, but many organizations struggle to connect CX investments to tangible business outcomes. This article provides a framework for measuring and demonstrating the impact of customer experience improvements.
-
-## The CX-Business Results Connection
-
-Leading financial services organizations understand that customer experience directly impacts key business metrics including:
-- Customer retention and loyalty
-- Cross-sell and upsell opportunities
-- Operational efficiency
-- Brand reputation and referrals
-
-## Measuring What Matters
-
-To effectively link CX to business results, organizations must:
-
-### Define Clear Metrics
-Establish specific, measurable KPIs that connect customer experience improvements to business outcomes. These might include Net Promoter Score (NPS), Customer Satisfaction (CSAT), Customer Effort Score (CES), and their correlation with revenue growth and profitability.
-
-### Track Customer Journeys
-Map critical customer journeys and identify moments that matter most to customers and the business. Focus improvement efforts on high-impact touchpoints that drive measurable results.
-
-### Calculate Financial Impact
-Develop models that quantify the financial value of CX improvements, including:
-- Lifetime value increase from improved retention
-- Revenue growth from higher cross-sell rates
-- Cost savings from reduced service contacts
-- Acquisition cost reduction from referrals
-
-## Implementation Framework
-
-1. **Baseline Assessment**: Establish current state metrics across customer experience and business performance
-2. **Priority Identification**: Focus on high-impact opportunities that align with business strategy
-3. **Pilot and Test**: Implement changes in controlled environments to measure impact
-4. **Scale and Monitor**: Roll out successful initiatives while continuously tracking results
-5. **Iterate and Improve**: Refine approaches based on data and changing customer needs`,
+Regardless of what "cards" a bank is dealt (e.g., location, size), there are choices in the control of community banks that can drive success. Keys to winning are making strategic choices … businesses where you can win, local markets where you can win, and being targeted in where limited resources are invested.`,
       },
       {
         title: "Beyond Scale: Winning Strategies for Mid-Sized Banks",
@@ -377,6 +260,172 @@ Recognize that mid-sized banks don't need to build everything themselves. Strate
 Success for mid-sized banks requires clear strategic choices about where to compete and how to win. The key is leveraging inherent advantages—customer relationships, local market knowledge, operational flexibility—while addressing scale disadvantages through technology, partnerships, and focused market positioning.
 
 Banks that successfully execute this strategy will find sustainable competitive advantage despite not having the scale of national players or the deep local roots of the smallest community banks.`,
+      },
+      {
+        title: "The Softer Side of Transformation",
+        slug: "the-softer-side-of-transformation",
+        excerpt: "Why culture and change management are critical success factors in business transformation. Learn about the 5Cs approach: Commitment, Capabilities, Culture, Communication, and Change management.",
+        date: "2024-04-12",
+        content: `This article addresses the soft elements and how the 5Cs approach - Commitment, Capabilities, Culture, Communication, and Change management - will help achieve the intended transformation outcomes.
+
+As we all know, successful transformation must address tangible elements—such as granular strategy, resource allocations, tactical work plans—and 'soft' elements—such as commitment, culture, and communication. Research indicates that well over half of business transformations fail, and the vast majority of those failures are due to inadequate attention to the softer elements.
+
+## Commitment
+
+The first step in any transformation journey is tight alignment at the senior-most level on the case for change, overall strategy, required investments, and associated risks. The core leadership team must have a team-first mindset where the enterprise takes priority over and above individual areas of responsibility.
+
+For added measure, extend the executive team's commitment to Board-Level assurances for critical outcomes such as expense reduction or experience improvement to maintain accountability.
+
+## Capabilities
+
+Transformation success depends on identifying the right talent to lead the change program and investing in capabilities in critical parts of the organization to sustain the change.
+
+**Tangible Tip:** The core team comprised of 5-6 individuals can serve as the driving force behind the transformation. The core team members must be senior enough to make decisions (e.g., SVP or VP-level), smart enough to solve challenging problems, and humble enough to roll up their sleeves.
+
+## Culture
+
+Address culture at the leadership level and the overall organization. At the leadership level, a transformation requires a high level of candor to address potential obstacles or risks.
+
+**Tangible Tip:** Create company-wide awards to align with the fundamental cultural values required in the new organization. The CEO and executive leadership team can leverage an all-associate forum to recognize winners and underscore the cultural norms that get rewarded.
+
+## Communication
+
+There are many aspects to address here—frequency of communication, the content, who communicates, timing, and tools. Given all the marketplace changes and new approaches to working, communicate more often than usual.
+
+## Change Management
+
+People managers play a critical role here as individual contributors view the broader organization through them. Ensure clear communication cascades through all levels of the organization.`,
+      },
+      {
+        title: "Linking Customer Experience to Business Results",
+        slug: "linking-cx-business-results",
+        excerpt: "A practical framework for connecting CX investments to measurable business outcomes and demonstrating the ROI of customer experience initiatives.",
+        date: "2024-08-22",
+        content: `Customer experience has become a critical differentiator in financial services, but many organizations struggle to connect CX investments to tangible business outcomes. This article provides a framework for measuring and demonstrating the impact of customer experience improvements.
+
+## The CX-Business Results Connection
+
+Leading financial services organizations understand that customer experience directly impacts key business metrics including:
+- Customer retention and loyalty
+- Cross-sell and upsell opportunities
+- Operational efficiency
+- Brand reputation and referrals
+
+## Measuring What Matters
+
+To effectively link CX to business results, organizations must:
+
+### Define Clear Metrics
+Establish specific, measurable KPIs that connect customer experience improvements to business outcomes. These might include Net Promoter Score (NPS), Customer Satisfaction (CSAT), Customer Effort Score (CES), and their correlation with revenue growth and profitability.
+
+### Track Customer Journeys
+Map critical customer journeys and identify moments that matter most to customers and the business. Focus improvement efforts on high-impact touchpoints that drive measurable results.
+
+### Calculate Financial Impact
+Develop models that quantify the financial value of CX improvements, including:
+- Lifetime value increase from improved retention
+- Revenue growth from higher cross-sell rates
+- Cost savings from reduced service contacts
+- Acquisition cost reduction from referrals
+
+## Implementation Framework
+
+1. **Baseline Assessment**: Establish current state metrics across customer experience and business performance
+2. **Priority Identification**: Focus on high-impact opportunities that align with business strategy
+3. **Pilot and Test**: Implement changes in controlled environments to measure impact
+4. **Scale and Monitor**: Roll out successful initiatives while continuously tracking results
+5. **Iterate and Improve**: Refine approaches based on data and changing customer needs`,
+      },
+      {
+        title: "P&C Carriers - Preparing for the Stormy Seas",
+        slug: "pc-carriers-stormy-seas",
+        excerpt: "Five priorities to guide Property & Casualty insurance carriers through challenging market conditions while building long-term strategy.",
+        date: "2024-07-10",
+        content: `Carriers need to batten down the hatches for the near-term storm while also building the long-term strategy to arrive at a sunny port of call. The article below highlights five priorities to guide the journey.
+
+## Priority 1: Superior Customer Experience
+
+In the current environment, increased pricing is inevitable for carriers' health and typically leads to increased rate shopping from customers. In these times, superior customer experience and benefits help drive carrier differentiation and retention.
+
+Make the customer experience easy, transparent, and free from anxiety. Prioritize moments that matter (e.g., vehicle crashes, claims payments, coverage clarity) and invest in a human-digital interface that demonstrates much-needed empathy with customers.
+
+## Priority 2: Enhanced Customer Benefits
+
+Another approach in these times is to provide more customer benefits - regular policy reviews to highlight saving/coverage opportunities, advice on higher deductibles, missed bundling discounts, and other ways to help save money and time for customers.
+
+## Priority 3: Operational Efficiency
+
+Focus on streamlining operations and reducing costs without compromising service quality. This includes automation of routine processes and optimization of claims handling.
+
+## Priority 4: Risk Management
+
+Strengthen underwriting practices and risk assessment capabilities to navigate the challenging market environment while maintaining profitability.
+
+## Priority 5: Strategic Positioning
+
+Build the long-term strategy that positions the carrier for success when market conditions improve, including investments in technology, talent, and customer relationships.`,
+      },
+      {
+        title: "Strategic Planning Best Practices for Board Directors",
+        slug: "strategic-planning-best-practices",
+        excerpt: "Essential elements of effective strategic planning in today's complex financial environment, with key questions for board oversight.",
+        date: "2024-06-05",
+        content: `This article suggests an over-arching question to keep in the back of your mind to test strategy effectiveness, as well as some supporting questions to facilitate healthy dialog in the Board Room.
+
+## The Core Test
+
+'Test' to keep in mind: **If the opposite of the strategy is "stupid", then there is no strategy.**
+
+Allow me to explain: let's say the strategy is to provide high-touch in-person service to high net-worth customers. The opposite of that is to provide a low-touch digital offering to mass market customers. Both of these are perfectly rational strategic paths.
+
+Now, let's say the strategy is to "grow profitably with all consumers leveraging a strong customer experience". The opposite is to "shrink unprofitably with no consumers based on a poor customer experience". That doesn't make any sense, highlighting no real choices have been made.
+
+## Key Questions for Board Directors
+
+### Market Segmentation
+
+What segments of the market (customer segments, geographies or product/service cuts) are we targeting and why? What segments are we explicitly not pursuing?
+
+### Competitive Advantage
+
+What is our sustainable competitive advantage? How do we create value for customers in a way that competitors cannot easily replicate?
+
+### Strategic Choices
+
+What are the hard choices we're making? What are we saying "no" to in order to focus resources on our strategic priorities?
+
+### Execution Capability
+
+Do we have the capabilities, resources, and organizational structure to execute this strategy? What gaps exist and how will we close them?`,
+      },
+      {
+        title: "A Strategic Planning Tune-Up for Uncertain Times",
+        slug: "strategic-planning-tune-up",
+        excerpt: "How to build resilient strategic plans that adapt to changing market conditions through assumption-based planning and agile execution.",
+        date: "2024-05-18",
+        content: `These times of global uncertainty require an adjustment to the strategic planning approach. Strategy is about making choices and building a sustainable competitive advantage to win in the marketplace.
+
+There are three main building blocks for formulating a strategy. First, understand how the external environment is evolving and how customers can be served in a differentiated manner today and in the future. Second, have crystal clarity on the company's starting position – its current advantages and the capabilities required for tomorrow. Third, set the vision, strategy, and strategic priorities, and ensure execution with clear linkage to financial and other outcome metrics.
+
+## External Environment Analysis
+
+An external environment analysis evaluates the macro-environment (e.g., GDP, household formation), demand-supply drivers (car sales, home builds, for example, in insurance), consumer behavior, technology/disruption, competition, and regulation.
+
+### Incorporate Structural Changes
+
+The last two years have seen several structural changes occur rapidly - accelerated consumer digital acceptance, the emergence of hybrid work, skill-set shortages, shifting populations between cities, local supply chains vs. global supply chains.
+
+### Competitive Analysis
+
+Another approach related to the competition is to conduct competitive game boarding/ war games. Evaluate different competitive scenarios and use an "if-then" approach, which allows you to prepare pivots and responses.
+
+## Strategic Priorities
+
+Measure strategic progress through objectives and key results, making pivots as applicable. Monitor the key results quantitatively, and through progress milestones on initiatives like investments in the growth of a new business, a large tech program, and expense competitiveness.
+
+### Be Bold and Force More Choices
+
+Resources are always limited and particularly constrained in the current environment. Decide which initiatives will not be touched and which can be delayed or stopped altogether. Explore inorganic growth, given valuation levels of targets, and attract top-tier tech talent.`,
       },
     ]
   },
