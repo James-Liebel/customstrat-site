@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import { siteContent } from "@/content/siteContent";
 import { ExternalLink } from "lucide-react";
+import AboutClient from "./AboutClient";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -21,33 +22,33 @@ export default function AboutPage() {
 
     if (m.includes("speaking")) {
       return {
-        description: "Delivering insight-driven presentations that bridge FS market shifts with proven strategy and transformation practices to prepare leadership teams for industry evolution.",
-        pills: ["Strategic Foresight", "Transformation Logic", "Pragmatic Frameworks"]
+        description: "High-impact presentations bridging market shifts with strategy to prepare leadership for industry evolution.",
+        pills: ["Market Insights", "Strategic Foresight", "Leadership Prep"]
       };
     }
     if (m.includes("ceo") || m.includes("advisory")) {
       return {
-        description: "A trusted thought partner who applies structured thinking and financial services market perspectives to formulate actionable strategies and ensure sufficient stretch in transformation plans.",
-        pills: ["Decision confidence", "Unbiased perspective", "Calibrated ambition"]
+        description: "Strategic thought partnership applying structured thinking to formulate and stress-test growth plans.",
+        pills: ["Decision Confidence", "Strategic Clarity", "Executive Alignment"]
       };
     }
     if (m.includes("workshop")) {
       return {
-        description: "Designing and facilitating intensive sessions that leverage structured frameworks to align financial service leadership teams and convert complex hurdles into prioritized action plans.",
-        pills: ["Guided Consensus", "Informed Synthesis", "Mobilization Clarity"]
+        description: "Facilitated intensive sessions using structured frameworks to align leadership teams and mobilize action.",
+        pills: ["Guided Consensus", "Rapid Synthesis", "Mobilization Clarity"]
       };
     }
     if (m.includes("teams") || m.includes("consultants")) {
       return {
-        description: "Deploying bespoke teams of elite independent consultants who combine top-tier strategic pedigree with proven financial services operating experience to architect complex strategic plans, perform rigorous analysis, and drive large-scale transformation.",
-        pills: ["Rigorous strategic analysis", "Operational Pragmatism", "Deployment-Ready Roadmaps"]
+        description: "Bespoke teams of elite consultants combining top-tier strategy with deep financial services operating experience.",
+        pills: ["Strategic Rigor", "Operational Depth", "Expert Execution"]
       };
     }
 
     // Fallback
     return {
-      description: "Clear steps, tight feedback loops, and steady progress—no drama, just results.",
-      pills: ["Fast alignment", "Clear owners", "Measurable progress"]
+      description: "Direct collaboration focused on clear steps, tight feedback loops, and measurable strategic results.",
+      pills: ["Fast Alignment", "Clear Ownership", "Proven Results"]
     };
   };
 
@@ -59,77 +60,26 @@ export default function AboutPage() {
         <Hero title={siteContent.about.hero.title} image="/images/hero-about.jpg" themeKey="aura-strata" />
 
         {/* Leadership Section */}
-        <section className="cs-section">
+        <section className="cs-section relative">
+
+
           <div className="container-custom">
             <div className="mx-auto max-w-6xl">
-              <div className="cs-section-head">
+              <div className="cs-section-head mb-12">
                 <h2 className="cs-section-title text-white">{siteContent.about.leadership.title}</h2>
               </div>
 
-              <div className="mt-16 grid md:grid-cols-2 gap-10 lg:gap-14 items-start">
-                <div className="relative mx-auto md:mx-0 w-full max-w-md">
-                  <div className="cs-float-shape cs-float-shape--a" aria-hidden="true" />
-                  <div className="cs-float-shape cs-float-shape--b" aria-hidden="true" />
-
-                  <div className="cs-about-photo group">
-                    <div className="cs-about-photoGlow" aria-hidden="true" />
-                    <div className="relative aspect-[3/4] overflow-hidden rounded-[22px]">
-                      <Image
-                        src="/images/fullshot.png"
-                        alt={leader.name}
-                        fill
-                        className="object-cover cs-about-photoImg"
-                        priority
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="cs-card cs-card--soft">
-                  <div className="cs-card-inner">
-                    <div className="flex flex-col gap-2">
-                      <h3 className="text-3xl lg:text-4xl font-semibold text-white">{leader.name}</h3>
-                      <p className="text-lg text-white/75">{leader.title}</p>
-                      <p className="text-base font-semibold text-white/90">{leader.company}</p>
-                    </div>
-
-                    <div className="mt-6 space-y-4 text-white/80 leading-relaxed">
-                      {leader.extended.map((paragraph, index) => (
-                        <p key={index} className="">
-                          {paragraph.split(/(\*\*.*?\*\*)/g).map((part, i) => {
-                            if (part.startsWith('**') && part.endsWith('**')) {
-                              return <strong key={i} className="font-bold text-inherit">{part.slice(2, -2)}</strong>;
-                            }
-                            return <span key={i}>{part}</span>;
-                          })}
-                        </p>
-                      ))}
-                    </div>
-
-                    <div className="mt-7">
-                      <a
-                        href={leader.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="cs-link-inline"
-                      >
-                        <span>View LinkedIn Profile</span>
-                        <ExternalLink size={18} className="cs-link-inlineIcon" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <AboutClient members={siteContent.about.leadership.members} />
             </div>
           </div>
         </section>
 
-        {/* How We Engage Section */}
-        <section id="how-we-engage" className="cs-section">
+        {/* Services Section */}
+        < section id="services" className="cs-section" >
           <div className="container-custom">
             <div className="mx-auto max-w-6xl">
               <div className="cs-section-head">
-                <h2 className="cs-section-title text-white">{siteContent.about.engagement.title}</h2>
+                <h2 className="cs-section-title text-white">Services</h2>
               </div>
 
               <div className="mt-10 cs-engage">
@@ -180,8 +130,8 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section>
-      </div>
-    </main>
+        </section >
+      </div >
+    </main >
   );
 }

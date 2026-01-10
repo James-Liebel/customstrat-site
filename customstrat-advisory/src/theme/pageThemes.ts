@@ -8,8 +8,6 @@
  * - Pattern type (subtle texture)
  * - Motion type (slow, tasteful animation)
  * - Intensity level
- * 
- * All themes maintain executive-clean aesthetic with subtle, premium touches.
  */
 
 export type PatternType = 'diamond' | 'dots' | 'grid' | 'rings' | 'strata';
@@ -37,174 +35,97 @@ export interface PageTheme {
   };
 }
 
+// THE UNIFIED LOGO BLUE style (Darker on Left)
+const LOGO_BLUE_BG = {
+  angle: '135deg',
+  stops: [
+    '#0A1A2F 0%',  // Deep Navy (Left)
+    '#1e4b75 100%' // Logo Blue (Right)
+  ]
+};
+
+const LOGO_BLUE_HERO_OVERLAY = {
+  angle: '135deg',
+  linearStops: [
+    'rgba(10, 26, 47, 0.98) 0%', // Darker start (Left)
+    'rgba(30, 75, 117, 0.88) 100%' // Logo Blue (Right)
+  ],
+  radialAccents: [
+    'radial-gradient(circle at 20% 20%, rgba(201, 169, 97, 0.12) 0%, transparent 60%)',
+    'radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.08) 0%, transparent 60%)'
+  ]
+};
+
 export const pageThemes: Record<string, PageTheme> = {
-  // Case Studies - Gilded Diamond
+  // Case Studies - Logo Blue Diamond
   'gilded-diamond': {
     accent: 'rgba(201, 169, 97, 0.25)', // Gold tint
-    accentSecondary: 'rgba(201, 169, 97, 0.15)',
-    backgroundGradient: {
-      angle: '180deg',
-      stops: [
-        'rgba(255, 255, 255, 1) 0%',
-        'rgba(245, 248, 252, 1) 32%',
-        'rgba(14, 24, 38, 0.96) 100%'
-      ]
-    },
-    heroOverlay: {
-      angle: '135deg',
-      linearStops: [
-        'rgba(10, 20, 35, 0.95) 0%',
-        'rgba(26, 58, 92, 0.88) 100%'
-      ],
-      radialAccents: [
-        'radial-gradient(circle at 20% 50%, rgba(201, 169, 97, 0.08) 0%, transparent 50%)',
-        'radial-gradient(circle at 80% 80%, rgba(91, 143, 196, 0.10) 0%, transparent 50%)'
-      ]
-    },
+    backgroundGradient: LOGO_BLUE_BG,
+    heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'diamond',
     motion: 'orbit',
     intensity: 'medium',
     motionSpeed: { primary: 24, secondary: 30 }
   },
 
-  // Insights/Articles - Ink Dots
+  // Insights/Articles - Logo Blue Ink
   'ink-dots': {
-    accent: 'rgba(71, 85, 105, 0.20)', // Cool charcoal tint
-    accentSecondary: 'rgba(100, 116, 139, 0.12)',
-    backgroundGradient: {
-      angle: '180deg',
-      stops: [
-        'rgba(255, 255, 255, 0.98) 0%',
-        'rgba(240, 245, 250, 0.95) 35%',
-        'rgba(26, 58, 92, 0.92) 100%'
-      ]
-    },
-    heroOverlay: {
-      angle: '135deg',
-      linearStops: [
-        'rgba(10, 20, 35, 0.96) 0%',
-        'rgba(26, 58, 92, 0.90) 100%'
-      ],
-      radialAccents: [
-        'radial-gradient(circle at 25% 30%, rgba(71, 85, 105, 0.06) 0%, transparent 50%)',
-        'radial-gradient(circle at 75% 70%, rgba(100, 116, 139, 0.05) 0%, transparent 50%)'
-      ]
-    },
+    accent: 'rgba(255, 255, 255, 0.15)',
+    backgroundGradient: LOGO_BLUE_BG,
+    heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'dots',
     motion: 'drift',
     intensity: 'medium',
     motionSpeed: { primary: 28, secondary: 35 }
   },
 
-  // About - Aura Strata
+  // About - Logo Blue Strata
   'aura-strata': {
-    accent: 'rgba(201, 169, 97, 0.18)', // Warm neutral gold
-    accentSecondary: 'rgba(91, 143, 196, 0.12)',
-    backgroundGradient: {
-      angle: '135deg',
-      stops: [
-        'rgba(29, 58, 98, 0.72) 0%',
-        'rgba(10, 20, 35, 0.98) 100%'
-      ]
-    },
-    heroOverlay: {
-      angle: '135deg',
-      linearStops: [
-        'rgba(10, 20, 35, 0.97) 0%',
-        'rgba(26, 58, 92, 0.92) 100%'
-      ],
-      radialAccents: [
-        'radial-gradient(circle at 16% 18%, rgba(201, 169, 97, 0.06) 0%, transparent 50%)',
-        'radial-gradient(circle at 86% 76%, rgba(91, 143, 196, 0.05) 0%, transparent 50%)'
-      ]
-    },
+    accent: 'rgba(201, 169, 97, 0.18)',
+    backgroundGradient: LOGO_BLUE_BG,
+    heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'strata',
     motion: 'float',
     intensity: 'medium',
     motionSpeed: { primary: 20, secondary: 26 }
   },
 
-  // Endorsements - Soft Rings
+  // Endorsements - Logo Blue Rings
   'soft-rings': {
-    accent: 'rgba(201, 169, 97, 0.20)', // Muted gold/stone
-    accentSecondary: 'rgba(229, 212, 166, 0.12)',
-    backgroundGradient: {
-      angle: '135deg',
-      stops: [
-        'rgba(29, 58, 98, 0.75) 0%',
-        'rgba(10, 20, 35, 0.97) 100%'
-      ]
-    },
-    heroOverlay: {
-      angle: '135deg',
-      linearStops: [
-        'rgba(10, 20, 35, 0.96) 0%',
-        'rgba(26, 58, 92, 0.91) 100%'
-      ],
-      radialAccents: [
-        'radial-gradient(circle at 25% 15%, rgba(201, 169, 97, 0.07) 0%, transparent 50%)',
-        'radial-gradient(circle at 80% 80%, rgba(229, 212, 166, 0.05) 0%, transparent 50%)'
-      ]
-    },
+    accent: 'rgba(255, 255, 255, 0.12)',
+    backgroundGradient: LOGO_BLUE_BG,
+    heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'rings',
     motion: 'orbit',
     intensity: 'medium',
     motionSpeed: { primary: 32, secondary: 40 }
   },
 
-  // Contact - Signal Grid
+  // Contact - Logo Blue Grid
   'signal-grid': {
-    accent: 'rgba(91, 143, 196, 0.18)', // Subtle blue-gray
-    accentSecondary: 'rgba(74, 123, 167, 0.12)',
-    backgroundGradient: {
-      angle: '135deg',
-      stops: [
-        'rgba(29, 58, 98, 0.70) 0%',
-        'rgba(10, 20, 35, 0.96) 100%'
-      ]
-    },
-    heroOverlay: {
-      angle: '135deg',
-      linearStops: [
-        'rgba(10, 20, 35, 0.95) 0%',
-        'rgba(26, 58, 92, 0.89) 100%'
-      ],
-      radialAccents: [
-        'radial-gradient(circle at 20% 20%, rgba(91, 143, 196, 0.08) 0%, transparent 50%)',
-        'radial-gradient(circle at 75% 70%, rgba(74, 123, 167, 0.06) 0%, transparent 50%)'
-      ]
-    },
+    accent: 'rgba(255, 255, 255, 0.10)',
+    backgroundGradient: LOGO_BLUE_BG,
+    heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'grid',
     motion: 'scanline',
     intensity: 'medium',
     motionSpeed: { primary: 18, secondary: 22 }
   },
 
-  // Default - Clean Neutral
+  // Home (Default) - Keeps white background as requested
   'default-clean': {
-    accent: 'rgba(91, 143, 196, 0.15)', // Neutral blue-gray
-    accentSecondary: 'rgba(148, 163, 184, 0.10)',
-    backgroundGradient: {
-      angle: '180deg',
-      stops: [
-        'rgba(255, 255, 255, 0.95) 0%',
-        'rgba(26, 58, 92, 0.90) 100%'
-      ]
-    },
+    accent: 'rgba(255, 255, 255, 0.15)',
+    backgroundGradient: LOGO_BLUE_BG,
     heroOverlay: {
       angle: '135deg',
       linearStops: [
-        'rgba(10, 20, 35, 0.94) 0%',
-        'rgba(26, 58, 92, 0.88) 100%'
-      ],
-      radialAccents: [
-        'radial-gradient(circle at 20% 20%, rgba(91, 143, 196, 0.06) 0%, transparent 50%)',
-        'radial-gradient(circle at 80% 30%, rgba(148, 163, 184, 0.04) 0%, transparent 50%)'
+        'rgba(10, 26, 47, 0.98) 0%', // Darker start (Left)
+        'rgba(30, 75, 117, 0.88) 100%' // Logo Blue (Right)
       ]
     },
     pattern: 'dots',
     motion: 'drift',
-    intensity: 'low',
+    intensity: 'medium',
     motionSpeed: { primary: 30, secondary: 38 }
   }
 };
@@ -213,7 +134,6 @@ export const pageThemes: Record<string, PageTheme> = {
  * Get theme for a page route
  */
 export function getThemeForRoute(route: string): PageTheme {
-  // Map routes to theme keys
   const routeMap: Record<string, string> = {
     '/services': 'gilded-diamond',
     '/services/strategy-development': 'gilded-diamond',
@@ -225,7 +145,6 @@ export function getThemeForRoute(route: string): PageTheme {
     '/contact': 'signal-grid',
   };
 
-  // Check for insights detail pages
   if (route.startsWith('/insights/')) {
     return pageThemes['ink-dots'];
   }
@@ -233,4 +152,3 @@ export function getThemeForRoute(route: string): PageTheme {
   const themeKey = routeMap[route] || 'default-clean';
   return pageThemes[themeKey] || pageThemes['default-clean'];
 }
-

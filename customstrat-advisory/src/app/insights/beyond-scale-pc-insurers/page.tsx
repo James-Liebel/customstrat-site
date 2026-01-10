@@ -135,7 +135,7 @@ export default function BeyondScalePCInsurers() {
 
               {/* Exhibit 2 */}
               <section className="cs-exhibit">
-                <h3 className="cs-exhibit-title">Exhibit 2:  Non-Factors to Success</h3>
+                <h3 className="cs-exhibit-title">Non-Factors to Success</h3>
                 <div className="cs-exhibit-frame">
                   <img src="/images/exhibit-2.png" alt="Non-Factors to success" />
                 </div>
@@ -162,13 +162,15 @@ export default function BeyondScalePCInsurers() {
                   Furthermore, within commercial lines, Winners had a higher share of business in specialty areas (e.g., cyber, E&amp;S), benefiting from less competition and perhaps more pricing flexibility in those areas. The Winners had, on average, 40% of their overall portfolios in commercial specialty products versus less than 20% for the Laggards.
                 </p>
 
-                <p>
-                  But what about volatility?
-                </p>
+                <div className="pl-8 border-l-4 border-accent/20 my-6">
+                  <p className="font-semibold text-lg text-primary italic">
+                    But what about volatility?
+                  </p>
 
-                <p>
-                  What’s really intriguing is that our research shows that the volatility of returns from the Laggards with the more balanced portfolio is no better than that of the Winners with a clear focus on Commercial. The standard deviation of ROE from the Winners over the past decade was actually about 10% lower than the Laggards.
-                </p>
+                  <p>
+                    What’s really intriguing is that our research shows that the volatility of returns from the Laggards with the more balanced portfolio is no better than that of the Winners with a clear focus on Commercial. The standard deviation of ROE from the Winners over the past decade was actually about 10% lower than the Laggards.
+                  </p>
+                </div>
 
                 <p>
                   It should be noted that focus on personal lines can drive success, IF the carrier is one of the largest. 2 of the largest 3 carriers that were excluded from the analysis because of their unique scale, also would fall in the winner bucket – Progressive with over 80% personal lines and Berkshire (including GEICO) with approximately 70% personal lines. Their success highlights the immense scale required to achieve growth and returns in personal lines.
@@ -201,7 +203,7 @@ export default function BeyondScalePCInsurers() {
 
               {/* Exhibit 3 */}
               <section className="cs-exhibit">
-                <h3 className="cs-exhibit-title">Exhibit 3:  Factors to Success</h3>
+                <h3 className="cs-exhibit-title">Factors to Success</h3>
                 <div className="cs-exhibit-frame">
                   <img src="/images/exhibit-3.png" alt="Factors to Success" />
                 </div>
@@ -218,11 +220,11 @@ export default function BeyondScalePCInsurers() {
                   Besides that, within the Winners, there appear to be 3 models for success broadly:
                 </p>
 
-                <ul>
+                <ol className="list-decimal pl-6 space-y-2 marker:text-accent marker:font-bold">
                   <li>A low expense model, which sacrifices losses in the spirit of low-touch/automated underwriting</li>
                   <li>Low loss ratio model supported by higher expenses to fund expert labor cost, and</li>
                   <li>A balanced approach with strong expense discipline coupled with a targeted aperture on risk/losses.</li>
-                </ul>
+                </ol>
 
                 <p>
                   The point is that there are different ways to win, but it takes strategic commitment and alignment behind that operating model to drive success.

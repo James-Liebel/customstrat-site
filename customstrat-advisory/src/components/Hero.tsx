@@ -10,6 +10,7 @@ interface HeroProps {
   image?: string;
   centered?: boolean;
   themeKey?: string; // Optional override, otherwise uses route-based theme
+  showScrollIndicator?: boolean;
 }
 
 /**
@@ -27,6 +28,7 @@ export default function Hero({
   image = "/images/hero-home.jpg",
   centered = false,
   themeKey,
+  showScrollIndicator = false,
 }: HeroProps) {
   // Get theme for hero overlay (darker than body)
   const pathname = usePathname();
@@ -174,11 +176,23 @@ export default function Hero({
       {/* Content */}
       <div className="container-custom relative z-10 text-white py-8">
         <div className={centered ? "text-center max-w-4xl mx-auto" : "max-w-4xl"}>
-          <h1 className="font-semibold mb-0 leading-tight text-balance animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards] brand-name">
+          <h1 className="font-semibold mb-0 leading-tight text-balance animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards] brand-name !text-[#FFFFFF]">
             {title}
           </h1>
         </div>
       </div>
+
+      {/* Scroll Indicator */}
+      {showScrollIndicator && (
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 animate-bounce transition-opacity duration-1000 opacity-60 hover:opacity-100">
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/70">Scroll</span>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+              <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+            </svg>
+          </div>
+        </div>
+      )}
 
       {/* Bottom fade - removed, now handled by hero-overlay::after for better transition */}
     </section>

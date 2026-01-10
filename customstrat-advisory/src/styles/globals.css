@@ -8,17 +8,19 @@
   - Fonts are loaded via next/font in app/layout.tsx
 */
 :root {
-  /* Brand */
-  --color-primary: #2c5f8d;
-  --color-primary-dark: #1a3a5c;
-  --color-primary-light: #4a7ba7;
+  /* Brand - Optimized for Trust and Growth */
+  --color-primary: #1e4b75;
+  --color-primary-dark: #123456;
+  --color-primary-light: #34608b;
 
-  --color-accent: #5b8fc4;
-  --color-accent-dark: #3d6b9e;
-  --color-accent-light: #7daad4;
+  --color-accent: #4a86c0;
+  --color-accent-dark: #2c5885;
+  --color-accent-light: #6ba0d4;
 
-  --color-gold: #c9a961;
-  --color-gold-light: #e5d4a6;
+  --color-gold: #b8860b;
+  --color-gold-light: #daa520;
+  --color-growth: #3e8e41;
+  /* Added for growth/prosperity themes */
 
   /* Neutrals (high contrast, boardroom-grade) */
   --color-gray-50: #f8fafc;
@@ -472,14 +474,15 @@
   /* Buttons */
   .btn-primary {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
-    color: white;
-    font-weight: 600;
-    padding: 1rem 2rem;
+    color: white !important;
+    font-weight: 700;
+    padding: 1.1rem 2.2rem;
     border-radius: var(--radius-2xl);
     transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 14px rgba(44, 95, 141, 0.25);
+    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
     position: relative;
     overflow: hidden;
+    letter-spacing: -0.01em;
   }
 
   .btn-primary::before {
@@ -498,8 +501,9 @@
   }
 
   .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(44, 95, 141, 0.35);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.3);
+    filter: brightness(1.05);
   }
 
   .btn-primary:active {
@@ -1824,10 +1828,10 @@
   }
 
   .cs-services-page .cs-services-title span {
-    background: linear-gradient(90deg, rgba(201, 169, 97, 1), rgba(91, 143, 196, 1));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: #fff;
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
   }
 
   .cs-services-page .cs-services-subtitle {
@@ -2269,30 +2273,40 @@
    Make the 3 items OBVIOUSLY buttons
    ========================= */
   .cs-services-page .cs-service-btn {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-    min-height: 56px;
-    padding: 18px;
+    justify-content: flex-start;
+    gap: 8px;
+    min-height: 220px;
+    padding: 32px;
 
-    border-radius: 16px;
-    font-weight: 900;
+    border-radius: 32px;
+    font-weight: 800;
     letter-spacing: -0.01em;
 
     color: #fff;
     text-decoration: none;
 
-    background:
-      linear-gradient(135deg, rgba(26, 58, 92, 0.98), rgba(44, 95, 141, 0.92));
-    border: 1px solid rgba(15, 23, 42, 0.18);
-    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.18);
+    /* Professional Deep Sea Gradient */
+    background: linear-gradient(145deg, var(--color-primary), var(--color-primary-light));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+
+    /* Premium Depth Shadow */
+    box-shadow:
+      0 12px 30px rgba(10, 102, 194, 0.15),
+      inset 0 1px 1px rgba(255, 255, 255, 0.1);
 
     position: relative;
     overflow: hidden;
     transform: translateZ(0);
-    transition: transform 160ms ease, box-shadow 200ms ease, filter 200ms ease;
+    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+  }
+
+  /* Remove top bar, use full card color instead */
+  .cs-services-page .cs-service-btn::before {
+    display: none;
   }
 
   .cs-services-page .cs-service-btn__content {
@@ -2300,79 +2314,34 @@
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
+    width: 100%;
+    z-index: 2;
   }
 
   .cs-services-page .cs-service-btn__title {
-    font-size: 1.15rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    margin-bottom: 8px;
     line-height: 1.25;
+    transition: transform 300ms ease;
     display: block;
-  }
-
-  .cs-services-page .cs-service-btn__subtitle {
-    font-size: 0.92rem;
-    font-weight: 400;
-    letter-spacing: normal;
-    opacity: 0.82;
-    line-height: 1.5;
-  }
-
-
-  /* subtle shine so it reads “interactive” */
-  .cs-services-page .cs-service-btn::before {
-    content: "";
-    position: absolute;
-    inset: -60% -40%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-    transform: translateX(-30%) rotate(12deg);
-    opacity: 0;
-    pointer-events: none;
+    margin-bottom: 8px;
   }
 
   .cs-services-page .cs-service-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 58px rgba(15, 23, 42, 0.24);
-    filter: saturate(1.05);
+    transform: translateY(-8px);
+    background: linear-gradient(145deg, #1e4b75, #2c5f8d);
+    box-shadow: 0 24px 48px rgba(10, 102, 194, 0.25);
+    border-color: rgba(255, 255, 255, 0.2);
   }
 
-  .cs-services-page .cs-service-btn:hover::before {
-    opacity: 0.95;
-    animation: cs-services-shine 1.2s ease-in-out infinite;
-  }
-
+  /* Pressed State */
   .cs-services-page .cs-service-btn:active {
-    transform: translateY(-1px);
-  }
-
-  @keyframes cs-services-shine {
-    0% {
-      transform: translateX(-30%) rotate(12deg);
-    }
-
-    100% {
-      transform: translateX(30%) rotate(12deg);
-    }
-  }
-
-  .cs-services-page .cs-service-btn__text {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(10, 102, 194, 0.15);
   }
 
   .cs-services-page .cs-service-btn__icon {
-    flex-shrink: 0;
-    width: 18px;
-    height: 18px;
-    opacity: 0.9;
-    margin-top: 4px;
-    transition: transform 180ms ease, opacity 180ms ease;
-  }
-
-  .cs-services-page .cs-service-btn:hover .cs-service-btn__icon {
-    transform: translateX(4px);
-    opacity: 1;
+    display: none;
   }
 
   /* =========================
@@ -2926,68 +2895,32 @@
    ========================= */
 
   /* Cluster A: Editorial / Authority */
+  /* Cluster A: Editorial / Authority (About, Leadership) */
+  /* Cluster A: Editorial / Authority */
   .cs-shell--editorial {
     position: relative;
     min-height: 100vh;
-    background:
-      radial-gradient(1200px 700px at 20% 20%, rgba(93, 130, 195, 0.22), rgba(29, 58, 98, 0.85) 45%, rgba(10, 20, 35, 0.96) 100%),
-      linear-gradient(180deg, rgba(29, 58, 98, 0.72), rgba(10, 20, 35, 0.98));
+    background: linear-gradient(135deg, #0A1A2F 0%, #1e4b75 100%);
     overflow: hidden;
-  }
-
-  .cs-shell--editorial::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(900px 520px at 16% 18%, rgba(93, 130, 195, 0.16), rgba(93, 130, 195, 0) 70%),
-      radial-gradient(900px 520px at 86% 76%, rgba(201, 169, 97, 0.11), rgba(201, 169, 97, 0) 70%);
-    pointer-events: none;
-    opacity: 0.6;
+    color: rgba(255, 255, 255, 0.95);
   }
 
   /* Cluster B: Library / Research Vault */
   .cs-shell--library {
     position: relative;
     min-height: 100vh;
-    background:
-      radial-gradient(1100px 680px at 18% 0%, rgba(91, 143, 196, 0.20), rgba(26, 58, 92, 0.85) 50%, rgba(10, 20, 35, 0.96) 100%),
-      linear-gradient(180deg, rgba(26, 58, 92, 0.70), rgba(10, 20, 35, 0.98));
+    background: linear-gradient(135deg, #0A1A2F 0%, #1e4b75 100%);
     overflow: hidden;
-  }
-
-  .cs-shell--library::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(800px 480px at 20% 15%, rgba(91, 143, 196, 0.12), rgba(91, 143, 196, 0) 65%),
-      radial-gradient(800px 480px at 80% 25%, rgba(201, 169, 97, 0.08), rgba(201, 169, 97, 0) 60%);
-    pointer-events: none;
-    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.95);
   }
 
   /* Cluster C: Case Studies / Proof */
   .cs-shell--proof {
     position: relative;
     min-height: 100vh;
-    background:
-      radial-gradient(1100px 680px at 18% 0%, rgba(91, 143, 196, 0.22), transparent 60%),
-      radial-gradient(1000px 640px at 86% 12%, rgba(201, 169, 97, 0.18), transparent 58%),
-      radial-gradient(900px 700px at 55% 70%, rgba(74, 123, 167, 0.16), transparent 62%),
-      linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(245, 248, 252, 1) 32%, rgba(14, 24, 38, 0.96) 100%);
+    background: linear-gradient(135deg, #0A1A2F 0%, #1e4b75 100%);
     overflow: hidden;
-  }
-
-  .cs-shell--proof::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(1000px 600px at 25% 10%, rgba(91, 143, 196, 0.18), rgba(91, 143, 196, 0) 60%),
-      radial-gradient(1000px 600px at 85% 25%, rgba(201, 169, 97, 0.14), rgba(201, 169, 97, 0) 55%);
-    pointer-events: none;
-    opacity: 0.7;
+    color: rgba(255, 255, 255, 0.95);
   }
 
   /* Cluster D: Home (minimal, preserve distinct layout) */
@@ -3002,31 +2935,41 @@
 
   /* Standardized Section Spacing */
   .cs-section {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .cs-shell--home .cs-section {
+    padding-top: 1rem;
+    padding-bottom: 3rem;
   }
 
   @media (min-width: 1024px) {
     .cs-section {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+
+    .cs-shell--home .cs-section {
+      padding-top: 2rem;
+      padding-bottom: 4rem;
     }
   }
 
   /* Systematized Cards */
   .cs-card {
     position: relative;
-    border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     overflow: hidden;
   }
 
   .cs-card--soft {
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.12);
   }
 
   .cs-card--hover {
@@ -3070,32 +3013,33 @@
   }
 
   .cs-btn--primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: white;
-    box-shadow: 0 4px 14px rgba(44, 95, 141, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(30, 75, 117, 0.3);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
   }
 
   .cs-btn--primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(44, 95, 141, 0.35);
-  }
-
-  .cs-btn--primary:active {
-    transform: translateY(0);
+    box-shadow: 0 8px 20px rgba(30, 75, 117, 0.4);
+    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
   }
 
   .cs-btn--secondary {
-    background-color: white;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    box-shadow: var(--shadow-soft);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
   }
 
   .cs-btn--secondary:hover {
-    background-color: var(--color-primary);
-    color: white;
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
     transform: translateY(-2px);
-    box-shadow: var(--shadow-soft-md);
   }
 
   .cs-btn--ghost {

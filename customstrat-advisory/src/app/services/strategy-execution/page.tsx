@@ -16,16 +16,16 @@ const examples = [
       "Supported executive team to launch transformation effort with workstreams touching underwriting, sales, human resources and non-personnel cost reductions. Guided change management and communication. Structured and kicked off PMO, workstream leaders and program governance. Built multi-year roadmap and transformation scorecard.",
   },
   {
-    projectSummary: "Transformation for Leading Insurance Company",
-    problem: "Company needed to adapt their entire business system to compete in a more digital world",
-    approach:
-      "Led a large project team across multiple workstreams to substantially lower costs and increase digital capabilities (location consolidation, technology consolidation, product portfolio streamlining, etc.). Included change management and communication planning for thousands of impacted employees.",
-  },
-  {
     projectSummary: "Strategy Execution for Regional Bank",
     problem: "Launch comprehensive program to execute on business line transformation to modernize operations",
     approach:
       "Translated strategy into a tangible roadmap with workstream-level action plans. Launched program management office, workstream leaders and governance structure. Developed milestones and scorecards to track implementation success. Crafted internal messaging to launch execution effort.",
+  },
+  {
+    projectSummary: "Transformation for Leading Insurance Company",
+    problem: "Company needed to adapt their entire business system to compete in a more digital world",
+    approach:
+      "Led a large project team across multiple workstreams to substantially lower costs and increase digital capabilities (location consolidation, technology consolidation, product portfolio streamlining, etc.). Included change management and communication planning for thousands of impacted employees.",
   },
 ];
 

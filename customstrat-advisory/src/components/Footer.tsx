@@ -35,7 +35,7 @@ export default function Footer() {
             </div>
             <p className="text-white/75 leading-relaxed">{siteContent.footer.description}</p>
 
-            
+
           </div>
 
           <div>
@@ -78,15 +78,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-white/70">
           <div>© {year} {siteContent.company.name}. All rights reserved.</div>
-          <div className="flex items-center gap-4">
-            <Link className="hover:text-white transition" href="/contact">
-              Privacy
-            </Link>
-            <span className="opacity-40">•</span>
-            <Link className="hover:text-white transition" href="/contact">
-              Terms
-            </Link>
-          </div>
+
         </div>
       </div>
     </footer>

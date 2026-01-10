@@ -44,6 +44,15 @@ export const siteContent = {
           "Dedicated Client Service Teams",
           "Speaking Engagements",
         ]
+      },
+      valueProposition: {
+        title: "Value Proposition",
+        items: [
+          "Strategic impact with measurable ROI",
+          "Deep industry expertise in Banking & Insurance",
+          "Personalized partnership and executive alignment",
+          "Sustainable transformation and execution support",
+        ]
       }
     }
   },
@@ -60,6 +69,7 @@ export const siteContent = {
           name: "Katie Liebel",
           title: "Founder & Managing Principal",
           company: "CustomStrat Advisory, LLC",
+          image: "/images/fullshot.png",
           extended: [
             "Katie founded **CustomStrat Advisory** in 2019 to help financial services companies define winning growth strategies and drive tangible change, while incorporating a customer focus.",
             "Katie currently sits on the **Board of Directors** for Credit First National Association (CFNA), which is Bridgestone / Firestone's wholly owned bank subsidiary.",
@@ -68,6 +78,35 @@ export const siteContent = {
             "Katie holds an MBA from **Harvard Business School** and a BS in Systems Engineering from the University of Virginia, with Highest Distinction."
           ],
           linkedin: "https://www.linkedin.com/in/katie-liebel/",
+        },
+        {
+          name: "Luiz Zorzella",
+          title: "Project Leader",
+          company: "CustomStrat Advisory, LLC",
+          image: "/images/team/luiz.png",
+          extended: [
+            "Luiz is a senior strategy consultant with over 25 years of experience in banks, insurance and investment firms. Since 2010, Luiz has been consulting with senior executives in financial services firms who are unhappy with the results they are getting from their strategy.",
+            "Luiz is also a published author (Revenue Growth - McGraw Hill 2014, and Crescimento – McGraw Hill 2016), hosts The Strategy Taken, a podcast in which he interviews financial services leaders about how they make or implement difficult strategy decisions, and is a leader of the McKinsey alumni angel investment network in North America.",
+            "Previously, Luiz was a knowledge expert and strategy consultant with McKinsey & Co, where he worked with financial services and commodities companies on topics from strategy, business building, and risk management.",
+            "Before that, Luiz worked with JP Morgan Chase in the Emerging Markets Capital Markets group and BTG Pactual Bank in Corporate Finance.",
+            "Luiz holds an engineering degree with the Instituto Tecnologico de Aeronautica in Brazil."
+          ],
+          linkedin: "#",
+        },
+        {
+          name: "Rohini Reddy",
+          title: "Senior Consultant",
+          company: "CustomStrat Advisory, LLC",
+          image: "/images/team/rohini.jpg",
+          extended: [
+            "20 years P&C insurance experience across operating and management consultant roles",
+            "Since 2019, she has been independently advising insurance companies across customer segmentation, strategy, product management, operations and competitor analysis efforts",
+            "Former pricing and product analyst at Progressive Insurance",
+            "Former Engagement Manager at Deloitte's Strategy and Operation Insurance practice",
+            "Illustrative efforts include: Strategy development for a leading small commercial insurer & analyzing non-standard personal auto products across carriers to improve product offering and pricing for a regional non-standard carrier",
+            "Bachelor's degree in Mathematics from Washington University in St. Louis, MBA from the University of Michigan"
+          ],
+          linkedin: "#",
         }
       ]
     },
@@ -349,6 +388,11 @@ Banks that successfully execute this strategy will find sustainable competitive 
     },
     testimonials: [
       {
+        quote: "What truly sets Katie apart is her personal approach: she listens intently, challenges thoughtfully, and builds trust quickly, creating an environment where meaningful strategy can take shape and move forward with confidence. The result is a strategic plan that is not only well-crafted, but owned, actionable, and impactful.",
+        author: "President",
+        company: "Community Bank",
+      },
+      {
         quote: "Katie's exceptional strategic insight and precision turned complex challenges into a clear, actionable plan that aligned teams and advanced our business goals. Her unwavering commitment and expertise built a strong framework for customer engagement and sustainable growth, earning our full confidence and recommendation",
         author: "CMO and Chief Customer Officer",
         company: "Wealth Management Division for Global Bank",
@@ -362,6 +406,11 @@ Banks that successfully execute this strategy will find sustainable competitive 
         quote: "Working with Katie has been a game-changer for our innovation efforts. Her ability to combine practical tools with inspiring guidance helped our team unlock new ways of thinking and deliver tangible results. I highly recommend her to any organization looking to foster creativity and drive meaningful change.",
         author: "Head of Innovation",
         company: "Top 20 U.S. P&C Carrier",
+      },
+      {
+        quote: "Working with CustomStrat Advisory and Katie Liebel, our Line of Business Strategic Plans delivered immediate and lasting value. Katie brings a rare combination of deep strategic expertise, practical business insight, and a disciplined yet flexible approach that turns complex objectives into clear, executable plans. CustomStrat’s value-add goes beyond frameworks and analysis—they actively partnered with the leadership teams to align vision, priorities, and measurable outcomes.",
+        author: "President",
+        company: "Community Bank",
       },
     ]
   },

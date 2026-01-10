@@ -8,49 +8,7 @@ import type { NextRequest } from 'next/server';
  * 2. Security Headers: Adds OWASP-recommended headers to every response.
  */
 
-// RATE LIMIT CONFIGURATION
-const RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
-const MAX_REQUESTS_PER_WINDOW = 100; // 100 requests
-
-// Simple in-memory store for rate limiting (Note: In a distributed/serverless environment, use Redis/Memcached)
-// This Map stores valid IPs and their request timestamps.
-const rateLimitMap = new Map<string, { count: number; startTime: number }>();
-
 export function middleware(request: NextRequest) {
-    const ip = request.ip || '127.0.0.1'; // Fallback for local development
-
-    // --- 1. ADVANCED RATE LIMITING ---
-
-    const currentTimestamp = Date.now();
-    const clientData = rateLimitMap.get(ip);
-
-    if (clientData) {
-        if (currentTimestamp - clientData.startTime > RATE_LIMIT_WINDOW_MS) {
-            // Reset window if time passed
-            rateLimitMap.set(ip, { count: 1, startTime: currentTimestamp });
-        } else {
-            // Increment count
-            clientData.count++;
-
-            if (clientData.count > MAX_REQUESTS_PER_WINDOW) {
-                // RATE LIMIT EXCEEDED - Fail gracefully
-                return new NextResponse(
-                    JSON.stringify({
-                        error: "Too Many Requests",
-                        message: "You have exceeded the maximum number of requests. Please try again later."
-                    }),
-                    { status: 429, headers: { 'Content-Type': 'application/json' } }
-                );
-            }
-        }
-    } else {
-        // New visitor
-        rateLimitMap.set(ip, { count: 1, startTime: currentTimestamp });
-    }
-
-    // Cleanup old entries periodically (optional optimization for memory)
-    // strict cleanup not implemented here to avoid blocking main thread, using simple overwrite logic mostly.
-
     const response = NextResponse.next();
 
     // --- 2. OWASP SECURITY HEADERS ---

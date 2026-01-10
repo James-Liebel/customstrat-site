@@ -8,134 +8,76 @@ type Testimonial = {
   company?: string;
 };
 
-export default function EndorsementsClient({
-  testimonials,
-}: {
-  testimonials: Testimonial[];
-}) {
+export default function EndorsementsClient({ testimonials }: { testimonials: Testimonial[] }) {
+  // Split into columns to ensure vertical isolation
+  const leftCol = testimonials.filter((_, i) => i % 2 === 0);
+  const rightCol = testimonials.filter((_, i) => i % 2 !== 0);
+
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-      {testimonials.map((t, i) => (
-        <EndorsementCard
-          key={`${t.author}-${i}`}
-          index={i}
-          quote={t.quote}
-          author={t.author}
-          company={t.company}
-        />
-      ))}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+      <div className="space-y-10 flex flex-col">
+        {leftCol.map((t, i) => {
+          const originalIndex = testimonials.indexOf(t);
+          return (
+            <EndorsementCard
+              key={originalIndex}
+              index={originalIndex}
+              quote={t.quote}
+              author={t.author}
+              company={t.company}
+            />
+          );
+        })}
+      </div>
+      <div className="space-y-10 flex flex-col">
+        {rightCol.map((t, i) => {
+          const originalIndex = testimonials.indexOf(t);
+          return (
+            <EndorsementCard
+              key={originalIndex}
+              index={originalIndex}
+              quote={t.quote}
+              author={t.author}
+              company={t.company}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
 
-/* ------------------------------------------------------------------ */
-/* Individual Card                                                     */
-/* ------------------------------------------------------------------ */
+function EndorsementCard({ quote, author, company, index }: { quote: string; author: string; company?: string; index: number }) {
+  const [isExpanded, setIsExpanded] = React.useState(false);
 
-function EndorsementCard({
-  quote,
-  author,
-  company,
-  index,
-}: {
-  quote: string;
-  author: string;
-  company?: string;
-  index: number;
-}) {
-  const ref = React.useRef<HTMLDivElement | null>(null);
-  const [visible, setVisible] = React.useState(false);
-
-  // Scroll-in reveal
-  React.useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const io = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setVisible(true),
-      { threshold: 0.2 }
-    );
-
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  // Cursor spotlight + tilt
-  const onMove = (e: React.MouseEvent) => {
-    const el = ref.current;
-    if (!el) return;
-
-    const r = el.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width;
-    const y = (e.clientY - r.top) / r.height;
-
-    el.style.setProperty('--mx', `${x * 100}%`);
-    el.style.setProperty('--my', `${y * 100}%`);
-    el.style.setProperty('--rx', `${(y - 0.5) * -6}deg`);
-    el.style.setProperty('--ry', `${(x - 0.5) * 8}deg`);
-  };
-
-  const onLeave = () => {
-    const el = ref.current;
-    if (!el) return;
-    el.style.setProperty('--rx', `0deg`);
-    el.style.setProperty('--ry', `0deg`);
-    el.style.setProperty('--mx', `50%`);
-    el.style.setProperty('--my', `50%`);
-  };
+  const isLong = quote.length > 100;
+  const displayQuote = isLong && !isExpanded ? quote.substring(0, 80) + '...' : quote;
 
   return (
     <div
-      ref={ref}
-      onMouseMove={onMove}
-      onMouseLeave={onLeave}
-      className={[
-        'relative overflow-hidden rounded-2xl bg-white border-l-4 border-primary',
-        'shadow-soft transition-[transform,box-shadow,opacity] duration-500',
-        'hover:-translate-y-1 hover:shadow-soft-md',
-        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6',
-      ].join(' ')}
-      style={{
-        transitionDelay: `${Math.min(index * 90, 450)}ms`,
-        transform:
-          'perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg))',
-      }}
+      className="cs-card p-10 relative overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-white/20 animate-[fadeInUp_800ms_ease-out_both] h-fit"
+      style={{ animationDelay: `${index * 100}ms` }}
     >
-      {/* Decorative quote */}
-      <div
-        aria-hidden
-        className="absolute -top-8 -right-6 text-[140px] text-primary/10 font-serif leading-none pointer-events-none"
-      >
-        “
-      </div>
-
-      {/* Spotlight */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(380px 240px at var(--mx,50%) var(--my,50%), rgba(10,102,194,0.10), transparent 60%)',
-        }}
-      />
-
-      {/* Signal lines */}
-      <div className="absolute left-6 right-6 top-6">
-        <div className="h-px bg-gradient-to-r from-primary/40 to-transparent" />
-        <div className="mt-2 flex gap-2">
-          <div className="h-px w-10 bg-primary/30" />
-          <div className="h-px w-6 bg-gray-200" />
-        </div>
-      </div>
-
-      <div className="relative z-10 p-8 lg:p-12">
-        <p className="text-xl lg:text-2xl text-gray-700 italic leading-relaxed mb-8">
-          "{quote}"
+      <div className="absolute top-6 right-8 text-7xl text-white/5 font-serif pointer-events-none select-none">“</div>
+      <div className="relative z-10 h-full flex flex-col">
+        <p className="text-xl md:text-2xl text-white/90 italic font-light leading-relaxed mb-8 flex-grow">
+          "{displayQuote}"
         </p>
 
-        <div className="pt-6 border-t border-gray-200 text-right">
-          <div className="font-semibold text-gray-900 text-lg">{author}</div>
-          {company && <div className="text-gray-600">{company}</div>}
+        {isLong && (
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="mb-8 text-gold-light font-black text-[11px] uppercase tracking-[0.2em] hover:text-white transition-colors text-left"
+          >
+            {isExpanded ? 'Less' : 'Read Full Endorsement'}
+          </button>
+        )}
+
+        <div className="pt-8 border-t border-white/10 flex items-center justify-between">
+          <div>
+            <div className="font-bold text-white text-lg">{author}</div>
+            {company && <div className="text-white/95 text-[11px] uppercase tracking-widest mt-1">{company}</div>}
+          </div>
         </div>
       </div>
     </div>

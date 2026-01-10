@@ -21,6 +21,7 @@ export default function LinkingCustomerExperienceToStrategyAndValue() {
           <header className="cs-hero">
             <div className="cs-hero-inner">
               <h1 className="cs-title">Linking Customer Experience to Strategy and Value</h1>
+              <h2 className="cs-subtitle">A practical framework for connecting CX investments to measurable business outcomes</h2>
 
               <div className="cs-meta">
                 <span>
@@ -61,21 +62,20 @@ export default function LinkingCustomerExperienceToStrategyAndValue() {
                   The best way to define the CX strategy is to inform it from the overall business strategy. The business strategy will typically contain the strategic objectives around:
                 </p>
 
-                <p>
-                  Priority customer segments: which will help with the focus area for CX
-                </p>
-
-                <p>
-                  Customer value proposition: For example, CX investment should be different for a price leader vs. experience leadership
-                </p>
-
-                <p>
-                  Areas of differentiation: For instance, if new products drive growth in the upcoming years, CX investments need to prioritize the experience around the new product&apos;s journey.
-                </p>
-
-                <p>
-                  Growth levers for the company: For example, if growth will be driven by new customer acquisition, the experience effort should focus on &quot;make it easy to join&quot; vs. growth through deepening relationships would emphasize &quot;make it easy for bundling.&quot;
-                </p>
+                <ul className="list-disc pl-6 space-y-4 mt-6">
+                  <li>
+                    <strong>Priority customer segments:</strong> which will help with the focus area for CX
+                  </li>
+                  <li>
+                    <strong>Customer value proposition:</strong> For example, CX investment should be different for a price leader vs. experience leadership
+                  </li>
+                  <li>
+                    <strong>Areas of differentiation:</strong> For instance, if new products drive growth in the upcoming years, CX investments need to prioritize the experience around the new product&apos;s journey.
+                  </li>
+                  <li>
+                    <strong>Growth levers for the company:</strong> For example, if growth will be driven by new customer acquisition, the experience effort should focus on &quot;make it easy to join&quot; vs. growth through deepening relationships would emphasize &quot;make it easy for bundling.&quot;
+                  </li>
+                </ul>
 
                 <p>
                   Any robust business strategy is informed by market trends, customer needs, internal capabilities, and a solid financial assessment. Leverage this body of work to prescribe the CX needs.

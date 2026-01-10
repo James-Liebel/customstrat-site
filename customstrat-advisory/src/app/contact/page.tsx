@@ -17,18 +17,18 @@ export default function ContactPage() {
     <main className="cs-shell--editorial relative text-white">
       {/* Atmosphere: signal-grid theme */}
       <Atmosphere themeKey="signal-grid" />
-      
+
       <div className="relative z-10">
-        <Hero 
-          title={siteContent.contact.hero.title} 
-          image="/images/hero-contact.jpg" 
-          themeKey="signal-grid" 
+        <Hero
+          title={siteContent.contact.hero.title}
+          image="/images/hero-contact.jpg"
+          themeKey="signal-grid"
         />
 
         <section className="cs-section">
           <div className="container-custom">
             <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
-              
+
               {/* Profile Side */}
               <div className="animate-[fadeInUp_800ms_ease-out]">
                 <div className="mb-8">
@@ -102,7 +102,7 @@ export default function ContactPage() {
                 <div className="w-full rounded-3xl border border-white/10 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-8 sm:p-10 self-start">
                   <h2 className="text-3xl font-semibold text-gray-900 mb-4">Direct Inquiry</h2>
                   <p className="text-gray-600 mb-8 leading-relaxed">
-                    Ready to discuss a project? Click below to send an email directly to our leadership team.
+                    Ready to discuss a project? Click below to send an email directly to Katie.
                   </p>
 
                   <a
@@ -112,9 +112,7 @@ export default function ContactPage() {
                     Send an Email
                   </a>
 
-                  <p className="mt-6 text-xs text-center text-gray-400">
-                    Typically responds within 24 hours.
-                  </p>
+
                 </div>
               </div>
             </div>

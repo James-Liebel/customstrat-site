@@ -21,6 +21,7 @@ export default function IntegratedPlanningAmidstTheHeadwinds() {
           <header className="cs-hero">
             <div className="cs-hero-inner">
               <h1 className="cs-title">Integrated Planning Amidst the Headwinds</h1>
+              <h2 className="cs-subtitle">Building resilient strategic plans through prioritized investment and organizational accountability</h2>
 
               <div className="cs-meta">
                 <span>
@@ -47,7 +48,7 @@ export default function IntegratedPlanningAmidstTheHeadwinds() {
               </section>
 
               <section className="cs-section">
-                <h2 className="cs-h2">What is the targeted investment plan to expand the top line?</h2>
+                <h2 className="cs-h2">1. What is the targeted investment plan to expand the top line?</h2>
 
                 <p>
                   Invest in alignment with the strategic direction – focusing on the target segments and building competitive capabilities. The investment plan must be precise and also a bit agile. While balance sheets are likely constrained, there might be opportunistic areas for M&amp;A. Tips on driving to the best planning outcomes:
@@ -79,7 +80,7 @@ export default function IntegratedPlanningAmidstTheHeadwinds() {
               </section>
 
               <section className="cs-section">
-                <h2 className="cs-h2">What is the thoughtful efficiency plan so as to NOT just declare “x%” cost reduction across the board?</h2>
+                <h2 className="cs-h2">2. What is the thoughtful efficiency plan so as to NOT just declare “x%” cost reduction across the board?</h2>
 
                 <p>
                   Efficiency and simplification efforts, when applied with sufficient rigor, can help fund the strategic initiatives discussed above. In the quest to drive to a more efficient cost base, ensure the expense trade-offs align with the strategic direction.
@@ -112,7 +113,7 @@ export default function IntegratedPlanningAmidstTheHeadwinds() {
               </section>
 
               <section className="cs-section">
-                <h2 className="cs-h2">What organizational processes and safeguards can increase the likelihood of achieving planned results?</h2>
+                <h2 className="cs-h2">3. What organizational processes and safeguards can increase the likelihood of achieving planned results?</h2>
 
                 <p>
                   Everyone has seen the ‘hockey stick’ plans that move from years of decline to sudden prosperity. Rarely does an organization look back and learn from past aggressive mis-forecasting. While it’s important to stretch, the plans must be achievable.

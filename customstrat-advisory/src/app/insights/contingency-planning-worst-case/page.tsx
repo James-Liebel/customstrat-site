@@ -23,6 +23,7 @@ export default function ContingencyPlanningForTheNextWorstCaseScenarioInsuranceE
               <h1 className="cs-title">
                 Contingency Planning for the Next Worst-Case Scenario: Insurance Edition
               </h1>
+              <h2 className="cs-subtitle">Building organizational resilience through comprehensive risk assessment and adaptive strategy</h2>
 
               <div className="cs-meta">
                 <span>

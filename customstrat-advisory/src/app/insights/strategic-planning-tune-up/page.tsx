@@ -21,6 +21,7 @@ export default function AStrategicPlanningTuneUpForUncertainTimes() {
           <header className="cs-hero">
             <div className="cs-hero-inner">
               <h1 className="cs-title">A Strategic Planning Tune-Up for Uncertain Times</h1>
+              <h2 className="cs-subtitle">Adjusting your strategic approach to maintain competitive advantage in a volatile market</h2>
 
               <div className="cs-meta">
                 <span>
@@ -80,14 +81,17 @@ export default function AStrategicPlanningTuneUpForUncertainTimes() {
                   Ensure the company thoroughly understands its strengths and weaknesses unique to volatile times. Here are three main approaches to address this:
                 </p>
 
+                <h3 className="cs-h3">Explicitly apply the learning from the company&apos;s response to crises</h3>
                 <p>
                   Explicitly apply the learning from the company's response to the crises of 2001, 2008-09, or Covid. While the current situation might be different, documenting lessons learned from past experiences will be a great starting point to address current issues. Consider whether new ways of working might impact future response plans.
                 </p>
 
+                <h3 className="cs-h3">Ensure that the strategic priorities align with recent structural changes</h3>
                 <p>
                   Ensure that the strategic priorities align with recent structural changes in the marketplace. For example, in retail banking, customers that were digital hold-outs are now required to adopt digital banking. How does a bank strategy account for the accelerated shift away from in-person interactions and its impact on physical footprint?
                 </p>
 
+                <h3 className="cs-h3">Measure strategic progress through objectives and key results</h3>
                 <p>
                   Measure strategic progress through objectives and key results, making pivots as applicable. Monitor the key results quantitatively, and through progress milestones on initiatives like investments in the growth of a new business, a large tech program, and expense competitiveness. In total, monitor ~15-20 such key results at the highest level of the organization. Set a separate quarterly day to discuss progress, continuing / stopping / increasing investment options, and the length of the time to continue experiments/projects in the context of the overall portfolio.
                 </p>

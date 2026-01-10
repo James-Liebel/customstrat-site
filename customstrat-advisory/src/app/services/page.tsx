@@ -7,7 +7,7 @@ import Link from "next/link";
 
 
 export const metadata: Metadata = {
-  title: "Case Studies",
+  title: "Our Strategic Impact: Real-World Case Studies",
   description: "Strategy, transformation, and execution support for midsize institutions.",
 };
 
@@ -21,7 +21,7 @@ export default function ServicesPage() {
       <Hero title={siteContent.services.hero.title} image="/images/hero-case-studies.jpg" themeKey="gilded-diamond" />
 
       {/* Continuous canvas starts immediately under the hero */}
-      <section className="cs-services-stage !pt-18">
+      <section className="cs-services-stage !pt-18 !pb-12">
         <div className="container-custom">
           {/* Title Box */}
           <div className="cs-services-titlebox">
@@ -31,8 +31,8 @@ export default function ServicesPage() {
 
             <div className="relative z-10 text-center">
 
-              <h1 className="cs-services-title">
-                Tailored Strategic Solutions for <span>Midsize Banks &amp; Insurance Companies</span>
+              <h1 className="cs-services-title !text-3xl md:!text-4xl max-w-4xl mx-auto leading-tight">
+                <span>Explore our past client engagements</span>
               </h1>
 
             </div>
@@ -41,48 +41,56 @@ export default function ServicesPage() {
           {/* Buttons band (separate from title) */}
           <div className="cs-services-navband !mb-8">
             <div className="cs-services-navband__inner">
-              <div className="cs-services-navband__label">Explore Past Client Engagements</div>
               <div className="cs-services-navgrid">
                 <Link
                   href="/services/strategy-development"
-                  className="cs-service-btn"
+                  className="cs-service-btn group"
                   aria-label="View Strategy Development services"
                 >
                   <div className="cs-service-btn__content">
-                    <span className="cs-service-btn__title">Strategy Development</span>
-                    <span className="cs-service-btn__subtitle">
-                      Defining corporate and business unit strategies that identify where to compete and how to sharpen competitive advantage.
-                    </span>
+                    <span className="cs-service-btn__title text-white">Strategy Development</span>
+                    <p className="mt-3 text-white/70 text-sm leading-relaxed font-medium">
+                      Defining strategies that clarify where to compete and how to strengthen advantage.
+                    </p>
                   </div>
-                  <ArrowRight className="cs-service-btn__icon" aria-hidden="true" />
+                  <div className="mt-auto pt-4 w-full flex justify-between items-center text-white/90 font-bold text-[14px]">
+                    <span className="underline underline-offset-8 decoration-[2.5px] decoration-white/60 group-hover:decoration-white transition-all">See examples</span>
+                    <ArrowRight size={18} className="transition-transform group-hover:translate-x-2" />
+                  </div>
                 </Link>
 
                 <Link
                   href="/services/strategy-execution"
-                  className="cs-service-btn"
+                  className="cs-service-btn group"
                   aria-label="View Strategy Execution & Transformation services"
                 >
                   <div className="cs-service-btn__content">
-                    <span className="cs-service-btn__title">Strategy Execution &amp; Transformation</span>
-                    <span className="cs-service-btn__subtitle">
-                      Accelerating change through the design of workstreams, governance, and roadmaps, supported by rigorous delivery oversight and deep knowledge of change management.
-                    </span>
+                    <span className="cs-service-btn__title text-white">Strategy Execution &amp; Transformation</span>
+                    <p className="mt-3 text-white/70 text-sm leading-relaxed font-medium">
+                      Accelerating change with focused workstreams, governance, and disciplined execution.
+                    </p>
                   </div>
-                  <ArrowRight className="cs-service-btn__icon" aria-hidden="true" />
+                  <div className="mt-auto pt-4 w-full flex justify-between items-center text-white/90 font-bold text-[14px]">
+                    <span className="underline underline-offset-8 decoration-[2.5px] decoration-white/60 group-hover:decoration-white transition-all">See examples</span>
+                    <ArrowRight size={18} className="transition-transform group-hover:translate-x-2" />
+                  </div>
                 </Link>
 
                 <Link
                   href="/services/operational-improvements"
-                  className="cs-service-btn"
+                  className="cs-service-btn group"
                   aria-label="View Customer Experience & Performance Improvement services"
                 >
                   <div className="cs-service-btn__content">
-                    <span className="cs-service-btn__title">Customer Experience &amp; Performance Improvement</span>
-                    <span className="cs-service-btn__subtitle">
-                      Driving bottom-line performance and client impact by leveraging data-driven insights to prioritize operational improvements and optimize end-to-end customer journeys.
-                    </span>
+                    <span className="cs-service-btn__title text-white">Customer Experience &amp; Performance Improvement</span>
+                    <p className="mt-3 text-white/70 text-sm leading-relaxed font-medium">
+                      Improving profitability and client impact through analytics that surface inefficiencies and VOC insights.
+                    </p>
                   </div>
-                  <ArrowRight className="cs-service-btn__icon" aria-hidden="true" />
+                  <div className="mt-auto pt-4 w-full flex justify-between items-center text-white/90 font-bold text-[14px]">
+                    <span className="underline underline-offset-8 decoration-[2.5px] decoration-white/60 group-hover:decoration-white transition-all">See examples</span>
+                    <ArrowRight size={18} className="transition-transform group-hover:translate-x-2" />
+                  </div>
                 </Link>
               </div>
             </div>

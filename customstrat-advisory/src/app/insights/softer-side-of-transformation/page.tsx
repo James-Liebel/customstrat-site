@@ -20,6 +20,7 @@ export default function TheSofterSideOfTransformationFiveCs() {
           <header className="cs-hero">
             <div className="cs-hero-inner">
               <h1 className="cs-title">The Softer Side of Transformation - Five C&apos;s of Transformation</h1>
+              <h2 className="cs-subtitle">Why addressing commitment, culture, and communication is vital for sustainable change</h2>
 
               <div className="cs-meta">
                 <span>
@@ -44,7 +45,7 @@ export default function TheSofterSideOfTransformationFiveCs() {
                 </p>
 
                 <p>
-                  A Strategic Planning Tune-up for Uncertain Times addressed many of the tangible elements of transformation. This article addresses the soft elements and how the 5Cs approach - Commitment, Capabilities, Culture, Communication, and Change management - will help achieve the intended transformation outcomes.
+                  <Link href="/insights/strategic-planning-tune-up" className="cs-link-inline">A Strategic Planning Tune-up for Uncertain Times</Link> addressed many of the tangible elements of transformation. This article addresses the soft elements and how the 5Cs approach - Commitment, Capabilities, Culture, Communication, and Change management - will help achieve the intended transformation outcomes.
                 </p>
               </section>
 

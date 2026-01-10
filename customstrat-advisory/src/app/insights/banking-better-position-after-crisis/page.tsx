@@ -21,6 +21,7 @@ export default function BankingOnABetterPositionAfterTheCrisis() {
           <header className="cs-hero">
             <div className="cs-hero-inner">
               <h1 className="cs-title">Banking on a Better Position After the Crisis</h1>
+              <h2 className="cs-subtitle">Strategic imperatives for banks to emerge stronger from short-term financial disruption</h2>
 
               <div className="cs-meta">
                 <span>
@@ -69,25 +70,25 @@ export default function BankingOnABetterPositionAfterTheCrisis() {
                 <h3 className="cs-h3">As a Customer …</h3>
 
                 <p>
-                  Go fully digital: Whether it’s you or your family and friends, there must be people in your life that still insist on going to the branch to deposit a check or calling in to transfer funds. Per the Atlanta Fed, 45% of adults have not adopted mobile banking. Make the transition!
+                  <strong>Go fully digital:</strong> Whether it’s you or your family and friends, there must be people in your life that still insist on going to the branch to deposit a check or calling in to transfer funds. Per the Atlanta Fed, 45% of adults have not adopted mobile banking. Make the transition!
                 </p>
 
                 <p>
-                  Automate bill payments: Whether you choose to utilize the bill pay feature from your bank or go all the way and set up automatic debits from your credit card/ checking account, simplify your life by taking the time now to set up these bills digitally. Don’t be that person writing paper checks!
+                  <strong>Automate bill payments:</strong> Whether you choose to utilize the bill pay feature from your bank or go all the way and set up automatic debits from your credit card/ checking account, simplify your life by taking the time now to set up these bills digitally. Don’t be that person writing paper checks!
                 </p>
 
                 <p>
-                  Establish Person to Person (P2P) payments: According to a recent St. Louis Fed paper, only 40% of adult mobile phone users are engaged with P2P payments. Set up a P2P mobile payment method such as Venmo or Zelle to facilitate paying for your share of all those group dinners in the new normal. You’ll never have to worry about owing or being owed again.
+                  <strong>Establish Person to Person (P2P) payments:</strong> According to a recent St. Louis Fed paper, only 40% of adult mobile phone users are engaged with P2P payments. Set up a P2P mobile payment method such as Venmo or Zelle to facilitate paying for your share of all those group dinners in the new normal. You’ll never have to worry about owing or being owed again.
                 </p>
 
                 <h3 className="cs-h3">As a Banker …</h3>
 
                 <p>
-                  Sign-up customers for mobile banking: Use this time to reach out to customers that are less engaged in digital services. Bankers might be surprised to find out that there are customers that are unaware of some of the digital features available today. Customers are forced to figure out mobile banking in these crazy times! At the other end of the crisis, these digitally engaged customers will be more inclined to stay with the bank, and the time they saved can be used for more valuable advice conversations.
+                  <strong>Sign-up customers for mobile banking:</strong> Use this time to reach out to customers that are less engaged in digital services. Bankers might be surprised to find out that there are customers that are unaware of some of the digital features available today. Customers are forced to figure out mobile banking in these crazy times! At the other end of the crisis, these digitally engaged customers will be more inclined to stay with the bank, and the time they saved can be used for more valuable advice conversations.
                 </p>
 
                 <p>
-                  Customize digital advice: Tap into data analytics to study customers’ usage of digital services relative to other similar customers and drive in-app or on-line promotion of the services your customers might find most valuable. During this unique time, customers are likely to take the extra step to engage with more services that meet their needs. Higher digital service engagement is proven to increase customer retention long term.
+                  <strong>Customize digital advice:</strong> Tap into data analytics to study customers’ usage of digital services relative to other similar customers and drive in-app or on-line promotion of the services your customers might find most valuable. During this unique time, customers are likely to take the extra step to engage with more services that meet their needs. Higher digital service engagement is proven to increase customer retention long term.
                 </p>
               </section>
 
@@ -101,21 +102,21 @@ export default function BankingOnABetterPositionAfterTheCrisis() {
                 <h3 className="cs-h3">As a Customer …</h3>
 
                 <p>
-                  Refinance: With the interest rates dropping so low, now is the time to consider refinancing, or if you are lucky enough to have the resources, consider buying that cabin in the woods so you can increase your social distancing and have a long term asset. The classic 30-year fixed benchmark mortgage rate hit 3.2% the last week of April 2020, which is the lowest rate since Freddie Mac began tracking 50 years ago, and about 1% lower than just 1 year ago.
+                  <strong>Refinance:</strong> With the interest rates dropping so low, now is the time to consider refinancing, or if you are lucky enough to have the resources, consider buying that cabin in the woods so you can increase your social distancing and have a long term asset. The classic 30-year fixed benchmark mortgage rate hit 3.2% the last week of April 2020, which is the lowest rate since Freddie Mac began tracking 50 years ago, and about 1% lower than just 1 year ago.
                 </p>
 
                 <p>
-                  Reposition savings &amp; investments: On the flip side, with rates so low, your savings and investments might also need to be optimized to consider some higher yielding options. Many traditional banks have savings rates near 0% with digital banks offering up to 1.5%. Meanwhile the investment market is in a unique position. Talk to your financial advisor to navigate these turbulent times.
+                  <strong>Reposition savings &amp; investments:</strong> On the flip side, with rates so low, your savings and investments might also need to be optimized to consider some higher yielding options. Many traditional banks have savings rates near 0% with digital banks offering up to 1.5%. Meanwhile the investment market is in a unique position. Talk to your financial advisor to navigate these turbulent times.
                 </p>
 
                 <h3 className="cs-h3">As a Banker …</h3>
 
                 <p>
-                  Help with Government programs: The CARES Act has many provisions impacting small businesses, education lending and mortgages, just to name a few. Reach out to your customers to educate them and help them tap into the aspects they need. Many banks were caught off guard with the initial CARES Act. Then, Congress followed up with second round – and more may follow. You must get prepared to help your small business customers on a very quick turn-around. Their survival may depend upon it.
+                  <strong>Help with Government programs:</strong> The CARES Act has many provisions impacting small businesses, education lending and mortgages, just to name a few. Reach out to your customers to educate them and help them tap into the aspects they need. Many banks were caught off guard with the initial CARES Act. Then, Congress followed up with second round – and more may follow. You must get prepared to help your small business customers on a very quick turn-around. Their survival may depend upon it.
                 </p>
 
                 <p>
-                  Reach out to provide product advice: Identify your most valuable customers and make sure your data analytics are leveraged to determine who might warrant more flexible terms in these difficult times or who might benefit from better fitting products. Cash flow planning has never been more important.
+                  <strong>Reach out to provide product advice:</strong> Identify your most valuable customers and make sure your data analytics are leveraged to determine who might warrant more flexible terms in these difficult times or who might benefit from better fitting products. Cash flow planning has never been more important.
                 </p>
               </section>
 
@@ -129,21 +130,21 @@ export default function BankingOnABetterPositionAfterTheCrisis() {
                 <h3 className="cs-h3">As a Customer …</h3>
 
                 <p>
-                  Create a financial plan: Over 80% of adults have no written financial plan in place, according to Fidelity. Find a financial advisor you can trust to help. As they say, a goal without a plan is just a wish!
+                  <strong>Create a financial plan:</strong> Over 80% of adults have no written financial plan in place, according to Fidelity. Find a financial advisor you can trust to help. As they say, a goal without a plan is just a wish!
                 </p>
 
                 <p>
-                  Prepare estate documents: Roughly 70% of adults do not have a will in place per caring.com. Don’t be caught off guard. Ask your friends or family members for a referral to find an attorney. Check your corporate benefits to see if you’re lucky enough to have legal coverage as a benefit option.
+                  <strong>Prepare estate documents:</strong> Roughly 70% of adults do not have a will in place per caring.com. Don’t be caught off guard. Ask your friends or family members for a referral to find an attorney. Check your corporate benefits to see if you’re lucky enough to have legal coverage as a benefit option.
                 </p>
 
                 <h3 className="cs-h3">As a Banker …</h3>
 
                 <p>
-                  Become that trusted advisor: Only 17% of Americans say they use a financial advisor (per CNBC poll). So, there is plenty of opportunity to win over customers. This is a unique time when people are at home and might actually take the time to answer your call and value the outreach.
+                  <strong>Become that trusted advisor:</strong> Only 17% of Americans say they use a financial advisor (per CNBC poll). So, there is plenty of opportunity to win over customers. This is a unique time when people are at home and might actually take the time to answer your call and value the outreach.
                 </p>
 
                 <p>
-                  Invest time in building a plan: Your customers have new-found appreciation for contingency planning. Analysis has shown that customers with a financial plan have higher assets under management with their advisors. Use this time to invest in planning your customers’ future.
+                  <strong>Invest time in building a plan:</strong> Your customers have new-found appreciation for contingency planning. Analysis has shown that customers with a financial plan have higher assets under management with their advisors. Use this time to invest in planning your customers’ future.
                 </p>
               </section>
 
@@ -157,21 +158,21 @@ export default function BankingOnABetterPositionAfterTheCrisis() {
                 <h3 className="cs-h3">As a Customer …</h3>
 
                 <p>
-                  Add a home schooling finance class: With schools converting to remote learning, and perhaps not completely filling the daily “schedule”, consider adding a financial literacy class to the home schooling curriculum of the budding youth in your lives.
+                  <strong>Add a home schooling finance class:</strong> With schools converting to remote learning, and perhaps not completely filling the daily “schedule”, consider adding a financial literacy class to the home schooling curriculum of the budding youth in your lives.
                 </p>
 
                 <p>
-                  Find a savings app for children in your life: There are great savings apps for kids (e.g., Greenlight, PiggyBot or FamZoo) which can begin to teach the benefits of budgeting and basic accounting. Get started on one today.
+                  <strong>Find a savings app for children in your life:</strong> There are great savings apps for kids (e.g., Greenlight, PiggyBot or FamZoo) which can begin to teach the benefits of budgeting and basic accounting. Get started on one today.
                 </p>
 
                 <h3 className="cs-h3">As a Banker …</h3>
 
                 <p>
-                  Offer on-line banking classes: Many of your customers are balancing at-home schooling and careers. Consider stepping into the void to offer on-line financial literacy classes for your youngest customers. The parents and children will remember when the crisis abates.
+                  <strong>Offer on-line banking classes:</strong> Many of your customers are balancing at-home schooling and careers. Consider stepping into the void to offer on-line financial literacy classes for your youngest customers. The parents and children will remember when the crisis abates.
                 </p>
 
                 <p>
-                  Engage your customers with savings products and features for youth. Leverage existing products or launch anew. Banks with a local presence have an opportunity to create memorable in-person experiences for kids once the crisis abates. Digital banks can engage youth in fun and different ways.
+                  <strong>Engage your customers with savings products and features for youth.</strong> Leverage existing products or launch anew. Banks with a local presence have an opportunity to create memorable in-person experiences for kids once the crisis abates. Digital banks can engage youth in fun and different ways.
                 </p>
               </section>
 

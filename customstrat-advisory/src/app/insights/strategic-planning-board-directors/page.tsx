@@ -20,6 +20,7 @@ export default function StrategicPlanningBestPracticesForBoardDirectors() {
           <header className="cs-hero">
             <div className="cs-hero-inner">
               <h1 className="cs-title">Strategic Planning Best Practices for Board Directors</h1>
+              <h2 className="cs-subtitle">A practical guide for boards to steward the development of a winning corporate strategy</h2>
 
               <div className="cs-meta">
                 <span>
@@ -99,12 +100,14 @@ export default function StrategicPlanningBestPracticesForBoardDirectors() {
 
                 <h4 className="cs-h4">Questions to ask in the room:</h4>
 
-                <p>What are the high-level expected outcomes of the strategy (e.g., growth, profits, mix shift, capital)?</p>
-                <p>How do expected growth and margins compare to the closest peer companies?</p>
-                <p>Are we “winning” in the customers’ view as measured by growth in new customers, customer feedback and customer retention in the target segments?</p>
-                <p>What other strategic options were considered and why is the recommended path the best path relative to those options?</p>
-                <p>How have the strategic choices incorporated major market trends – both opportunities and threats?</p>
-                <p>In the rapidly changing world that we live in, does the strategy allow for flexibility if market conditions or major assumptions change?</p>
+                <ul className="list-disc pl-6 space-y-2 mt-4">
+                  <li>What are the high-level expected outcomes of the strategy (e.g., growth, profits, mix shift, capital)?</li>
+                  <li>How do expected growth and margins compare to the closest peer companies?</li>
+                  <li>Are we “winning” in the customers’ view as measured by growth in new customers, customer feedback and customer retention in the target segments?</li>
+                  <li>What other strategic options were considered and why is the recommended path the best path relative to those options?</li>
+                  <li>How have the strategic choices incorporated major market trends – both opportunities and threats?</li>
+                  <li>In the rapidly changing world that we live in, does the strategy allow for flexibility if market conditions or major assumptions change?</li>
+                </ul>
 
                 <h3 className="cs-h3">c) Can the company deliver on the strategy?</h3>
 
@@ -116,10 +119,12 @@ export default function StrategicPlanningBestPracticesForBoardDirectors() {
 
                 <h4 className="cs-h4">Questions to ask in the room:</h4>
 
-                <p>Have we allocated sufficient resources to develop our core capabilities (e.g., talent, technology, M&amp;A)? what are we “NOT” doing to drive enough support to the important areas?</p>
-                <p>How do the performance management systems align with the strategic objectives?</p>
-                <p>What is the biggest risk to deliver on the strategy? What is the mitigation plan to manage that risk?</p>
-                <p>What project management and governance processes are in place to monitor delivery, ensure sufficient resources and course correct if needed?</p>
+                <ul className="list-disc pl-6 space-y-2 mt-4">
+                  <li>Have we allocated sufficient resources to develop our core capabilities (e.g., talent, technology, M&amp;A)? what are we “NOT” doing to drive enough support to the important areas?</li>
+                  <li>How do the performance management systems align with the strategic objectives?</li>
+                  <li>What is the biggest risk to deliver on the strategy? What is the mitigation plan to manage that risk?</li>
+                  <li>What project management and governance processes are in place to monitor delivery, ensure sufficient resources and course correct if needed?</li>
+                </ul>
               </section>
 
               <section className="cs-section">
