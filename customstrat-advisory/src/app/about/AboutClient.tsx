@@ -190,6 +190,10 @@ export default function AboutClient({ members }: { members: Member[] }) {
                     ))}
                 </div>
             </div>
+
+            <p className="text-white/70 text-center text-lg max-w-6xl mx-auto mt-8">
+                We source additional independent consultants from trusted networks to best meet clients' needs
+            </p>
         </div>
     );
 }
