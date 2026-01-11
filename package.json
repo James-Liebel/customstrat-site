@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "cd customstrat-advisory && npm run dev",
     "build": "cd customstrat-advisory && npm run build",
+    "deploy": "cd customstrat-advisory && npm run deploy",
     "start": "cd customstrat-advisory && npm start",
     "lint": "cd customstrat-advisory && npm run lint"
   }

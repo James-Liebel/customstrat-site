@@ -1,0 +1,19 @@
+# Next.js build artifacts (these are internal files, not needed for static hosting)
+**/index.txt
+
+# Node modules
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Note: Deployed files in root (index.html, _next/, images/, etc.) are intentionally committed
+# for GitHub Pages hosting

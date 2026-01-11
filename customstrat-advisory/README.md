@@ -26,16 +26,30 @@ npm run dev
 ### Build for Production
 ```bash
 npm run build
-npm start
+```
+
+This creates a static export in the `out/` directory. For deployment to GitHub Pages, use:
+```bash
+npm run deploy
 ```
 
 ## 📁 Project Structure
 ```
-src/
-├── app/              # Next.js pages (App Router)
-├── components/       # Reusable React components
-├── content/          # Editable site content
-└── styles/           # Global styles
+customstrat-advisory/
+├── src/
+│   ├── app/              # Next.js pages (App Router)
+│   ├── components/       # Reusable React components
+│   ├── content/          # Editable site content
+│   └── styles/           # Global styles
+├── public/               # Static assets (images, etc.)
+├── out/                  # Build output (gitignored)
+└── deploy.js             # Deployment script
+
+repository-root/
+├── index.html            # Deployed homepage (for GitHub Pages)
+├── _next/                # Next.js static assets
+├── images/               # Public images
+└── ...                   # Other deployed files
 ```
 
 ## ✏️ Making Edits
@@ -150,36 +164,55 @@ The site automatically adapts to:
 - **Icons**: Lucide React
 - **No backend required** - Contact form shows success state only (integrate with your email service)
 
-## 📝 To-Do After Setup
+## 📝 Setup Complete
 
-1. ✅ Replace placeholder images in `public/images/`
-2. ✅ Update content in `src/content/siteContent.ts`
-3. ✅ Customize brand colors in `tailwind.config.ts`
-4. ✅ Add real LinkedIn URL for Katie Liebel
-5. ✅ Set up form backend (optional - use Formspree, SendGrid, etc.)
-6. ✅ Add Google Analytics or tracking (if needed)
-7. ✅ Configure domain and hosting
-8. ✅ Test on multiple devices and browsers
+✅ Website is deployed and live  
+✅ Custom domain configured  
+✅ GitHub Pages hosting active  
+✅ All content and images in place
 
 ## 🚢 Deployment
 
-### Deploy to Vercel (Recommended)
-1. Push code to GitHub
-2. Connect to Vercel
-3. Deploy automatically
+This site is configured for **GitHub Pages with a custom domain**.
 
-### Deploy to Netlify
-1. Connect GitHub repository
-2. Build command: `npm run build`
-3. Publish directory: `.next`
+### Quick Deploy
 
-### Other Hosting
-Build the production bundle:
+From the repository root:
+```bash
+npm run deploy
+```
+
+This will:
+1. Build the Next.js static site
+2. Copy all files to the repository root (where GitHub Pages expects them)
+3. Create/verify `.nojekyll` file
+
+Then commit and push:
+```bash
+git add .
+git commit -m "Deploy website"
+git push
+```
+
+### GitHub Pages Setup
+
+1. Go to repository **Settings → Pages**
+2. Set **Source** to: "Deploy from a branch" → "main" → "/ (root)"
+3. Add your **Custom Domain** (without www)
+4. GitHub will create a `CNAME` file automatically
+
+### Detailed Deployment Guide
+
+See [`DEPLOY.md`](./DEPLOY.md) for complete deployment instructions and troubleshooting.
+
+### Alternative Hosting
+
+For other hosting providers (Vercel, Netlify, etc.), you can use the standard Next.js build:
 ```bash
 npm run build
 ```
 
-Then deploy the `.next` folder to your hosting provider.
+The built files will be in `customstrat-advisory/out/` directory.
 
 ## 💡 Tips
 
