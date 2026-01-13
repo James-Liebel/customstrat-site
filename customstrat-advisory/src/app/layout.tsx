@@ -1,10 +1,13 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import ClarityScript from '@/components/ClarityScript';
 import '@/styles/globals.css';
 import { siteContent } from '@/content/siteContent';
 import { Inter, Manrope } from 'next/font/google';
+
+// Microsoft Clarity Project ID
+// Get it from: https://clarity.microsoft.com
+const CLARITY_PROJECT_ID = 'v0jv4m5p9c';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -39,8 +42,25 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
+      <head>
+        {/* Microsoft Clarity Analytics Script - Injected into <head> for all pages
+            Zero-request setup - no cookie banners required */}
+        {CLARITY_PROJECT_ID && CLARITY_PROJECT_ID !== 'YOUR_CLARITY_PROJECT_ID_HERE' && (
+          <script
+            id="microsoft-clarity"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+                })(window, document, "clarity", "script", "${CLARITY_PROJECT_ID}");
+              `,
+            }}
+          />
+        )}
+      </head>
       <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 bg-white overflow-x-hidden">
-        <ClarityScript />
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
           <main className="flex-1">{children}</main>

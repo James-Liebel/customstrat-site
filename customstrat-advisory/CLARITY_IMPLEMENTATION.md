@@ -28,11 +28,11 @@ The implementation includes:
 
 ## 📝 Step 2: Add Your Clarity Project ID
 
-1. **Open the Clarity Script Component**
-   - Navigate to: `customstrat-advisory/src/components/ClarityScript.tsx`
+1. **Open the Layout File**
+   - Navigate to: `customstrat-advisory/src/app/layout.tsx`
 
 2. **Replace the Placeholder**
-   - Find this line:
+   - Find this line (around line 11):
      ```typescript
      const CLARITY_PROJECT_ID = 'YOUR_CLARITY_PROJECT_ID_HERE';
      ```
@@ -42,6 +42,8 @@ The implementation includes:
      ```
 
 3. **Save the file**
+
+**Note:** The script is placed directly in the `<head>` section of all HTML files, ensuring it loads on every page.
 
 ## 🚀 Step 3: Commit and Deploy to GitHub
 
