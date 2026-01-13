@@ -1,4 +1,7 @@
+'use client';
+
 import Link from "next/link";
+import { trackServiceClick } from "@/lib/clarityTracking";
 
 type Category = {
   title: string;
@@ -23,10 +26,15 @@ export default function CaseStudyCards({ categories = [], subtitle }: Props) {
           {categories.map((c, idx) => {
             const href = c.href ?? (c.slug ? `/services/${c.slug}` : "/services");
 
+            const handleClick = () => {
+              trackServiceClick(c.title, href);
+            };
+
             return (
               <Link
                 key={`${href}-${idx}`}
                 href={href}
+                onClick={handleClick}
                 className="
                   group relative block rounded-2xl overflow-hidden
                   cs-glow-card

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ClarityScript from '@/components/ClarityScript';
 import '@/styles/globals.css';
 import { siteContent } from '@/content/siteContent';
 import { Inter, Manrope } from 'next/font/google';
@@ -39,10 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
       <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 bg-white overflow-x-hidden">
-        
-        
-        
-
+        <ClarityScript />
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
           <main className="flex-1">{children}</main>

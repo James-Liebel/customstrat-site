@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
+import TrackedServiceLink from "@/components/TrackedServiceLink";
 import { siteContent } from "@/content/siteContent";
 import { ArrowRight } from "lucide-react";
-import Link from "next/link";
 
 
 export const metadata: Metadata = {
@@ -40,10 +40,11 @@ export default function ServicesPage() {
           <div className="cs-services-navband !mb-0">
             <div className="cs-services-navband__inner">
               <div className="cs-services-navgrid">
-                <Link
+                <TrackedServiceLink
                   href="/services/strategy-development"
+                  serviceName="Strategy Development"
                   className="cs-card cs-card--hover group"
-                  aria-label="View Strategy Development services"
+                  ariaLabel="View Strategy Development services"
                 >
                   <div className="cs-card-inner flex flex-col h-full">
                     <div className="flex-1">
@@ -61,12 +62,13 @@ export default function ServicesPage() {
                     </div>
                   </div>
                   <div className="cs-cardGlow" aria-hidden="true" />
-                </Link>
+                </TrackedServiceLink>
 
-                <Link
+                <TrackedServiceLink
                   href="/services/strategy-execution"
+                  serviceName="Strategy Execution & Transformation"
                   className="cs-card cs-card--hover group"
-                  aria-label="View Strategy Execution & Transformation services"
+                  ariaLabel="View Strategy Execution & Transformation services"
                 >
                   <div className="cs-card-inner flex flex-col h-full">
                     <div className="flex-1">
@@ -84,12 +86,13 @@ export default function ServicesPage() {
                     </div>
                   </div>
                   <div className="cs-cardGlow" aria-hidden="true" />
-                </Link>
+                </TrackedServiceLink>
 
-                <Link
+                <TrackedServiceLink
                   href="/services/operational-improvements"
+                  serviceName="Customer Experience & Performance Improvement"
                   className="cs-card cs-card--hover group"
-                  aria-label="View Customer Experience & Performance Improvement services"
+                  ariaLabel="View Customer Experience & Performance Improvement services"
                 >
                   <div className="cs-card-inner flex flex-col h-full">
                     <div className="flex-1">
@@ -107,7 +110,7 @@ export default function ServicesPage() {
                     </div>
                   </div>
                   <div className="cs-cardGlow" aria-hidden="true" />
-                </Link>
+                </TrackedServiceLink>
               </div>
             </div>
           </div>

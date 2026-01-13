@@ -167,7 +167,7 @@ export default function AboutClient({ members }: { members: Member[] }) {
 
     const leaderWithHighlights = {
         ...leader,
-        highlights: ["McKinsey Alumna", "Former CSO & CXO", "Harvard Business School"]
+        highlights: ["McKinsey Alumna", "Former CSO & CXO", "Harvard MBA"]
     };
 
     // Split remaining members into two vertical columns
