@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import '@/styles/globals.css';
@@ -42,12 +43,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
-      <head>
-        {/* Microsoft Clarity Analytics Script - Injected into <head> for all pages
+      <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 bg-white overflow-x-hidden">
+        {/* Microsoft Clarity Analytics Script - Loads early for tracking
             Zero-request setup - no cookie banners required */}
         {CLARITY_PROJECT_ID && CLARITY_PROJECT_ID !== 'YOUR_CLARITY_PROJECT_ID_HERE' && (
-          <script
+          <Script
             id="microsoft-clarity"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(c,l,a,r,i,t,y){
@@ -59,8 +61,6 @@ export default function RootLayout({
             }}
           />
         )}
-      </head>
-      <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 bg-white overflow-x-hidden">
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
           <main className="flex-1">{children}</main>
