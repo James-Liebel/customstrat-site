@@ -12,6 +12,15 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    title: 'Relationship Banking Needs a Higher Standard',
+    slug: 'relationship-banking-higher-standard',
+    date: 'January 2026',
+    categories: ['Banking', 'Customer Experience'],
+    excerpt:
+      'If banks want to call something a "relationship," they should be willing to hold it to the same standards people apply in real human relationships.',
+    readTime: '7 min read',
+  },
+  {
     title: 'Secrets to Survival in Community Banking',
     slug: 'secrets-to-survival-community-banking',
     date: 'February 2025',
