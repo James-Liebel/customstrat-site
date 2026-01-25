@@ -44,7 +44,6 @@ export default function RelationshipBankingHigherStandard() {
                   Banks talk about "relationships" constantly. Relationship managers. Relationship pricing.
                   Relationship banking strategies.
                 </p>
-
                 <p>
                   But too often, the word is used loosely—more as a posture than a disciplined operating standard.
                   In real life, relationships are not defined by intent or warm language. They are judged by behavior
@@ -53,18 +52,15 @@ export default function RelationshipBankingHigherStandard() {
                   psychology and sociology show that strong relationships are built on observable behavior, not
                   stated intent.
                 </p>
-
                 <p>
                   Those same standards apply, uncomfortably well, to banks.
                 </p>
-
                 <p>
                   If a bank wants to describe its customer connections as "relationships," it should be willing to hold
                   itself to the same standards people apply in real human relationships, not marketing language or
                   isolated examples.
                 </p>
               </section>
-
               <section className="cs-section">
                 <h2 className="cs-h2">Why This Matters</h2>
 
@@ -72,19 +68,16 @@ export default function RelationshipBankingHigherStandard() {
                   At a fundamental level, banks have only three durable ways to compete: price, ease of doing
                   business, and trust-based advice and relationships.
                 </p>
-
                 <p>
                   For the largest institutions, scale can enable sustained competition on price and convenience. For
                   most community and regional banks, those paths are increasingly constrained, making
                   relationships the most credible path to differentiation as industry consolidation continues.
                 </p>
-
                 <p>
                   At the same time, the shift toward digital interactions has made relationships harder, not easier.
                   Fewer face-to-face moments mean fewer natural opportunities to build trust, context, and
                   continuity.
                 </p>
-
                 <p>
                   Technology—and increasingly AI—can help close that gap. Used well, it can preserve institutional
                   memory, surface customer context, and support more personalized engagement at scale. The real
@@ -92,7 +85,6 @@ export default function RelationshipBankingHigherStandard() {
                   relationship discipline.
                 </p>
               </section>
-
               <section className="cs-section">
                 <h2 className="cs-h2">What "Relationship" Actually Requires</h2>
 
@@ -100,21 +92,18 @@ export default function RelationshipBankingHigherStandard() {
                   Before discussing how banks build better relationships, it is important to be clear about what a
                   relationship actually requires—and who it is for.
                 </p>
-
                 <p>
                   Not all customers want a relationship with their bank. Some want speed and price. Others want
                   minimal interaction. Meaningful relationships require mutual intent. In banking, that means
                   anchoring relationship strategies to clearly defined customer segments that value advice,
                   continuity, and trust.
                 </p>
-
                 <p>
                   Just as importantly, relationships cannot be sustained by individual effort alone. In banks,
                   consistency must be supported by processes, technology, culture, and governance. Without those
                   enablers, even well-intentioned relationship strategies break down under growth, complexity, or
                   leadership change.
                 </p>
-
                 <p>
                   Not all relationship capabilities are differentiators. Some are simply the price of admission. This
                   framework separates relationship strength into two categories.
@@ -129,12 +118,12 @@ export default function RelationshipBankingHigherStandard() {
                     <strong>Play to Win</strong> capabilities are what turn a competent service provider into a trusted, preferred
                     partner.
                   </p>
-                  <p className="cs-lead">
-                    Failing at Right to Play undermines trust. Excelling at Play to Win creates durable advantage.
-                  </p>
                 </div>
-              </section>
 
+                <p>
+                  Failing at Right to Play undermines trust. Excelling at Play to Win creates durable advantage.
+                </p>
+              </section>
               <section className="cs-section">
                 <h2 className="cs-h2">Right to Play</h2>
 
@@ -185,7 +174,6 @@ export default function RelationshipBankingHigherStandard() {
                   Without these foundations, no amount of personalization or advisory ambition will matter.
                 </p>
               </section>
-
               <section className="cs-section">
                 <h2 className="cs-h2">Play to Win</h2>
 
@@ -238,7 +226,6 @@ export default function RelationshipBankingHigherStandard() {
                   These are the behaviors that make relationships difficult to replace.
                 </p>
               </section>
-
               <section className="cs-section">
                 <h2 className="cs-h2">The Path Forward</h2>
 
