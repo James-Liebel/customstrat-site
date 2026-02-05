@@ -95,11 +95,23 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
               <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {a.categories.map(cat => (
+                    <span 
+                      key={cat} 
+                      className={cn(
+                        "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider",
+                        category !== 'All' && cat === category 
+                          ? "bg-gold text-primary" 
+                          : "bg-white/10 text-white/60"
+                      )}
+                    >
+                      {cat}
+                    </span>
+                  ))}
+                </div>
                 <div className="mb-6 flex flex-wrap items-center justify-between text-[11px] font-bold text-white/40 tracking-wider gap-4">
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-2"><Tag size={12} className="text-gold" /> {a.categories[0]}</span>
-                    <span className="flex items-center gap-2"><Calendar size={12} className="text-gold" /> {a.date}</span>
-                  </div>
+                  <span className="flex items-center gap-2"><Calendar size={12} className="text-gold" /> {a.date}</span>
                   <span className="flex items-center gap-1"><Clock size={12} /> {a.readTime}</span>
                 </div>
                 <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-gold-light transition-colors leading-tight">{a.title}</h3>
