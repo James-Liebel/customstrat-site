@@ -40,9 +40,8 @@ export default function RelationshipBankingHigherStandard() {
               </div>
 
               <div className="cs-tags">
-                <span className="cs-tag">Strategy</span>
                 <span className="cs-tag">Banking</span>
-                <span className="cs-tag">Insurance</span>
+                <span className="cs-tag">Customer Experience</span>
               </div>
             </div>
           </header>

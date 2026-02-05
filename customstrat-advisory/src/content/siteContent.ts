@@ -182,7 +182,7 @@ When examined together, these three questions distinguish between strategies tha
         slug: "relationship-banking-higher-standard",
         excerpt: "If banks want to call something a 'relationship,' they should be willing to hold it to the same standards people apply in real human relationships.",
         date: "2026-01-15",
-        tags: ["Strategy", "Banking", "Insurance"],
+        tags: ["Banking", "Customer Experience"],
         content: `Banks talk about "relationships" constantly. Relationship managers. Relationship pricing. Relationship banking strategies. But too often, the word is used loosely—more as a posture than a disciplined operating standard.
 
 ## Why This Matters
