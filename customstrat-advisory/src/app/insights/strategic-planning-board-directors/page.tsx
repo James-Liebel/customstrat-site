@@ -1,6 +1,14 @@
 // StrategicPlanningBestPracticesForBoardDirectors.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "Strategic Planning Best Practices for Board Directors",
+  description: "A practical guide for boards to steward the development of a winning corporate strategy with key questions for effective oversight.",
+};
 
 export default function StrategicPlanningBestPracticesForBoardDirectors() {
   return (
@@ -28,6 +36,11 @@ export default function StrategicPlanningBestPracticesForBoardDirectors() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>September 2022</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Governance</span>
+                <span className="cs-tag">Strategy</span>
               </div>
             </div>
           </header>
@@ -143,13 +156,19 @@ export default function StrategicPlanningBestPracticesForBoardDirectors() {
                 <p className="cs-divider">* * *</p>
 
                 <p>
-                  One of the Board’s most critical tasks is to steward the development of a winning strategy. To capitalize on the strategic reviews with management, ensure the materials set the right foundation, lean in with targeted questions on whether the strategy is granularly defined, poised for success and supported by sufficient resources. Finally, ensure that the strategic discussions live on through the year with sufficient deep dives and tracking to key indicators.
+                  One of the Board's most critical tasks is to steward the development of a winning strategy. To capitalize on the strategic reviews with management, ensure the materials set the right foundation, lean in with targeted questions on whether the strategy is granularly defined, poised for success and supported by sufficient resources. Finally, ensure that the strategic discussions live on through the year with sufficient deep dives and tracking to key indicators.
                 </p>
               </section>
+
+              <RelatedArticles 
+                currentSlug="strategic-planning-board-directors" 
+                currentCategories={['Governance', 'Strategy']} 
+              />
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

@@ -23,7 +23,7 @@ const examples = [
   },
   {
     projectSummary: "Transformation for Leading Insurance Company",
-    problem: "Company needed to adapt their entire business system to compete in a more digital world",
+    problem: "Company needed to adapt their business system to become materially more efficient and modernize operations",
     approach:
       "Led a large project team across multiple workstreams to substantially lower costs and increase digital capabilities (location consolidation, technology consolidation, product portfolio streamlining, etc.). Included change management and communication planning for thousands of impacted employees.",
   },

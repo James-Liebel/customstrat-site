@@ -1,6 +1,14 @@
 // ContingencyPlanningForTheNextWorstCaseScenarioInsuranceEdition.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "Contingency Planning for the Next Worst-Case Scenario",
+  description: "Building organizational resilience through comprehensive risk assessment and adaptive strategy for insurance carriers.",
+};
 
 export default function ContingencyPlanningForTheNextWorstCaseScenarioInsuranceEdition() {
   return (
@@ -31,6 +39,11 @@ export default function ContingencyPlanningForTheNextWorstCaseScenarioInsuranceE
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>April 1, 2021</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Risk Management</span>
+                <span className="cs-tag">Insurance</span>
               </div>
             </div>
           </header>
@@ -121,14 +134,20 @@ export default function ContingencyPlanningForTheNextWorstCaseScenarioInsuranceE
 
               <section className="cs-section">
                 <p>
-                  Insurance was created so individuals and businesses can persevere through troubled times and unforeseen events. We are certainly living in unforeseen events now. But it’s an opportunity to revisit the various risks we all face, make concrete plans for protection, and breathe a sigh of relief as we look forward to returning to normal.
+                  Insurance was created so individuals and businesses can persevere through troubled times and unforeseen events. We are certainly living in unforeseen events now. But it's an opportunity to revisit the various risks we all face, make concrete plans for protection, and breathe a sigh of relief as we look forward to returning to normal.
                 </p>
               </section>
+
+              <RelatedArticles 
+                currentSlug="contingency-planning-worst-case" 
+                currentCategories={['Risk Management', 'Insurance']} 
+              />
 
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

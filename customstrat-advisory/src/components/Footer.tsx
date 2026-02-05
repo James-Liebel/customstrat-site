@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { siteContent } from '@/content/siteContent';
 import Image from 'next/image';
+import { Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -68,17 +69,34 @@ export default function Footer() {
               <div>{siteContent.company.location}</div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 flex items-center gap-4">
               <Link href="/contact" className="btn-secondary !text-[#0B2E57]">
                 Get in touch
               </Link>
+              <a 
+                href="https://www.linkedin.com/in/katie-liebel/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors group"
+                aria-label="Connect on LinkedIn"
+              >
+                <Linkedin size={18} className="text-white/70 group-hover:text-white transition-colors" />
+              </a>
             </div>
           </div>
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-sm text-white/70">
           <div>© {year} {siteContent.company.name}. All rights reserved.</div>
-
+          <a 
+            href="https://www.linkedin.com/in/katie-liebel/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-white transition-colors"
+          >
+            <Linkedin size={14} />
+            <span>Follow on LinkedIn</span>
+          </a>
         </div>
       </div>
     </footer>

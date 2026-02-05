@@ -1,6 +1,14 @@
 // RelationshipBankingHigherStandard.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "Relationship Banking Needs a Higher Standard",
+  description: "If banks want to call something a 'relationship,' they should be willing to hold it to the same standards people apply in real human relationships.",
+};
 
 export default function RelationshipBankingHigherStandard() {
   return (
@@ -29,6 +37,12 @@ export default function RelationshipBankingHigherStandard() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>January 2026</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Strategy</span>
+                <span className="cs-tag">Banking</span>
+                <span className="cs-tag">Insurance</span>
               </div>
             </div>
           </header>
@@ -269,10 +283,16 @@ export default function RelationshipBankingHigherStandard() {
                 </p>
               </section>
 
+              <RelatedArticles 
+                currentSlug="relationship-banking-higher-standard" 
+                currentCategories={['Strategy', 'Banking', 'Insurance']} 
+              />
+
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

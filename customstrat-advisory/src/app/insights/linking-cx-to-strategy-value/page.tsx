@@ -1,6 +1,14 @@
 // LinkingCustomerExperienceToStrategyAndValue.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "Linking Customer Experience to Strategy and Value",
+  description: "A practical framework for connecting CX investments to measurable business outcomes and demonstrating the ROI of customer experience initiatives.",
+};
 
 export default function LinkingCustomerExperienceToStrategyAndValue() {
   return (
@@ -29,6 +37,10 @@ export default function LinkingCustomerExperienceToStrategyAndValue() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>November 2022</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Customer Experience</span>
               </div>
             </div>
           </header>
@@ -150,10 +162,16 @@ export default function LinkingCustomerExperienceToStrategyAndValue() {
                 </p>
               </section>
 
+              <RelatedArticles 
+                currentSlug="linking-cx-to-strategy-value" 
+                currentCategories={['Customer Experience']} 
+              />
+
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

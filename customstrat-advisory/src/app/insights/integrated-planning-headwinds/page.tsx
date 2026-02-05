@@ -1,6 +1,14 @@
 // IntegratedPlanningAmidstTheHeadwinds.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "Integrated Planning Amidst the Headwinds",
+  description: "Building resilient strategic plans through prioritized investment and organizational accountability in uncertain economic times.",
+};
 
 export default function IntegratedPlanningAmidstTheHeadwinds() {
   return (
@@ -29,6 +37,10 @@ export default function IntegratedPlanningAmidstTheHeadwinds() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>September 2022</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Strategy</span>
               </div>
             </div>
           </header>
@@ -146,10 +158,16 @@ export default function IntegratedPlanningAmidstTheHeadwinds() {
                 </p>
               </section>
 
+              <RelatedArticles 
+                currentSlug="integrated-planning-headwinds" 
+                currentCategories={['Strategy']} 
+              />
+
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

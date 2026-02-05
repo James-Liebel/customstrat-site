@@ -1,6 +1,14 @@
 // SecretsToSurvivalCommunityBanking.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "Secrets to Survival in Community Banking",
+  description: "Analysis of 230 banks reveals what is and is NOT correlated to success. Strategic choices that drive growth and returns for community banks.",
+};
 
 export default function SecretsToSurvivalCommunityBanking() {
   return (
@@ -29,6 +37,11 @@ export default function SecretsToSurvivalCommunityBanking() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>February 2025</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Banking</span>
+                <span className="cs-tag">Strategy</span>
               </div>
             </div>
           </header>
@@ -223,10 +236,16 @@ export default function SecretsToSurvivalCommunityBanking() {
                 </p>
               </section>
 
+              <RelatedArticles 
+                currentSlug="secrets-to-survival-community-banking" 
+                currentCategories={['Banking', 'Strategy']} 
+              />
+
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

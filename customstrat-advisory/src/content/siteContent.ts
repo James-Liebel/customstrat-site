@@ -154,10 +154,55 @@ export const siteContent = {
     },
     articles: [
       {
+        title: "Three Simple Strategy Tests Every Leadership Team Should Apply",
+        slug: "three-strategy-tests",
+        excerpt: "How to ensure your strategy is grounded in customer choice, economic logic, and real commitment. Three questions every leadership team should answer with confidence.",
+        date: "2026-02-01",
+        tags: ["Strategy", "Banking", "Insurance"],
+        content: `Most leadership teams have experienced the same moment. You leave a strategy offsite meeting believing everyone is aligned, only to discover months later that different leaders walked away with very different interpretations of what was decided.
+
+At its core, strategy exists to force choices. Before committing capital, talent, and leadership attention, there are three questions every leadership team should be able to answer with confidence:
+
+## 1. Does the Company Actually Have a Strategy?
+
+Consider this question to test the strategy: Is the opposite of the strategy "stupid"? A real strategy requires explicit choices about what the business will focus on and what it will not.
+
+## 2. Is the Strategy a Good One?
+
+Consider this test: Is there a credible reason this strategy should succeed, profitably? A strong strategy is grounded in analysis, customer insight, and a credible belief in sustainable advantage.
+
+## 3. Can the Company Deliver?
+
+Consider this test: Have we explicitly reallocated enough talent and capital to succeed? If resources did not meaningfully move, the organization has not truly chosen.
+
+When examined together, these three questions distinguish between strategies that sound compelling and those that actually drive focus, advantage, and results.`,
+      },
+      {
+        title: "Relationship Banking Needs a Higher Standard",
+        slug: "relationship-banking-higher-standard",
+        excerpt: "If banks want to call something a 'relationship,' they should be willing to hold it to the same standards people apply in real human relationships.",
+        date: "2026-01-15",
+        tags: ["Strategy", "Banking", "Insurance"],
+        content: `Banks talk about "relationships" constantly. Relationship managers. Relationship pricing. Relationship banking strategies. But too often, the word is used loosely—more as a posture than a disciplined operating standard.
+
+## Why This Matters
+
+At a fundamental level, banks have only three durable ways to compete: price, ease of doing business, and trust-based advice and relationships. For most community and regional banks, relationships are the most credible path to differentiation.
+
+## Right to Play vs Play to Win
+
+This framework separates relationship strength into two categories:
+- **Right to Play** capabilities establish baseline credibility
+- **Play to Win** capabilities turn a competent service provider into a trusted, preferred partner
+
+Banks willing to measure themselves against a human standard and close the gaps honestly earn something far more valuable than satisfaction scores—they earn preference.`,
+      },
+      {
         title: "Secrets to Survival in Community Banking",
         slug: "secrets-to-survival-community-banking",
         excerpt: "What is and is NOT correlated to Success - Analysis of 230 banks reveals the strategic choices that drive growth and returns.",
         date: "2025-02-01",
+        tags: ["Strategy", "Banking"],
         content: `1 out of every 2 banks open for business 2 decades ago no longer exists today. The number of community banks has declined by 34%, or over 2000 institutions, in the past 10 years.
 
 This begs the question, what does it take to survive and thrive as a Community Bank?

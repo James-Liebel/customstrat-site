@@ -1,6 +1,14 @@
 // BeyondScalePCInsurers.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "Beyond Scale: Winning Strategies for Today's P&C Insurers",
+  description: "Insights from a decade of market data reveal what winners do differently. Analysis of the largest 100 U.S. P&C carriers to identify key success factors.",
+};
 
 export default function BeyondScalePCInsurers() {
   return (
@@ -29,6 +37,11 @@ export default function BeyondScalePCInsurers() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>August 2025</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Insurance</span>
+                <span className="cs-tag">Strategy</span>
               </div>
             </div>
           </header>
@@ -250,15 +263,21 @@ export default function BeyondScalePCInsurers() {
 
                 <p>[1] 2015-2024</p>
                 <p>[2] Excluding re-insurers, select carriers with insufficient data, and the largest 3 carriers</p>
-                <p>[3] ROE sourced from S&amp;P Capital IQ | ROE = Net Income / Policyholders’ Surplus</p>
+                <p>[3] ROE sourced from S&amp;P Capital IQ | ROE = Net Income / Policyholders' Surplus</p>
                 <p>[4] Southwest = TX, OK, NM, AZ</p>
                 <p>[5] Southeast = VA, WV, NC, SC, GA, FL, AL, MS, TN, KY, AR, LA</p>
               </section>
+
+              <RelatedArticles 
+                currentSlug="beyond-scale-pc-insurers" 
+                currentCategories={['Insurance', 'Strategy']} 
+              />
 
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

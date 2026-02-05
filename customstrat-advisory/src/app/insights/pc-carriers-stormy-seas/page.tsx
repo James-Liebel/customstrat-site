@@ -1,6 +1,14 @@
 // PCcarriersPreparingForTheStormySeas.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "P&C Carriers - Preparing for the Stormy Seas",
+  description: "Five strategic priorities for Property & Casualty insurance carriers to navigate economic volatility and industry disruption.",
+};
 
 export default function PCcarriersPreparingForTheStormySeas() {
   return (
@@ -28,6 +36,10 @@ export default function PCcarriersPreparingForTheStormySeas() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>July 10, 2022</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Insurance</span>
               </div>
             </div>
           </header>
@@ -106,10 +118,16 @@ export default function PCcarriersPreparingForTheStormySeas() {
                   These are times not seen in the last two decades. To weather the storm and emerge successfully, elevate customer experiences, deepen relationships and drive efficiencies in the short term. For success in the medium to long-term, align at a granular level on where to compete, re-allocate resources accordingly, invest in digital / data, and accelerate the journey through M&amp;A and partnerships.
                 </p>
               </section>
+
+              <RelatedArticles 
+                currentSlug="pc-carriers-stormy-seas" 
+                currentCategories={['Insurance']} 
+              />
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

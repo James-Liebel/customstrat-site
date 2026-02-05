@@ -85,20 +85,28 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
       </div>
 
       <div className={cn(view === 'grid' ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" : "space-y-6")}>
-        {filtered.map(a => (
+        {filtered.map((a, index) => (
           <Link key={a.slug} href={`/insights/${a.slug}`} className="group block">
-            <article className="cs-card h-full p-8 border border-white/10 hover:border-white/20 transition-all duration-500 hover:-translate-y-2">
-              <div className="mb-6 flex flex-wrap items-center justify-between text-[11px] font-bold text-white/40 tracking-wider gap-4">
-                <div className="flex items-center gap-4">
-                  <span className="flex items-center gap-2"><Tag size={12} className="text-gold" /> {a.categories[0]}</span>
-                  <span className="flex items-center gap-2"><Calendar size={12} className="text-gold" /> {a.date}</span>
+            <article 
+              className="cs-card h-full p-8 border border-white/10 hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(201,169,97,0.15)] relative overflow-hidden"
+              style={{ animationDelay: `${index * 50}ms` }}
+            >
+              {/* Subtle gradient glow on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                <div className="mb-6 flex flex-wrap items-center justify-between text-[11px] font-bold text-white/40 tracking-wider gap-4">
+                  <div className="flex items-center gap-4">
+                    <span className="flex items-center gap-2"><Tag size={12} className="text-gold" /> {a.categories[0]}</span>
+                    <span className="flex items-center gap-2"><Calendar size={12} className="text-gold" /> {a.date}</span>
+                  </div>
+                  <span className="flex items-center gap-1"><Clock size={12} /> {a.readTime}</span>
                 </div>
-                <span>{a.readTime}</span>
-              </div>
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-gold-light transition-colors leading-tight">{a.title}</h3>
-              <p className="text-white/60 text-sm leading-relaxed mb-8 line-clamp-3">{a.excerpt}</p>
-              <div className="flex items-center gap-3 text-gold-light font-black text-xs uppercase tracking-widest mt-auto">
-                Read Full Insight <span className="group-hover:translate-x-2 transition-transform">→</span>
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-gold-light transition-colors leading-tight">{a.title}</h3>
+                <p className="text-white/60 text-sm leading-relaxed mb-8 line-clamp-3">{a.excerpt}</p>
+                <div className="flex items-center gap-3 text-gold-light font-black text-xs uppercase tracking-widest mt-auto">
+                  Read Full Insight <span className="group-hover:translate-x-2 transition-transform inline-block">→</span>
+                </div>
               </div>
             </article>
           </Link>

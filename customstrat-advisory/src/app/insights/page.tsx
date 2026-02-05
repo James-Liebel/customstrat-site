@@ -12,10 +12,19 @@ export const metadata: Metadata = {
 
 const articles = [
   {
+    title: 'Three Simple Strategy Tests Every Leadership Team Should Apply',
+    slug: 'three-strategy-tests',
+    date: 'February 2026',
+    categories: ['Strategy', 'Banking', 'Insurance'],
+    excerpt:
+      'How to ensure your strategy is grounded in customer choice, economic logic, and real commitment. Three questions every leadership team should answer with confidence.',
+    readTime: '6 min read',
+  },
+  {
     title: 'Relationship Banking Needs a Higher Standard',
     slug: 'relationship-banking-higher-standard',
     date: 'January 2026',
-    categories: ['Banking', 'Customer Experience'],
+    categories: ['Strategy', 'Banking', 'Insurance'],
     excerpt:
       'If banks want to call something a "relationship," they should be willing to hold it to the same standards people apply in real human relationships.',
     readTime: '7 min read',

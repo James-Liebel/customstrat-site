@@ -1,6 +1,14 @@
 // AStrategicPlanningTuneUpForUncertainTimes.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "A Strategic Planning Tune-Up for Uncertain Times",
+  description: "How to build resilient strategic plans that adapt to changing market conditions through assumption-based planning and agile execution.",
+};
 
 export default function AStrategicPlanningTuneUpForUncertainTimes() {
   return (
@@ -29,6 +37,10 @@ export default function AStrategicPlanningTuneUpForUncertainTimes() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>August 2022</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Strategy</span>
               </div>
             </div>
           </header>
@@ -126,10 +138,16 @@ export default function AStrategicPlanningTuneUpForUncertainTimes() {
                 </p>
               </section>
 
+              <RelatedArticles 
+                currentSlug="strategic-planning-tune-up" 
+                currentCategories={['Strategy']} 
+              />
+
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

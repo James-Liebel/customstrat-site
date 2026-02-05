@@ -93,7 +93,7 @@ export default function HomePage() {
               <ul className="space-y-4">
                 {siteContent.home.sections.approach.items.map((item, index) => (
                   <li key={index} className="text-gray-700 flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0"></div>
                     <span>{item}</span>
                   </li>
                 ))}
@@ -121,10 +121,27 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="mt-24 text-center">
+          {/* Success Message & CTA */}
+          <div className="mt-24 text-center space-y-8">
             <p className="text-2xl md:text-3xl text-primary font-light italic opacity-80">
               {siteContent.home.successMessage}
             </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+              <Link 
+                href="/services" 
+                className="btn-primary inline-flex items-center gap-2"
+              >
+                View Case Studies
+                <span className="text-lg">→</span>
+              </Link>
+              <Link 
+                href="/insights" 
+                className="btn-secondary inline-flex items-center gap-2"
+              >
+                Read Articles
+              </Link>
+            </div>
           </div>
         </div>
       </section>

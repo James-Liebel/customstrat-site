@@ -1,6 +1,14 @@
 // TheSofterSideOfTransformationFiveCs.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "The Softer Side of Transformation - Five C's",
+  description: "Why addressing commitment, culture, and communication is vital for sustainable change. The 5Cs approach to business transformation.",
+};
 
 export default function TheSofterSideOfTransformationFiveCs() {
   return (
@@ -28,6 +36,10 @@ export default function TheSofterSideOfTransformationFiveCs() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>August 2022</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Change Management</span>
               </div>
             </div>
           </header>
@@ -160,10 +172,16 @@ export default function TheSofterSideOfTransformationFiveCs() {
                   Companies today are in perpetual transformation mode as they work together to win in an ever-evolving environment. Success relies on a trajectory that&apos;s consistently and positively supported by the five C&apos;s—Commitment, Capabilities, Culture, Communication, and Change management.
                 </p>
               </section>
+
+              <RelatedArticles 
+                currentSlug="softer-side-of-transformation" 
+                currentCategories={['Change Management']} 
+              />
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }

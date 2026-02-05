@@ -50,17 +50,3 @@ export function trackServiceClick(serviceName: string, servicePath?: string) {
   }
 }
 
-/**
- * Extract service name from URL path
- * Helper function to derive service name from route
- */
-export function getServiceNameFromPath(path: string): string {
-  const pathMap: Record<string, string> = {
-    '/services/strategy-development': 'Strategy Development',
-    '/services/strategy-execution': 'Strategy Execution & Transformation',
-    '/services/operational-improvements': 'Customer Experience & Performance Improvement',
-    '/services': 'Services Overview',
-  };
-  
-  return pathMap[path] || path.split('/').pop()?.replace(/-/g, ' ') || 'Unknown Service';
-}

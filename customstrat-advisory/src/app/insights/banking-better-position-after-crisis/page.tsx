@@ -1,6 +1,14 @@
 // BankingOnABetterPositionAfterTheCrisis.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
+import ReadingProgress from "@/components/ReadingProgress";
+import RelatedArticles from "@/components/RelatedArticles";
+
+export const metadata: Metadata = {
+  title: "Banking on a Better Position After the Crisis",
+  description: "Strategic imperatives for banks to emerge stronger from short-term financial disruption and build competitive advantage.",
+};
 
 export default function BankingOnABetterPositionAfterTheCrisis() {
   return (
@@ -29,6 +37,10 @@ export default function BankingOnABetterPositionAfterTheCrisis() {
                 </span>
                 <span className="cs-meta-dot">•</span>
                 <span>May 10, 2020</span>
+              </div>
+
+              <div className="cs-tags">
+                <span className="cs-tag">Banking</span>
               </div>
             </div>
           </header>
@@ -178,14 +190,20 @@ export default function BankingOnABetterPositionAfterTheCrisis() {
 
               <section className="cs-section">
                 <p>
-                  In summary, while this unprecedented time has brought a lot of ‘lemons’ to the banking space, there might just be an opportunity to make something positive out of it, both on the personal side and in the business of banking. My son is now hard at work on his business plan for his lemonade stand!
+                  In summary, while this unprecedented time has brought a lot of 'lemons' to the banking space, there might just be an opportunity to make something positive out of it, both on the personal side and in the business of banking. My son is now hard at work on his business plan for his lemonade stand!
                 </p>
               </section>
+
+              <RelatedArticles 
+                currentSlug="banking-better-position-after-crisis" 
+                currentCategories={['Banking']} 
+              />
 
             </div>
           </div>
         </article>
       </div>
+      <ReadingProgress />
     </main>
   );
 }
