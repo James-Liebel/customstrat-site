@@ -15,6 +15,14 @@ interface Article {
 // Article data - centralized for reuse
 const allArticles: Article[] = [
   {
+    title: 'Strategy in the Age of AI: A Community and Mid-Size Bank Perspective',
+    slug: 'strategy-in-the-age-of-ai',
+    date: 'June 2026',
+    categories: ['Banking', 'Strategy'],
+    excerpt: 'The classic strategy questions carry higher stakes for community and mid-size banks in the age of AI.',
+    readTime: '7 min read',
+  },
+  {
     title: 'Three Simple Strategy Tests Every Leadership Team Should Apply',
     slug: 'three-strategy-tests',
     date: 'February 2026',
