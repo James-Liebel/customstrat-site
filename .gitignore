@@ -15,5 +15,9 @@ node_modules/
 .DS_Store
 Thumbs.db
 
+# Stray npm cache dir: created when npm runs with an unexpanded %USERPROFILE%
+# cache path under a POSIX shell (e.g. Git Bash). Never commit it.
+%USERPROFILE%/
+
 # Note: Deployed files in root (index.html, _next/, images/, etc.) are intentionally committed
 # for GitHub Pages hosting

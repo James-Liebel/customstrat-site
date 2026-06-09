@@ -5,9 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:with-clarity": "next build && node inject-clarity.js",
+    "build:with-clarity": "next build && node scripts/inject-clarity.js",
     "export": "next build",
-    "deploy": "npm run build:with-clarity && node deploy.js",
+    "deploy": "npm run build:with-clarity && node scripts/deploy.js",
     "start": "next start",
     "lint": "next lint"
   },

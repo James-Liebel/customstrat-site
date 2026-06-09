@@ -2,10 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 // This script copies the built files from out/ to the repository root
-// for GitHub Pages deployment with a custom domain
+// for GitHub Pages deployment with a custom domain.
+// NOTE: this script lives in customstrat-advisory/scripts/, so paths resolve
+// one level up: ../out is the build output, ../.. is the repository root.
 
-const outDir = path.join(__dirname, 'out');
-const rootDir = path.join(__dirname, '..');
+const outDir = path.join(__dirname, '..', 'out');
+const rootDir = path.join(__dirname, '..', '..');
 
 // Files to preserve in root (don't overwrite)
 const preserveFiles = ['CNAME', '.git', '.gitignore', 'package.json', 'package-lock.json'];
@@ -42,6 +44,11 @@ function copyRecursive(src, dest) {
     });
   } else {
     const fileName = path.basename(dest);
+    // Skip Next.js RSC text payloads (index.txt): internal build artifacts,
+    // gitignored and not needed for static hosting — keeps them out of the root.
+    if (fileName === 'index.txt') {
+      return;
+    }
     // Don't overwrite preserved files
     if (preserveFiles.includes(fileName) && fs.existsSync(dest)) {
       console.log(`Preserving existing: ${fileName}`);

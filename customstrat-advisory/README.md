@@ -40,10 +40,13 @@ customstrat-advisory/
 │   ├── app/              # Next.js pages (App Router)
 │   ├── components/       # Reusable React components
 │   ├── content/          # Editable site content
-│   └── styles/           # Global styles
+│   ├── lib/              # Helpers (analytics tracking)
+│   ├── styles/           # Global styles
+│   └── theme/            # Per-route theming
 ├── public/               # Static assets (images, etc.)
-├── out/                  # Build output (gitignored)
-└── deploy.js             # Deployment script
+├── docs/                 # Project documentation (deploy, style, theme, clarity)
+├── scripts/              # Build/deploy scripts (deploy.js, inject-clarity.js)
+└── out/                  # Build output (gitignored)
 
 repository-root/
 ├── index.html            # Deployed homepage (for GitHub Pages)
@@ -203,7 +206,7 @@ git push
 
 ### Detailed Deployment Guide
 
-See [`DEPLOY.md`](./DEPLOY.md) for complete deployment instructions and troubleshooting.
+See [`DEPLOY.md`](./docs/DEPLOY.md) for complete deployment instructions and troubleshooting.
 
 ### Alternative Hosting
 

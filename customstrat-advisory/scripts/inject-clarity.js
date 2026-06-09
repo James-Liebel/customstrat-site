@@ -56,7 +56,8 @@ function processDirectory(dir) {
 }
 
 // Main execution
-const outDir = path.join(__dirname, 'out');
+// (script lives in customstrat-advisory/scripts/, so out/ is one level up)
+const outDir = path.join(__dirname, '..', 'out');
 
 if (!fs.existsSync(outDir)) {
   console.error('Error: out/ directory not found. Please run "npm run build" first.');
