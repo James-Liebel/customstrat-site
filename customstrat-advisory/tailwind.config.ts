@@ -20,15 +20,19 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // Single brand palette — kept in lockstep with the CSS variables in
+        // src/styles/globals.css :root (--color-primary / --color-accent /
+        // --color-gold). Utility classes (bg-primary, text-accent, …) and the
+        // .btn-*/.cs-* component classes now share the same hues.
         primary: {
-          DEFAULT: '#2C5F8D', // Restored to original blue
-          dark: '#1A3A5C',
-          light: '#4A7BA7',
+          DEFAULT: '#1e4b75',
+          dark: '#123456',
+          light: '#34608b',
         },
         accent: {
-          DEFAULT: '#5B8FC4',
-          dark: '#3D6B9E',
-          light: '#7DAAD4',
+          DEFAULT: '#4a86c0',
+          dark: '#2c5885',
+          light: '#6ba0d4',
         },
         gold: {
           DEFAULT: '#C9A961',

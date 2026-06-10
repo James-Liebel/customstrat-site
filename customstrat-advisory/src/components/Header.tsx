@@ -38,7 +38,7 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10">
-              <Image src="/images/new logo.png" alt="Logo" fill className="object-contain" />
+              <Image src="/images/new logo.png" alt="CustomStrat Advisory logo" fill className="object-contain" />
             </div>
             <span className="text-xl font-semibold text-primary">
               {siteContent.company.shortName}
@@ -55,7 +55,7 @@ export default function Header() {
                     href={item.href}
                     className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
                       active
-                        ? 'bg-primary text-white shadow-lg'
+                        ? 'bg-primary text-white shadow-md'
                         : 'text-slate-600 hover:text-primary hover:bg-slate-100'
                     }`}
                   >
@@ -69,14 +69,22 @@ export default function Header() {
           <button
             className={`lg:hidden p-2 text-slate-700`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-nav"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <ul className="lg:hidden mt-4 space-y-2 p-4 rounded-2xl bg-white border border-slate-200">
+        {/* Mobile Menu (always rendered so open/close can animate) */}
+        <div
+          id="mobile-nav"
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${
+            mobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <ul className="space-y-2 p-4 rounded-2xl bg-white border border-slate-200">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
@@ -87,13 +95,14 @@ export default function Header() {
                       : 'text-slate-700'
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
+                  tabIndex={mobileMenuOpen ? 0 : -1}
                 >
                   {item.label}
                 </Link>
               </li>
             ))}
           </ul>
-        )}
+        </div>
       </nav>
     </header>
   );

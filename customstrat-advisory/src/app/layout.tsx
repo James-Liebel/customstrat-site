@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/ScrollToTop';
 import '@/styles/globals.css';
 import { siteContent } from '@/content/siteContent';
 import { Inter, Manrope } from 'next/font/google';
@@ -63,6 +64,7 @@ export default function RootLayout({
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <ScrollToTop />
         </div>
       </body>
     </html>

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import { siteContent } from "@/content/siteContent";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -27,7 +27,7 @@ export default function ContactPage() {
 
         <section className="cs-section">
           <div className="container-custom">
-            <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-center">
+            <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto items-start">
 
               {/* Profile Side */}
               <div className="animate-[fadeInUp_800ms_ease-out]">
@@ -112,7 +112,35 @@ export default function ContactPage() {
                     Send an Email
                   </a>
 
+                  <a
+                    href="https://www.linkedin.com/in/katie-liebel/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 w-full inline-flex justify-center items-center gap-2 rounded-2xl border border-primary/30 text-primary font-semibold py-3.5 hover:border-primary hover:bg-primary/5 transition-colors duration-200"
+                  >
+                    <Linkedin size={18} />
+                    Connect on LinkedIn
+                  </a>
 
+                  <div className="mt-8 pt-6 border-t border-gray-100">
+                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
+                      What to expect
+                    </p>
+                    <ul className="space-y-3 text-gray-600 text-sm">
+                      <li className="flex items-start gap-3">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" />
+                        A personal reply from Katie
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" />
+                        An intro conversation about your goals — no obligation
+                      </li>
+                      <li className="flex items-start gap-3">
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" />
+                        A clear point of view on how we can help
+                      </li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

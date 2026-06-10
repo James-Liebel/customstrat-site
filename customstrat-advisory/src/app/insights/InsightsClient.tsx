@@ -2,16 +2,8 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Calendar, Clock, Tag, LayoutGrid, List, ArrowUpDown, Search } from 'lucide-react';
-
-type Article = {
-  title: string;
-  slug: string;
-  date: string;
-  categories: string[];
-  excerpt: string;
-  readTime: string;
-};
+import { Calendar, Clock, LayoutGrid, List, ArrowUpDown, Search } from 'lucide-react';
+import type { Article } from '@/content/articles';
 
 type SortKey = 'newest' | 'oldest' | 'title';
 type ViewMode = 'grid' | 'list';
@@ -34,10 +26,10 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
       const matchesQuery = q.length === 0 ? true : (a.title + ' ' + a.excerpt).toLowerCase().includes(q);
       return matchesCategory && matchesQuery;
     });
-    return base.sort((a, b) => {
+    return [...base].sort((a, b) => {
       if (sort === 'title') return a.title.localeCompare(b.title);
-      // Preserve manual/featured order from page.tsx when 'newest' or 'oldest' aren't strictly date-comparable
-      return 0;
+      if (sort === 'oldest') return a.dateValue - b.dateValue;
+      return b.dateValue - a.dateValue; // newest first
     });
   }, [articles, query, category, sort]);
 
@@ -46,7 +38,7 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
       <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div className="space-y-2">
           <div className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-black">Library</div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Insights</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">Articles</h1>
           <div className="h-1 w-20 bg-gold rounded-full" />
         </div>
 
@@ -56,13 +48,27 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
             <input
               value={query}
               onChange={e => setQuery(e.target.value)}
-              placeholder="Search research..."
+              placeholder="Search articles..."
+              aria-label="Search articles"
               className="w-full bg-white/5 border border-white/10 rounded-2xl pl-11 pr-4 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all backdrop-blur-md"
             />
           </div>
+          <div className="relative">
+            <ArrowUpDown size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
+            <select
+              value={sort}
+              onChange={e => setSort(e.target.value as SortKey)}
+              aria-label="Sort articles"
+              className="appearance-none bg-white/5 border border-white/10 rounded-2xl pl-10 pr-8 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all backdrop-blur-md cursor-pointer [&>option]:text-gray-900"
+            >
+              <option value="newest">Newest first</option>
+              <option value="oldest">Oldest first</option>
+              <option value="title">Title A–Z</option>
+            </select>
+          </div>
           <div className="flex bg-white/5 border border-white/10 p-1 rounded-2xl backdrop-blur-md">
-            <button onClick={() => setView('grid')} className={cn("px-4 py-2 rounded-xl text-xs font-bold transition-all", view === 'grid' ? "bg-white text-primary" : "text-white/50 hover:text-white")}><LayoutGrid size={14} /></button>
-            <button onClick={() => setView('list')} className={cn("px-4 py-2 rounded-xl text-xs font-bold transition-all", view === 'list' ? "bg-white text-primary" : "text-white/50 hover:text-white")}><List size={14} /></button>
+            <button onClick={() => setView('grid')} aria-label="Grid view" aria-pressed={view === 'grid'} className={cn("px-4 py-2 rounded-xl text-xs font-bold transition-all", view === 'grid' ? "bg-white text-primary" : "text-white/50 hover:text-white")}><LayoutGrid size={14} /></button>
+            <button onClick={() => setView('list')} aria-label="List view" aria-pressed={view === 'list'} className={cn("px-4 py-2 rounded-xl text-xs font-bold transition-all", view === 'list' ? "bg-white text-primary" : "text-white/50 hover:text-white")}><List size={14} /></button>
           </div>
         </div>
       </div>
@@ -73,10 +79,10 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
             key={c}
             onClick={() => setCategory(c)}
             className={cn(
-              "px-5 py-2 rounded-full text-[12px] font-bold transition-all border-2 backdrop-blur-md",
+              "px-5 py-2 rounded-full text-[12px] font-bold transition-all duration-200 border backdrop-blur-md",
               category === c
-                ? "bg-gold border-gold text-primary shadow-[0_0_20px_rgba(212,175,55,0.6)]"
-                : "bg-white/5 border-gold/80 text-white hover:border-gold hover:text-white hover:bg-white/10"
+                ? "bg-gold border-gold text-primary shadow-[0_4px_14px_rgba(201,169,97,0.35)]"
+                : "bg-white/5 border-white/15 text-white/75 hover:border-gold/60 hover:text-white hover:bg-white/10"
             )}
           >
             {c}
@@ -87,8 +93,8 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
       <div className={cn(view === 'grid' ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" : "space-y-6")}>
         {filtered.map((a, index) => (
           <Link key={a.slug} href={`/insights/${a.slug}`} className="group block">
-            <article 
-              className="cs-card h-full p-8 border border-white/10 hover:border-gold/30 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(201,169,97,0.15)] relative overflow-hidden"
+            <article
+              className="cs-card h-full p-8 border border-white/10 hover:border-gold/25 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(201,169,97,0.12)] relative overflow-hidden"
               style={{ animationDelay: `${index * 50}ms` }}
             >
               {/* Subtle gradient glow on hover */}

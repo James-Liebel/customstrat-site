@@ -47,21 +47,37 @@ export default function EndorsementsClient({ testimonials }: { testimonials: Tes
   );
 }
 
+// Only quotes longer than this get a Read More toggle; shorter ones show in full.
+const TRUNCATE_THRESHOLD = 360;
+
+// Cut at the last sentence end before `limit`; fall back to a word boundary.
+function truncateQuote(quote: string, limit = 320): string {
+  const slice = quote.slice(0, limit);
+  const sentenceEnd = Math.max(
+    slice.lastIndexOf('. '),
+    slice.lastIndexOf('! '),
+    slice.lastIndexOf('? ')
+  );
+  if (sentenceEnd > 120) return slice.slice(0, sentenceEnd + 1);
+  const wordEnd = slice.lastIndexOf(' ');
+  return slice.slice(0, wordEnd > 0 ? wordEnd : limit) + '…';
+}
+
 function EndorsementCard({ quote, author, company, index }: { quote: string; author: string; company?: string; index: number }) {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
-  const isLong = quote.length > 100;
-  const displayQuote = isLong && !isExpanded ? quote.substring(0, 80) + '...' : quote;
+  const isLong = quote.length > TRUNCATE_THRESHOLD;
+  const displayQuote = isLong && !isExpanded ? truncateQuote(quote) : quote;
 
   return (
     <div
-      className="cs-card p-10 relative overflow-hidden transition-all duration-700 hover:-translate-y-2 hover:border-white/20 animate-[fadeInUp_800ms_ease-out_both] h-fit"
+      className="cs-card p-10 relative overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:border-white/20 animate-[fadeInUp_800ms_ease-out_both] h-fit"
       style={{ animationDelay: `${index * 100}ms` }}
     >
       <div className="absolute top-6 right-8 text-7xl text-white/5 font-serif pointer-events-none select-none">“</div>
       <div className="relative z-10 h-full flex flex-col">
         <p className="text-xl md:text-2xl text-white/90 italic font-light leading-relaxed mb-8 flex-grow">
-          "{displayQuote}"
+          &ldquo;{displayQuote}&rdquo;
         </p>
 
         {isLong && (

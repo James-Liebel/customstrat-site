@@ -8,7 +8,10 @@
   - Fonts are loaded via next/font in app/layout.tsx
 */
 :root {
-  /* Brand - Optimized for Trust and Growth */
+  /* Brand - Optimized for Trust and Growth
+     Single palette: tailwind.config.ts mirrors these exact values, so
+     utility classes (bg-primary, text-accent, …) and the btn-/cs- component
+     classes share the same hues. Change them together. */
   --color-primary: #1e4b75;
   --color-primary-dark: #123456;
   --color-primary-light: #34608b;
@@ -17,8 +20,8 @@
   --color-accent-dark: #2c5885;
   --color-accent-light: #6ba0d4;
 
-  --color-gold: #b8860b;
-  --color-gold-light: #daa520;
+  --color-gold: #C9A961;
+  --color-gold-light: #E5D4A6;
   --color-growth: #3e8e41;
   /* Added for growth/prosperity themes */
 
@@ -143,6 +146,12 @@
     box-shadow: 0 0 0 2px white, 0 0 0 4px var(--color-accent);
   }
 
+  /* Brand-colored text selection */
+  ::selection {
+    background: rgba(74, 134, 192, 0.35);
+    color: inherit;
+  }
+
   @media (min-width: 768px) {
     h1 {
       font-size: 3rem;
@@ -196,147 +205,6 @@
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-@keyframes pulse-glow {
-
-  0%,
-  100% {
-    box-shadow: 0 0 20px rgba(91, 143, 196, 0.3);
-  }
-
-  50% {
-    box-shadow: 0 0 40px rgba(91, 143, 196, 0.5);
-  }
-}
-
-@keyframes parallax-float {
-
-  0%,
-  100% {
-    transform: translateY(0px) translateX(0px);
-  }
-
-  33% {
-    transform: translateY(-20px) translateX(10px);
-  }
-
-  66% {
-    transform: translateY(-10px) translateX(-10px);
-  }
-}
-
-@keyframes image-zoom {
-
-  0%,
-  100% {
-    transform: scale(1);
-  }
-
-  50% {
-    transform: scale(1.05);
-  }
-}
-
-@keyframes image-pan {
-  0% {
-    transform: translateX(0%) scale(1);
-  }
-
-  50% {
-    transform: translateX(5%) scale(1.05);
-  }
-
-  100% {
-    transform: translateX(0%) scale(1);
-  }
-}
-
-@keyframes gradient-shift {
-
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
-@keyframes particle-float {
-  0% {
-    transform: translateY(0) translateX(0) rotate(0deg);
-    opacity: 0;
-  }
-
-  10% {
-    opacity: 1;
-  }
-
-  90% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(-100vh) translateX(100px) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-@keyframes sparkle {
-
-  0%,
-  100% {
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes wave {
-
-  0%,
-  100% {
-    transform: translateX(0) translateY(0);
-  }
-
-  25% {
-    transform: translateX(10px) translateY(-5px);
-  }
-
-  50% {
-    transform: translateX(0) translateY(-10px);
-  }
-
-  75% {
-    transform: translateX(-10px) translateY(-5px);
-  }
-}
-
-@keyframes morphing-gradient {
-
-  0%,
-  100% {
-    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-  }
-
-  50% {
-    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
-  }
-}
 
 
 
@@ -471,43 +339,36 @@
 
 @layer components {
 
-  /* Buttons */
+  /* Buttons — restrained, professional motion: gentle lift, soft shadows,
+     consistent premium easing. No sweeping sheens or expanding fills. */
   .btn-primary {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
     color: white !important;
     font-weight: 700;
     padding: 1.1rem 2.2rem;
     border-radius: var(--radius-2xl);
-    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 10px 20px rgba(15, 23, 42, 0.2);
+    transition: transform 220ms var(--motion-easing-premium),
+      box-shadow 220ms var(--motion-easing-premium),
+      filter 220ms var(--motion-easing-premium);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
     position: relative;
-    overflow: hidden;
     letter-spacing: -0.01em;
   }
 
-  .btn-primary::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 600ms;
-  }
-
-  .btn-primary:hover::before {
-    left: 100%;
-  }
-
   .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(15, 23, 42, 0.3);
-    filter: brightness(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.24);
+    filter: brightness(1.04);
   }
 
   .btn-primary:active {
     transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+  }
+
+  .btn-primary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px var(--color-accent);
   }
 
   .btn-secondary {
@@ -517,61 +378,31 @@
     font-weight: 600;
     padding: 1rem 2rem;
     border-radius: var(--radius-2xl);
-    transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 220ms var(--motion-easing-smooth),
+      color 220ms var(--motion-easing-smooth),
+      border-color 220ms var(--motion-easing-smooth),
+      transform 220ms var(--motion-easing-premium),
+      box-shadow 220ms var(--motion-easing-premium);
     box-shadow: var(--shadow-soft);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .btn-secondary::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: var(--color-primary);
-    transform: translate(-50%, -50%);
-    transition: width 400ms, height 400ms;
-    z-index: -1;
-  }
-
-  .btn-secondary:hover::before {
-    width: 300%;
-    height: 300%;
   }
 
   .btn-secondary:hover {
+    background-color: var(--color-primary);
     color: white;
     border-color: var(--color-primary);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: var(--shadow-soft-md);
   }
 
-  .btn-link {
-    color: var(--color-accent);
-    font-weight: 600;
-    transition: all 200ms;
-    text-underline-offset: 4px;
-    position: relative;
-    display: inline-block;
+  .btn-secondary:active {
+    transform: translateY(0);
   }
 
-  .btn-link::after {
-    content: '→';
-    margin-left: 0.5rem;
-    transition: margin-left 200ms;
+  .btn-secondary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px white, 0 0 0 4px var(--color-accent);
   }
 
-  .btn-link:hover::after {
-    margin-left: 0.75rem;
-  }
-
-  .btn-link:hover {
-    color: var(--color-accent-dark);
-    text-decoration: underline;
-  }
 
   /* Container */
   .container-custom {
@@ -618,18 +449,6 @@
     }
   }
 
-  /* Section spacing */
-  .section-padding {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  @media (min-width: 1024px) {
-    .section-padding {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-    }
-  }
 
   /* Callout / Side Note Box */
   .cs-callout {
@@ -659,65 +478,7 @@
   }
 
 
-  .card {
-    background: white;
-    border: 1px solid var(--color-gray-200);
-    border-radius: var(--radius-2xl);
-    padding: 2rem;
-    box-shadow: var(--shadow-soft);
-    transition: all 400ms cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
 
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--color-accent), var(--color-primary));
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 400ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .card:hover::before {
-    transform: scaleX(1);
-  }
-
-  .card:hover {
-    box-shadow: var(--shadow-soft-lg);
-    border-color: var(--color-accent-light);
-  }
-
-  @media (min-width: 1024px) {
-    .card {
-      padding: 2.5rem;
-    }
-  }
-
-  .card-hover:hover {
-    transform: translateY(-8px);
-  }
-
-  /* Animated background elements */
-  .animated-bg {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .animated-bg::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(91, 143, 196, 0.03) 0%, transparent 70%);
-    animation: float 20s ease-in-out infinite;
-  }
 
   /* Hero gradient overlay - DARKER than page body */
   /* Theme-based overlay is applied via inline styles from Hero component */
@@ -741,233 +502,9 @@
     pointer-events: none;
   }
 
-  /* Subtle background gradient for sections */
-  .bg-gradient-subtle {
-    background: linear-gradient(180deg, #F9FAFB 0%, #FFFFFF 100%);
-    position: relative;
-  }
 
-  .bg-gradient-subtle::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image:
-      radial-gradient(circle at 1px 1px, rgba(91, 143, 196, 0.05) 1px, transparent 0);
-    background-size: 40px 40px;
-    opacity: 0.5;
-  }
 
-  /* Accent line decorations */
-  .accent-line {
-    position: relative;
-    display: inline-block;
-  }
 
-  .accent-line::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--color-accent), var(--color-gold));
-    border-radius: 2px;
-  }
-
-  /* Glowing effect for special elements */
-  .glow-effect {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
-  /* Stagger animation for lists */
-  .stagger-fade>* {
-    opacity: 0;
-    animation: fadeInUp 600ms ease-out forwards;
-  }
-
-  .stagger-fade>*:nth-child(1) {
-    animation-delay: 100ms;
-  }
-
-  .stagger-fade>*:nth-child(2) {
-    animation-delay: 200ms;
-  }
-
-  .stagger-fade>*:nth-child(3) {
-    animation-delay: 300ms;
-  }
-
-  .stagger-fade>*:nth-child(4) {
-    animation-delay: 400ms;
-  }
-
-  .stagger-fade>*:nth-child(5) {
-    animation-delay: 500ms;
-  }
-
-  .stagger-fade>*:nth-child(6) {
-    animation-delay: 600ms;
-  }
-
-  /* Brand name styling */
-  .brand-name {
-    font-family: var(--font-family-display);
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-
-  /* Advanced image animations */
-  .image-parallax {
-    animation: parallax-float 20s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  .image-zoom {
-    transition: transform 8s ease-in-out;
-    will-change: transform;
-  }
-
-  .image-zoom:hover {
-    animation: image-zoom 4s ease-in-out infinite;
-  }
-
-  .image-pan {
-    animation: image-pan 15s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  /* Moving background gradients */
-  .gradient-animated {
-    background: linear-gradient(-45deg, var(--color-primary), var(--color-accent), var(--color-primary-light), var(--color-accent-light));
-    background-size: 400% 400%;
-    animation: gradient-shift 15s ease infinite;
-  }
-
-  /* Floating particles effect */
-  .particle-container {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .particle {
-    position: absolute;
-    width: 4px;
-    height: 4px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    opacity: 0.6;
-    animation: particle-float 20s linear infinite;
-  }
-
-  /* Sparkle effect */
-  .sparkle {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: white;
-    border-radius: 50%;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-    animation: sparkle 2s ease-in-out infinite;
-  }
-
-  /* Wave animation */
-  .wave-animation {
-    animation: wave 3s ease-in-out infinite;
-  }
-
-  /* Morphing gradient background */
-  .morphing-bg {
-    background: linear-gradient(135deg, var(--color-primary-light), var(--color-accent));
-    animation: morphing-gradient 8s ease-in-out infinite;
-  }
-
-  /* Parallax scroll effect */
-  .parallax-slow {
-    transform: translateZ(0);
-    will-change: transform;
-  }
-
-  /* Image hover effects */
-  .image-hover-lift {
-    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s;
-  }
-
-  .image-hover-lift:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--shadow-soft-lg);
-  }
-
-  /* Glitch effect for special elements */
-  @keyframes glitch {
-
-    0%,
-    100% {
-      transform: translate(0);
-    }
-
-    20% {
-      transform: translate(-2px, 2px);
-    }
-
-    40% {
-      transform: translate(-2px, -2px);
-    }
-
-    60% {
-      transform: translate(2px, 2px);
-    }
-
-    80% {
-      transform: translate(2px, -2px);
-    }
-  }
-
-  .glitch-effect:hover {
-    animation: glitch 0.3s ease-in-out;
-  }
-
-  /* Rotating gradient border */
-  @keyframes rotate-border {
-    0% {
-      background-position: 0% 50%;
-    }
-
-    100% {
-      background-position: 100% 50%;
-    }
-  }
-
-  .rotating-border {
-    position: relative;
-    background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary-light), var(--color-primary));
-    background-size: 300% 100%;
-    animation: rotate-border 3s linear infinite;
-    padding: 2px;
-    border-radius: var(--radius-2xl);
-  }
-
-  .rotating-border>* {
-    background: white;
-    border-radius: calc(var(--radius-2xl) - 2px);
-  }
-
-  /* 3D tilt effect */
-  .tilt-3d {
-    transform-style: preserve-3d;
-    transition: transform 0.3s;
-  }
-
-  .tilt-3d:hover {
-    transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
-  }
-
-  /* Magnetic hover effect */
-  .magnetic-hover {
-    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  }
 
 
 
@@ -977,33 +514,10 @@
     text-wrap: balance;
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gold-gradient {
-    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
 
   .background-overlay,
-  .particle-container,
-  .animated-bg,
-  .animated-bg::before,
-  .bg-gradient-subtle::before,
-  .hero-overlay::before,
-  .animated-bg::after {
+  .hero-overlay::before {
     pointer-events: none;
-  }
-
-  /* Re-enable interactions for real content inside the section */
-  .animated-bg>* {
-    pointer-events: auto;
   }
 
   /* Ensure real content sits above decorations */
@@ -1038,399 +552,12 @@
     pointer-events: none;
   }
 
-  /* Diamond-outline glow wave (hero only) */
-  .hero-diamond-wave {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.55;
-    /* overall intensity */
-  }
-
-  .hero-diamond-wave .wave {
-    animation: diamondWaveMove 14s ease-in-out infinite;
-  }
-
-  @keyframes diamondWaveMove {
-    0% {
-      transform: translateX(-35%);
-      opacity: 0.0;
-    }
-
-    10% {
-      opacity: 1.0;
-    }
-
-    90% {
-      opacity: 1.0;
-    }
-
-    100% {
-      transform: translateX(35%);
-      opacity: 0.0;
-    }
-  }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-diamond-wave .wave {
-      animation: none;
-      transform: translateX(0);
-      opacity: 0.6;
-    }
-  }
 
   .brand-name {
     font-family: var(--font-brand), var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     letter-spacing: -0.015em;
   }
 
-  @keyframes cs-line-drift-a {
-    0% {
-      background-position: 0px 0px;
-    }
-
-    100% {
-      background-position: 520px 320px;
-    }
-  }
-
-  @keyframes cs-line-drift-b {
-    0% {
-      background-position: 0px 0px;
-    }
-
-    100% {
-      background-position: -420px 260px;
-    }
-  }
-
-  @keyframes cs-line-drift-c {
-    0% {
-      background-position: 0px 0px;
-    }
-
-    100% {
-      background-position: 300px -420px;
-    }
-  }
-
-  @keyframes cs-blob-drift-a {
-
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-
-    50% {
-      transform: translate3d(44px, 30px, 0);
-    }
-  }
-
-  @keyframes cs-blob-drift-b {
-
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-
-    50% {
-      transform: translate3d(-38px, -26px, 0);
-    }
-  }
-
-  @keyframes cs-blob-drift-c {
-
-    0%,
-    100% {
-      transform: translate3d(0, 0, 0);
-    }
-
-    50% {
-      transform: translate3d(18px, -22px, 0);
-    }
-  }
-
-  /* Slow “shine” sweep across the whole site */
-  @keyframes cs-sheen-sweep {
-    0% {
-      transform: translate3d(-18%, -10%, 0) rotate(10deg);
-      opacity: 0.0;
-    }
-
-    15% {
-      opacity: 1.0;
-    }
-
-    50% {
-      transform: translate3d(18%, 10%, 0) rotate(10deg);
-      opacity: 0.55;
-    }
-
-    85% {
-      opacity: 1.0;
-    }
-
-    100% {
-      transform: translate3d(-18%, -10%, 0) rotate(10deg);
-      opacity: 0.0;
-    }
-  }
-
-  /* Soft depth spotlight (dimension without “gaming UI”) */
-  .cs-depth-spotlight {
-    background:
-      radial-gradient(900px 520px at 16% 18%, rgba(93, 130, 195, 0.16), rgba(93, 130, 195, 0) 70%),
-      radial-gradient(900px 520px at 86% 76%, rgba(201, 169, 97, 0.11), rgba(201, 169, 97, 0) 70%),
-      radial-gradient(700px 420px at 50% 35%, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0) 70%);
-  }
-
-  /* Base line-field style (thin, modern, subtle) */
-  .cs-line-field {
-    /* Feather edges so it feels atmospheric */
-    mask-image: radial-gradient(circle at 40% 18%, black 0%, transparent 72%);
-    -webkit-mask-image: radial-gradient(circle at 40% 18%, black 0%, transparent 72%);
-    mix-blend-mode: soft-light;
-  }
-
-  /* Layer A: diagonal lines */
-  .cs-line-field-a {
-    background-image: repeating-linear-gradient(115deg,
-        rgba(15, 23, 42, 0.10) 0px,
-        rgba(15, 23, 42, 0.10) 1px,
-        transparent 1px,
-        transparent 30px);
-    animation: cs-line-drift-a 16s linear infinite;
-  }
-
-  /* Layer B: opposite diagonal lines (creates cross-hatch motion) */
-  .cs-line-field-b {
-    background-image: repeating-linear-gradient(65deg,
-        rgba(255, 255, 255, 0.10) 0px,
-        rgba(255, 255, 255, 0.10) 1px,
-        transparent 1px,
-        transparent 34px);
-    animation: cs-line-drift-b 22s linear infinite;
-  }
-
-  /* Layer C: ultra-fine micro-lines for “premium texture” */
-  .cs-line-field-c {
-    background-image: repeating-linear-gradient(135deg,
-        rgba(148, 163, 184, 0.12) 0px,
-        rgba(148, 163, 184, 0.12) 1px,
-        transparent 1px,
-        transparent 44px);
-    animation: cs-line-drift-c 28s linear infinite;
-  }
-
-  /* Global sheen overlay */
-  .cs-global-sheen {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cs-global-sheen::before {
-    content: "";
-    position: absolute;
-    inset: -40%;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.26) 45%,
-        rgba(255, 255, 255, 0.40) 50%,
-        rgba(255, 255, 255, 0.26) 55%,
-        transparent 100%);
-    filter: blur(18px);
-    animation: cs-sheen-sweep 12s ease-in-out infinite;
-    mix-blend-mode: overlay;
-  }
-
-  /* Blobs tuned for depth */
-  .cs-blob {
-    opacity: 0.30;
-    mix-blend-mode: soft-light;
-  }
-
-  .cs-blob-a {
-    background: radial-gradient(circle, rgba(91, 143, 196, 0.55), transparent 65%);
-    animation: cs-blob-drift-a 18s ease-in-out infinite;
-  }
-
-  .cs-blob-b {
-    background: radial-gradient(circle, rgba(201, 169, 97, 0.42), transparent 65%);
-    animation: cs-blob-drift-b 22s ease-in-out infinite;
-  }
-
-  .cs-blob-c {
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.26), transparent 62%);
-    animation: cs-blob-drift-c 20s ease-in-out infinite;
-  }
-
-  /* Accessibility: reduce motion */
-  @media (prefers-reduced-motion: reduce) {
-
-    .cs-line-field-a,
-    .cs-line-field-b,
-    .cs-line-field-c,
-    .cs-blob-a,
-    .cs-blob-b,
-    .cs-blob-c,
-    .cs-global-sheen::before {
-      animation: none !important;
-    }
-  }
-
-  @keyframes cs-pop-out {
-    0% {
-      transform: scale(1);
-    }
-
-    100% {
-      transform: scale(1.04);
-    }
-  }
-
-  .cs-glow-card:hover {
-    animation: cs-pop-out 260ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    box-shadow: 0 18px 42px rgba(15, 23, 42, 0.25);
-  }
-
-  /* Apply this class to the 3 Case Study cards */
-  .cs-glow-card {
-    position: relative;
-    transform: translateZ(0);
-  }
-
-  /* Constant animated glowing outline */
-  .cs-glow-card::before {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: var(--radius-3xl);
-    padding: 2px;
-
-    background: conic-gradient(from 0deg,
-        rgba(44, 95, 141, 0.00) 0deg,
-        rgba(44, 95, 141, 0.00) 300deg,
-        rgba(201, 169, 97, 1) 330deg,
-        rgba(44, 95, 141, 0.00) 360deg);
-
-
-    animation: cs-glow-rotate 2.6s linear infinite;
-    opacity: 0.85;
-
-    /* Mask so only the border shows */
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask-composite: exclude;
-
-    pointer-events: none;
-  }
-
-  /* Subtle internal sheen */
-  .cs-glow-card::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: calc(var(--radius-3xl) - 2px);
-    background: radial-gradient(500px 260px at 30% 15%,
-        rgba(255, 255, 255, 0.18),
-        transparent 60%);
-    opacity: 0.55;
-    transition: opacity 250ms ease;
-    pointer-events: none;
-  }
-
-
-  .cs-glow-card:hover::before {
-    opacity: 1;
-    animation-duration: 2.0s;
-  }
-
-  .cs-glow-card:hover::after {
-    opacity: 0.8;
-  }
-
-  /* Respect reduced motion */
-  @media (prefers-reduced-motion: reduce) {
-    .cs-glow-card::before {
-      animation: none;
-    }
-
-    .cs-glow-card:hover {
-      animation: none;
-      transform: none;
-    }
-  }
-
-  @keyframes cs-orbit {
-    0% {
-      transform: rotate(0deg);
-    }
-
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  .cs-glow-card {
-    position: relative;
-  }
-
-  .cs-outline-tracer {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 50;
-  }
-
-  .cs-outline-svg {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-
-  /* ONE segment tracing the rounded rectangle */
-  .cs-outline-rect {
-    /* Draw very close to the edge */
-    x: 1px;
-    y: 1px;
-    width: calc(100% - 2px);
-    height: calc(100% - 2px);
-
-    /* Match your Tailwind rounded-2xl (16px). If yours is different, change this once. */
-    rx: 16px;
-    ry: 16px;
-
-    fill: none;
-    stroke: url(#beamGradient);
-    stroke-width: 3px;
-    stroke-linecap: round;
-
-    /* Single moving dash */
-    stroke-dasharray: 50 1950;
-    /* total = 2000 */
-
-    animation: cs-trace 2.6s linear infinite;
-
-
-    filter: drop-shadow(0 0 8px rgba(201, 169, 97, 0.7));
-
-  }
-
-  @keyframes cs-trace {
-    from {
-      stroke-dashoffset: 0;
-    }
-
-    to {
-      stroke-dashoffset: -2000;
-    }
-  }
 
 
   /* =========================
@@ -1700,132 +827,7 @@
     display: none !important;
   }
 
-  /* =========================
-   Contact Page – Premium CTA
-   Use on the "Email Katie" / primary contact button
-   ========================= */
 
-  /* Contact page primary CTA (premium + stable) */
-  .cs-contact-cta {
-    display: inline-flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: .6rem;
-
-    min-height: 52px;
-    padding: 0.95rem 1.65rem !important;
-
-    border-radius: 999px !important;
-    box-sizing: border-box;
-
-    font-weight: 750;
-    letter-spacing: -0.01em;
-
-    color: #fff !important;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%) !important;
-    border: 1px solid rgba(255, 255, 255, 0.22) !important;
-
-    box-shadow: 0 14px 34px rgba(15, 23, 42, 0.28);
-    text-decoration: none !important;
-    white-space: nowrap;
-
-    position: relative;
-    overflow: hidden;
-    transform: translateZ(0);
-
-    transition: transform 180ms ease, box-shadow 220ms ease, filter 220ms ease, border-color 220ms ease;
-  }
-
-  /* sheen sweep */
-  .cs-contact-cta::before {
-    content: "";
-    position: absolute;
-    inset: -45%;
-    background: linear-gradient(90deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.18) 45%,
-        rgba(255, 255, 255, 0.32) 50%,
-        rgba(255, 255, 255, 0.18) 55%,
-        transparent 100%);
-    filter: blur(16px);
-    transform: translate3d(-18%, -10%, 0) rotate(10deg);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  /* subtle rotating glow ring (reuses your existing keyframes) */
-  .cs-contact-cta::after {
-    content: "";
-    position: absolute;
-    inset: -2px;
-    border-radius: 999px;
-    padding: 2px;
-    background: conic-gradient(from 180deg,
-        rgba(91, 143, 196, 0.0),
-        rgba(91, 143, 196, 0.55),
-        rgba(201, 169, 97, 0.55),
-        rgba(91, 143, 196, 0.55),
-        rgba(91, 143, 196, 0.0));
-    opacity: 0;
-    pointer-events: none;
-
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-    mask-composite: exclude;
-  }
-
-  .cs-contact-cta:hover {
-    transform: translateY(-2px);
-    border-color: rgba(255, 255, 255, 0.34) !important;
-    box-shadow: 0 20px 52px rgba(15, 23, 42, 0.35), 0 0 40px rgba(91, 143, 196, 0.20);
-    filter: saturate(1.03);
-  }
-
-  .cs-contact-cta:hover::before {
-    opacity: 0.9;
-    animation: cs-sheen-sweep 1.4s ease-in-out infinite;
-  }
-
-  .cs-contact-cta:hover::after {
-    opacity: 0.75;
-    animation: cs-glow-rotate 2.2s linear infinite;
-  }
-
-  .cs-contact-cta:active {
-    transform: translateY(0);
-    filter: saturate(0.98);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-
-    .cs-contact-cta:hover::before,
-    .cs-contact-cta:hover::after {
-      animation: none !important;
-    }
-  }
-
-  /* Footer CTA: disable giant hover aura/glow from .btn-secondary */
-  footer .btn-secondary {
-    /* keep sizing stable */
-    box-sizing: border-box;
-    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
-      box-shadow 200ms ease, transform 200ms ease;
-  }
-
-  footer .btn-secondary:hover {
-    /* override any huge glow */
-    filter: none !important;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20) !important;
-    transform: translateY(-1px) !important;
-  }
-
-  /* If .btn-secondary uses a pseudo-element glow, kill it in footer only */
-  footer .btn-secondary::before,
-  footer .btn-secondary::after {
-    content: none !important;
-    display: none !important;
-  }
 
   /* =========================
    Services Page (scoped)
@@ -1844,43 +846,6 @@
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
   }
 
-  .cs-services-page .cs-services-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 8px 12px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    color: rgba(255, 255, 255, 0.82);
-    font-weight: 700;
-    font-size: 0.85rem;
-  }
-
-  .cs-services-page .cs-services-title {
-    margin-top: 14px;
-    margin-bottom: 26px;
-    color: #fff;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    font-size: clamp(2rem, 4.2vw, 3.1rem);
-    line-height: 1.05;
-    text-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
-  }
-
-  .cs-services-page .cs-services-title span {
-    color: #fff;
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-  }
-
-  .cs-services-page .cs-services-subtitle {
-    margin-top: 10px;
-    color: rgba(255, 255, 255, 0.82);
-    font-size: 1.1rem;
-    max-width: 52ch;
-  }
 
   .cs-services-page .cs-services-orb {
     position: absolute;
@@ -1913,703 +878,6 @@
     animation-duration: 16s;
   }
 
-  .cs-services-page .cs-focus-card {
-    border-radius: 20px;
-    padding: 22px;
-    background: #fff;
-    border: 1px solid rgba(15, 23, 42, 0.10);
-    box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
-    transition: transform 220ms ease, box-shadow 220ms ease;
-  }
-
-  .cs-services-page .cs-focus-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 26px 70px rgba(15, 23, 42, 0.12);
-  }
-
-  .cs-services-page .cs-focus-badge {
-    display: inline-flex;
-    padding: 6px 10px;
-    border-radius: 999px;
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: var(--color-primary-dark);
-    background: rgba(44, 95, 141, 0.10);
-    border: 1px solid rgba(44, 95, 141, 0.16);
-  }
-
-  .cs-services-page .cs-focus-title {
-    margin-top: 10px;
-    font-size: 1.35rem;
-    font-weight: 900;
-    color: #0f172a;
-    letter-spacing: -0.02em;
-  }
-
-  .cs-services-page .cs-focus-text {
-    margin-top: 8px;
-    color: rgba(15, 23, 42, 0.72);
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .cs-services-page .cs-services-note {
-    border-radius: 16px;
-    padding: 14px 16px;
-    background: rgba(44, 95, 141, 0.06);
-    border: 1px solid rgba(44, 95, 141, 0.12);
-    color: rgba(15, 23, 42, 0.74);
-  }
-
-  /* Our Approach section */
-  .cs-services-page .cs-approach-wrap {
-    position: relative;
-    background:
-      radial-gradient(900px 520px at 25% 10%, rgba(91, 143, 196, 0.30), transparent 60%),
-      radial-gradient(900px 520px at 85% 25%, rgba(201, 169, 97, 0.22), transparent 55%),
-      linear-gradient(135deg, rgba(10, 20, 35, 0.96), rgba(26, 58, 92, 0.96));
-    overflow: hidden;
-  }
-
-  .cs-services-page .cs-approach-kicker {
-    display: inline-flex;
-    padding: 7px 12px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 800;
-    font-size: 0.85rem;
-  }
-
-  .cs-services-page .cs-approach-title {
-    margin-top: 12px;
-    color: #fff;
-    font-weight: 900;
-    letter-spacing: -0.03em;
-    font-size: clamp(2.1rem, 4.6vw, 3.4rem);
-    line-height: 1.03;
-    text-shadow: 0 20px 60px rgba(0, 0, 0, 0.40);
-  }
-
-  .cs-services-page .cs-approach-underline {
-    margin: 18px auto 0;
-    height: 6px;
-    width: min(220px, 56vw);
-    border-radius: 999px;
-    background: linear-gradient(90deg, rgba(201, 169, 97, 1), rgba(91, 143, 196, 1), rgba(201, 169, 97, 1));
-    background-size: 200% 100%;
-    animation: gradient-shift 2.8s ease-in-out infinite;
-    box-shadow: 0 0 24px rgba(91, 143, 196, 0.25);
-  }
-
-  .cs-services-page .cs-approach-card {
-    border-radius: 22px;
-    padding: 22px;
-    background: rgba(255, 255, 255, 0.07);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25);
-    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
-  }
-
-  .cs-services-page .cs-approach-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(255, 255, 255, 0.22);
-    box-shadow: 0 28px 90px rgba(0, 0, 0, 0.30);
-  }
-
-  .cs-services-page .cs-approach-card-top {
-    font-weight: 900;
-    color: rgba(255, 255, 255, 0.65);
-    letter-spacing: 0.12em;
-    margin-bottom: 8px;
-  }
-
-  .cs-services-page .cs-approach-card-title {
-    color: #fff;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    font-size: 1.25rem;
-  }
-
-  .cs-services-page .cs-approach-card-text {
-    margin-top: 8px;
-    color: rgba(255, 255, 255, 0.78);
-    line-height: 1.6;
-  }
-
-  .cs-services-page .cs-approach-shape {
-    position: absolute;
-    border-radius: 999px;
-    filter: blur(26px);
-    opacity: 0.55;
-    animation: float 12s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .cs-services-page .cs-approach-shape--a {
-    width: 220px;
-    height: 220px;
-    left: -90px;
-    top: 80px;
-    background: rgba(91, 143, 196, 0.55);
-  }
-
-  .cs-services-page .cs-approach-shape--b {
-    width: 280px;
-    height: 280px;
-    right: -120px;
-    top: 140px;
-    background: rgba(201, 169, 97, 0.45);
-    animation-duration: 15s;
-  }
-
-  .cs-services-page .cs-approach-shape--c {
-    width: 240px;
-    height: 240px;
-    left: 22%;
-    bottom: -120px;
-    background: rgba(74, 123, 167, 0.50);
-    animation-duration: 18s;
-  }
-
-  .cs-services-page .cs-approach-marquee {
-    margin-top: 34px;
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.04);
-    overflow: hidden;
-  }
-
-  .cs-services-page .cs-approach-marquee__track {
-    display: flex;
-    gap: 28px;
-    padding: 14px 0;
-    white-space: nowrap;
-    animation: cs-services-marquee 18s linear infinite;
-    will-change: transform;
-  }
-
-  .cs-services-page .cs-approach-marquee__track span {
-    color: rgba(255, 255, 255, 0.70);
-    font-weight: 800;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-  }
-
-  @keyframes cs-services-marquee {
-    0% {
-      transform: translateX(0);
-    }
-
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-
-    .cs-services-page .cs-approach-marquee__track,
-    .cs-services-page .cs-services-orb,
-    .cs-services-page .cs-approach-shape,
-    .cs-services-page .cs-approach-underline {
-      animation: none !important;
-    }
-  }
-
-  /* Services page – service navigation pills */
-  .cs-services-page .cs-service-pill {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 18px;
-    border-radius: 999px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    color: #fff;
-    text-decoration: none;
-
-    background:
-      linear-gradient(135deg,
-        rgba(255, 255, 255, 0.18),
-        rgba(255, 255, 255, 0.06));
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 10px 34px rgba(0, 0, 0, 0.25);
-    transition:
-      transform 200ms ease,
-      box-shadow 200ms ease,
-      background 200ms ease,
-      border-color 200ms ease;
-  }
-
-  .cs-services-page .cs-service-pill:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.35);
-    background:
-      linear-gradient(135deg,
-        rgba(201, 169, 97, 0.35),
-        rgba(91, 143, 196, 0.35));
-    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.35);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .cs-services-page .cs-service-pill:hover {
-      transform: none;
-    }
-  }
-
-  /* =========================
-   Services Integration Layer
-   ========================= */
-
-  .cs-services-page .cs-services-stage {
-    position: relative;
-    padding: 32px 0 22px;
-    background: transparent;
-  }
-
-  /* Make title box feel like it belongs to the same system as “Our Approach” */
-  .cs-services-page .cs-services-titlebox {
-    margin: 0 auto;
-    max-width: 980px;
-  }
-
-  /* New: Navigation band that visually connects title -> approach */
-  .cs-services-page .cs-services-navband {
-    max-width: 980px;
-    margin: 18px auto 0;
-    position: relative;
-  }
-
-  .cs-services-page .cs-services-navband__inner {
-    border-radius: 22px;
-    padding: 18px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    backdrop-filter: none;
-  }
-
-  .cs-services-page .cs-services-navband__label {
-    font-weight: 900;
-    letter-spacing: -0.01em;
-    color: rgba(15, 23, 42, 0.78);
-    font-size: 0.95rem;
-    margin-bottom: 12px;
-  }
-
-  /* Grid for the 3 buttons */
-  .cs-services-page .cs-services-navgrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  @media (min-width: 640px) {
-    .cs-services-page .cs-services-navgrid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* Harmonize pills: same palette as title highlight + approach underline */
-  .cs-services-page .cs-service-pill {
-    min-height: 54px;
-    border-radius: 999px;
-    font-weight: 900;
-    letter-spacing: -0.01em;
-
-    color: rgba(15, 23, 42, 0.86);
-    background:
-      radial-gradient(120px 80px at 20% 20%, rgba(201, 169, 97, 0.22), transparent 65%),
-      radial-gradient(140px 90px at 80% 30%, rgba(91, 143, 196, 0.18), transparent 70%),
-      linear-gradient(135deg, rgba(15, 23, 42, 0.04), rgba(15, 23, 42, 0.02));
-
-    border: 1px solid rgba(15, 23, 42, 0.10);
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-    transition: transform 180ms ease, box-shadow 200ms ease, border-color 200ms ease, color 200ms ease;
-  }
-
-  .cs-services-page .cs-service-pill:hover {
-    transform: translateY(-3px);
-    border-color: rgba(91, 143, 196, 0.28);
-    box-shadow: 0 18px 48px rgba(15, 23, 42, 0.12);
-    color: rgba(11, 46, 87, 1);
-  }
-
-  /* Add subtle differentiation to approach cards (ties into button color cues) */
-  .cs-services-page .cs-approach-card--a {
-    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(201, 169, 97, 0.06);
-  }
-
-  .cs-services-page .cs-approach-card--b {
-    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(91, 143, 196, 0.07);
-  }
-
-  .cs-services-page .cs-approach-card--c {
-    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(74, 123, 167, 0.07);
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .cs-services-page .cs-service-pill:hover {
-      transform: none;
-    }
-  }
-
-  /* =========================
-   Services: continuous canvas
-   ========================= */
-
-  /* One long background for title + buttons + approach */
-  .cs-services-page .cs-services-stage {
-    background: transparent;
-  }
-
-  /* Keep titlebox as the “hero card” on top of the canvas */
-  .cs-services-page .cs-services-titlebox {
-    margin: 0 auto;
-    max-width: 980px;
-  }
-
-  /* Nav band stays light so it reads as controls */
-  .cs-services-page .cs-services-navband {
-    max-width: 980px;
-    margin: 18px auto 0;
-  }
-
-  .cs-services-page .cs-services-navband__inner {
-    border-radius: 22px;
-    padding: 18px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    backdrop-filter: none;
-  }
-
-  .cs-services-page .cs-services-navband__label {
-    font-weight: 900;
-    letter-spacing: -0.01em;
-    color: rgba(15, 23, 42, 0.75);
-    font-size: 0.95rem;
-    margin-bottom: 12px;
-  }
-
-  .cs-services-page .cs-services-navgrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  @media (min-width: 640px) {
-    .cs-services-page .cs-services-navgrid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  /* =========================
-   Make the 3 items OBVIOUSLY buttons
-   ========================= */
-  .cs-services-page .cs-service-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 8px;
-    min-height: 220px;
-    padding: 32px;
-
-    border-radius: 32px;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-
-    color: #fff;
-    text-decoration: none;
-
-    /* Professional Deep Sea Gradient */
-    background: linear-gradient(145deg, var(--color-primary), var(--color-primary-light));
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    /* Premium Depth Shadow */
-    box-shadow:
-      0 12px 30px rgba(10, 102, 194, 0.15),
-      inset 0 1px 1px rgba(255, 255, 255, 0.1);
-
-    position: relative;
-    overflow: hidden;
-    transform: translateZ(0);
-    transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-  }
-
-  /* Remove top bar, use full card color instead */
-  .cs-services-page .cs-service-btn::before {
-    display: none;
-  }
-
-  .cs-services-page .cs-service-btn__content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    z-index: 2;
-  }
-
-  .cs-services-page .cs-service-btn__title {
-    font-size: 1.5rem;
-    font-weight: 800;
-    line-height: 1.25;
-    transition: transform 300ms ease;
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .cs-services-page .cs-service-btn:hover {
-    transform: translateY(-8px);
-    background: linear-gradient(145deg, #1e4b75, #2c5f8d);
-    box-shadow: 0 24px 48px rgba(10, 102, 194, 0.25);
-    border-color: rgba(255, 255, 255, 0.2);
-  }
-
-  /* Pressed State */
-  .cs-services-page .cs-service-btn:active {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(10, 102, 194, 0.15);
-  }
-
-  .cs-services-page .cs-service-btn__icon {
-    display: none;
-  }
-
-  /* Override for cs-card within services page to ensure dark background */
-  .cs-services-page .cs-card {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border: 1px solid rgba(255, 255, 255, 0.10) !important;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28) !important;
-  }
-
-  .cs-services-page .cs-card:hover {
-    background: rgba(255, 255, 255, 0.075) !important;
-    border-color: rgba(255, 255, 255, 0.18) !important;
-  }
-
-
-  /* =========================
-   Make Approach cards NOT look clickable
-   ========================= */
-  .cs-services-page .cs-approach-card--static {
-    cursor: default !important;
-  }
-
-  /* Remove “button-like” hover lift (keep a subtle, non-interactive polish) */
-  .cs-services-page .cs-approach-card--static:hover {
-    transform: none !important;
-    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25) !important;
-    border-color: rgba(255, 255, 255, 0.12) !important;
-  }
-
-  /* Approach shell uses same canvas (transparent background) */
-  .cs-services-page .cs-services-approach-shell {
-    background: transparent;
-    padding-top: 56px;
-    padding-bottom: 72px;
-  }
-
-  /* Reduced motion support */
-  @media (prefers-reduced-motion: reduce) {
-    .cs-services-page .cs-service-btn:hover {
-      transform: none;
-    }
-
-    .cs-services-page .cs-service-btn:hover::before {
-      animation: none !important;
-      opacity: 0.25;
-    }
-  }
-
-  /* =========================================================
-   Services: connect better to Header + Footer
-   (scoped so other pages keep their current look)
-   ========================================================= */
-
-  .cs-services-page .cs-services-shell {
-    position: relative;
-    overflow: visible;
-    background: transparent;
-  }
-
-  /* This makes the stage feel attached to the hero instead of “starting later” */
-  .cs-services-page .cs-services-stage {
-    background: transparent;
-    /* shell owns the canvas */
-    margin-top: -18px;
-    padding-top: 32px;
-  }
-
-
-
-  /* Footer connection: bottom fade so the content melts into the footer gradient */
-
-
-  /* Keep content above the fades */
-  .cs-services-page .cs-services-shell>* {
-    position: relative;
-    z-index: 2;
-  }
-
-  /* =========================================================
-   Make the 3 items VERY clearly buttons
-   ========================================================= */
-
-  .cs-services-page .cs-services-navband {
-    max-width: 980px;
-    margin: 18px auto 0;
-  }
-
-  .cs-services-page .cs-services-navband__inner {
-    border-radius: 22px;
-    padding: 18px;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    backdrop-filter: none;
-  }
-
-  .cs-services-page .cs-services-navband__label {
-    font-weight: 900;
-    letter-spacing: -0.01em;
-    color: rgba(15, 23, 42, 0.72);
-    font-size: 0.95rem;
-    margin-bottom: 12px;
-  }
-
-  .cs-services-page .cs-services-navgrid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  @media (min-width: 640px) {
-    .cs-services-page .cs-services-navgrid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .cs-services-page .cs-service-btn {
-    display: inline-flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 12px;
-
-    min-height: 58px;
-    padding: 18px;
-
-    border-radius: 16px;
-    font-weight: 900;
-    letter-spacing: -0.01em;
-
-    color: #fff;
-    text-decoration: none;
-
-    /* strong “button” fill */
-    background:
-      radial-gradient(220px 120px at 20% 20%, rgba(201, 169, 97, 0.35), transparent 60%),
-      radial-gradient(260px 140px at 80% 30%, rgba(91, 143, 196, 0.30), transparent 62%),
-      linear-gradient(135deg, rgba(26, 58, 92, 0.98), rgba(44, 95, 141, 0.92));
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 14px 44px rgba(15, 23, 42, 0.22);
-
-    position: relative;
-    overflow: hidden;
-    transform: translateZ(0);
-    transition: transform 160ms ease, box-shadow 200ms ease, filter 200ms ease;
-    cursor: pointer;
-  }
-
-  /* shine sweep = “interactive” cue */
-  .cs-services-page .cs-service-btn::before {
-    content: "";
-    position: absolute;
-    inset: -60% -40%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-    transform: translateX(-30%) rotate(12deg);
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .cs-services-page .cs-service-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 22px 62px rgba(15, 23, 42, 0.28);
-    filter: saturate(1.06);
-  }
-
-  .cs-services-page .cs-service-btn:hover::before {
-    opacity: 1;
-    animation: cs-services-shine 1.15s ease-in-out infinite;
-  }
-
-  .cs-services-page .cs-service-btn:active {
-    transform: translateY(-1px);
-  }
-
-  @keyframes cs-services-shine {
-    0% {
-      transform: translateX(-30%) rotate(12deg);
-    }
-
-    100% {
-      transform: translateX(30%) rotate(12deg);
-    }
-  }
-
-  .cs-services-page .cs-service-btn__icon {
-    width: 18px;
-    height: 18px;
-    opacity: 0.92;
-    margin-top: 4px;
-    transition: transform 180ms ease, opacity 180ms ease;
-  }
-
-  .cs-services-page .cs-service-btn:hover .cs-service-btn__icon {
-    transform: translateX(4px);
-    opacity: 1;
-  }
-
-  /* =========================================================
-   Make approach cards feel like CONTENT (not buttons)
-   ========================================================= */
-
-  .cs-services-page .cs-approach-card--static {
-    cursor: default !important;
-  }
-
-  .cs-services-page .cs-approach-card--static:hover {
-    transform: none !important;
-    /* keep whatever base shadow you already have, but no “lift” */
-    box-shadow: 0 22px 70px rgba(0, 0, 0, 0.25) !important;
-    border-color: rgba(255, 255, 255, 0.12) !important;
-  }
-
-  /* Give extra room so the footer fade looks intentional */
-  .cs-services-page .cs-services-approach-shell {
-    background: transparent;
-    padding-bottom: 2rem;
-  }
-
-  /* Reduce motion */
-  @media (prefers-reduced-motion: reduce) {
-    .cs-services-page .cs-service-btn:hover {
-      transform: none;
-    }
-
-    .cs-services-page .cs-service-btn:hover::before {
-      animation: none !important;
-      opacity: 0.25;
-    }
-  }
 
   /* =========================
    About Page (matches Services vibe)
@@ -2630,41 +898,6 @@
     margin-top: 0.75rem;
   }
 
-  .cs-card {
-    position: relative;
-    border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
-    overflow: hidden;
-  }
-
-  .cs-card--soft {
-    background: rgba(255, 255, 255, 0.07);
-  }
-
-  .cs-card-inner {
-    position: relative;
-    z-index: 2;
-    padding: 1.5rem;
-  }
-
-  @media (min-width: 640px) {
-    .cs-card-inner {
-      padding: 1.75rem;
-    }
-  }
-
-  .cs-card--hover {
-    transition: transform 320ms ease, border-color 320ms ease, background 320ms ease;
-  }
-
-  .cs-card--hover:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.18);
-    background: rgba(255, 255, 255, 0.075);
-  }
 
   .cs-cardGlow {
     position: absolute;
@@ -2681,59 +914,7 @@
     opacity: 1;
   }
 
-  /* Photo frame */
-  .cs-about-photo {
-    position: relative;
-    border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.35);
-    overflow: hidden;
-  }
 
-  .cs-about-photoGlow {
-    position: absolute;
-    inset: -40%;
-    background: radial-gradient(circle at 35% 30%, rgba(91, 143, 196, 0.40), transparent 55%),
-      radial-gradient(circle at 65% 70%, rgba(201, 169, 97, 0.22), transparent 60%);
-    opacity: 0.75;
-    pointer-events: none;
-  }
-
-  .cs-about-photoImg {
-    transition: transform 700ms ease;
-  }
-
-  .cs-about-photo:hover .cs-about-photoImg {
-    transform: scale(1.04);
-  }
-
-  /* Lightweight floating shapes (keeps “fun” without being noisy) */
-  .cs-float-shape {
-    position: absolute;
-    border-radius: 999px;
-    filter: blur(0px);
-    opacity: 0.55;
-    pointer-events: none;
-    animation: parallax-float 9s ease-in-out infinite;
-  }
-
-  .cs-float-shape--a {
-    width: 120px;
-    height: 120px;
-    left: -18px;
-    top: -18px;
-    background: radial-gradient(circle at 30% 30%, rgba(201, 169, 97, 0.55), transparent 60%);
-  }
-
-  .cs-float-shape--b {
-    width: 160px;
-    height: 160px;
-    right: -26px;
-    bottom: -26px;
-    background: radial-gradient(circle at 30% 30%, rgba(91, 143, 196, 0.55), transparent 60%);
-    animation-duration: 11s;
-  }
 
   /* Engage flow */
   .cs-engage {
@@ -2817,131 +998,6 @@
     transform: translateX(2px);
   }
 
-  /* =========================================
-   Seamless Header/Footer Integration Layer
-   - Header starts transparent and fades in after hero
-   - Footer becomes "glass" that inherits the page canvas
-   ========================================= */
-
-  :root {
-    /* How strong the header/footer glass should be */
-    --cs-header-glass: 0.70;
-    /* max opacity when scrolled */
-    --cs-footer-glass: 0.14;
-  }
-
-  /* Use this on pages that should blend header/footer into the canvas */
-  .cs-seamless-shell {
-    position: relative;
-  }
-
-  /* ===== Header: transparent -> glass fade ===== */
-  .cs-header-seamless {
-    /* keep your sticky behavior; we’re only controlling the background feel */
-    background: transparent !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-    box-shadow: none !important;
-    backdrop-filter: none !important;
-  }
-
-  /* This overlay is the actual fading background */
-  .cs-header-seamless .cs-header-bg {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-
-    /* matches your site palette / dark hero vibe */
-    background:
-      radial-gradient(1200px 700px at 20% 20%,
-        rgba(93, 130, 195, 0.16),
-        rgba(29, 58, 98, 0.64) 45%,
-        rgba(10, 20, 35, 0.86) 100%),
-      linear-gradient(180deg,
-        rgba(29, 58, 98, 0.58),
-        rgba(10, 20, 35, 0.92));
-
-    opacity: var(--cs-header-bg-opacity, 0);
-    transition: opacity 220ms ease;
-    pointer-events: none;
-  }
-
-  /* Optional: subtle shadow only after fade begins */
-  .cs-header-seamless.cs-header--on .cs-header-bg {
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.20);
-  }
-
-  /* ===== Main: top/bottom “bridge” gradients so transitions are invisible ===== */
-  .cs-seamless-main {
-    position: relative;
-  }
-
-  /* top bridge (under header) */
-  .cs-seamless-main::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    height: 72px;
-    /* bridge thickness */
-    pointer-events: none;
-
-    background: linear-gradient(180deg,
-        rgba(10, 20, 35, 0.85) 0%,
-        rgba(10, 20, 35, 0.0) 100%);
-  }
-
-  /* bottom bridge (into footer) */
-  .cs-seamless-main::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 110px;
-    pointer-events: none;
-
-    background: linear-gradient(0deg,
-        rgba(10, 20, 35, 0.92) 0%,
-        rgba(10, 20, 35, 0.0) 100%);
-  }
-
-  /* ===== Footer: make it inherit the page background instead of a separate block ===== */
-  .cs-footer-seamless {
-    background: transparent !important;
-  }
-
-  /* Hide the footer’s hard-coded gradient layer so it blends (we’ll rely on your global canvas) */
-  .cs-footer-seamless>.cs-footer-bg {
-    display: none !important;
-  }
-
-  /* Keep your grid + dots, but make them glassy and consistent */
-  .cs-footer-seamless .cs-footer-inner {
-    position: relative;
-    background: rgba(255, 255, 255, var(--cs-footer-glass));
-    border-top: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-  }
-
-  /* Prevent footer CTA hover from “jumping” size */
-  .cs-footer-seamless .btn-secondary {
-    transform: translateZ(0);
-  }
-
-  .cs-footer-seamless .btn-secondary:hover {
-    transform: translateY(-1px) !important;
-  }
-
-  /* Accessibility */
-  @media (prefers-reduced-motion: reduce) {
-    .cs-header-seamless .cs-header-bg {
-      transition: none !important;
-    }
-  }
 
   /* =========================
    Design System: Cluster Shells
@@ -3049,70 +1105,73 @@
     }
   }
 
-  /* Systematized Buttons */
-  .cs-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem 2rem;
-    border-radius: var(--radius-2xl);
-    font-weight: 600;
-    text-decoration: none;
-    transition: all var(--motion-duration-base) var(--motion-easing-premium);
+
+
+
+
+  /* =========================
+   Services page (consolidated)
+   ========================= */
+
+  .cs-services-page .cs-services-titlebox {
+    margin: 0 auto;
+    max-width: 980px;
+  }
+
+  .cs-services-page .cs-services-stage {
     position: relative;
-    overflow: hidden;
-    cursor: pointer;
-    border: none;
-  }
-
-  .cs-btn--primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 12px rgba(30, 75, 117, 0.3);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-  }
-
-  .cs-btn--primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(30, 75, 117, 0.4);
-    background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
-  }
-
-  .cs-btn--secondary {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-  }
-
-  .cs-btn--secondary:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: white;
-    transform: translateY(-2px);
-  }
-
-  .cs-btn--ghost {
     background: transparent;
-    color: var(--color-primary);
-    border: 1px solid rgba(255, 255, 255, 0.20);
+    margin-top: -18px;
+    padding: 32px 0 22px;
   }
 
-  .cs-btn--ghost:hover {
-    background: rgba(255, 255, 255, 0.10);
-    border-color: rgba(255, 255, 255, 0.30);
+  .cs-services-page .cs-services-navband {
+    max-width: 980px;
+    margin: 18px auto 0;
+    position: relative;
+  }
+
+  .cs-services-page .cs-services-navband__inner {
+    border-radius: 22px;
+    padding: 18px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .cs-services-page .cs-services-navgrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  @media (min-width: 640px) {
+    .cs-services-page .cs-services-navgrid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* Dark glass cards on the services canvas */
+  .cs-services-page .cs-card {
+    background: rgba(255, 255, 255, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.10) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28) !important;
+  }
+
+  .cs-services-page .cs-card:hover {
+    background: rgba(255, 255, 255, 0.075) !important;
+    border-color: rgba(255, 255, 255, 0.18) !important;
   }
 
   @media (prefers-reduced-motion: reduce) {
+    .cs-services-page .cs-services-orb {
+      animation: none !important;
+    }
 
-    .cs-btn:hover,
     .cs-card--hover:hover {
       transform: none !important;
     }
   }
-
 
 }

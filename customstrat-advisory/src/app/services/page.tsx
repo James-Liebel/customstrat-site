@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import TrackedServiceLink from "@/components/TrackedServiceLink";
@@ -112,6 +113,35 @@ export default function ServicesPage() {
                   <div className="cs-cardGlow" aria-hidden="true" />
                 </TrackedServiceLink>
               </div>
+            </div>
+          </div>
+
+          {/* CTA band — anchors the canvas below the case study cards */}
+          <div className="mt-20 max-w-3xl mx-auto text-center">
+            <div className="cs-card">
+              <div className="cs-card-inner !py-10 sm:!py-12 !px-6 sm:!px-12">
+                <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full mx-auto mb-6" />
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                  Ready to discuss a project?
+                </h2>
+                <p className="text-white/70 mb-8 max-w-xl mx-auto leading-relaxed">
+                  Tell us about your strategic priorities and we&apos;ll share how
+                  we&apos;ve helped similar institutions move forward.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Link href="/contact" className="btn-primary inline-flex items-center gap-2">
+                    Get in touch
+                    <ArrowRight size={18} />
+                  </Link>
+                  <Link
+                    href="/insights"
+                    className="text-white/80 hover:text-white font-semibold underline underline-offset-4 decoration-white/30 transition-colors"
+                  >
+                    Read our latest articles
+                  </Link>
+                </div>
+              </div>
+              <div className="cs-cardGlow" aria-hidden="true" />
             </div>
           </div>
         </div>

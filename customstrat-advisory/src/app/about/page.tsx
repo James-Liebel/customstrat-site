@@ -72,7 +72,7 @@ export default function AboutPage() {
         </section>
 
         {/* Services Section */}
-        < section id="services" className="cs-section" >
+        <section id="services" className="cs-section">
           <div className="container-custom">
             <div className="mx-auto max-w-6xl">
               <div className="cs-section-head">
@@ -127,8 +127,8 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-        </section >
-      </div >
-    </main >
+        </section>
+      </div>
+    </main>
   );
 }
