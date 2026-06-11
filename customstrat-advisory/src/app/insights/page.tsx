@@ -17,7 +17,7 @@ export default function InsightsPage() {
       {/* Atmosphere: ink-dots theme */}
       <Atmosphere themeKey="ink-dots" />
       <div className="relative z-10">
-        <Hero title="Articles" image="/images/hero-home.jpg" themeKey="ink-dots" />
+        <Hero title="Articles" themeKey="ink-dots" />
 
         <section className="cs-section">
           <div className="container-custom">

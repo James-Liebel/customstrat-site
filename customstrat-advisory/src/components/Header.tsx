@@ -25,20 +25,13 @@ export default function Header() {
     return pathname.startsWith(href);
   };
 
-  // Gradient: gentle, always showing
-  // Example: from-white to-slate-100, subtle angle, never transparent
-  const headerGradient = "bg-gradient-to-b from-white to-slate-100";
-
   return (
-    <header
-      className={`sticky top-0 z-[100] transition-all duration-300 ${headerGradient} shadow-md border-b border-slate-200`}
-      style={{ background: 'linear-gradient(180deg, #fff 80%, #f1f5f9 100%)' }} // override for even gentler gradient
-    >
-      <nav className="container py-4">
+    <header className="sticky top-0 z-header bg-[linear-gradient(180deg,#fff_80%,#f1f5f9_100%)] shadow-md border-b border-slate-200">
+      <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10">
-              <Image src="/images/new logo.png" alt="CustomStrat Advisory logo" fill className="object-contain" />
+              <Image src="/images/logo.webp" alt="CustomStrat Advisory logo" fill className="object-contain" />
             </div>
             <span className="text-xl font-semibold text-primary">
               {siteContent.company.shortName}
@@ -53,6 +46,7 @@ export default function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    aria-current={active ? 'page' : undefined}
                     className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
                       active
                         ? 'bg-primary text-white shadow-md'
@@ -89,6 +83,7 @@ export default function Header() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  aria-current={isActive(item.href) ? 'page' : undefined}
                   className={`block px-4 py-3 rounded-xl font-medium ${
                     isActive(item.href)
                       ? 'bg-primary text-white'

@@ -24,6 +24,8 @@ const config: Config = {
         // src/styles/globals.css :root (--color-primary / --color-accent /
         // --color-gold). Utility classes (bg-primary, text-accent, …) and the
         // .btn-*/.cs-* component classes now share the same hues.
+        // Darkest navy — the dark end of every shell/hero gradient
+        ink: '#0A1A2F',
         primary: {
           DEFAULT: '#1e4b75',
           dark: '#123456',
@@ -49,14 +51,15 @@ const config: Config = {
         '88': '22rem',
       },
       boxShadow: {
-        'soft': '0 2px 8px rgba(44, 95, 141, 0.04)',
-        'soft-md': '0 4px 16px rgba(44, 95, 141, 0.08)',
-        'soft-lg': '0 8px 24px rgba(44, 95, 141, 0.12)',
-        'glow': '0 0 40px rgba(91, 143, 196, 0.15)',
+        // Mirrors --shadow-soft* in globals.css — change together
+        'soft': '0 2px 8px rgba(15, 23, 42, 0.06)',
+        'soft-md': '0 6px 18px rgba(15, 23, 42, 0.10)',
+        'soft-lg': '0 14px 34px rgba(15, 23, 42, 0.14)',
       },
       borderRadius: {
+        // Mirrors --radius-2xl/-3xl in globals.css — change together
         '2xl': '16px',
-        '3xl': '20px',
+        '3xl': '24px',
       },
       zIndex: {
         base: '0',

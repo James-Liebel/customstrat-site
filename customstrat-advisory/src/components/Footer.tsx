@@ -8,7 +8,7 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-primary-dark to-gray-900" />
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-primary-dark to-slate-900" />
       <div className="absolute inset-0 opacity-15">
         <div
           className="absolute inset-0"
@@ -26,7 +26,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 relative">
                 <Image
-                  src="/images/new logo.png"
+                  src="/images/logo.webp"
                   alt="CustomStrat Advisory"
                   fill
                   className="object-contain"
@@ -70,7 +70,7 @@ export default function Footer() {
             </div>
 
             <div className="mt-6 flex items-center gap-4">
-              <Link href="/contact" className="btn-secondary !text-[#0B2E57]">
+              <Link href="/contact" className="btn-secondary">
                 Get in touch
               </Link>
               <a 

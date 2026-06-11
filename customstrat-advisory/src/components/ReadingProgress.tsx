@@ -24,7 +24,7 @@ export default function ReadingProgress() {
 
   return (
     <div 
-      className="fixed top-0 left-0 right-0 h-1 z-[200] bg-gray-200/50"
+      className="fixed top-0 left-0 right-0 h-1 z-[200] bg-slate-200/50"
       aria-hidden="true"
     >
       <div

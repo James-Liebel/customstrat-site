@@ -1,30 +1,26 @@
-'use client';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+export const metadata: Metadata = {
+  title: 'About Us',
+  robots: { index: false },
+  alternates: { canonical: 'https://customstrat.com/about/' },
+};
 
 /**
- * Redirect from old /about-us URL to new /about URL
- * This preserves SEO value and prevents 404 for existing links
+ * Redirect from the old /about-us URL to /about.
+ * Static export can't issue server redirects, so a meta refresh
+ * handles it instantly without JavaScript.
  */
 export default function AboutUsRedirect() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace('/about');
-  }, [router]);
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white">
-      <div className="text-center">
-        <p className="text-gray-600">Redirecting to About page...</p>
-        <noscript>
-          <meta httpEquiv="refresh" content="0;url=/about" />
-          <p>
-            <a href="/about">Click here if not redirected</a>
-          </p>
-        </noscript>
+    <>
+      <meta httpEquiv="refresh" content="0;url=/about/" />
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <Link href="/about" className="text-primary underline underline-offset-4">
+          Continue to the About page
+        </Link>
       </div>
-    </div>
+    </>
   );
 }

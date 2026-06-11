@@ -23,6 +23,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://customstrat.com'),
   title: {
     default: `${siteContent.company.name} | Strategic Advisory for Financial Services`,
     template: `%s | ${siteContent.company.name}`,
@@ -34,6 +35,9 @@ export const metadata: Metadata = {
     siteName: siteContent.company.name,
     title: siteContent.company.name,
     description: siteContent.company.tagline,
+  },
+  twitter: {
+    card: 'summary_large_image',
   },
 };
 
@@ -60,9 +64,15 @@ export default function RootLayout({
             `,
           }}
         />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-dropdown focus:bg-white focus:text-primary focus:font-semibold focus:px-4 focus:py-2 focus:rounded-xl focus:shadow-soft-lg"
+        >
+          Skip to content
+        </a>
         <div className="relative z-10 flex flex-col min-h-screen">
           <Header />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer />
           <ScrollToTop />
         </div>

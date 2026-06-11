@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
+import { ArrowLeft } from "lucide-react";
 import RelatedArticles from "@/components/RelatedArticles";
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default function SecretsToSurvivalCommunityBanking() {
           {/* Back link */}
           <div className="cs-back-wrapper">
             <Link href="/insights" className="cs-back-link">
-              ← Back to Articles
+              <ArrowLeft size={16} aria-hidden="true" /> Back to Articles
             </Link>
           </div>
 

@@ -15,17 +15,10 @@ export default function EndorsementsPage() {
       {/* Atmosphere: soft-rings theme */}
       <Atmosphere themeKey="soft-rings" />
       <div className="relative z-10">
-        <Hero
-          title={siteContent.endorsements.hero.title}
-          image="/images/hero-home.jpg"
-          themeKey="soft-rings"
-        />
+        <Hero title={siteContent.endorsements.hero.title} themeKey="soft-rings" />
 
         <section className="cs-section">
-          <div className="container-custom max-w-6xl mx-auto">
-
-
-            {/* Interactive grid */}
+          <div className="container-custom">
             <EndorsementsClient
               testimonials={siteContent.endorsements.testimonials}
             />

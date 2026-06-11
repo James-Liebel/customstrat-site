@@ -57,7 +57,7 @@ export default function AboutPage() {
       {/* Atmosphere: aura-strata theme */}
       <Atmosphere themeKey="aura-strata" />
       <div className="relative z-10">
-        <Hero title={siteContent.about.hero.title} image="/images/hero-about.jpg" themeKey="aura-strata" />
+        <Hero title={siteContent.about.hero.title} themeKey="aura-strata" />
 
         {/* Leadership Section */}
         <section className="cs-section relative">
@@ -109,14 +109,13 @@ export default function AboutPage() {
                             </div>
                           </div>
                         </div>
-                        <div className="cs-cardGlow" aria-hidden="true" />
                       </div>
                     );
                   })}
                 </div>
               </div>
 
-              <div className="mt-10 text-sm text-white/60">
+              <div className="mt-10 text-sm text-white/75">
                 Want to keep exploring?{" "}
                 <a
                   href="/insights"

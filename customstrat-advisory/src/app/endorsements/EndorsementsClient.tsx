@@ -83,16 +83,16 @@ function EndorsementCard({ quote, author, company, index }: { quote: string; aut
         {isLong && (
           <button
             onClick={() => setIsExpanded(!isExpanded)}
-            className="mb-8 text-gold-light font-black text-[11px] uppercase tracking-[0.2em] hover:text-white transition-colors text-left"
+            className="mb-8 text-gold-light font-semibold text-sm hover:text-white transition-colors text-left"
           >
-            {isExpanded ? 'Less' : 'Read Full Endorsement'}
+            {isExpanded ? 'Show less' : 'Read full endorsement'}
           </button>
         )}
 
         <div className="pt-8 border-t border-white/10 flex items-center justify-between">
           <div>
             <div className="font-bold text-white text-lg">{author}</div>
-            {company && <div className="text-white/95 text-[11px] uppercase tracking-widest mt-1">{company}</div>}
+            {company && <div className="text-white/95 text-[11px] uppercase tracking-wider mt-1">{company}</div>}
           </div>
         </div>
       </div>

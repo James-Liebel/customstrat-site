@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Strategy Execution & Transformation",
@@ -37,14 +38,13 @@ export default function StrategyExecutionPage() {
       <div className="relative z-10">
         <Hero
           title="Strategy Execution & Transformation"
-          image="/images/hero-home.jpg"
           themeKey="gilded-diamond"
         />
 
         {/* Back button – same styling as Articles */}
-        <div className="cs-back-wrapper !mt-8">
+        <div className="cs-back-wrapper mt-8">
           <Link href="/services" className="cs-back-link">
-            ← Back to Case Studies
+            <ArrowLeft size={16} aria-hidden="true" /> Back to Case Studies
           </Link>
         </div>
 
@@ -52,7 +52,7 @@ export default function StrategyExecutionPage() {
           <div className="container-custom">
             {/* White panel to separate content from background */}
             <div className="bg-white rounded-[18px] shadow-[0_18px_50px_rgba(0,0,0,0.15)] border border-black/10 p-6 md:p-10">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-4 border-b border-gray-200">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-4 border-b border-slate-200">
                 <div className="text-primary text-xl font-medium">
                   Project Summary
                 </div>
@@ -64,19 +64,19 @@ export default function StrategyExecutionPage() {
                 </div>
               </div>
 
-              <div className="divide-y divide-gray-200">
+              <div className="divide-y divide-slate-200">
                 {examples.map((ex, i) => (
                   <div
                     key={i}
                     className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8"
                   >
-                    <div className="text-gray-900 font-semibold text-lg">
+                    <div className="text-slate-900 font-semibold text-lg">
                       {ex.projectSummary}
                     </div>
-                    <div className="text-gray-700 leading-relaxed">
+                    <div className="text-slate-700 leading-relaxed">
                       {ex.problem}
                     </div>
-                    <div className="text-gray-700 leading-relaxed">
+                    <div className="text-slate-700 leading-relaxed">
                       {ex.approach}
                     </div>
                   </div>

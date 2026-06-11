@@ -1,17 +1,15 @@
 /**
  * Page Theme System
- * 
+ *
  * Defines visual themes for each page route, providing:
  * - Accent color tint (premium palette)
  * - Background gradient recipe (body)
  * - Hero overlay recipe (darker than body)
  * - Pattern type (subtle texture)
- * - Motion type (slow, tasteful animation)
  * - Intensity level
  */
 
 export type PatternType = 'diamond' | 'dots' | 'grid' | 'rings' | 'strata';
-export type MotionType = 'drift' | 'orbit' | 'scanline' | 'float';
 export type IntensityLevel = 'low' | 'medium';
 
 export interface PageTheme {
@@ -27,20 +25,16 @@ export interface PageTheme {
     radialAccents?: string[]; // Optional radial gradient overlays
   };
   pattern: PatternType;
-  motion: MotionType;
   intensity: IntensityLevel;
-  motionSpeed?: {
-    primary: number; // seconds
-    secondary?: number; // seconds
-  };
 }
 
 // THE UNIFIED LOGO BLUE style (Darker on Left)
+// Hexes mirror --color-ink / --color-primary in globals.css — change together.
 const LOGO_BLUE_BG = {
   angle: '135deg',
   stops: [
-    '#0A1A2F 0%',  // Deep Navy (Left)
-    '#1e4b75 100%' // Logo Blue (Right)
+    '#0A1A2F 0%',  // Deep Navy / ink (Left)
+    '#1e4b75 100%' // Logo Blue / primary (Right)
   ]
 };
 
@@ -63,9 +57,7 @@ export const pageThemes: Record<string, PageTheme> = {
     backgroundGradient: LOGO_BLUE_BG,
     heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'diamond',
-    motion: 'orbit',
     intensity: 'medium',
-    motionSpeed: { primary: 24, secondary: 30 }
   },
 
   // Insights/Articles - Logo Blue Ink
@@ -74,9 +66,7 @@ export const pageThemes: Record<string, PageTheme> = {
     backgroundGradient: LOGO_BLUE_BG,
     heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'dots',
-    motion: 'drift',
     intensity: 'medium',
-    motionSpeed: { primary: 28, secondary: 35 }
   },
 
   // About - Logo Blue Strata
@@ -85,9 +75,7 @@ export const pageThemes: Record<string, PageTheme> = {
     backgroundGradient: LOGO_BLUE_BG,
     heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'strata',
-    motion: 'float',
     intensity: 'medium',
-    motionSpeed: { primary: 20, secondary: 26 }
   },
 
   // Endorsements - Logo Blue Rings
@@ -96,9 +84,7 @@ export const pageThemes: Record<string, PageTheme> = {
     backgroundGradient: LOGO_BLUE_BG,
     heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'rings',
-    motion: 'orbit',
     intensity: 'medium',
-    motionSpeed: { primary: 32, secondary: 40 }
   },
 
   // Contact - Logo Blue Grid
@@ -107,9 +93,7 @@ export const pageThemes: Record<string, PageTheme> = {
     backgroundGradient: LOGO_BLUE_BG,
     heroOverlay: LOGO_BLUE_HERO_OVERLAY,
     pattern: 'grid',
-    motion: 'scanline',
     intensity: 'medium',
-    motionSpeed: { primary: 18, secondary: 22 }
   },
 
   // Home (Default) - Keeps white background as requested
@@ -124,9 +108,7 @@ export const pageThemes: Record<string, PageTheme> = {
       ]
     },
     pattern: 'dots',
-    motion: 'drift',
     intensity: 'medium',
-    motionSpeed: { primary: 30, secondary: 38 }
   }
 };
 

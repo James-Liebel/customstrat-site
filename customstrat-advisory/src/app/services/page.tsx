@@ -19,26 +19,22 @@ export default function ServicesPage() {
       <Atmosphere themeKey="gilded-diamond" />
 
       {/* Hero stays as-is, but we visually stitch content below into it */}
-      <Hero title={siteContent.services.hero.title} image="/images/hero-case-studies.jpg" themeKey="gilded-diamond" />
+      <Hero title={siteContent.services.hero.title} themeKey="gilded-diamond" />
 
       {/* Continuous canvas starts immediately under the hero */}
-      <section className="cs-services-stage !pt-20 !pb-16">
+      <section className="cs-services-stage pt-20 pb-16">
         <div className="container-custom">
           {/* Title Box */}
           <div className="cs-services-titlebox mb-16">
-            <span className="cs-services-orb cs-services-orb--a" aria-hidden="true" />
-            <span className="cs-services-orb cs-services-orb--b" aria-hidden="true" />
-            <span className="cs-services-orb cs-services-orb--c" aria-hidden="true" />
-
             <div className="relative z-10 text-center max-w-4xl mx-auto">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Explore our past client engagements
-              </h1>
+              </h2>
             </div>
           </div>
 
           {/* Cards Grid */}
-          <div className="cs-services-navband !mb-0">
+          <div className="cs-services-navband">
             <div className="cs-services-navband__inner">
               <div className="cs-services-navgrid">
                 <TrackedServiceLink
@@ -62,7 +58,6 @@ export default function ServicesPage() {
                       <ArrowRight size={20} className="transition-transform group-hover:translate-x-2" />
                     </div>
                   </div>
-                  <div className="cs-cardGlow" aria-hidden="true" />
                 </TrackedServiceLink>
 
                 <TrackedServiceLink
@@ -86,7 +81,6 @@ export default function ServicesPage() {
                       <ArrowRight size={20} className="transition-transform group-hover:translate-x-2" />
                     </div>
                   </div>
-                  <div className="cs-cardGlow" aria-hidden="true" />
                 </TrackedServiceLink>
 
                 <TrackedServiceLink
@@ -110,7 +104,6 @@ export default function ServicesPage() {
                       <ArrowRight size={20} className="transition-transform group-hover:translate-x-2" />
                     </div>
                   </div>
-                  <div className="cs-cardGlow" aria-hidden="true" />
                 </TrackedServiceLink>
               </div>
             </div>
@@ -119,7 +112,7 @@ export default function ServicesPage() {
           {/* CTA band — anchors the canvas below the case study cards */}
           <div className="mt-20 max-w-3xl mx-auto text-center">
             <div className="cs-card">
-              <div className="cs-card-inner !py-10 sm:!py-12 !px-6 sm:!px-12">
+              <div className="cs-card-inner py-10 sm:py-12 px-6 sm:px-12">
                 <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full mx-auto mb-6" />
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
                   Ready to discuss a project?
@@ -141,7 +134,6 @@ export default function ServicesPage() {
                   </Link>
                 </div>
               </div>
-              <div className="cs-cardGlow" aria-hidden="true" />
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import { siteContent } from "@/content/siteContent";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import Atmosphere from "@/components/Atmosphere";
 
 export default function HomePage() {
@@ -18,25 +19,18 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden">
-        {/* Background Image with Darker Blue Overlay */}
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url(/images/hero-home.jpg)" }}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0A1A2F] via-[#1e4b75]/90 to-[#1e4b75]/60"></div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-ink via-primary/90 to-primary/60"></div>
 
         {/* Hero Content */}
         <div className="container-custom relative z-10 text-white py-12 text-center">
           <div className="flex justify-center mb-8 animate-[fadeInUp_800ms_ease-out]">
-            <div className="relative group w-48 h-48">
-              <div className="absolute -inset-4 bg-white rounded-full blur-2xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+            <div className="relative w-48 h-48">
               <Image
-                src="/images/new logo.png"
+                src="/images/logo.webp"
                 alt="CustomStrat Advisory logo"
                 fill
                 priority
-                className="object-contain relative z-10"
+                className="object-contain"
               />
             </div>
           </div>
@@ -62,7 +56,7 @@ export default function HomePage() {
               </h2>
               <ul className="space-y-4">
                 {siteContent.home.sections.servicesOffered.items.map((item, index) => (
-                  <li key={index} className="text-gray-700 flex items-start gap-3">
+                  <li key={index} className="text-slate-700 flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0"></div>
                     <span>{item}</span>
                   </li>
@@ -77,7 +71,7 @@ export default function HomePage() {
               </h2>
               <ul className="space-y-4">
                 {siteContent.home.sections.clientsServed.items.map((item, index) => (
-                  <li key={index} className="text-gray-700 flex items-start gap-3">
+                  <li key={index} className="text-slate-700 flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0"></div>
                     <span>{item}</span>
                   </li>
@@ -92,7 +86,7 @@ export default function HomePage() {
               </h2>
               <ul className="space-y-4">
                 {siteContent.home.sections.approach.items.map((item, index) => (
-                  <li key={index} className="text-gray-700 flex items-start gap-3">
+                  <li key={index} className="text-slate-700 flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0"></div>
                     <span>{item}</span>
                   </li>
@@ -100,7 +94,7 @@ export default function HomePage() {
               </ul>
               <div className="pt-4">
                 <Link href="/about#services" className="text-primary font-bold hover:text-accent transition-colors flex items-center gap-2">
-                  More detail on services <span>→</span>
+                  More detail on services <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             </div>
@@ -112,7 +106,7 @@ export default function HomePage() {
               </h2>
               <ul className="space-y-4">
                 {engagementModes.map((item, index) => (
-                  <li key={index} className="text-gray-700 flex items-start gap-3">
+                  <li key={index} className="text-slate-700 flex items-start gap-3">
                     <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 shrink-0"></div>
                     <span>{item}</span>
                   </li>
@@ -128,12 +122,12 @@ export default function HomePage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-              <Link 
-                href="/services" 
+              <Link
+                href="/services"
                 className="btn-primary inline-flex items-center gap-2"
               >
                 View Case Studies
-                <span className="text-lg">→</span>
+                <ArrowRight size={18} aria-hidden="true" />
               </Link>
               <Link 
                 href="/insights" 

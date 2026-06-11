@@ -2,11 +2,8 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { Calendar, Clock, LayoutGrid, List, ArrowUpDown, Search } from 'lucide-react';
+import { ArrowRight, Calendar, Clock, Search } from 'lucide-react';
 import type { Article } from '@/content/articles';
-
-type SortKey = 'newest' | 'oldest' | 'title';
-type ViewMode = 'grid' | 'list';
 
 function cn(...classes: Array<string | undefined | false>) {
   return classes.filter(Boolean).join(' ');
@@ -16,8 +13,6 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
   const categories = React.useMemo(() => Array.from(new Set(articles.flatMap(a => a.categories))).sort(), [articles]);
   const [query, setQuery] = React.useState('');
   const [category, setCategory] = React.useState('All');
-  const [sort, setSort] = React.useState<SortKey>('newest');
-  const [view, setView] = React.useState<ViewMode>('list');
 
   const filtered = React.useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -26,50 +21,26 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
       const matchesQuery = q.length === 0 ? true : (a.title + ' ' + a.excerpt).toLowerCase().includes(q);
       return matchesCategory && matchesQuery;
     });
-    return [...base].sort((a, b) => {
-      if (sort === 'title') return a.title.localeCompare(b.title);
-      if (sort === 'oldest') return a.dateValue - b.dateValue;
-      return b.dateValue - a.dateValue; // newest first
-    });
-  }, [articles, query, category, sort]);
+    return [...base].sort((a, b) => b.dateValue - a.dateValue); // newest first
+  }, [articles, query, category]);
 
   return (
-    <div className="max-w-6xl mx-auto px-4">
+    <div>
       <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div className="space-y-2">
-          <div className="text-[11px] tracking-[0.3em] uppercase text-white/40 font-black">Library</div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">Articles</h1>
+          <h2 className="text-4xl md:text-5xl font-bold text-white">Articles</h2>
           <div className="h-1 w-20 bg-gold rounded-full" />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
-          <div className="relative group w-full sm:w-[300px]">
-            <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30" />
-            <input
-              value={query}
-              onChange={e => setQuery(e.target.value)}
-              placeholder="Search articles..."
-              aria-label="Search articles"
-              className="w-full bg-white/5 border border-white/10 rounded-2xl pl-11 pr-4 py-2.5 text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all backdrop-blur-md"
-            />
-          </div>
-          <div className="relative">
-            <ArrowUpDown size={14} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
-            <select
-              value={sort}
-              onChange={e => setSort(e.target.value as SortKey)}
-              aria-label="Sort articles"
-              className="appearance-none bg-white/5 border border-white/10 rounded-2xl pl-10 pr-8 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-gold/30 transition-all backdrop-blur-md cursor-pointer [&>option]:text-gray-900"
-            >
-              <option value="newest">Newest first</option>
-              <option value="oldest">Oldest first</option>
-              <option value="title">Title A–Z</option>
-            </select>
-          </div>
-          <div className="flex bg-white/5 border border-white/10 p-1 rounded-2xl backdrop-blur-md">
-            <button onClick={() => setView('grid')} aria-label="Grid view" aria-pressed={view === 'grid'} className={cn("px-4 py-2 rounded-xl text-xs font-bold transition-all", view === 'grid' ? "bg-white text-primary" : "text-white/50 hover:text-white")}><LayoutGrid size={14} /></button>
-            <button onClick={() => setView('list')} aria-label="List view" aria-pressed={view === 'list'} className={cn("px-4 py-2 rounded-xl text-xs font-bold transition-all", view === 'list' ? "bg-white text-primary" : "text-white/50 hover:text-white")}><List size={14} /></button>
-          </div>
+        <div className="relative w-full sm:w-[300px]">
+          <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50" />
+          <input
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+            placeholder="Search articles..."
+            aria-label="Search articles"
+            className="w-full bg-white/5 border border-white/10 rounded-2xl pl-11 pr-4 py-2.5 text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all backdrop-blur-md"
+          />
         </div>
       </div>
 
@@ -81,7 +52,7 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
             className={cn(
               "px-5 py-2 rounded-full text-[12px] font-bold transition-all duration-200 border backdrop-blur-md",
               category === c
-                ? "bg-gold border-gold text-primary shadow-[0_4px_14px_rgba(201,169,97,0.35)]"
+                ? "bg-gold border-gold text-primary"
                 : "bg-white/5 border-white/15 text-white/75 hover:border-gold/60 hover:text-white hover:bg-white/10"
             )}
           >
@@ -90,41 +61,33 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
         ))}
       </div>
 
-      <div className={cn(view === 'grid' ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" : "space-y-6")}>
-        {filtered.map((a, index) => (
+      <div className="space-y-6">
+        {filtered.map((a) => (
           <Link key={a.slug} href={`/insights/${a.slug}`} className="group block">
-            <article
-              className="cs-card h-full p-8 border border-white/10 hover:border-gold/25 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(201,169,97,0.12)] relative overflow-hidden"
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              {/* Subtle gradient glow on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-gold/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                <div className="mb-4 flex flex-wrap gap-2">
-                  {a.categories.map(cat => (
-                    <span 
-                      key={cat} 
-                      className={cn(
-                        "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider",
-                        category !== 'All' && cat === category 
-                          ? "bg-gold text-primary" 
-                          : "bg-white/10 text-white/60"
-                      )}
-                    >
-                      {cat}
-                    </span>
-                  ))}
-                </div>
-                <div className="mb-6 flex flex-wrap items-center justify-between text-[11px] font-bold text-white/40 tracking-wider gap-4">
-                  <span className="flex items-center gap-2"><Calendar size={12} className="text-gold" /> {a.date}</span>
-                  <span className="flex items-center gap-1"><Clock size={12} /> {a.readTime}</span>
-                </div>
-                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-gold-light transition-colors leading-tight">{a.title}</h3>
-                <p className="text-white/60 text-sm leading-relaxed mb-8 line-clamp-3">{a.excerpt}</p>
-                <div className="flex items-center gap-3 text-gold-light font-black text-xs uppercase tracking-widest mt-auto">
-                  Read Full Insight <span className="group-hover:translate-x-2 transition-transform inline-block">→</span>
-                </div>
+            <article className="cs-card h-full p-8 border border-white/10 hover:border-gold/40 transition-all duration-300 ease-out hover:-translate-y-1">
+              <div className="mb-4 flex flex-wrap gap-2">
+                {a.categories.map(cat => (
+                  <span
+                    key={cat}
+                    className={cn(
+                      "px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider",
+                      category !== 'All' && cat === category
+                        ? "bg-gold text-primary"
+                        : "bg-white/10 text-white/75"
+                    )}
+                  >
+                    {cat}
+                  </span>
+                ))}
+              </div>
+              <div className="mb-6 flex flex-wrap items-center justify-between text-xs font-medium text-white/70 gap-4">
+                <span className="flex items-center gap-2"><Calendar size={12} className="text-gold" aria-hidden="true" /> {a.date}</span>
+                <span className="flex items-center gap-1"><Clock size={12} aria-hidden="true" /> {a.readTime}</span>
+              </div>
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4 leading-tight">{a.title}</h3>
+              <p className="text-white/75 text-sm leading-relaxed mb-8 line-clamp-3">{a.excerpt}</p>
+              <div className="flex items-center gap-2 text-gold-light font-semibold text-sm">
+                Read full insight <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform" aria-hidden="true" />
               </div>
             </article>
           </Link>

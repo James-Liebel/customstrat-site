@@ -69,7 +69,7 @@ export const siteContent = {
           name: "Katie Liebel",
           title: "Founder & Managing Principal",
           company: "CustomStrat Advisory, LLC",
-          image: "/images/fullshot.png",
+          image: "/images/fullshot.jpg",
           extended: [
             "Katie founded **CustomStrat Advisory** in 2019 to help financial services companies define winning growth strategies and drive tangible change, while incorporating a customer focus.",
             "Katie currently sits on the **Board of Directors** for Credit First National Association (CFNA), which is Bridgestone / Firestone's wholly owned bank subsidiary.",

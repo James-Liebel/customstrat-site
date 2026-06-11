@@ -31,14 +31,14 @@ export default function RelatedArticles({
   if (relatedArticles.length === 0) return null;
 
   return (
-    <section className="mt-16 pt-12 border-t border-gray-200">
-      <h2 className="text-2xl font-bold text-gray-900 mb-8">Related Articles</h2>
+    <section className="mt-16 pt-12 border-t border-slate-200">
+      <h2 className="text-2xl font-bold text-slate-900 mb-8">Related Articles</h2>
       <div className="grid gap-6 md:grid-cols-3">
         {relatedArticles.map((article) => (
           <Link
             key={article.slug}
             href={`/insights/${article.slug}`}
-            className="group block p-6 rounded-2xl bg-gray-50 hover:bg-primary/5 border border-gray-100 hover:border-primary/20 transition-all duration-300"
+            className="group block p-6 rounded-2xl bg-slate-50 hover:bg-primary/5 border border-slate-100 hover:border-primary/20 transition-all duration-300"
           >
             <div className="flex flex-wrap gap-2 mb-3">
               {article.categories.slice(0, 2).map((cat) => (
@@ -50,13 +50,13 @@ export default function RelatedArticles({
                 </span>
               ))}
             </div>
-            <h3 className="font-semibold text-gray-900 group-hover:text-primary transition-colors line-clamp-2 mb-2">
+            <h3 className="font-semibold text-slate-900 group-hover:text-primary transition-colors line-clamp-2 mb-2">
               {article.title}
             </h3>
-            <p className="text-sm text-gray-600 line-clamp-2 mb-4">
+            <p className="text-sm text-slate-600 line-clamp-2 mb-4">
               {article.excerpt}
             </p>
-            <div className="flex items-center justify-between text-xs text-gray-500">
+            <div className="flex items-center justify-between text-xs text-slate-500">
               <span>{article.readTime}</span>
               <ArrowRight 
                 size={14} 

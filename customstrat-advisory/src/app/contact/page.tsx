@@ -19,11 +19,7 @@ export default function ContactPage() {
       <Atmosphere themeKey="signal-grid" />
 
       <div className="relative z-10">
-        <Hero
-          title={siteContent.contact.hero.title}
-          image="/images/hero-contact.jpg"
-          themeKey="signal-grid"
-        />
+        <Hero title={siteContent.contact.hero.title} themeKey="signal-grid" />
 
         <section className="cs-section">
           <div className="container-custom">
@@ -58,7 +54,7 @@ export default function ContactPage() {
                       <MapPin className="text-accent-light" size={20} />
                     </div>
                     <div>
-                      <p className="text-sm uppercase tracking-widest text-white/50 font-semibold">Location</p>
+                      <p className="text-xs uppercase tracking-wider text-white/60 font-medium">Location</p>
                       <p className="text-lg text-white">{contact.location}</p>
                     </div>
                   </div>
@@ -69,7 +65,7 @@ export default function ContactPage() {
                       <Mail className="text-accent-light" size={20} />
                     </div>
                     <div>
-                      <p className="text-sm uppercase tracking-widest text-white/50 font-semibold">Email</p>
+                      <p className="text-xs uppercase tracking-wider text-white/60 font-medium">Email</p>
                       <a
                         href={`mailto:${contact.email}`}
                         className="text-lg text-white hover:text-accent-light transition-colors underline underline-offset-4 decoration-white/20"
@@ -85,7 +81,7 @@ export default function ContactPage() {
                       <Phone className="text-accent-light" size={20} />
                     </div>
                     <div>
-                      <p className="text-sm uppercase tracking-widest text-white/50 font-semibold">Phone</p>
+                      <p className="text-xs uppercase tracking-wider text-white/60 font-medium">Phone</p>
                       <a
                         href={`tel:${contact.phone.replace(/[^0-9]/g, "")}`}
                         className="text-lg text-white hover:text-accent-light transition-colors"
@@ -100,8 +96,8 @@ export default function ContactPage() {
               {/* Action Card Side */}
               <div className="flex animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards]">
                 <div className="w-full rounded-3xl border border-white/10 bg-white shadow-[0_20px_50px_rgba(0,0,0,0.3)] p-8 sm:p-10 self-start">
-                  <h2 className="text-3xl font-semibold text-gray-900 mb-4">Direct Inquiry</h2>
-                  <p className="text-gray-600 mb-8 leading-relaxed">
+                  <h2 className="text-3xl font-semibold text-slate-900 mb-4">Direct Inquiry</h2>
+                  <p className="text-slate-600 mb-8 leading-relaxed">
                     Ready to discuss a project? Click below to send an email directly to Katie.
                   </p>
 
@@ -122,11 +118,11 @@ export default function ContactPage() {
                     Connect on LinkedIn
                   </a>
 
-                  <div className="mt-8 pt-6 border-t border-gray-100">
-                    <p className="text-xs uppercase tracking-widest text-gray-400 font-semibold mb-4">
+                  <div className="mt-8 pt-6 border-t border-slate-100">
+                    <p className="text-xs uppercase tracking-wider text-slate-500 font-medium mb-4">
                       What to expect
                     </p>
-                    <ul className="space-y-3 text-gray-600 text-sm">
+                    <ul className="space-y-3 text-slate-600 text-sm">
                       <li className="flex items-start gap-3">
                         <span className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 shrink-0" />
                         A personal reply from Katie

@@ -20,7 +20,7 @@ type Member = {
 
 function HighlightTag({ children }: { children: React.ReactNode }) {
     return (
-        <span className="inline-flex items-center px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest text-primary bg-gold shadow-[0_4px_12px_rgba(184,134,11,0.2)] border border-gold/50">
+        <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary bg-gold border border-gold/50">
             {children}
         </span>
     );
@@ -63,7 +63,7 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                     <div className="p-8 md:p-12 flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start text-center md:text-left">
                         <div className="relative w-48 h-64 md:w-56 md:h-72 shrink-0 overflow-hidden rounded-[2rem] border-2 border-white/10 shadow-2xl">
                             <Image
-                                src={member.image ?? "/images/fullshot.png"}
+                                src={member.image ?? "/images/fullshot.jpg"}
                                 alt={member.name}
                                 fill
                                 className="object-cover object-top"
@@ -106,8 +106,8 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                                 </div>
                             </div>
                             {bio.hasMore && (
-                                <button onClick={() => setIsExpanded(!isExpanded)} className="mt-auto pt-6 flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto text-gold-light hover:text-white transition-all text-[11px] font-black uppercase tracking-[0.2em]">
-                                    {isExpanded ? <><span className="font-black">Show Less</span><ChevronUp size={16} /></> : <><span className="font-black">Read Full Bio</span><ChevronDown size={16} /></>}
+                                <button onClick={() => setIsExpanded(!isExpanded)} className="mt-auto pt-6 flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto text-gold-light hover:text-white transition-colors text-sm font-semibold">
+                                    {isExpanded ? <><span>Show less</span><ChevronUp size={16} aria-hidden="true" /></> : <><span>Read full bio</span><ChevronDown size={16} aria-hidden="true" /></>}
                                 </button>
                             )}
                         </div>
@@ -122,7 +122,7 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
             <div className="p-8 flex flex-col h-full">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 text-center sm:text-left">
                     <div className="relative w-32 h-32 shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-xl">
-                        <Image src={member.image ?? "/images/fullshot.png"} alt={member.name} fill className="object-cover object-top" />
+                        <Image src={member.image ?? "/images/fullshot.jpg"} alt={member.name} fill className="object-cover object-top" />
                     </div>
                     <div className="space-y-3">
                         <h3 className="text-2xl font-bold text-white leading-tight">{member.name}</h3>
@@ -145,8 +145,8 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                     </div>
                 </div>
                 {bio.hasMore && (
-                    <button onClick={() => setIsExpanded(!isExpanded)} className="mt-auto pt-6 flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto text-gold-light hover:text-white transition-all text-[11px] font-black uppercase tracking-[0.2em]">
-                        {isExpanded ? <><span className="font-black">Show Less</span><ChevronUp size={14} /></> : <><span className="font-black">Read Full Bio</span><ChevronDown size={14} /></>}
+                    <button onClick={() => setIsExpanded(!isExpanded)} className="mt-auto pt-6 flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto text-gold-light hover:text-white transition-colors text-sm font-semibold">
+                        {isExpanded ? <><span>Show less</span><ChevronUp size={14} aria-hidden="true" /></> : <><span>Read full bio</span><ChevronDown size={14} aria-hidden="true" /></>}
                     </button>
                 )}
             </div>

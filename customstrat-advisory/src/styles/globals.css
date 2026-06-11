@@ -12,6 +12,7 @@
      Single palette: tailwind.config.ts mirrors these exact values, so
      utility classes (bg-primary, text-accent, …) and the btn-/cs- component
      classes share the same hues. Change them together. */
+  --color-ink: #0A1A2F;
   --color-primary: #1e4b75;
   --color-primary-dark: #123456;
   --color-primary-light: #34608b;
@@ -22,10 +23,8 @@
 
   --color-gold: #C9A961;
   --color-gold-light: #E5D4A6;
-  --color-growth: #3e8e41;
-  /* Added for growth/prosperity themes */
 
-  /* Neutrals (high contrast, boardroom-grade) */
+  /* Neutrals (slate ramp, high contrast) */
   --color-gray-50: #f8fafc;
   --color-gray-100: #f1f5f9;
   --color-gray-200: #e2e8f0;
@@ -34,50 +33,22 @@
   --color-gray-500: #64748b;
   --color-gray-600: #475569;
   --color-gray-700: #334155;
-  --color-gray-800: #1f2937;
+  --color-gray-800: #1e293b;
   --color-gray-900: #0f172a;
 
   /* Shadows */
   --shadow-soft: 0 2px 8px rgba(15, 23, 42, 0.06);
   --shadow-soft-md: 0 6px 18px rgba(15, 23, 42, 0.10);
   --shadow-soft-lg: 0 14px 34px rgba(15, 23, 42, 0.14);
-  --shadow-glow: 0 0 40px rgba(91, 143, 196, 0.18);
 
-  /* Radii */
+  /* Radii: 12px (small controls) / 16px (surfaces) / 24px (cards) */
   --radius-2xl: 16px;
-  --radius-3xl: 20px;
-  --radius-full: 999px;
+  --radius-3xl: 24px;
 
   /* Motion Tokens */
-  --motion-duration-fast: 180ms;
   --motion-duration-base: 320ms;
-  --motion-duration-slow: 500ms;
   --motion-easing-premium: cubic-bezier(0.23, 1, 0.32, 1);
   --motion-easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Hero vs Page Background Variables */
-  /* Hero must be noticeably darker than page body */
-  --hero-bg-start: rgba(10, 20, 35, 0.95);
-  /* Dark start */
-  --hero-bg-end: rgba(26, 58, 92, 0.88);
-  /* Slightly lighter end */
-  --hero-bg-accent-1: rgba(201, 169, 97, 0.08);
-  /* Subtle gold accent */
-  --hero-bg-accent-2: rgba(91, 143, 196, 0.10);
-  /* Subtle blue accent */
-
-  /* Page body backgrounds (lighter than hero) */
-  --page-bg-base: rgba(255, 255, 255, 0.98);
-  /* Light base */
-  --page-bg-mid: rgba(245, 248, 252, 0.95);
-  /* Mid tone */
-  --page-bg-dark: rgba(14, 24, 38, 0.92);
-  /* Dark end (but lighter than hero) */
-
-  /* Glow colors for atmosphere */
-  --glow-primary: rgba(91, 143, 196, 0.20);
-  --glow-secondary: rgba(201, 169, 97, 0.15);
-  --glow-tertiary: rgba(74, 123, 167, 0.18);
 }
 
 @layer base {
@@ -113,18 +84,19 @@
     letter-spacing: -0.02em;
   }
 
+  /* Fluid heading scale: 36→60 / 30→48 / 24→30px between ~360px and ~1330px */
   h1 {
-    font-size: 2.25rem;
+    font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem);
     line-height: 1.1;
   }
 
   h2 {
-    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 1.4rem + 1.9vw, 3rem);
     line-height: 1.2;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 1.35rem + 0.6vw, 1.875rem);
     line-height: 1.3;
   }
 
@@ -151,34 +123,6 @@
     background: rgba(74, 134, 192, 0.35);
     color: inherit;
   }
-
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 3rem;
-    }
-
-    h2 {
-      font-size: 2.25rem;
-    }
-
-    h3 {
-      font-size: 1.875rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    h1 {
-      font-size: 3.75rem;
-    }
-
-    h2 {
-      font-size: 3rem;
-    }
-
-    h3 {
-      font-size: 1.875rem;
-    }
-  }
 }
 
 @keyframes fadeInUp {
@@ -193,149 +137,6 @@
   }
 }
 
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-
-
-
-
-/* Atmosphere component animations - Theme-based motion types */
-
-/* Drift motion - gentle floating */
-@keyframes atmosphere-drift-a {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translate3d(0, 0, 0);
-  }
-
-  33% {
-    transform: translate(-50%, -50%) translate3d(25px, -18px, 0);
-  }
-
-  66% {
-    transform: translate(-50%, -50%) translate3d(-18px, 25px, 0);
-  }
-}
-
-@keyframes atmosphere-drift-b {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translate3d(0, 0, 0);
-  }
-
-  50% {
-    transform: translate(-50%, -50%) translate3d(-30px, 20px, 0);
-  }
-}
-
-/* Orbit motion - circular movement */
-@keyframes atmosphere-orbit-a {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg) translateX(35px) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) rotate(360deg) translateX(35px) rotate(-360deg);
-  }
-}
-
-@keyframes atmosphere-orbit-b {
-  0% {
-    transform: translate(-50%, -50%) rotate(0deg) translateX(-28px) rotate(0deg);
-  }
-
-  100% {
-    transform: translate(-50%, -50%) rotate(-360deg) translateX(-28px) rotate(360deg);
-  }
-}
-
-/* Scanline motion - horizontal sweep */
-@keyframes atmosphere-scanline-a {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translateX(0);
-    opacity: 0.4;
-  }
-
-  50% {
-    transform: translate(-50%, -50%) translateX(40px);
-    opacity: 0.7;
-  }
-}
-
-@keyframes atmosphere-scanline-b {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translateX(0);
-    opacity: 0.3;
-  }
-
-  50% {
-    transform: translate(-50%, -50%) translateX(-35px);
-    opacity: 0.6;
-  }
-}
-
-@keyframes atmosphere-scanline-sweep {
-  0% {
-    background-position: -100% 0;
-  }
-
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-/* Float motion - vertical gentle movement */
-@keyframes atmosphere-float-a {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-
-  50% {
-    transform: translate(-50%, -50%) translateY(-22px);
-  }
-}
-
-@keyframes atmosphere-float-b {
-
-  0%,
-  100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-
-  50% {
-    transform: translate(-50%, -50%) translateY(18px);
-  }
-}
-
-/* Respect reduced motion for all atmosphere animations */
-@media (prefers-reduced-motion: reduce) {
-
-  [class*="atmosphere-"],
-  [style*="atmosphere-drift"],
-  [style*="atmosphere-orbit"],
-  [style*="atmosphere-scanline"],
-  [style*="atmosphere-float"] {
-    animation: none !important;
-  }
-}
 
 @layer components {
 
@@ -480,44 +281,9 @@
 
 
 
-  /* Hero gradient overlay - DARKER than page body */
-  /* Theme-based overlay is applied via inline styles from Hero component */
-  .hero-overlay {
-    position: relative;
-  }
-
-  /* Bottom fade transition from dark hero to lighter page body */
-  .hero-overlay::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 120px;
-    background: linear-gradient(to bottom,
-        transparent 0%,
-        rgba(255, 255, 255, 0.05) 30%,
-        rgba(255, 255, 255, 0.15) 70%,
-        rgba(255, 255, 255, 0.25) 100%);
-    pointer-events: none;
-  }
-
-
-
-
-
-
-
-
   /* Utilities */
   .text-balance {
     text-wrap: balance;
-  }
-
-
-  .background-overlay,
-  .hero-overlay::before {
-    pointer-events: none;
   }
 
   /* Ensure real content sits above decorations */
@@ -527,31 +293,6 @@
     position: relative;
     z-index: 1;
   }
-
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -2;
-    background: url("/images/hero-home.jpg") center / cover no-repeat;
-  }
-
-  /* Soft white overlay like your screenshot */
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-    background: radial-gradient(1200px 700px at 20% 20%,
-        rgba(93, 130, 195, 0.22),
-        rgba(29, 58, 98, 0.85) 45%,
-        rgba(10, 20, 35, 0.96) 100%),
-      linear-gradient(180deg,
-        rgba(29, 58, 98, 0.72),
-        rgba(10, 20, 35, 0.98));
-    pointer-events: none;
-  }
-
 
   .brand-name {
     font-family: var(--font-brand), var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -583,7 +324,7 @@
     gap: 0.55rem;
 
     font-size: 0.95rem;
-    font-weight: 650;
+    font-weight: 600;
     text-decoration: none;
 
     color: rgba(255, 255, 255, 0.88);
@@ -607,10 +348,10 @@
 
   /* Hero */
   .cs-hero {
-    background: linear-gradient(135deg, #0b2545, #133b5c);
+    background: linear-gradient(135deg, var(--color-ink), var(--color-primary));
     color: #ffffff;
     padding: 3.25rem 3rem;
-    border-radius: 18px 18px 0 0;
+    border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
   }
 
   .cs-hero-inner {
@@ -618,18 +359,18 @@
   }
 
   .cs-title {
-    font-size: 2.75rem;
+    font-size: clamp(2.15rem, 1.75rem + 1.8vw, 2.75rem);
     line-height: 1.1;
     margin: 0 0 0.75rem;
-    font-weight: 760;
+    font-weight: 700;
   }
 
   .cs-subtitle {
-    font-size: 1.35rem;
+    font-size: clamp(1.2rem, 1.1rem + 0.45vw, 1.35rem);
     line-height: 1.35;
     margin: 0 0 1.75rem;
     opacity: 0.9;
-    font-weight: 520;
+    font-weight: 500;
   }
 
   .cs-meta {
@@ -673,13 +414,17 @@
   /* White surface */
   .cs-surface {
     background: #ffffff;
-    border-radius: 0 0 18px 18px;
+    border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
   }
 
   .cs-body {
+    /* ~70ch measure: 52rem incl. 3rem side padding (border-box) */
+    max-width: 52rem;
+    margin-left: auto;
+    margin-right: auto;
     padding: 3rem;
-    color: #1f2933;
+    color: var(--color-gray-800);
     line-height: 1.75;
     font-size: 1.05rem;
   }
@@ -690,8 +435,8 @@
   }
 
   .cs-body a {
-    color: #0b2545;
-    font-weight: 650;
+    color: var(--color-primary-dark);
+    font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 3px;
   }
@@ -701,22 +446,22 @@
   }
 
   .cs-body strong {
-    color: #0b2545;
-    font-weight: 750;
+    color: var(--color-primary-dark);
+    font-weight: 700;
   }
 
   /* Headings */
   .cs-h2 {
     font-size: 1.9rem;
     line-height: 1.25;
-    color: #0b2545;
+    color: var(--color-primary-dark);
     margin: 2.5rem 0 1.15rem;
   }
 
   .cs-h3 {
     font-size: 1.2rem;
     line-height: 1.4;
-    color: #133b5c;
+    color: var(--color-primary);
     margin: 2rem 0 0.75rem;
   }
 
@@ -751,7 +496,7 @@
   .cs-exhibit-frame {
     width: 100%;
     height: auto;
-    border-radius: 14px;
+    border-radius: var(--radius-2xl);
     border: 1px solid #e5e7eb;
     background: #ffffff;
     overflow: hidden;
@@ -791,42 +536,11 @@
     .cs-body {
       padding: 2.1rem 1.5rem 2.5rem;
     }
-
-    .cs-title {
-      font-size: 2.15rem;
-    }
-
-    .cs-subtitle {
-      font-size: 1.2rem;
-    }
   }
 
   .cs-body ul {
     margin-top: 0.5rem;
   }
-
-  /* Footer CTA: disable giant hover aura/glow from .btn-secondary */
-  footer .btn-secondary {
-    /* keep sizing stable */
-    box-sizing: border-box;
-    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease,
-      box-shadow 200ms ease, transform 200ms ease;
-  }
-
-  footer .btn-secondary:hover {
-    /* override any huge glow */
-    filter: none !important;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.20) !important;
-    transform: translateY(-1px) !important;
-  }
-
-  /* If .btn-secondary uses a pseudo-element glow, kill it in footer only */
-  footer .btn-secondary::before,
-  footer .btn-secondary::after {
-    content: none !important;
-    display: none !important;
-  }
-
 
 
   /* =========================
@@ -836,46 +550,16 @@
   .cs-services-page .cs-services-titlebox {
     position: relative;
     overflow: hidden;
-    border-radius: 24px;
+    margin: 0 auto;
+    max-width: 980px;
+    border-radius: var(--radius-3xl);
     padding: clamp(22px, 4vw, 40px);
     background:
       radial-gradient(900px 420px at 20% 10%, rgba(201, 169, 97, 0.22), transparent 60%),
-      radial-gradient(900px 420px at 85% 30%, rgba(91, 143, 196, 0.30), transparent 55%),
-      linear-gradient(135deg, rgba(26, 58, 92, 0.96), rgba(10, 20, 35, 0.96));
+      radial-gradient(900px 420px at 85% 30%, rgba(74, 134, 192, 0.30), transparent 55%),
+      linear-gradient(135deg, rgba(18, 52, 86, 0.96), rgba(10, 26, 47, 0.96));
     border: 1px solid rgba(255, 255, 255, 0.12);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
-  }
-
-
-  .cs-services-page .cs-services-orb {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    border-radius: 999px;
-    filter: blur(28px);
-    opacity: 0.55;
-    animation: float 10s ease-in-out infinite;
-    pointer-events: none;
-  }
-
-  .cs-services-page .cs-services-orb--a {
-    left: -80px;
-    top: -80px;
-    background: rgba(201, 169, 97, 0.55);
-  }
-
-  .cs-services-page .cs-services-orb--b {
-    right: -90px;
-    top: 20px;
-    background: rgba(91, 143, 196, 0.55);
-    animation-duration: 13s;
-  }
-
-  .cs-services-page .cs-services-orb--c {
-    right: 20px;
-    bottom: -110px;
-    background: rgba(74, 123, 167, 0.45);
-    animation-duration: 16s;
   }
 
 
@@ -899,23 +583,6 @@
   }
 
 
-  .cs-cardGlow {
-    position: absolute;
-    inset: -40%;
-    background: radial-gradient(circle at 30% 30%, rgba(91, 143, 196, 0.35), transparent 55%),
-      radial-gradient(circle at 70% 70%, rgba(201, 169, 97, 0.25), transparent 60%);
-    opacity: 0;
-    transition: opacity 420ms ease;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  .cs-card--hover:hover .cs-cardGlow {
-    opacity: 1;
-  }
-
-
-
   /* Engage flow */
   .cs-engage {
     position: relative;
@@ -929,7 +596,7 @@
     width: 2px;
     background: linear-gradient(to bottom,
         rgba(255, 255, 255, 0.05),
-        rgba(91, 143, 196, 0.28),
+        rgba(74, 134, 192, 0.28),
         rgba(201, 169, 97, 0.18),
         rgba(255, 255, 255, 0.05));
     opacity: 0.8;
@@ -956,9 +623,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-weight: 800;
-    color: rgba(10, 20, 35, 0.95);
-    background: linear-gradient(135deg, rgba(201, 169, 97, 1), rgba(91, 143, 196, 1));
+    font-weight: 700;
+    color: var(--color-ink);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 1), rgba(74, 134, 192, 1));
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.30);
   }
 
@@ -971,7 +638,7 @@
     background: rgba(255, 255, 255, 0.06);
     color: rgba(255, 255, 255, 0.75);
     font-size: 12px;
-    font-weight: 650;
+    font-weight: 600;
   }
 
   /* Inline link */
@@ -1003,31 +670,14 @@
    Design System: Cluster Shells
    ========================= */
 
-  /* Cluster A: Editorial / Authority */
-  /* Cluster A: Editorial / Authority (About, Leadership) */
-  /* Cluster A: Editorial / Authority */
-  .cs-shell--editorial {
-    position: relative;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0A1A2F 0%, #1e4b75 100%);
-    overflow: hidden;
-    color: rgba(255, 255, 255, 0.95);
-  }
-
-  /* Cluster B: Library / Research Vault */
-  .cs-shell--library {
-    position: relative;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #0A1A2F 0%, #1e4b75 100%);
-    overflow: hidden;
-    color: rgba(255, 255, 255, 0.95);
-  }
-
-  /* Cluster C: Case Studies / Proof */
+  /* Dark page shells: one shared gradient, semantic aliases per cluster
+     (A: Editorial/About, B: Library/Insights, C: Case Studies/Proof) */
+  .cs-shell--editorial,
+  .cs-shell--library,
   .cs-shell--proof {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0A1A2F 0%, #1e4b75 100%);
+    background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-primary) 100%);
     overflow: hidden;
     color: rgba(255, 255, 255, 0.95);
   }
@@ -1053,6 +703,17 @@
     padding-bottom: 3rem;
   }
 
+  /* Inside article bodies, sections are prose groups, not page bands:
+     rhythm comes from text margins, with a modest gap between groups. */
+  .cs-body .cs-section {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .cs-body .cs-section+.cs-section {
+    margin-top: 2rem;
+  }
+
   @media (min-width: 1024px) {
     .cs-section {
       padding-top: 4rem;
@@ -1068,11 +729,11 @@
   /* Systematized Cards */
   .cs-card {
     position: relative;
-    border-radius: 24px;
+    border-radius: var(--radius-3xl);
     border: 1px solid rgba(255, 255, 255, 0.18);
     background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     overflow: hidden;
   }
@@ -1113,11 +774,6 @@
    Services page (consolidated)
    ========================= */
 
-  .cs-services-page .cs-services-titlebox {
-    margin: 0 auto;
-    max-width: 980px;
-  }
-
   .cs-services-page .cs-services-stage {
     position: relative;
     background: transparent;
@@ -1132,7 +788,7 @@
   }
 
   .cs-services-page .cs-services-navband__inner {
-    border-radius: 22px;
+    border-radius: var(--radius-3xl);
     padding: 18px;
     background: transparent;
     border: none;
@@ -1152,23 +808,20 @@
     }
   }
 
-  /* Dark glass cards on the services canvas */
+  /* Dark glass cards on the services canvas
+     (.cs-services-page .cs-card outranks .cs-card by specificity) */
   .cs-services-page .cs-card {
-    background: rgba(255, 255, 255, 0.06) !important;
-    border: 1px solid rgba(255, 255, 255, 0.10) !important;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28) !important;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.28);
   }
 
   .cs-services-page .cs-card:hover {
-    background: rgba(255, 255, 255, 0.075) !important;
-    border-color: rgba(255, 255, 255, 0.18) !important;
+    background: rgba(255, 255, 255, 0.075);
+    border-color: rgba(255, 255, 255, 0.18);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .cs-services-page .cs-services-orb {
-      animation: none !important;
-    }
-
     .cs-card--hover:hover {
       transform: none !important;
     }
