@@ -8,6 +8,11 @@ export default function Footer() {
 
   return (
     <footer className="relative overflow-hidden">
+      {/* Brand hairline (mirrors the header's) */}
+      <div
+        className="absolute inset-x-0 top-0 h-px z-10 bg-[linear-gradient(90deg,transparent,rgba(201,169,97,0.5)_30%,rgba(74,134,192,0.5)_70%,transparent)]"
+        aria-hidden="true"
+      />
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-primary-dark to-slate-900" />
       <div className="absolute inset-0 opacity-15">
         <div

@@ -45,8 +45,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Main Content Sections - REVERTED TO WHITE BACKGROUND */}
-      <section className="cs-section py-20 relative z-10 bg-white shadow-2xl">
+      {/* Main content: white sheet rising over the dark hero */}
+      <section className="cs-section py-20 relative z-10 bg-white shadow-2xl rounded-t-[2.5rem] -mt-6">
         <div className="container-wide">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Services Offered */}

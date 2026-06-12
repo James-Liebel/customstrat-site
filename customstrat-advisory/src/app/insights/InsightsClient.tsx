@@ -29,7 +29,7 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
       <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div className="space-y-2">
           <h2 className="text-4xl md:text-5xl font-bold text-white">Articles</h2>
-          <div className="h-1 w-20 bg-gold rounded-full" />
+          <div className="h-1 w-20 rounded-full bg-gradient-to-r from-gold to-accent" />
         </div>
 
         <div className="relative w-full sm:w-[300px]">

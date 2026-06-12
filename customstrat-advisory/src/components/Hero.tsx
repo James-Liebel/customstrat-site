@@ -37,29 +37,14 @@ export default function Hero({
     ].join(', '),
   };
   return (
-    <section className="relative min-h-[140px] lg:min-h-[180px] flex items-center justify-center overflow-hidden">
-      {/* Theme gradient background */}
-      <div className="absolute inset-0 hero-overlay" style={heroOverlayStyle} />
-
-      {/* Static diamond grid texture + slow shimmer sweep */}
-      <div className="absolute inset-0 pointer-events-none z-[2]" aria-hidden="true">
-        <svg
-          className="absolute inset-0 w-full h-full"
-          viewBox="0 0 1200 600"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <pattern id="cs-diamondGrid" width="80" height="80" patternUnits="userSpaceOnUse">
-              <path
-                d="M40 0 L80 40 L40 80 L0 40 Z"
-                fill="none"
-                stroke="rgba(255,255,255,0.22)"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="1200" height="600" fill="url(#cs-diamondGrid)" opacity="0.30" />
-        </svg>
+    <section className="relative min-h-[200px] lg:min-h-[250px] flex items-center justify-center overflow-hidden">
+      {/* Background stack: theme gradient + diamond grid + shimmer sweep.
+          The grid and shimmer share identical CSS tile geometry so the
+          shine lights up the same lattice, and the whole stack is masked
+          to dissolve into the page below instead of hard-stopping. */}
+      <div className="absolute inset-0 cs-hero-bg pointer-events-none" aria-hidden="true">
+        <div className="absolute inset-0 hero-overlay" style={heroOverlayStyle} />
+        <div className="cs-hero-grid" />
         <div className="cs-hero-shimmer" />
       </div>
 
