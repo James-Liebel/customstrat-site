@@ -21,6 +21,14 @@ console.log('Copying files from out/ to repository root...');
 console.log(`Source: ${outDir}`);
 console.log(`Destination: ${rootDir}`);
 
+// Remove the previous build's hashed assets first — every build generates new
+// hashes, so copying without cleaning accumulates stale generations in git.
+const rootNextDir = path.join(rootDir, '_next');
+if (fs.existsSync(rootNextDir)) {
+  fs.rmSync(rootNextDir, { recursive: true, force: true });
+  console.log('✓ Removed stale _next/ from repository root');
+}
+
 // Copy all files from out/ to root, preserving important files
 function copyRecursive(src, dest) {
   const exists = fs.existsSync(src);
