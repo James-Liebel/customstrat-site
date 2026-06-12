@@ -118,7 +118,7 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
     }
 
     return (
-        <div className="cs-card group flex flex-col h-fit">
+        <div className="cs-card group flex flex-col h-full">
             <div className="p-8 flex flex-col h-full">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 text-center sm:text-left">
                     <div className="relative w-32 h-32 shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-xl">
@@ -170,25 +170,16 @@ export default function AboutClient({ members }: { members: Member[] }) {
         highlights: ["McKinsey Alumna", "Former CSO & CXO", "Harvard MBA"]
     };
 
-    // Split remaining members into two vertical columns
-    const leftCol = restWithHighlights.filter((_, i) => i % 2 === 0);
-    const rightCol = restWithHighlights.filter((_, i) => i % 2 !== 0);
-
     return (
         <div className="space-y-12">
             <MemberCard member={leaderWithHighlights} isLeader={true} />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start max-w-6xl mx-auto">
-                <div className="space-y-8 flex flex-col">
-                    {leftCol.map((member) => (
-                        <MemberCard key={member.name} member={member} />
-                    ))}
-                </div>
-                <div className="space-y-8 flex flex-col">
-                    {rightCol.map((member) => (
-                        <MemberCard key={member.name} member={member} />
-                    ))}
-                </div>
+            {/* One grid row per pair: cards stretch to equal height, so collapsed
+                card bottoms (and their Read-full-bio buttons) stay aligned */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto">
+                {restWithHighlights.map((member) => (
+                    <MemberCard key={member.name} member={member} />
+                ))}
             </div>
 
             <p className="text-white/70 text-center text-lg max-w-6xl mx-auto mt-8">
