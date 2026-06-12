@@ -118,8 +118,10 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
     }
 
     return (
-        <div className="cs-card group flex flex-col h-full">
-            <div className="p-8 flex flex-col h-full">
+        // No explicit height: the grid's items-stretch equalizes card heights,
+        // and a percentage height here would opt the card out of stretching.
+        <div className="cs-card group flex flex-col">
+            <div className="p-8 flex flex-col flex-1">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 text-center sm:text-left">
                     <div className="relative w-32 h-32 shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-xl">
                         <Image src={member.image ?? "/images/fullshot.jpg"} alt={member.name} fill className="object-cover object-top" />
