@@ -61,7 +61,7 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
             <div className="flex justify-center">
                 <div className="cs-card transition-all duration-500 w-full max-w-4xl border-white/10 shadow-2xl overflow-hidden">
                     <div className="p-8 md:p-12 flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start text-center md:text-left">
-                        <div className="relative w-48 h-64 md:w-56 md:h-72 shrink-0 overflow-hidden rounded-[2rem] border-2 border-white/10 shadow-2xl">
+                        <div className="relative w-48 h-64 md:w-56 md:h-72 shrink-0 overflow-hidden rounded-[2rem] cs-photo-ring shadow-2xl">
                             <Image
                                 src={member.image ?? "/images/fullshot.jpg"}
                                 alt={member.name}
@@ -123,7 +123,7 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
         <div className="cs-card group flex flex-col">
             <div className="p-8 flex flex-col flex-1">
                 <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 mb-8 text-center sm:text-left">
-                    <div className="relative w-32 h-32 shrink-0 overflow-hidden rounded-2xl border border-white/10 shadow-xl">
+                    <div className="relative w-32 h-32 shrink-0 overflow-hidden rounded-2xl cs-photo-ring shadow-xl">
                         <Image src={member.image ?? "/images/fullshot.jpg"} alt={member.name} fill className="object-cover object-top" />
                     </div>
                     <div className="space-y-3">

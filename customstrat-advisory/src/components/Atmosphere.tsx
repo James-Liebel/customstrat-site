@@ -53,12 +53,14 @@ export default function Atmosphere({
         contain: 'strict', // isolates this div from layout calcs
       }}
     >
+      <div className="fx-aurora" />
+
       <PatternLayer pattern={theme.pattern} opacity={opacity * 0.4} />
 
       {glowPositions.map((glow, index) => (
         <div
           key={index}
-          className="absolute rounded-full blur-3xl"
+          className={`absolute rounded-full blur-3xl ${index % 2 ? 'fx-glow-drift-b' : 'fx-glow-drift-a'}`}
           style={{
             width: `${260 + index * 60}px`,
             height: `${260 + index * 60}px`,
@@ -70,6 +72,8 @@ export default function Atmosphere({
           }}
         />
       ))}
+
+      <div className="fx-grain" />
     </div>
   );
 }

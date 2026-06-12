@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { siteContent } from '@/content/siteContent';
 import Image from 'next/image';
@@ -10,6 +10,14 @@ import Image from 'next/image';
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -26,7 +34,18 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-header bg-[linear-gradient(180deg,#fff_80%,#f1f5f9_100%)] shadow-md border-b border-slate-200">
+    <header
+      className={`sticky top-0 z-header transition-[background-color,box-shadow] duration-300 ${
+        scrolled
+          ? 'bg-white/85 backdrop-blur-md shadow-lg'
+          : 'bg-[linear-gradient(180deg,#fff_80%,#f1f5f9_100%)] shadow-md'
+      }`}
+    >
+      {/* Brand hairline */}
+      <div
+        className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(74,134,192,0.5)_30%,rgba(201,169,97,0.5)_70%,transparent)]"
+        aria-hidden="true"
+      />
       <nav className="container-custom py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">

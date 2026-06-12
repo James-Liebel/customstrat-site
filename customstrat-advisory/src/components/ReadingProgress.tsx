@@ -28,7 +28,7 @@ export default function ReadingProgress() {
       aria-hidden="true"
     >
       <div
-        className="h-full bg-gradient-to-r from-primary to-accent transition-[width] duration-75 ease-out"
+        className="h-full bg-gradient-to-r from-primary via-accent to-gold transition-[width] duration-75 ease-out"
         style={{ width: `${progress}%` }}
       />
     </div>

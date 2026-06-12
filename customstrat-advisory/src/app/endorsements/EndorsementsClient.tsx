@@ -21,7 +21,6 @@ export default function EndorsementsClient({ testimonials }: { testimonials: Tes
           return (
             <EndorsementCard
               key={originalIndex}
-              index={originalIndex}
               quote={t.quote}
               author={t.author}
               company={t.company}
@@ -35,7 +34,6 @@ export default function EndorsementsClient({ testimonials }: { testimonials: Tes
           return (
             <EndorsementCard
               key={originalIndex}
-              index={originalIndex}
               quote={t.quote}
               author={t.author}
               company={t.company}
@@ -63,17 +61,14 @@ function truncateQuote(quote: string, limit = 320): string {
   return slice.slice(0, wordEnd > 0 ? wordEnd : limit) + '…';
 }
 
-function EndorsementCard({ quote, author, company, index }: { quote: string; author: string; company?: string; index: number }) {
+function EndorsementCard({ quote, author, company }: { quote: string; author: string; company?: string }) {
   const [isExpanded, setIsExpanded] = React.useState(false);
 
   const isLong = quote.length > TRUNCATE_THRESHOLD;
   const displayQuote = isLong && !isExpanded ? truncateQuote(quote) : quote;
 
   return (
-    <div
-      className="cs-card p-10 relative overflow-hidden transition-all duration-300 ease-out hover:-translate-y-1 hover:border-white/20 animate-[fadeInUp_800ms_ease-out_both] h-fit"
-      style={{ animationDelay: `${index * 100}ms` }}
-    >
+    <div className="cs-card cs-card--hover p-10 relative overflow-hidden hover:border-white/25">
       <div className="absolute top-6 right-8 text-7xl text-white/5 font-serif pointer-events-none select-none">“</div>
       <div className="relative z-10 h-full flex flex-col">
         <p className="text-xl md:text-2xl text-white/90 italic font-light leading-relaxed mb-8 flex-grow">

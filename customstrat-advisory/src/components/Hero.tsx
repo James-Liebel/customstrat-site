@@ -41,7 +41,7 @@ export default function Hero({
       {/* Theme gradient background */}
       <div className="absolute inset-0 hero-overlay" style={heroOverlayStyle} />
 
-      {/* Static diamond grid texture */}
+      {/* Static diamond grid texture + slow shimmer sweep */}
       <div className="absolute inset-0 pointer-events-none z-[2]" aria-hidden="true">
         <svg
           className="absolute inset-0 w-full h-full"
@@ -60,12 +60,13 @@ export default function Hero({
           </defs>
           <rect width="1200" height="600" fill="url(#cs-diamondGrid)" opacity="0.30" />
         </svg>
+        <div className="cs-hero-shimmer" />
       </div>
 
       {/* Content */}
       <div className="container-custom relative z-10 text-white py-8">
         <div className={centered ? "text-center max-w-4xl mx-auto" : "max-w-4xl"}>
-          <h1 className="font-semibold mb-0 leading-tight text-balance animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards] brand-name">
+          <h1 className="font-semibold mb-0 leading-tight text-balance animate-[fadeInUp_800ms_ease-out_200ms] opacity-0 [animation-fill-mode:forwards] brand-name [text-shadow:0_2px_24px_rgba(10,26,47,0.45)]">
             {title}
           </h1>
         </div>

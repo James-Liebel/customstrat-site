@@ -3,6 +3,7 @@ import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import VisualEffects from '@/components/VisualEffects';
 import '@/styles/globals.css';
 import { siteContent } from '@/content/siteContent';
 import { Inter, Manrope } from 'next/font/google';
@@ -49,6 +50,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
       <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 bg-white overflow-x-hidden">
+        {/* fx gate: lets globals.css hide reveal targets before first paint,
+            so scroll-reveal can fade them in. Skipped for reduced motion and
+            absent entirely without JS (content stays fully visible). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('fx')}catch(e){}`,
+          }}
+        />
         {/* Microsoft Clarity Analytics Script - Loads early for tracking
             Zero-request setup - no cookie banners required */}
         <Script
@@ -75,6 +84,7 @@ export default function RootLayout({
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
           <ScrollToTop />
+          <VisualEffects />
         </div>
       </body>
     </html>

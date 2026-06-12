@@ -64,7 +64,7 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
       <div className="space-y-6">
         {filtered.map((a) => (
           <Link key={a.slug} href={`/insights/${a.slug}`} className="group block">
-            <article className="cs-card h-full p-8 border border-white/10 hover:border-gold/40 transition-all duration-300 ease-out hover:-translate-y-1">
+            <article className="cs-card cs-card--hover h-full p-8 hover:border-gold/40">
               <div className="mb-4 flex flex-wrap gap-2">
                 {a.categories.map(cat => (
                   <span

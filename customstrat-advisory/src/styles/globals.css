@@ -143,14 +143,16 @@
   /* Buttons — restrained, professional motion: gentle lift, soft shadows,
      consistent premium easing. No sweeping sheens or expanding fills. */
   .btn-primary {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 55%, var(--color-accent) 100%);
+    background-size: 170% 170%;
+    background-position: 0% 0%;
     color: white !important;
     font-weight: 700;
     padding: 1.1rem 2.2rem;
     border-radius: var(--radius-2xl);
     transition: transform 220ms var(--motion-easing-premium),
       box-shadow 220ms var(--motion-easing-premium),
-      filter 220ms var(--motion-easing-premium);
+      background-position 420ms var(--motion-easing-smooth);
     box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
     position: relative;
     letter-spacing: -0.01em;
@@ -159,7 +161,7 @@
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 24px rgba(15, 23, 42, 0.24);
-    filter: brightness(1.04);
+    background-position: 85% 85%;
   }
 
   .btn-primary:active {
@@ -726,31 +728,70 @@
     }
   }
 
-  /* Systematized Cards */
+  /* Systematized Cards
+     Pointer tilt (--rx/--ry), hover lift (--ty) and glare (--gx/--gy) are
+     driven by VisualEffects.tsx; everything is identity when the vars are
+     unset, so cards render statically without JS. */
   .cs-card {
     position: relative;
     border-radius: var(--radius-3xl);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.10);
     background: rgba(255, 255, 255, 0.10);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
     overflow: hidden;
+    transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px));
+    transition: transform 160ms ease-out,
+      border-color var(--motion-duration-base) var(--motion-easing-premium),
+      background var(--motion-duration-base) var(--motion-easing-premium);
+  }
+
+  /* Gradient hairline ring: light source top-left, gold kiss bottom-right */
+  .cs-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.30),
+        rgba(255, 255, 255, 0.06) 32%,
+        rgba(201, 169, 97, 0.14) 76%,
+        rgba(201, 169, 97, 0.34));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Pointer-following glare while tilting */
+  .cs-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(460px circle at var(--gx, 50%) var(--gy, 50%),
+        rgba(255, 255, 255, 0.13), transparent 60%);
+    opacity: 0;
+    transition: opacity 240ms ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .cs-card.fx-tilting::after {
+    opacity: 1;
   }
 
   .cs-card--soft {
     background: rgba(255, 255, 255, 0.12);
   }
 
-  .cs-card--hover {
-    transition: transform var(--motion-duration-base) var(--motion-easing-premium),
-      border-color var(--motion-duration-base) var(--motion-easing-premium),
-      background var(--motion-duration-base) var(--motion-easing-premium);
-  }
-
   .cs-card--hover:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 255, 255, 0.18);
+    --ty: -3px;
+    border-color: rgba(255, 255, 255, 0.22);
     background: rgba(255, 255, 255, 0.075);
   }
 
@@ -764,6 +805,78 @@
     .cs-card-inner {
       padding: 1.75rem;
     }
+  }
+
+
+  /* =========================
+   Progressive visual effects
+   Gated behind html.fx (set pre-paint only when JS is on and the user
+   does not prefer reduced motion) — see VisualEffects.tsx.
+   ========================= */
+
+  /* Scroll-reveal: hidden until observed, then rise in (staggered) */
+  .fx .cs-card:not(.fx-in),
+  .fx .cs-section-head:not(.fx-in),
+  .fx .cs-exhibit:not(.fx-in),
+  .fx .cs-shell--home .grid>div:not(.fx-in) {
+    opacity: 0;
+  }
+
+  .fx .fx-in {
+    animation: fx-rise 650ms var(--motion-easing-premium) var(--fxd, 0ms) backwards;
+  }
+
+  /* Hero diamond shimmer: a brighter copy of the grid swept by a moving mask */
+  .cs-hero-shimmer {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='rgba(255,255,255,0.55)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .fx .cs-hero-shimmer {
+    opacity: 0.7;
+    -webkit-mask-image: linear-gradient(100deg, transparent 38%, rgba(255, 255, 255, 0.9) 50%, transparent 62%);
+    mask-image: linear-gradient(100deg, transparent 38%, rgba(255, 255, 255, 0.9) 50%, transparent 62%);
+    -webkit-mask-size: 300% 100%;
+    mask-size: 300% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    animation: cs-shimmer 12s ease-in-out infinite;
+  }
+
+  /* Atmosphere extras: slow aurora rotation, drifting glows, film grain */
+  .fx-aurora {
+    position: absolute;
+    inset: -20%;
+    background: conic-gradient(from 180deg at 50% 50%,
+        rgba(74, 134, 192, 0.10),
+        rgba(201, 169, 97, 0.05),
+        rgba(10, 26, 47, 0),
+        rgba(74, 134, 192, 0.08),
+        rgba(74, 134, 192, 0.10));
+    filter: blur(48px);
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .fx-grain {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  /* Gradient photo ring (gold → light → accent) */
+  .cs-photo-ring {
+    border: 2px solid transparent;
+    background: linear-gradient(rgba(20, 42, 66, 1), rgba(20, 42, 66, 1)) padding-box,
+      linear-gradient(140deg, rgba(201, 169, 97, 0.65), rgba(255, 255, 255, 0.28) 45%, rgba(74, 134, 192, 0.65)) border-box;
   }
 
 
@@ -822,9 +935,121 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+
+    .cs-card,
     .cs-card--hover:hover {
       transform: none !important;
+      transition: none !important;
+    }
+
+    .cs-hero-shimmer,
+    .fx-aurora {
+      animation: none !important;
     }
   }
 
+}
+
+/* ===== Effect keyframes (composited properties only) ===== */
+
+@keyframes fx-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes cs-shimmer {
+  0% {
+    -webkit-mask-position: 130% 0;
+    mask-position: 130% 0;
+  }
+
+  55%,
+  100% {
+    -webkit-mask-position: -40% 0;
+    mask-position: -40% 0;
+  }
+}
+
+@keyframes fx-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fx-drift-a {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translate3d(26px, -18px, 0);
+  }
+}
+
+@keyframes fx-drift-b {
+
+  0%,
+  100% {
+    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) translate3d(-22px, 20px, 0);
+  }
+}
+
+/* Ambient motion + cross-page fades only when motion is welcome */
+@media (prefers-reduced-motion: no-preference) {
+  .fx-aurora {
+    animation: fx-rotate 150s linear infinite;
+  }
+
+  .fx-glow-drift-a {
+    animation: fx-drift-a 70s ease-in-out infinite;
+  }
+
+  .fx-glow-drift-b {
+    animation: fx-drift-b 90s ease-in-out infinite;
+  }
+
+  /* Same-origin page navigations cross-fade (MPA view transitions) */
+  @view-transition {
+    navigation: auto;
+  }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 220ms;
+  }
+}
+
+/* Branded scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-primary-light), var(--color-primary));
+  background-clip: padding-box;
+  border: 3px solid transparent;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-accent), var(--color-primary));
+  background-clip: padding-box;
+  border: 3px solid transparent;
+}
+
+html {
+  scrollbar-color: var(--color-primary) transparent;
 }

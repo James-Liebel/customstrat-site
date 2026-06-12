@@ -28,7 +28,7 @@ export default function ContactPage() {
               {/* Profile Side */}
               <div className="animate-[fadeInUp_800ms_ease-out]">
                 <div className="mb-8">
-                  <div className="relative w-64 h-64 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-2xl mb-8 ring-1 ring-white/20">
+                  <div className="relative w-64 h-64 mx-auto md:mx-0 rounded-2xl overflow-hidden shadow-2xl mb-8 cs-photo-ring">
                     <Image
                       src="/images/katie-liebel.webp"
                       alt={contact.name}
