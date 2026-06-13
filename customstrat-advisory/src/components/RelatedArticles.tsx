@@ -32,13 +32,14 @@ export default function RelatedArticles({
 
   return (
     <section className="mt-16 pt-12 border-t border-slate-200">
+      <div className="h-1 w-11 rounded-full bg-gradient-to-r from-gold to-accent mb-3" aria-hidden="true" />
       <h2 className="text-2xl font-bold text-slate-900 mb-8">Related Articles</h2>
       <div className="grid gap-6 md:grid-cols-3">
         {relatedArticles.map((article) => (
           <Link
             key={article.slug}
             href={`/insights/${article.slug}`}
-            className="group block p-6 rounded-2xl bg-slate-50 hover:bg-primary/5 border border-slate-100 hover:border-primary/20 transition-all duration-300"
+            className="group block p-6 rounded-2xl bg-slate-50 hover:bg-primary/5 border border-slate-100 hover:border-primary/20 hover:-translate-y-0.5 hover:shadow-soft-md transition-all duration-300"
           >
             <div className="flex flex-wrap gap-2 mb-3">
               {article.categories.slice(0, 2).map((cat) => (

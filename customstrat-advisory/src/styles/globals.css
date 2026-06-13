@@ -253,22 +253,35 @@
   }
 
 
-  /* Callout / Side Note Box */
+  /* Callout / Side Note Box: soft brand tint + gradient spine */
   .cs-callout {
-    background-color: var(--color-gray-50);
-    border-left: 4px solid var(--color-accent);
+    background: linear-gradient(135deg, #f5f9fd 0%, #eef4fb 100%);
     padding: 2rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
     border-radius: var(--radius-2xl);
+    border: 1px solid rgba(74, 134, 192, 0.14);
     position: relative;
     overflow: hidden;
+  }
+
+  .cs-callout::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(180deg, var(--color-accent), var(--color-gold));
   }
 
   /* Highlighted callout variant for emphasis */
   .cs-callout--highlight {
     background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);
-    border-left: 4px solid var(--color-primary);
+  }
+
+  .cs-callout--highlight::before {
+    background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
   }
 
   .cs-callout--highlight .cs-lead {
@@ -348,9 +361,13 @@
     border-color: rgba(255, 255, 255, 0.24);
   }
 
-  /* Hero */
+  /* Hero: brand gradient + faint diamond lattice + corner accents */
   .cs-hero {
-    background: linear-gradient(135deg, var(--color-ink), var(--color-primary));
+    background:
+      radial-gradient(560px 280px at 12% 0%, rgba(201, 169, 97, 0.14), transparent 65%),
+      radial-gradient(620px 320px at 92% 100%, rgba(107, 160, 212, 0.14), transparent 65%),
+      url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z' fill='none' stroke='rgba(255,255,255,0.07)' stroke-width='1'/%3E%3C/svg%3E") 0 0 / 80px 80px,
+      linear-gradient(135deg, var(--color-ink), var(--color-primary));
     color: #ffffff;
     padding: 3.25rem 3rem;
     border-radius: var(--radius-2xl) var(--radius-2xl) 0 0;
@@ -365,6 +382,11 @@
     line-height: 1.1;
     margin: 0 0 0.75rem;
     font-weight: 700;
+    background: linear-gradient(180deg, #ffffff 55%, #c6d8ec);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(10, 26, 47, 0.4));
   }
 
   .cs-subtitle {
@@ -377,10 +399,27 @@
 
   .cs-meta {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
     font-size: 0.95rem;
     opacity: 0.85;
     color: #ffffff;
+    margin-top: 1.4rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    position: relative;
+  }
+
+  /* Gold kicker over the byline divider */
+  .cs-meta::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    width: 52px;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-accent));
   }
 
   .cs-meta strong {
@@ -413,11 +452,22 @@
     backdrop-filter: blur(4px);
   }
 
-  /* White surface */
+  /* White surface, opened by a brand strip under the header band */
   .cs-surface {
+    position: relative;
     background: #ffffff;
     border-radius: 0 0 var(--radius-2xl) var(--radius-2xl);
     box-shadow: 0 18px 50px rgba(0, 0, 0, 0.15);
+  }
+
+  .cs-surface::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-accent) 45%, transparent 85%);
   }
 
   .cs-body {
@@ -436,11 +486,28 @@
     margin: 0 0 1.15rem;
   }
 
+  /* Editorial drop cap on the opening paragraph */
+  .cs-body>section:first-of-type>p:first-child::first-letter {
+    float: left;
+    font-family: var(--font-brand), var(--font-inter), sans-serif;
+    font-size: 3.3em;
+    line-height: 0.82;
+    font-weight: 700;
+    color: var(--color-primary);
+    padding: 0.04em 0.12em 0 0;
+  }
+
   .cs-body a {
     color: var(--color-primary-dark);
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 3px;
+    text-decoration-color: rgba(74, 134, 192, 0.45);
+    transition: text-decoration-color 180ms ease;
+  }
+
+  .cs-body a:hover {
+    text-decoration-color: var(--color-accent);
   }
 
   .cs-body a:hover {
@@ -452,12 +519,22 @@
     font-weight: 700;
   }
 
-  /* Headings */
+  /* Headings: gold kicker bar gives every section a brand anchor */
   .cs-h2 {
     font-size: 1.9rem;
     line-height: 1.25;
     color: var(--color-primary-dark);
     margin: 2.5rem 0 1.15rem;
+  }
+
+  .cs-h2::before {
+    content: '';
+    display: block;
+    width: 44px;
+    height: 4px;
+    border-radius: 999px;
+    margin-bottom: 0.8rem;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-accent));
   }
 
   .cs-h3 {
@@ -471,11 +548,38 @@
     font-size: 1.15rem;
   }
 
-  /* Lists (future-proofing for other articles) */
+  /* Lists: brand diamond bullets; bold numerals for ordered lists */
   .cs-body ul,
   .cs-body ol {
     margin: 0 0 1.25rem 1.2rem;
     padding: 0;
+  }
+
+  .cs-body ul {
+    list-style: none;
+    margin-left: 0.15rem;
+  }
+
+  .cs-body ul>li {
+    position: relative;
+    padding-left: 1.2rem;
+  }
+
+  .cs-body ul>li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 7px;
+    height: 7px;
+    transform: rotate(45deg);
+    border-radius: 1.5px;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-primary));
+  }
+
+  .cs-body ol li::marker {
+    color: var(--color-primary);
+    font-weight: 700;
   }
 
   .cs-body li {
@@ -488,21 +592,35 @@
   }
 
   .cs-exhibit-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
     font-size: 0.85rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: #6b7280;
+    color: var(--color-gray-500);
+    font-weight: 600;
     margin: 0 0 0.75rem;
+  }
+
+  .cs-exhibit-title::before {
+    content: '';
+    width: 22px;
+    height: 3px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-accent));
+    flex: 0 0 auto;
   }
 
   .cs-exhibit-frame {
     width: 100%;
     height: auto;
     border-radius: var(--radius-2xl);
-    border: 1px solid #e5e7eb;
+    border: 1px solid var(--color-gray-200);
     background: #ffffff;
     overflow: hidden;
     padding: 0;
+    box-shadow: var(--shadow-soft-md);
   }
 
   .cs-exhibit-frame img {
@@ -521,6 +639,7 @@
     text-align: center;
     letter-spacing: 0.2em;
     margin: 2.5rem 0;
+    color: var(--color-gold);
   }
 
   .cs-copyright {
