@@ -1051,28 +1051,52 @@
     background: linear-gradient(135deg, rgba(107, 160, 212, 0.08), transparent 70%);
   }
 
-  /* Rising light motes: constant, gentle background life on dark shells.
-     Invisible at rest (opacity 0) — they only appear via the fx-mote-rise
-     animation, which is gated behind prefers-reduced-motion. */
+  /* Ambient flotsam: rising brand diamonds over soft bokeh light.
+     Invisible at rest (opacity 0) — elements only appear via their rise
+     animations, which are gated behind prefers-reduced-motion. */
   .fx-particles {
     position: absolute;
     inset: 0;
     pointer-events: none;
   }
 
-  .fx-mote {
+  /* Small brand diamonds: outline + faint fill + glow, rotating as they rise */
+  .fx-spark {
     position: absolute;
-    border-radius: 999px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.9), transparent 70%);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 3px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), transparent 65%);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.18);
     opacity: 0;
   }
 
-  .fx-mote--gold {
-    background: radial-gradient(circle, rgba(229, 212, 166, 0.9), transparent 70%);
+  .fx-spark--gold {
+    border-color: rgba(201, 169, 97, 0.65);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.18), transparent 65%);
+    box-shadow: 0 0 16px rgba(201, 169, 97, 0.28);
   }
 
-  .fx-mote--accent {
-    background: radial-gradient(circle, rgba(107, 160, 212, 0.9), transparent 70%);
+  .fx-spark--accent {
+    border-color: rgba(107, 160, 212, 0.6);
+    background: linear-gradient(135deg, rgba(107, 160, 212, 0.18), transparent 65%);
+    box-shadow: 0 0 16px rgba(107, 160, 212, 0.26);
+  }
+
+  /* Large soft light orbs drifting behind the diamonds */
+  .fx-bokeh {
+    position: absolute;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.85), transparent 65%);
+    filter: blur(7px);
+    opacity: 0;
+  }
+
+  .fx-bokeh--gold {
+    background: radial-gradient(circle, rgba(229, 212, 166, 0.85), transparent 65%);
+  }
+
+  .fx-bokeh--accent {
+    background: radial-gradient(circle, rgba(107, 160, 212, 0.85), transparent 65%);
   }
 
   .fx-grain {
@@ -1215,22 +1239,42 @@
   }
 }
 
-@keyframes fx-mote-rise {
+@keyframes fx-spark-rise {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0) rotate(45deg) scale(0.85);
     opacity: 0;
   }
 
-  18% {
-    opacity: var(--op, 0.3);
+  16% {
+    opacity: var(--op, 0.4);
   }
 
-  82% {
-    opacity: var(--op, 0.3);
+  84% {
+    opacity: var(--op, 0.4);
   }
 
   100% {
-    transform: translate3d(var(--sway, 24px), -150px, 0);
+    transform: translate3d(var(--sway, 26px), -210px, 0) rotate(200deg) scale(1.05);
+    opacity: 0;
+  }
+}
+
+@keyframes fx-bokeh-drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+    opacity: 0;
+  }
+
+  22% {
+    opacity: var(--op, 0.12);
+  }
+
+  78% {
+    opacity: var(--op, 0.12);
+  }
+
+  100% {
+    transform: translate3d(var(--sway, 30px), -150px, 0) scale(1.18);
     opacity: 0;
   }
 }
@@ -1249,8 +1293,12 @@
     animation: fx-drift-b 52s ease-in-out infinite;
   }
 
-  .fx-mote {
-    animation: fx-mote-rise var(--dur, 15s) linear var(--delay, 0s) infinite;
+  .fx-spark {
+    animation: fx-spark-rise var(--dur, 18s) linear var(--delay, 0s) infinite;
+  }
+
+  .fx-bokeh {
+    animation: fx-bokeh-drift var(--dur, 28s) linear var(--delay, 0s) infinite;
   }
 
   /* Same-origin page navigations cross-fade (MPA view transitions) */

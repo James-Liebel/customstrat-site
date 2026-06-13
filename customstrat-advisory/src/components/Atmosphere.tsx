@@ -10,26 +10,32 @@ interface AtmosphereProps {
   className?: string;
 }
 
-/* Rising light motes: deterministic configs (SSR-safe), spread along the
-   full page height so motion is present at every scroll depth. */
-const MOTES: Array<{
+/* Ambient flotsam: deterministic configs (SSR-safe), spread along the full
+   page height so motion is present at every scroll depth.
+   - sparks: small brand diamonds that rise while slowly rotating
+   - bokeh: large soft light orbs drifting behind them for depth */
+const SPARKS: Array<{
   top: string; left: string; size: number; variant: '' | 'gold' | 'accent';
   dur: number; delay: number; sway: number; op: number;
 }> = [
-  { top: '6%', left: '8%', size: 4, variant: '', dur: 13, delay: 0, sway: 26, op: 0.32 },
-  { top: '12%', left: '78%', size: 3, variant: 'gold', dur: 16, delay: 4, sway: -20, op: 0.3 },
-  { top: '20%', left: '30%', size: 5, variant: 'accent', dur: 18, delay: 2, sway: 32, op: 0.26 },
-  { top: '26%', left: '92%', size: 3, variant: '', dur: 12, delay: 7, sway: -24, op: 0.3 },
-  { top: '34%', left: '14%', size: 4, variant: 'accent', dur: 15, delay: 5, sway: 22, op: 0.3 },
-  { top: '40%', left: '60%', size: 3, variant: 'gold', dur: 19, delay: 1, sway: -30, op: 0.24 },
-  { top: '48%', left: '85%', size: 5, variant: '', dur: 14, delay: 8, sway: 26, op: 0.28 },
-  { top: '54%', left: '6%', size: 3, variant: 'gold', dur: 17, delay: 3, sway: 20, op: 0.3 },
-  { top: '62%', left: '42%', size: 4, variant: 'accent', dur: 13, delay: 9, sway: -26, op: 0.26 },
-  { top: '68%', left: '70%', size: 3, variant: '', dur: 16, delay: 6, sway: 24, op: 0.3 },
-  { top: '76%', left: '22%', size: 5, variant: 'gold', dur: 18, delay: 2, sway: -22, op: 0.26 },
-  { top: '82%', left: '94%', size: 3, variant: 'accent', dur: 12, delay: 10, sway: 28, op: 0.3 },
-  { top: '88%', left: '52%', size: 4, variant: '', dur: 15, delay: 4, sway: -28, op: 0.28 },
-  { top: '94%', left: '12%', size: 3, variant: 'accent', dur: 17, delay: 7, sway: 24, op: 0.3 },
+  { top: '10%', left: '9%', size: 18, variant: 'gold', dur: 21, delay: 0, sway: 30, op: 0.5 },
+  { top: '22%', left: '88%', size: 13, variant: 'accent', dur: 17, delay: 6, sway: -26, op: 0.45 },
+  { top: '36%', left: '16%', size: 24, variant: '', dur: 26, delay: 3, sway: 24, op: 0.32 },
+  { top: '48%', left: '93%', size: 15, variant: 'gold', dur: 19, delay: 9, sway: -32, op: 0.45 },
+  { top: '62%', left: '7%', size: 12, variant: 'accent', dur: 16, delay: 12, sway: 26, op: 0.48 },
+  { top: '76%', left: '84%', size: 20, variant: '', dur: 23, delay: 5, sway: -24, op: 0.34 },
+  { top: '90%', left: '20%', size: 14, variant: 'gold', dur: 18, delay: 14, sway: 28, op: 0.46 },
+];
+
+const BOKEH: Array<{
+  top: string; left: string; size: number; variant: '' | 'gold' | 'accent';
+  dur: number; delay: number; sway: number; op: number;
+}> = [
+  { top: '14%', left: '72%', size: 70, variant: 'accent', dur: 30, delay: 0, sway: 36, op: 0.14 },
+  { top: '30%', left: '4%', size: 46, variant: 'gold', dur: 24, delay: 8, sway: -28, op: 0.16 },
+  { top: '52%', left: '64%', size: 88, variant: '', dur: 34, delay: 4, sway: 30, op: 0.10 },
+  { top: '70%', left: '12%', size: 56, variant: 'accent', dur: 27, delay: 13, sway: 34, op: 0.13 },
+  { top: '86%', left: '78%', size: 64, variant: 'gold', dur: 31, delay: 7, sway: -30, op: 0.12 },
 ];
 
 /**
@@ -107,12 +113,28 @@ export default function Atmosphere({
         />
       ))}
 
-      {/* Constant ambient motion: soft motes rising at varied depths */}
+      {/* Constant ambient motion: bokeh light behind rising brand diamonds */}
       <div className="fx-particles">
-        {MOTES.map((m, i) => (
+        {BOKEH.map((m, i) => (
           <span
-            key={i}
-            className={`fx-mote ${m.variant ? `fx-mote--${m.variant}` : ''}`}
+            key={`b${i}`}
+            className={`fx-bokeh ${m.variant ? `fx-bokeh--${m.variant}` : ''}`}
+            style={{
+              top: m.top,
+              left: m.left,
+              width: m.size,
+              height: m.size,
+              '--dur': `${m.dur}s`,
+              '--delay': `${m.delay * -1}s`,
+              '--sway': `${m.sway}px`,
+              '--op': m.op,
+            } as React.CSSProperties}
+          />
+        ))}
+        {SPARKS.map((m, i) => (
+          <span
+            key={`s${i}`}
+            className={`fx-spark ${m.variant ? `fx-spark--${m.variant}` : ''}`}
             style={{
               top: m.top,
               left: m.left,
