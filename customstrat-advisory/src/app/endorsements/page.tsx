@@ -17,7 +17,8 @@ export default function EndorsementsPage() {
       <div className="relative z-10">
         <Hero title={siteContent.endorsements.hero.title} themeKey="soft-rings" />
 
-        <section className="cs-section">
+        {/* Tighter top padding so the first card tops peek above the fold */}
+        <section className="cs-section pt-6 lg:pt-8">
           <div className="container-custom">
             <EndorsementsClient
               testimonials={siteContent.endorsements.testimonials}

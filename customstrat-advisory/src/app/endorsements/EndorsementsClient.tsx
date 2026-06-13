@@ -46,10 +46,11 @@ export default function EndorsementsClient({ testimonials }: { testimonials: Tes
 }
 
 // Only quotes longer than this get a Read More toggle; shorter ones show in full.
-const TRUNCATE_THRESHOLD = 360;
+// Kept tight so collapsed cards stay short and the next row peeks above the fold.
+const TRUNCATE_THRESHOLD = 280;
 
 // Cut at the last sentence end before `limit`; fall back to a word boundary.
-function truncateQuote(quote: string, limit = 320): string {
+function truncateQuote(quote: string, limit = 240): string {
   const slice = quote.slice(0, limit);
   const sentenceEnd = Math.max(
     slice.lastIndexOf('. '),

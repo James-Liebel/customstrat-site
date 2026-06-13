@@ -46,8 +46,11 @@ export default function ServicesPage() {
                   <div className="cs-card-inner flex flex-col h-full">
                     <div className="flex-1">
                       <div className="mb-4">
-                        <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full mb-4" />
-                        <h3 className="text-2xl font-bold text-white mb-3">Strategy Development</h3>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full" />
+                          <span className="font-display text-4xl font-bold text-white/15 leading-none select-none" aria-hidden="true">01</span>
+                        </div>
+                        <h3 className="text-[1.35rem] leading-snug font-bold text-white mb-3 min-h-[3.6rem]">Strategy Development</h3>
                       </div>
                       <p className="text-white/70 text-base leading-relaxed">
                         Defining strategies that clarify where to compete and how to strengthen advantage.
@@ -69,8 +72,11 @@ export default function ServicesPage() {
                   <div className="cs-card-inner flex flex-col h-full">
                     <div className="flex-1">
                       <div className="mb-4">
-                        <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full mb-4" />
-                        <h3 className="text-2xl font-bold text-white mb-3">Strategy Execution &amp; Transformation</h3>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full" />
+                          <span className="font-display text-4xl font-bold text-white/15 leading-none select-none" aria-hidden="true">02</span>
+                        </div>
+                        <h3 className="text-[1.35rem] leading-snug font-bold text-white mb-3 min-h-[3.6rem]">Strategy Execution &amp; Transformation</h3>
                       </div>
                       <p className="text-white/70 text-base leading-relaxed">
                         Accelerating change with focused workstreams, governance, and disciplined execution.
@@ -92,8 +98,11 @@ export default function ServicesPage() {
                   <div className="cs-card-inner flex flex-col h-full">
                     <div className="flex-1">
                       <div className="mb-4">
-                        <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full mb-4" />
-                        <h3 className="text-2xl font-bold text-white mb-3">Customer Experience &amp; Performance Improvement</h3>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full" />
+                          <span className="font-display text-4xl font-bold text-white/15 leading-none select-none" aria-hidden="true">03</span>
+                        </div>
+                        <h3 className="text-[1.35rem] leading-snug font-bold text-white mb-3 min-h-[3.6rem]">Customer Experience &amp; Performance Improvement</h3>
                       </div>
                       <p className="text-white/70 text-base leading-relaxed">
                         Improving profitability and client impact through analytics that surface inefficiencies and VOC insights.

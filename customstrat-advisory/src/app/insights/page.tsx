@@ -19,7 +19,7 @@ export default function InsightsPage() {
       <div className="relative z-10">
         <Hero title="Articles" themeKey="ink-dots" />
 
-        <section className="cs-section">
+        <section className="cs-section pt-8">
           <div className="container-custom">
             <InsightsClient articles={allArticles} />
           </div>

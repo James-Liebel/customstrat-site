@@ -59,38 +59,47 @@ export default function StrategyDevelopmentPage() {
 
         <section className="cs-section">
           <div className="container-custom">
-            {/* White panel to separate content from background */}
-            <div className="bg-white rounded-[18px] shadow-[0_18px_50px_rgba(0,0,0,0.15)] border border-black/10 p-6 md:p-10">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pb-4 border-b border-slate-200">
-                <div className="text-primary text-xl font-medium">
-                  Project Summary
-                </div>
-                <div className="text-primary text-xl font-medium">
-                  Problem to be Solved
-                </div>
-                <div className="text-primary text-xl font-medium">
-                  Approach and Results
-                </div>
-              </div>
-
-              <div className="divide-y divide-slate-200">
-                {examples.map((ex, i) => (
-                  <div
-                    key={i}
-                    className="grid grid-cols-1 md:grid-cols-3 gap-6 py-8"
-                  >
-                    <div className="text-slate-900 font-semibold text-lg">
-                      {ex.projectSummary}
-                    </div>
-                    <div className="text-slate-700 leading-relaxed">
-                      {ex.problem}
-                    </div>
-                    <div className="text-slate-700 leading-relaxed">
-                      {ex.approach}
+            <div className="max-w-5xl mx-auto space-y-6">
+              {examples.map((ex, i) => (
+                <article key={i} className="cs-card cs-card--hover">
+                  <div className="cs-card-inner p-8 md:p-10">
+                    <div className="flex items-start gap-5">
+                      <span
+                        className="font-display text-3xl md:text-4xl font-bold text-gold/70 leading-none select-none pt-1"
+                        aria-hidden="true"
+                      >
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-[11px] uppercase tracking-wider font-semibold text-gold-light/90 mb-1.5">
+                          Project Summary
+                        </p>
+                        <h2 className="text-xl md:text-2xl font-bold text-white leading-snug">
+                          {ex.projectSummary}
+                        </h2>
+                        <div className="mt-6 grid md:grid-cols-2 gap-6 md:gap-10">
+                          <div>
+                            <p className="text-[11px] uppercase tracking-wider font-semibold text-gold-light/90 mb-2">
+                              Problem to be Solved
+                            </p>
+                            <p className="text-white/85 leading-relaxed text-[0.95rem]">
+                              {ex.problem}
+                            </p>
+                          </div>
+                          <div>
+                            <p className="text-[11px] uppercase tracking-wider font-semibold text-gold-light/90 mb-2">
+                              Approach and Results
+                            </p>
+                            <p className="text-white/85 leading-relaxed text-[0.95rem]">
+                              {ex.approach}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>

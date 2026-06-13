@@ -26,13 +26,26 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
 
   return (
     <div>
-      <div className="mb-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-        <div className="space-y-2">
-          <h2 className="text-4xl md:text-5xl font-bold text-white">Articles</h2>
-          <div className="h-1 w-20 rounded-full bg-gradient-to-r from-gold to-accent" />
+      {/* Toolbar: category filters + search on one line (page title lives in the hero) */}
+      <div className="mb-12 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div className="flex flex-wrap gap-2 min-w-0">
+          {['All', ...categories].map(c => (
+            <button
+              key={c}
+              onClick={() => setCategory(c)}
+              className={cn(
+                "px-5 py-2 rounded-full text-[12px] font-bold transition-all duration-200 border backdrop-blur-md",
+                category === c
+                  ? "bg-gold border-gold text-primary"
+                  : "bg-white/5 border-white/15 text-white/75 hover:border-gold/60 hover:text-white hover:bg-white/10"
+              )}
+            >
+              {c}
+            </button>
+          ))}
         </div>
 
-        <div className="relative w-full sm:w-[300px]">
+        <div className="relative w-full sm:w-[280px] shrink-0">
           <Search size={16} className="absolute left-4 top-1/2 -translate-y-1/2 text-white/50" />
           <input
             value={query}
@@ -42,23 +55,6 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
             className="w-full bg-white/5 border border-white/10 rounded-2xl pl-11 pr-4 py-2.5 text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all backdrop-blur-md"
           />
         </div>
-      </div>
-
-      <div className="mb-12 flex flex-wrap gap-2">
-        {['All', ...categories].map(c => (
-          <button
-            key={c}
-            onClick={() => setCategory(c)}
-            className={cn(
-              "px-5 py-2 rounded-full text-[12px] font-bold transition-all duration-200 border backdrop-blur-md",
-              category === c
-                ? "bg-gold border-gold text-primary"
-                : "bg-white/5 border-white/15 text-white/75 hover:border-gold/60 hover:text-white hover:bg-white/10"
-            )}
-          >
-            {c}
-          </button>
-        ))}
       </div>
 
       <div className="space-y-6">
