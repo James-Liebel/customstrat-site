@@ -18,24 +18,38 @@ const SPARKS: Array<{
   top: string; left: string; size: number; variant: '' | 'gold' | 'accent';
   dur: number; delay: number; sway: number; op: number;
 }> = [
+  { top: '4%', left: '26%', size: 10, variant: 'accent', dur: 15, delay: 2, sway: 22, op: 0.42 },
   { top: '10%', left: '9%', size: 18, variant: 'gold', dur: 21, delay: 0, sway: 30, op: 0.5 },
+  { top: '16%', left: '68%', size: 12, variant: '', dur: 18, delay: 10, sway: -22, op: 0.3 },
   { top: '22%', left: '88%', size: 13, variant: 'accent', dur: 17, delay: 6, sway: -26, op: 0.45 },
+  { top: '30%', left: '40%', size: 9, variant: 'gold', dur: 14, delay: 4, sway: 24, op: 0.4 },
   { top: '36%', left: '16%', size: 24, variant: '', dur: 26, delay: 3, sway: 24, op: 0.32 },
+  { top: '42%', left: '76%', size: 16, variant: 'gold', dur: 20, delay: 11, sway: 28, op: 0.44 },
   { top: '48%', left: '93%', size: 15, variant: 'gold', dur: 19, delay: 9, sway: -32, op: 0.45 },
+  { top: '54%', left: '32%', size: 11, variant: 'accent', dur: 16, delay: 1, sway: -24, op: 0.4 },
   { top: '62%', left: '7%', size: 12, variant: 'accent', dur: 16, delay: 12, sway: 26, op: 0.48 },
+  { top: '68%', left: '58%', size: 10, variant: '', dur: 15, delay: 7, sway: 22, op: 0.3 },
   { top: '76%', left: '84%', size: 20, variant: '', dur: 23, delay: 5, sway: -24, op: 0.34 },
+  { top: '82%', left: '44%', size: 13, variant: 'gold', dur: 17, delay: 13, sway: -26, op: 0.42 },
   { top: '90%', left: '20%', size: 14, variant: 'gold', dur: 18, delay: 14, sway: 28, op: 0.46 },
+  { top: '96%', left: '72%', size: 11, variant: 'accent', dur: 16, delay: 8, sway: 24, op: 0.44 },
 ];
 
 const BOKEH: Array<{
   top: string; left: string; size: number; variant: '' | 'gold' | 'accent';
   dur: number; delay: number; sway: number; op: number;
 }> = [
+  { top: '6%', left: '48%', size: 52, variant: 'gold', dur: 26, delay: 11, sway: 28, op: 0.12 },
   { top: '14%', left: '72%', size: 70, variant: 'accent', dur: 30, delay: 0, sway: 36, op: 0.14 },
+  { top: '24%', left: '18%', size: 40, variant: '', dur: 22, delay: 16, sway: -26, op: 0.11 },
   { top: '30%', left: '4%', size: 46, variant: 'gold', dur: 24, delay: 8, sway: -28, op: 0.16 },
+  { top: '40%', left: '86%', size: 58, variant: 'accent', dur: 28, delay: 5, sway: 32, op: 0.13 },
   { top: '52%', left: '64%', size: 88, variant: '', dur: 34, delay: 4, sway: 30, op: 0.10 },
+  { top: '62%', left: '28%', size: 44, variant: 'gold', dur: 25, delay: 18, sway: -30, op: 0.13 },
   { top: '70%', left: '12%', size: 56, variant: 'accent', dur: 27, delay: 13, sway: 34, op: 0.13 },
+  { top: '80%', left: '52%', size: 48, variant: '', dur: 23, delay: 9, sway: 26, op: 0.1 },
   { top: '86%', left: '78%', size: 64, variant: 'gold', dur: 31, delay: 7, sway: -30, op: 0.12 },
+  { top: '94%', left: '34%', size: 50, variant: 'accent', dur: 26, delay: 15, sway: -28, op: 0.12 },
 ];
 
 /**
