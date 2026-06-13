@@ -1051,6 +1051,30 @@
     background: linear-gradient(135deg, rgba(107, 160, 212, 0.08), transparent 70%);
   }
 
+  /* Rising light motes: constant, gentle background life on dark shells.
+     Invisible at rest (opacity 0) — they only appear via the fx-mote-rise
+     animation, which is gated behind prefers-reduced-motion. */
+  .fx-particles {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .fx-mote {
+    position: absolute;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.9), transparent 70%);
+    opacity: 0;
+  }
+
+  .fx-mote--gold {
+    background: radial-gradient(circle, rgba(229, 212, 166, 0.9), transparent 70%);
+  }
+
+  .fx-mote--accent {
+    background: radial-gradient(circle, rgba(107, 160, 212, 0.9), transparent 70%);
+  }
+
   .fx-grain {
     position: absolute;
     inset: 0;
@@ -1171,11 +1195,11 @@
 
   0%,
   100% {
-    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1);
   }
 
   50% {
-    transform: translate(-50%, -50%) translate3d(26px, -18px, 0);
+    transform: translate(-50%, -50%) translate3d(70px, -44px, 0) scale(1.12);
   }
 }
 
@@ -1183,26 +1207,50 @@
 
   0%,
   100% {
-    transform: translate(-50%, -50%) translate3d(0, 0, 0);
+    transform: translate(-50%, -50%) translate3d(0, 0, 0) scale(1);
   }
 
   50% {
-    transform: translate(-50%, -50%) translate3d(-22px, 20px, 0);
+    transform: translate(-50%, -50%) translate3d(-58px, 50px, 0) scale(0.92);
+  }
+}
+
+@keyframes fx-mote-rise {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+
+  18% {
+    opacity: var(--op, 0.3);
+  }
+
+  82% {
+    opacity: var(--op, 0.3);
+  }
+
+  100% {
+    transform: translate3d(var(--sway, 24px), -150px, 0);
+    opacity: 0;
   }
 }
 
 /* Ambient motion + cross-page fades only when motion is welcome */
 @media (prefers-reduced-motion: no-preference) {
   .fx-aurora {
-    animation: fx-rotate 150s linear infinite;
+    animation: fx-rotate 110s linear infinite;
   }
 
   .fx-glow-drift-a {
-    animation: fx-drift-a 70s ease-in-out infinite;
+    animation: fx-drift-a 38s ease-in-out infinite;
   }
 
   .fx-glow-drift-b {
-    animation: fx-drift-b 90s ease-in-out infinite;
+    animation: fx-drift-b 52s ease-in-out infinite;
+  }
+
+  .fx-mote {
+    animation: fx-mote-rise var(--dur, 15s) linear var(--delay, 0s) infinite;
   }
 
   /* Same-origin page navigations cross-fade (MPA view transitions) */

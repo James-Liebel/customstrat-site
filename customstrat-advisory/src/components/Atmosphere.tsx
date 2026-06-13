@@ -10,6 +10,28 @@ interface AtmosphereProps {
   className?: string;
 }
 
+/* Rising light motes: deterministic configs (SSR-safe), spread along the
+   full page height so motion is present at every scroll depth. */
+const MOTES: Array<{
+  top: string; left: string; size: number; variant: '' | 'gold' | 'accent';
+  dur: number; delay: number; sway: number; op: number;
+}> = [
+  { top: '6%', left: '8%', size: 4, variant: '', dur: 13, delay: 0, sway: 26, op: 0.32 },
+  { top: '12%', left: '78%', size: 3, variant: 'gold', dur: 16, delay: 4, sway: -20, op: 0.3 },
+  { top: '20%', left: '30%', size: 5, variant: 'accent', dur: 18, delay: 2, sway: 32, op: 0.26 },
+  { top: '26%', left: '92%', size: 3, variant: '', dur: 12, delay: 7, sway: -24, op: 0.3 },
+  { top: '34%', left: '14%', size: 4, variant: 'accent', dur: 15, delay: 5, sway: 22, op: 0.3 },
+  { top: '40%', left: '60%', size: 3, variant: 'gold', dur: 19, delay: 1, sway: -30, op: 0.24 },
+  { top: '48%', left: '85%', size: 5, variant: '', dur: 14, delay: 8, sway: 26, op: 0.28 },
+  { top: '54%', left: '6%', size: 3, variant: 'gold', dur: 17, delay: 3, sway: 20, op: 0.3 },
+  { top: '62%', left: '42%', size: 4, variant: 'accent', dur: 13, delay: 9, sway: -26, op: 0.26 },
+  { top: '68%', left: '70%', size: 3, variant: '', dur: 16, delay: 6, sway: 24, op: 0.3 },
+  { top: '76%', left: '22%', size: 5, variant: 'gold', dur: 18, delay: 2, sway: -22, op: 0.26 },
+  { top: '82%', left: '94%', size: 3, variant: 'accent', dur: 12, delay: 10, sway: 28, op: 0.3 },
+  { top: '88%', left: '52%', size: 4, variant: '', dur: 15, delay: 4, sway: -28, op: 0.28 },
+  { top: '94%', left: '12%', size: 3, variant: 'accent', dur: 17, delay: 7, sway: 24, op: 0.3 },
+];
+
 /**
  * Page background: theme gradient + subtle texture + static color washes.
  * Purely decorative — no animation, no pointer interaction.
@@ -84,6 +106,26 @@ export default function Atmosphere({
           }}
         />
       ))}
+
+      {/* Constant ambient motion: soft motes rising at varied depths */}
+      <div className="fx-particles">
+        {MOTES.map((m, i) => (
+          <span
+            key={i}
+            className={`fx-mote ${m.variant ? `fx-mote--${m.variant}` : ''}`}
+            style={{
+              top: m.top,
+              left: m.left,
+              width: m.size,
+              height: m.size,
+              '--dur': `${m.dur}s`,
+              '--delay': `${m.delay * -1}s`,
+              '--sway': `${m.sway}px`,
+              '--op': m.op,
+            } as React.CSSProperties}
+          />
+        ))}
+      </div>
 
       <div className="fx-grain" />
     </div>
