@@ -35,18 +35,24 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-header transition-[background-color,box-shadow] duration-300 ${
-        scrolled
-          ? 'bg-white/85 backdrop-blur-md shadow-lg'
-          : 'bg-[linear-gradient(180deg,#fff_80%,#f1f5f9_100%)] shadow-md'
+      className={`sticky top-0 z-header bg-white/85 backdrop-blur-md transition-shadow duration-300 ${
+        scrolled ? 'shadow-lg' : 'shadow-md'
       }`}
     >
+      {/* Opaque at-top gradient crossfades out on scroll (background-image
+          can't transition, so it lives on its own layer over the glass) */}
+      <div
+        className={`absolute inset-0 bg-[linear-gradient(180deg,#fff_80%,#f1f5f9_100%)] transition-opacity duration-300 ${
+          scrolled ? 'opacity-0' : 'opacity-100'
+        }`}
+        aria-hidden="true"
+      />
       {/* Brand hairline */}
       <div
         className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(74,134,192,0.5)_30%,rgba(201,169,97,0.5)_70%,transparent)]"
         aria-hidden="true"
       />
-      <nav className="container-custom py-4">
+      <nav className="container-custom py-4 relative">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-10 h-10">

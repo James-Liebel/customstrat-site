@@ -48,6 +48,18 @@ export default function VisualEffects() {
     );
     targets.forEach((t) => io.observe(t));
 
+    // --- Scroll-linked ambient parallax (consumed by .fx-diamond) ---
+    let scrollRaf = 0;
+    const onScroll = () => {
+      if (scrollRaf) return;
+      scrollRaf = requestAnimationFrame(() => {
+        scrollRaf = 0;
+        root.style.setProperty('--sy', String(window.scrollY));
+      });
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
     // --- Pointer tilt + glare on cards ---
     const cleanups: Array<() => void> = [];
     if (window.matchMedia('(pointer: fine)').matches) {
@@ -86,6 +98,8 @@ export default function VisualEffects() {
 
     return () => {
       io.disconnect();
+      window.removeEventListener('scroll', onScroll);
+      if (scrollRaf) cancelAnimationFrame(scrollRaf);
       cleanups.forEach((fn) => fn());
     };
   }, [pathname]);

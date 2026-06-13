@@ -1025,6 +1025,32 @@
     pointer-events: none;
   }
 
+  /* Outer-gutter diamond field: drifts upward with scroll (parallax).
+     --sy is the page scroll position; --pf the per-element factor. */
+  .fx-ambient {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .fx-diamond {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 8px;
+    transform: translate3d(0, calc(var(--sy, 0) * var(--pf, 0.06) * -1px), 0) rotate(45deg);
+    will-change: transform;
+  }
+
+  .fx-diamond--gold {
+    border-color: rgba(201, 169, 97, 0.22);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.08), transparent 70%);
+  }
+
+  .fx-diamond--accent {
+    border-color: rgba(107, 160, 212, 0.20);
+    background: linear-gradient(135deg, rgba(107, 160, 212, 0.08), transparent 70%);
+  }
+
   .fx-grain {
     position: absolute;
     inset: 0;

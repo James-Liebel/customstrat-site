@@ -57,6 +57,18 @@ export default function Atmosphere({
 
       <PatternLayer pattern={theme.pattern} opacity={opacity * 0.4} />
 
+      {/* Outer-gutter diamond field with scroll parallax (--sy is written by
+          VisualEffects; static without JS or with reduced motion). Hidden
+          below xl so it never crowds the content column. */}
+      <div className="fx-ambient hidden xl:block">
+        <div className="fx-diamond" style={{ top: '16%', left: '3%', width: 110, height: 110, '--pf': 0.05 } as React.CSSProperties} />
+        <div className="fx-diamond fx-diamond--gold" style={{ top: '34%', left: '90%', width: 150, height: 150, '--pf': 0.09 } as React.CSSProperties} />
+        <div className="fx-diamond fx-diamond--accent" style={{ top: '52%', left: '5%', width: 64, height: 64, '--pf': 0.13 } as React.CSSProperties} />
+        <div className="fx-diamond" style={{ top: '68%', left: '92%', width: 84, height: 84, '--pf': 0.07 } as React.CSSProperties} />
+        <div className="fx-diamond fx-diamond--accent" style={{ top: '86%', left: '2%', width: 130, height: 130, '--pf': 0.10 } as React.CSSProperties} />
+        <div className="fx-diamond fx-diamond--gold" style={{ top: '94%', left: '88%', width: 60, height: 60, '--pf': 0.15 } as React.CSSProperties} />
+      </div>
+
       {glowPositions.map((glow, index) => (
         <div
           key={index}
