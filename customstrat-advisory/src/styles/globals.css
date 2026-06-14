@@ -55,7 +55,10 @@
 
   /* Base styles */
   html {
-    scroll-behavior: smooth;
+    /* No global smooth-scroll: it makes route-change scroll resets
+       animate, which janks/half-lands on mobile Safari. Scroll-to-top on
+       nav is handled instantly by ScrollReset; the back-to-top button
+       requests smooth explicitly in JS. */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }

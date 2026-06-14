@@ -3,6 +3,7 @@ import Script from 'next/script';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import ScrollToTop from '@/components/ScrollToTop';
+import ScrollReset from '@/components/ScrollReset';
 import VisualEffects from '@/components/VisualEffects';
 import '@/styles/globals.css';
 import { siteContent } from '@/content/siteContent';
@@ -48,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${manrope.variable} scroll-smooth`}>
+    <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
       <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 bg-white overflow-x-hidden">
         {/* fx gate: lets globals.css hide reveal targets before first paint,
             so scroll-reveal can fade them in. Skipped for reduced motion and
@@ -84,6 +85,7 @@ export default function RootLayout({
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
           <ScrollToTop />
+          <ScrollReset />
           <VisualEffects />
         </div>
       </body>
