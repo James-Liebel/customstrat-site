@@ -61,8 +61,17 @@ export default function HomePage() {
       </section>
 
       {/* Main content: white sheet rising over the dark hero */}
-      <section className="cs-section py-20 relative z-10 bg-white shadow-2xl rounded-t-[2.5rem] -mt-6">
-        <div className="container-wide">
+      <section className="cs-section py-20 relative z-10 bg-white shadow-2xl rounded-t-[2.5rem] -mt-6 overflow-hidden">
+        {/* Faint margin diamonds that drift with scroll (xl+, parallax via
+            --sy; static without JS or with reduced motion) */}
+        <div className="fx-ambient hidden xl:block" aria-hidden="true">
+          <span className="fx-diamond fx-diamond--ink" style={{ top: '10%', left: '2%', width: 120, height: 120, '--pf': 0.06 } as React.CSSProperties} />
+          <span className="fx-diamond fx-diamond--ink-gold" style={{ top: '34%', left: '95%', width: 84, height: 84, '--pf': 0.11 } as React.CSSProperties} />
+          <span className="fx-diamond fx-diamond--ink-accent" style={{ top: '62%', left: '3%', width: 68, height: 68, '--pf': 0.09 } as React.CSSProperties} />
+          <span className="fx-diamond fx-diamond--ink" style={{ top: '84%', left: '94%', width: 110, height: 110, '--pf': 0.05 } as React.CSSProperties} />
+        </div>
+
+        <div className="container-wide relative z-10">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Services Offered */}
             <div className="space-y-6">

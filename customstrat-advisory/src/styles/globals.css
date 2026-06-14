@@ -1119,6 +1119,23 @@
     background: linear-gradient(135deg, rgba(107, 160, 212, 0.08), transparent 70%);
   }
 
+  /* Ink-tinted diamond variants for the home page's white content sheet —
+     faint navy/gold outlines that read as a watermark, not clutter. */
+  .fx-diamond--ink {
+    border-color: rgba(30, 75, 117, 0.12);
+    background: linear-gradient(135deg, rgba(30, 75, 117, 0.045), transparent 70%);
+  }
+
+  .fx-diamond--ink-gold {
+    border-color: rgba(201, 169, 97, 0.28);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.07), transparent 70%);
+  }
+
+  .fx-diamond--ink-accent {
+    border-color: rgba(74, 134, 192, 0.22);
+    background: linear-gradient(135deg, rgba(74, 134, 192, 0.06), transparent 70%);
+  }
+
   /* Ambient flotsam: rising brand diamonds over soft bokeh light.
      Invisible at rest (opacity 0) — elements only appear via their rise
      animations, which are gated behind prefers-reduced-motion. */

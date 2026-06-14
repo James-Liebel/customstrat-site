@@ -1,0 +1,10 @@
+import { chromium } from 'playwright-core';
+const [url, out, scrollY = '0', w = '1536', h = '900'] = process.argv.slice(2);
+const browser = await chromium.launch({ channel: 'msedge', headless: true });
+const page = await browser.newPage({ viewport: { width: +w, height: +h } });
+await page.goto(url, { waitUntil: 'networkidle' });
+await page.evaluate((y) => window.scrollTo(0, +y), scrollY);
+await page.waitForTimeout(700);
+await page.screenshot({ path: out });
+await browser.close();
+console.log('scroll shot:', out);
