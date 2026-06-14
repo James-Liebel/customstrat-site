@@ -21,6 +21,21 @@ export default function HomePage() {
       <section className="relative min-h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-ink via-primary/90 to-primary/60"></div>
 
+        {/* Living backdrop: breathing gradient blooms + diamond lattice +
+            shimmer sweep + slow floating diamonds, under a legibility scrim */}
+        <div className="cs-homehero" aria-hidden="true">
+          <span className="cs-homehero-bloom cs-homehero-bloom--a" />
+          <span className="cs-homehero-bloom cs-homehero-bloom--b" />
+          <span className="cs-homehero-bloom cs-homehero-bloom--c" />
+          <div className="cs-hero-grid" />
+          <div className="cs-hero-shimmer" />
+          <span className="cs-homehero-diamond" style={{ top: '22%', left: '12%', width: 26, height: 26, '--dur': '13s', '--delay': '0s' } as React.CSSProperties} />
+          <span className="cs-homehero-diamond cs-homehero-diamond--accent" style={{ top: '64%', left: '18%', width: 18, height: 18, '--dur': '16s', '--delay': '-4s' } as React.CSSProperties} />
+          <span className="cs-homehero-diamond cs-homehero-diamond--accent" style={{ top: '30%', right: '14%', width: 20, height: 20, '--dur': '15s', '--delay': '-7s' } as React.CSSProperties} />
+          <span className="cs-homehero-diamond" style={{ top: '70%', right: '12%', width: 28, height: 28, '--dur': '18s', '--delay': '-2s' } as React.CSSProperties} />
+          <div className="cs-homehero-scrim" />
+        </div>
+
         {/* Hero Content */}
         <div className="container-custom relative z-10 text-white py-12 text-center">
           <div className="flex justify-center mb-8 animate-[fadeInUp_800ms_ease-out]">

@@ -508,9 +508,6 @@
 
   .cs-body a:hover {
     text-decoration-color: var(--color-accent);
-  }
-
-  .cs-body a:hover {
     opacity: 0.9;
   }
 
@@ -1010,6 +1007,77 @@
     animation: cs-shimmer 12s ease-in-out infinite;
   }
 
+  /* =========================
+   Home hero living backdrop
+   Slow breathing gradient blooms (the 2026 financial-site signature:
+   soft layered gradients drifting to suggest calm motion), edge-weighted
+   so the centered logo/title/tagline stay legible. Blooms + floating
+   diamonds animate only under prefers-reduced-motion: no-preference.
+   ========================= */
+  .cs-homehero {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .cs-homehero-bloom {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(64px);
+    opacity: 0.55;
+    will-change: transform;
+  }
+
+  .cs-homehero-bloom--a {
+    width: 60vw;
+    height: 60vw;
+    top: -24%;
+    left: -12%;
+    background: radial-gradient(circle, rgba(74, 134, 192, 0.55), transparent 70%);
+  }
+
+  .cs-homehero-bloom--b {
+    width: 52vw;
+    height: 52vw;
+    bottom: -28%;
+    right: -12%;
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.30), transparent 70%);
+  }
+
+  .cs-homehero-bloom--c {
+    width: 46vw;
+    height: 46vw;
+    top: 8%;
+    right: 18%;
+    background: radial-gradient(circle, rgba(52, 96, 139, 0.50), transparent 70%);
+  }
+
+  /* Slow floating brand diamonds (stay in place — appropriate for the
+     contained hero band, unlike the rising ambient sparks elsewhere) */
+  .cs-homehero-diamond {
+    position: absolute;
+    border: 1px solid rgba(201, 169, 97, 0.45);
+    border-radius: 4px;
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.14), transparent 65%);
+    box-shadow: 0 0 18px rgba(201, 169, 97, 0.18);
+    transform: rotate(45deg);
+    will-change: transform;
+  }
+
+  .cs-homehero-diamond--accent {
+    border-color: rgba(107, 160, 212, 0.5);
+    background: linear-gradient(135deg, rgba(107, 160, 212, 0.16), transparent 65%);
+    box-shadow: 0 0 18px rgba(107, 160, 212, 0.2);
+  }
+
+  /* Radial scrim keeps white hero text/logo at AA contrast over the motion */
+  .cs-homehero-scrim {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(58% 62% at 50% 46%, rgba(10, 26, 47, 0.55), transparent 78%);
+  }
+
   /* Atmosphere extras: slow aurora rotation, drifting glows, film grain */
   .fx-aurora {
     position: absolute;
@@ -1279,6 +1347,54 @@
   }
 }
 
+@keyframes cs-bloom-a {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(7%, 6%, 0) scale(1.16);
+  }
+}
+
+@keyframes cs-bloom-b {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-7%, -5%, 0) scale(1.1);
+  }
+}
+
+@keyframes cs-bloom-c {
+
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate3d(-6%, 7%, 0) scale(0.9);
+  }
+}
+
+@keyframes cs-homehero-float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+
+  50% {
+    transform: translateY(-16px) rotate(63deg);
+  }
+}
+
 /* Ambient motion + cross-page fades only when motion is welcome */
 @media (prefers-reduced-motion: no-preference) {
   .fx-aurora {
@@ -1299,6 +1415,22 @@
 
   .fx-bokeh {
     animation: fx-bokeh-drift var(--dur, 28s) linear var(--delay, 0s) infinite;
+  }
+
+  .cs-homehero-bloom--a {
+    animation: cs-bloom-a 34s ease-in-out infinite;
+  }
+
+  .cs-homehero-bloom--b {
+    animation: cs-bloom-b 46s ease-in-out infinite;
+  }
+
+  .cs-homehero-bloom--c {
+    animation: cs-bloom-c 40s ease-in-out infinite;
+  }
+
+  .cs-homehero-diamond {
+    animation: cs-homehero-float var(--dur, 14s) ease-in-out var(--delay, 0s) infinite;
   }
 
   /* Same-origin page navigations cross-fade (MPA view transitions) */
