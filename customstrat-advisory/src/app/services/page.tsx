@@ -4,13 +4,43 @@ import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import TrackedServiceLink from "@/components/TrackedServiceLink";
 import { siteContent } from "@/content/siteContent";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Compass, Rocket, Gauge } from "lucide-react";
 
 
 export const metadata: Metadata = {
   title: "Our Strategic Impact: Real-World Case Studies",
   description: "Strategy, transformation, and execution support for midsize institutions.",
 };
+
+const caseStudies = [
+  {
+    href: "/services/strategy-development",
+    serviceName: "Strategy Development",
+    title: "Strategy Development",
+    description:
+      "Defining strategies that clarify where to compete and how to strengthen advantage.",
+    icon: Compass,
+    ariaLabel: "View Strategy Development services",
+  },
+  {
+    href: "/services/strategy-execution",
+    serviceName: "Strategy Execution & Transformation",
+    title: "Strategy Execution & Transformation",
+    description:
+      "Accelerating change with focused workstreams, governance, and disciplined execution.",
+    icon: Rocket,
+    ariaLabel: "View Strategy Execution & Transformation services",
+  },
+  {
+    href: "/services/operational-improvements",
+    serviceName: "Customer Experience & Performance Improvement",
+    title: "Customer Experience & Performance Improvement",
+    description:
+      "Improving profitability and client impact through analytics that surface inefficiencies and VOC insights.",
+    icon: Gauge,
+    ariaLabel: "View Customer Experience & Performance Improvement services",
+  },
+];
 
 export default function ServicesPage() {
   return (
@@ -37,83 +67,52 @@ export default function ServicesPage() {
           <div className="cs-services-navband">
             <div className="cs-services-navband__inner">
               <div className="cs-services-navgrid">
-                <TrackedServiceLink
-                  href="/services/strategy-development"
-                  serviceName="Strategy Development"
-                  className="cs-card cs-card--hover group"
-                  ariaLabel="View Strategy Development services"
-                >
-                  <div className="cs-card-inner flex flex-col h-full">
-                    <div className="flex-1">
-                      <div className="mb-4">
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full" />
-                          <span className="font-display text-4xl font-bold text-white/15 leading-none select-none" aria-hidden="true">01</span>
+                {caseStudies.map((card, i) => {
+                  const Icon = card.icon;
+                  return (
+                    <TrackedServiceLink
+                      key={card.href}
+                      href={card.href}
+                      serviceName={card.serviceName}
+                      className="cs-card cs-card--hover group"
+                      ariaLabel={card.ariaLabel}
+                    >
+                      <div className="cs-card-inner flex flex-col h-full">
+                        {/* Header: icon badge + step number */}
+                        <div className="flex items-center justify-between mb-5">
+                          <span className="grid place-items-center w-14 h-14 rounded-2xl bg-gradient-to-br from-gold/25 to-gold/5 ring-1 ring-gold/30 text-gold">
+                            <Icon size={28} strokeWidth={1.75} aria-hidden="true" />
+                          </span>
+                          <span
+                            className="font-display text-4xl font-bold text-white/15 leading-none select-none"
+                            aria-hidden="true"
+                          >
+                            {String(i + 1).padStart(2, "0")}
+                          </span>
                         </div>
-                        <h3 className="text-[1.35rem] leading-snug font-bold text-white mb-3 min-h-[3.6rem]">Strategy Development</h3>
-                      </div>
-                      <p className="text-white/70 text-base leading-relaxed">
-                        Defining strategies that clarify where to compete and how to strengthen advantage.
-                      </p>
-                    </div>
-                    <div className="mt-6 pt-6 border-t border-white/10 w-full flex justify-between items-center text-gold font-bold text-sm">
-                      <span className="group-hover:text-gold-light transition-colors">See examples</span>
-                      <ArrowRight size={20} className="transition-transform group-hover:translate-x-2" />
-                    </div>
-                  </div>
-                </TrackedServiceLink>
 
-                <TrackedServiceLink
-                  href="/services/strategy-execution"
-                  serviceName="Strategy Execution & Transformation"
-                  className="cs-card cs-card--hover group"
-                  ariaLabel="View Strategy Execution & Transformation services"
-                >
-                  <div className="cs-card-inner flex flex-col h-full">
-                    <div className="flex-1">
-                      <div className="mb-4">
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full" />
-                          <span className="font-display text-4xl font-bold text-white/15 leading-none select-none" aria-hidden="true">02</span>
-                        </div>
-                        <h3 className="text-[1.35rem] leading-snug font-bold text-white mb-3 min-h-[3.6rem]">Strategy Execution &amp; Transformation</h3>
-                      </div>
-                      <p className="text-white/70 text-base leading-relaxed">
-                        Accelerating change with focused workstreams, governance, and disciplined execution.
-                      </p>
-                    </div>
-                    <div className="mt-6 pt-6 border-t border-white/10 w-full flex justify-between items-center text-gold font-bold text-sm">
-                      <span className="group-hover:text-gold-light transition-colors">See examples</span>
-                      <ArrowRight size={20} className="transition-transform group-hover:translate-x-2" />
-                    </div>
-                  </div>
-                </TrackedServiceLink>
+                        {/* Title — reserved to two lines so descriptions align */}
+                        <h3 className="text-[1.35rem] leading-snug font-bold text-white mb-3 min-h-[3.75rem] flex items-end">
+                          {card.title}
+                        </h3>
+                        <p className="text-white/70 text-base leading-relaxed">
+                          {card.description}
+                        </p>
 
-                <TrackedServiceLink
-                  href="/services/operational-improvements"
-                  serviceName="Customer Experience & Performance Improvement"
-                  className="cs-card cs-card--hover group"
-                  ariaLabel="View Customer Experience & Performance Improvement services"
-                >
-                  <div className="cs-card-inner flex flex-col h-full">
-                    <div className="flex-1">
-                      <div className="mb-4">
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="h-1 w-12 bg-gradient-to-r from-gold to-gold/40 rounded-full" />
-                          <span className="font-display text-4xl font-bold text-white/15 leading-none select-none" aria-hidden="true">03</span>
+                        {/* Footer pinned to the bottom of every card */}
+                        <div className="mt-auto pt-6 border-t border-white/10 w-full flex justify-between items-center text-gold font-bold text-sm">
+                          <span className="group-hover:text-gold-light transition-colors">
+                            See examples
+                          </span>
+                          <ArrowRight
+                            size={20}
+                            className="transition-transform group-hover:translate-x-2"
+                          />
                         </div>
-                        <h3 className="text-[1.35rem] leading-snug font-bold text-white mb-3 min-h-[3.6rem]">Customer Experience &amp; Performance Improvement</h3>
                       </div>
-                      <p className="text-white/70 text-base leading-relaxed">
-                        Improving profitability and client impact through analytics that surface inefficiencies and VOC insights.
-                      </p>
-                    </div>
-                    <div className="mt-6 pt-6 border-t border-white/10 w-full flex justify-between items-center text-gold font-bold text-sm">
-                      <span className="group-hover:text-gold-light transition-colors">See examples</span>
-                      <ArrowRight size={20} className="transition-transform group-hover:translate-x-2" />
-                    </div>
-                  </div>
-                </TrackedServiceLink>
+                    </TrackedServiceLink>
+                  );
+                })}
               </div>
             </div>
           </div>
