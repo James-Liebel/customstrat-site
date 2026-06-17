@@ -1,6 +1,3 @@
-# Next.js build artifacts (these are internal files, not needed for static hosting)
-**/index.txt
-
 # Node modules
 node_modules/
 

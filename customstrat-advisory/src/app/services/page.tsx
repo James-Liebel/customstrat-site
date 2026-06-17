@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import TrackedServiceLink from "@/components/TrackedServiceLink";
 import { siteContent } from "@/content/siteContent";
-import { ArrowRight, Compass, Rocket, Gauge } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 
 export const metadata: Metadata = {
@@ -19,7 +19,6 @@ const caseStudies = [
     title: "Strategy Development",
     description:
       "Defining strategies that clarify where to compete and how to strengthen advantage.",
-    icon: Compass,
     ariaLabel: "View Strategy Development services",
   },
   {
@@ -28,7 +27,6 @@ const caseStudies = [
     title: "Strategy Execution & Transformation",
     description:
       "Accelerating change with focused workstreams, governance, and disciplined execution.",
-    icon: Rocket,
     ariaLabel: "View Strategy Execution & Transformation services",
   },
   {
@@ -37,7 +35,6 @@ const caseStudies = [
     title: "Customer Experience & Performance Improvement",
     description:
       "Improving profitability and client impact through analytics that surface inefficiencies and VOC insights.",
-    icon: Gauge,
     ariaLabel: "View Customer Experience & Performance Improvement services",
   },
 ];
@@ -68,7 +65,6 @@ export default function ServicesPage() {
             <div className="cs-services-navband__inner">
               <div className="cs-services-navgrid">
                 {caseStudies.map((card, i) => {
-                  const Icon = card.icon;
                   return (
                     <TrackedServiceLink
                       key={card.href}
@@ -78,11 +74,8 @@ export default function ServicesPage() {
                       ariaLabel={card.ariaLabel}
                     >
                       <div className="cs-card-inner flex flex-col h-full">
-                        {/* Header: icon badge + step number */}
-                        <div className="flex items-center justify-between mb-5">
-                          <span className="grid place-items-center w-14 h-14 rounded-2xl bg-gradient-to-br from-gold/25 to-gold/5 ring-1 ring-gold/30 text-gold">
-                            <Icon size={28} strokeWidth={1.75} aria-hidden="true" />
-                          </span>
+                        {/* Step index */}
+                        <div className="mb-5 text-right">
                           <span
                             className="font-display text-4xl font-bold text-white/15 leading-none select-none"
                             aria-hidden="true"

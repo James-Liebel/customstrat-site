@@ -52,11 +52,10 @@ function copyRecursive(src, dest) {
     });
   } else {
     const fileName = path.basename(dest);
-    // Skip Next.js RSC text payloads (index.txt): internal build artifacts,
-    // gitignored and not needed for static hosting — keeps them out of the root.
-    if (fileName === 'index.txt') {
-      return;
-    }
+    // NOTE: index.txt files are the App Router's RSC payloads. They MUST be
+    // copied (and committed) — the client router fetches them for in-place
+    // navigation between exported pages. Without them, every <Link> click falls
+    // back to a full document reload (white flash, no page transition).
     // Don't overwrite preserved files
     if (preserveFiles.includes(fileName) && fs.existsSync(dest)) {
       console.log(`Preserving existing: ${fileName}`);
