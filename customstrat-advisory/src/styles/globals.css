@@ -65,7 +65,12 @@
 
   body {
     color: var(--color-gray-900);
-    background-color: white;
+    /* Persistent app background — identical to every page's shell gradient
+       (LOGO_BLUE_BG / .cs-shell--*). Because it matches, the page-enter fade
+       never reveals white and the background reads as perfectly constant across
+       navigations; only the foreground content visibly moves. */
+    background-color: var(--color-ink);
+    background-image: linear-gradient(135deg, var(--color-ink) 0%, var(--color-primary) 100%);
     font-size: 16px;
     line-height: 1.7;
     font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -956,6 +961,26 @@
     animation: fx-rise 650ms var(--motion-easing-premium) var(--fxd, 0ms) backwards;
   }
 
+  /* =========================
+   Page transition
+   ========================= */
+
+  /* app/template.tsx re-mounts on every navigation, replaying this gentle
+     rise-and-fade on the page body. The shared header/footer stay put, so the
+     near-identical page tops feel stable while content settles up from below.
+     Composited properties only (opacity + transform); `backwards` fill paints
+     the from-state before the first frame and leaves no transform at rest. */
+  .cs-page-enter {
+    animation: cs-page-enter 520ms var(--motion-easing-premium) backwards;
+  }
+
+  /* During the entrance the page owns the motion: any scroll-reveal that fires
+     for above-the-fold elements in this window snaps to its final state instead
+     of compounding with the page slide (cleared by template.tsx once done). */
+  .cs-page-entering .fx-in {
+    animation: none !important;
+  }
+
   /* Hero display title: gradient sheen + soft depth */
   .cs-hero-title {
     font-size: clamp(2.4rem, 1.9rem + 2.2vw, 3.6rem);
@@ -1278,6 +1303,10 @@
     .fx-aurora {
       animation: none !important;
     }
+
+    .cs-page-enter {
+      animation: none !important;
+    }
   }
 
 }
@@ -1288,6 +1317,18 @@
   from {
     opacity: 0;
     transform: translateY(18px);
+  }
+}
+
+@keyframes cs-page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

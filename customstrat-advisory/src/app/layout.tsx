@@ -53,7 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
-      <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 bg-white overflow-x-hidden">
+      <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 overflow-x-hidden">
         {/* fx gate: lets globals.css hide reveal targets before first paint,
             so scroll-reveal can fade them in. Skipped for reduced motion and
             absent entirely without JS (content stays fully visible). */}

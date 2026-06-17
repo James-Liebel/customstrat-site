@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Image from 'next/image';
-import { ExternalLink, ChevronDown, ChevronUp } from 'lucide-react';
+import { ExternalLink, ChevronDown } from 'lucide-react';
 
 function cn(...classes: Array<string | undefined | false>) {
     return classes.filter(Boolean).join(' ');
@@ -40,8 +40,85 @@ function MarkdownRenderer({ text }: { text: string }) {
     );
 }
 
+const BioToggleButton = React.forwardRef<
+    HTMLButtonElement,
+    { expanded: boolean; onToggle: () => void; controls: string }
+>(function BioToggleButton({ expanded, onToggle, controls }, ref) {
+    return (
+        <div className="mt-auto pt-6 flex justify-center sm:justify-start">
+            <button
+                ref={ref}
+                type="button"
+                onClick={onToggle}
+                aria-expanded={expanded}
+                aria-controls={controls}
+                className="group/bio inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-5 py-2.5 text-sm font-semibold text-gold-light shadow-sm transition-all duration-200 hover:border-gold/70 hover:bg-gold/20 hover:text-white hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 active:scale-[0.97]"
+            >
+                <span>{expanded ? 'Show less' : 'Read full bio'}</span>
+                <ChevronDown
+                    size={16}
+                    aria-hidden="true"
+                    className={cn(
+                        "transition-transform duration-300 group-hover/bio:translate-y-0.5",
+                        expanded && "rotate-180 group-hover/bio:-translate-y-0.5"
+                    )}
+                />
+            </button>
+        </div>
+    );
+});
+
 function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: boolean }) {
     const [isExpanded, setIsExpanded] = React.useState(false);
+    const contentId = React.useId();
+
+    const buttonRef = React.useRef<HTMLButtonElement>(null);
+    const contentRef = React.useRef<HTMLDivElement>(null);
+    const anchorTopRef = React.useRef<number | null>(null);
+    const pinningRef = React.useRef(false);
+    const pinTimeoutRef = React.useRef<number | undefined>(undefined);
+
+    // Keep the clicked button at the same viewport position while the bio
+    // expands or collapses, so the page grows in place instead of yanking the
+    // reader to a new scroll depth. A ResizeObserver fires on every frame of
+    // the height transition; we cancel the button's movement before paint.
+    React.useEffect(() => {
+        const content = contentRef.current;
+        if (!content || typeof ResizeObserver === 'undefined') return;
+        const ro = new ResizeObserver(() => {
+            if (!pinningRef.current || anchorTopRef.current == null || !buttonRef.current) return;
+            const delta = buttonRef.current.getBoundingClientRect().top - anchorTopRef.current;
+            if (delta !== 0) window.scrollBy(0, delta);
+        });
+        ro.observe(content);
+        return () => ro.disconnect();
+    }, []);
+
+    const stopPinning = React.useCallback(() => {
+        pinningRef.current = false;
+        anchorTopRef.current = null;
+    }, []);
+
+    const handleToggle = React.useCallback(() => {
+        if (buttonRef.current) {
+            anchorTopRef.current = buttonRef.current.getBoundingClientRect().top;
+            pinningRef.current = true;
+        }
+        // Fallback in case transitionend never fires (e.g. reduced-motion,
+        // where the height snaps instantly with no transition to end).
+        window.clearTimeout(pinTimeoutRef.current);
+        pinTimeoutRef.current = window.setTimeout(stopPinning, 600);
+        setIsExpanded((v) => !v);
+    }, [stopPinning]);
+
+    const handleContentTransitionEnd = React.useCallback(
+        (e: React.TransitionEvent<HTMLDivElement>) => {
+            if (e.target === contentRef.current) stopPinning();
+        },
+        [stopPinning]
+    );
+
+    React.useEffect(() => () => window.clearTimeout(pinTimeoutRef.current), []);
 
     const splitBio = (extended: string[], sentencesCount: number) => {
         if (!extended.length) return { intro: '', restPara: '', remainingParas: [], hasMore: false };
@@ -85,10 +162,15 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                                     <MarkdownRenderer text={bio.intro} />
                                     {!isExpanded && bio.hasMore && <span>...</span>}
                                 </p>
-                                <div className={cn(
-                                    "overflow-hidden transition-all duration-500",
-                                    isExpanded ? "max-h-[2000px] opacity-100 mt-6" : "max-h-0 opacity-0"
-                                )}>
+                                <div
+                                    ref={contentRef}
+                                    id={contentId}
+                                    onTransitionEnd={handleContentTransitionEnd}
+                                    className={cn(
+                                        "overflow-hidden transition-all duration-500",
+                                        isExpanded ? "max-h-[2000px] opacity-100 mt-6" : "max-h-0 opacity-0"
+                                    )}
+                                >
                                     <div className="space-y-6">
                                         {bio.restPara && <p><MarkdownRenderer text={bio.restPara} /></p>}
                                         {bio.remainingParas.map((paragraph, pIdx) => (
@@ -106,9 +188,12 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                                 </div>
                             </div>
                             {bio.hasMore && (
-                                <button onClick={() => setIsExpanded(!isExpanded)} className="mt-auto pt-6 flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto text-gold-light hover:text-white transition-colors text-sm font-semibold">
-                                    {isExpanded ? <><span>Show less</span><ChevronUp size={16} aria-hidden="true" /></> : <><span>Read full bio</span><ChevronDown size={16} aria-hidden="true" /></>}
-                                </button>
+                                <BioToggleButton
+                                    ref={buttonRef}
+                                    expanded={isExpanded}
+                                    onToggle={handleToggle}
+                                    controls={contentId}
+                                />
                             )}
                         </div>
                     </div>
@@ -139,7 +224,12 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                         <MarkdownRenderer text={bio.intro} />
                         {!isExpanded && bio.hasMore && <span>...</span>}
                     </p>
-                    <div className={cn("overflow-hidden transition-all duration-500", isExpanded ? "max-h-[1000px] opacity-100 mt-4" : "max-h-0 opacity-0")}>
+                    <div
+                        ref={contentRef}
+                        id={contentId}
+                        onTransitionEnd={handleContentTransitionEnd}
+                        className={cn("overflow-hidden transition-all duration-500", isExpanded ? "max-h-[1000px] opacity-100 mt-4" : "max-h-0 opacity-0")}
+                    >
                         <div className="space-y-4">
                             {bio.restPara && <p><MarkdownRenderer text={bio.restPara} /></p>}
                             {bio.remainingParas.map((paragraph, pIdx) => <p key={pIdx}><MarkdownRenderer text={paragraph} /></p>)}
@@ -147,9 +237,12 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                     </div>
                 </div>
                 {bio.hasMore && (
-                    <button onClick={() => setIsExpanded(!isExpanded)} className="mt-auto pt-6 flex items-center justify-center sm:justify-start gap-2 w-full sm:w-auto text-gold-light hover:text-white transition-colors text-sm font-semibold">
-                        {isExpanded ? <><span>Show less</span><ChevronUp size={14} aria-hidden="true" /></> : <><span>Read full bio</span><ChevronDown size={14} aria-hidden="true" /></>}
-                    </button>
+                    <BioToggleButton
+                        ref={buttonRef}
+                        expanded={isExpanded}
+                        onToggle={handleToggle}
+                        controls={contentId}
+                    />
                 )}
             </div>
         </div>
