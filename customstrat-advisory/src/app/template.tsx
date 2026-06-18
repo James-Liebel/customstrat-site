@@ -23,7 +23,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     const [entering, setEntering] = React.useState(true);
 
     React.useEffect(() => {
-        const fallback = window.setTimeout(() => setEntering(false), 700);
+        const fallback = window.setTimeout(() => setEntering(false), 850);
         return () => window.clearTimeout(fallback);
     }, []);
 

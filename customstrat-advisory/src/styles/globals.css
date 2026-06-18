@@ -971,7 +971,7 @@
      Composited properties only (opacity + transform); `backwards` fill paints
      the from-state before the first frame and leaves no transform at rest. */
   .cs-page-enter {
-    animation: cs-page-enter 520ms var(--motion-easing-premium) backwards;
+    animation: cs-page-enter 650ms var(--motion-easing-premium) backwards;
   }
 
   /* During the entrance the page owns the motion: any scroll-reveal that fires
