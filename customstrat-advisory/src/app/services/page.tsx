@@ -74,21 +74,20 @@ export default function ServicesPage() {
                       ariaLabel={card.ariaLabel}
                     >
                       <div className="cs-card-inner flex flex-col h-full">
-                        {/* Step index */}
-                        <div className="mb-5 text-right">
+                        {/* Number + title on one row; reserved height keeps the
+                            descriptions aligned across cards */}
+                        <div className="flex items-baseline gap-3 mb-4 min-h-[3.75rem]">
                           <span
-                            className="font-display text-4xl font-bold text-white/15 leading-none select-none"
+                            className="font-display text-4xl font-bold text-white/25 leading-none select-none shrink-0"
                             aria-hidden="true"
                           >
                             {String(i + 1).padStart(2, "0")}
                           </span>
+                          <h3 className="text-[1.35rem] leading-snug font-bold text-white">
+                            {card.title}
+                          </h3>
                         </div>
-
-                        {/* Title — reserved to two lines so descriptions align */}
-                        <h3 className="text-[1.35rem] leading-snug font-bold text-white mb-3 min-h-[3.75rem] flex items-end">
-                          {card.title}
-                        </h3>
-                        <p className="text-white/70 text-base leading-relaxed">
+                        <p className="text-white/75 text-lg leading-relaxed">
                           {card.description}
                         </p>
 
