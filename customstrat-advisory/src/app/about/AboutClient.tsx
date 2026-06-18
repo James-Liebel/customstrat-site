@@ -40,14 +40,10 @@ function MarkdownRenderer({ text }: { text: string }) {
     );
 }
 
-const BioToggleButton = React.forwardRef<
-    HTMLButtonElement,
-    { expanded: boolean; onToggle: () => void; controls: string }
->(function BioToggleButton({ expanded, onToggle, controls }, ref) {
+function BioToggleButton({ expanded, onToggle, controls }: { expanded: boolean; onToggle: () => void; controls: string }) {
     return (
         <div className="mt-auto pt-6 flex justify-center sm:justify-start">
             <button
-                ref={ref}
                 type="button"
                 onClick={onToggle}
                 aria-expanded={expanded}
@@ -66,59 +62,19 @@ const BioToggleButton = React.forwardRef<
             </button>
         </div>
     );
-});
+}
 
 function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: boolean }) {
     const [isExpanded, setIsExpanded] = React.useState(false);
     const contentId = React.useId();
 
-    const buttonRef = React.useRef<HTMLButtonElement>(null);
-    const contentRef = React.useRef<HTMLDivElement>(null);
-    const anchorTopRef = React.useRef<number | null>(null);
-    const pinningRef = React.useRef(false);
-    const pinTimeoutRef = React.useRef<number | undefined>(undefined);
-
-    // Keep the clicked button at the same viewport position while the bio
-    // expands or collapses, so the page grows in place instead of yanking the
-    // reader to a new scroll depth. A ResizeObserver fires on every frame of
-    // the height transition; we cancel the button's movement before paint.
-    React.useEffect(() => {
-        const content = contentRef.current;
-        if (!content || typeof ResizeObserver === 'undefined') return;
-        const ro = new ResizeObserver(() => {
-            if (!pinningRef.current || anchorTopRef.current == null || !buttonRef.current) return;
-            const delta = buttonRef.current.getBoundingClientRect().top - anchorTopRef.current;
-            if (delta !== 0) window.scrollBy(0, delta);
-        });
-        ro.observe(content);
-        return () => ro.disconnect();
-    }, []);
-
-    const stopPinning = React.useCallback(() => {
-        pinningRef.current = false;
-        anchorTopRef.current = null;
-    }, []);
-
+    // Open downward: expanding the bio pushes the button and the content below
+    // it down and lets the page grow. We deliberately do NOT compensate scroll,
+    // so the view is never pinned to the button — the reader watches the panel
+    // unfold downward from where it is.
     const handleToggle = React.useCallback(() => {
-        if (buttonRef.current) {
-            anchorTopRef.current = buttonRef.current.getBoundingClientRect().top;
-            pinningRef.current = true;
-        }
-        // Fallback in case transitionend never fires (e.g. reduced-motion,
-        // where the height snaps instantly with no transition to end).
-        window.clearTimeout(pinTimeoutRef.current);
-        pinTimeoutRef.current = window.setTimeout(stopPinning, 600);
         setIsExpanded((v) => !v);
-    }, [stopPinning]);
-
-    const handleContentTransitionEnd = React.useCallback(
-        (e: React.TransitionEvent<HTMLDivElement>) => {
-            if (e.target === contentRef.current) stopPinning();
-        },
-        [stopPinning]
-    );
-
-    React.useEffect(() => () => window.clearTimeout(pinTimeoutRef.current), []);
+    }, []);
 
     const splitBio = (extended: string[], sentencesCount: number) => {
         if (!extended.length) return { intro: '', restPara: '', remainingParas: [], hasMore: false };
@@ -163,9 +119,7 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                                     {!isExpanded && bio.hasMore && <span>...</span>}
                                 </p>
                                 <div
-                                    ref={contentRef}
                                     id={contentId}
-                                    onTransitionEnd={handleContentTransitionEnd}
                                     className={cn(
                                         "overflow-hidden transition-all duration-500",
                                         isExpanded ? "max-h-[2000px] opacity-100 mt-6" : "max-h-0 opacity-0"
@@ -189,7 +143,6 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                             </div>
                             {bio.hasMore && (
                                 <BioToggleButton
-                                    ref={buttonRef}
                                     expanded={isExpanded}
                                     onToggle={handleToggle}
                                     controls={contentId}
@@ -225,9 +178,7 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                         {!isExpanded && bio.hasMore && <span>...</span>}
                     </p>
                     <div
-                        ref={contentRef}
                         id={contentId}
-                        onTransitionEnd={handleContentTransitionEnd}
                         className={cn("overflow-hidden transition-all duration-500", isExpanded ? "max-h-[1000px] opacity-100 mt-4" : "max-h-0 opacity-0")}
                     >
                         <div className="space-y-4">
@@ -238,7 +189,6 @@ function MemberCard({ member, isLeader = false }: { member: Member; isLeader?: b
                 </div>
                 {bio.hasMore && (
                     <BioToggleButton
-                        ref={buttonRef}
                         expanded={isExpanded}
                         onToggle={handleToggle}
                         controls={contentId}
