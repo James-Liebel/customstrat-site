@@ -13,6 +13,31 @@ import { Inter, Manrope } from 'next/font/google';
 // Get it from: https://clarity.microsoft.com
 const CLARITY_PROJECT_ID = 'v0jv4m5p9c';
 
+// Strict Content-Security-Policy. Delivered via <meta> because GitHub Pages
+// cannot set HTTP response headers. The allowlist is exactly what the site
+// loads (self + Microsoft Clarity). script-src/style-src must keep
+// 'unsafe-inline': Next's static export inlines per-page RSC bootstrap scripts
+// (plus our fx-gate + Clarity loader) that cannot share one hashed policy, and
+// many components use inline style attributes — see SECURITY.md for the residual
+// risk and the header-only controls (frame-ancestors, HSTS, X-Frame-Options,
+// X-Content-Type-Options, Permissions-Policy) that need a CDN/proxy.
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "base-uri 'self'",
+  "object-src 'none'",
+  "form-action 'self'",
+  "frame-src 'none'",
+  "worker-src 'self' blob:",
+  "manifest-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://*.clarity.ms",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data: https://*.clarity.ms https://c.bing.com",
+  "font-src 'self'",
+  "connect-src 'self' https://*.clarity.ms",
+  "upgrade-insecure-requests",
+  "block-all-mixed-content",
+].join('; ');
+
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
@@ -53,6 +78,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${manrope.variable}`}>
+      <head>
+        {/* CSP gated to production so it doesn't block next dev HMR (which needs
+            eval/websockets). The exported static site always builds in prod. */}
+        {process.env.NODE_ENV === 'production' && (
+          <meta httpEquiv="Content-Security-Policy" content={CONTENT_SECURITY_POLICY} />
+        )}
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+      </head>
       <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 overflow-x-hidden">
         {/* fx gate: lets globals.css hide reveal targets before first paint,
             so scroll-reveal can fade them in. Skipped for reduced motion and
