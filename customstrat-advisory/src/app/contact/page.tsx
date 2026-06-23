@@ -3,7 +3,8 @@ import Image from "next/image";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import { siteContent } from "@/content/siteContent";
-import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
+import LinkedinIcon from "@/components/LinkedinIcon";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -114,7 +115,7 @@ export default function ContactPage() {
                     rel="noopener noreferrer"
                     className="mt-4 w-full inline-flex justify-center items-center gap-2 rounded-2xl border border-primary/30 text-primary font-semibold py-3.5 hover:border-primary hover:bg-primary/5 transition-colors duration-200"
                   >
-                    <Linkedin size={18} />
+                    <LinkedinIcon size={18} />
                     Connect on LinkedIn
                   </a>
 

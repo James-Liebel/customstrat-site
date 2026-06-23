@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { siteContent } from '@/content/siteContent';
 import Image from 'next/image';
-import { Linkedin } from 'lucide-react';
+import LinkedinIcon from '@/components/LinkedinIcon';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -85,7 +85,7 @@ export default function Footer() {
                 className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors group"
                 aria-label="Connect on LinkedIn"
               >
-                <Linkedin size={18} className="text-white/70 group-hover:text-white transition-colors" />
+                <LinkedinIcon size={18} className="text-white/70 group-hover:text-white transition-colors" />
               </a>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:text-white transition-colors"
           >
-            <Linkedin size={14} />
+            <LinkedinIcon size={14} />
             <span>Follow on LinkedIn</span>
           </a>
         </div>
