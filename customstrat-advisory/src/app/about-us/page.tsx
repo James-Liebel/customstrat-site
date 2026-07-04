@@ -3,7 +3,6 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About Us',
-  robots: { index: false },
   alternates: { canonical: 'https://customstrat.com/about/' },
 };
 
@@ -11,6 +10,11 @@ export const metadata: Metadata = {
  * Redirect from the old /about-us URL to /about.
  * Static export can't issue server redirects, so a meta refresh
  * handles it instantly without JavaScript.
+ *
+ * No `noindex`: the 0s meta-refresh + canonical already tell Google this is a
+ * permanent redirect, so it consolidates signals into /about instead of
+ * indexing this stub. Adding noindex on top conflicts with the canonical and
+ * makes Search Console report the URL under "Excluded by 'noindex' tag".
  */
 export default function AboutUsRedirect() {
   return (
