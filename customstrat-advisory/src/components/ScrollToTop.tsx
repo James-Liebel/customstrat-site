@@ -20,7 +20,14 @@ export default function ScrollToTop() {
 
   return (
     <button
-      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      onClick={() =>
+        window.scrollTo({
+          top: 0,
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            ? 'auto'
+            : 'smooth',
+        })
+      }
       aria-label="Back to top"
       className={`fixed bottom-6 right-6 z-[90] w-11 h-11 rounded-full flex items-center justify-center
         bg-primary text-white border border-white/25 shadow-lg shadow-black/20

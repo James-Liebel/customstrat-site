@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Calendar, Clock, Search } from 'lucide-react';
+import { ArrowRight, Calendar, Clock, Search, X } from 'lucide-react';
 import type { Article } from '@/content/articles';
 
 function cn(...classes: Array<string | undefined | false>) {
@@ -52,10 +52,43 @@ export default function InsightsClient({ articles }: { articles: Article[] }) {
             onChange={e => setQuery(e.target.value)}
             placeholder="Search articles..."
             aria-label="Search articles"
-            className="w-full bg-white/5 border border-white/10 rounded-2xl pl-11 pr-4 py-2.5 text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all backdrop-blur-md"
+            className="w-full bg-white/5 border border-white/10 rounded-2xl pl-11 pr-10 py-2.5 text-white placeholder:text-white/45 focus:outline-none focus:ring-2 focus:ring-gold/50 transition-all backdrop-blur-md"
           />
+          {query.length > 0 && (
+            <button
+              onClick={() => setQuery('')}
+              aria-label="Clear search"
+              className="absolute right-3 top-1/2 -translate-y-1/2 p-1 rounded-full text-white/50 hover:text-white hover:bg-white/10 transition-colors"
+            >
+              <X size={14} />
+            </button>
+          )}
         </div>
       </div>
+
+      {/* Result count when a filter or search is active */}
+      {(query.trim().length > 0 || category !== 'All') && (
+        <p className="mb-6 -mt-6 text-sm text-white/60" role="status">
+          {filtered.length === 0
+            ? 'No articles match'
+            : `Showing ${filtered.length} of ${articles.length} articles`}
+        </p>
+      )}
+
+      {filtered.length === 0 && (
+        <div className="cs-card p-10 text-center">
+          <p className="text-white text-lg font-semibold mb-2">No articles found</p>
+          <p className="text-white/70 text-sm mb-6">
+            Try a different search term or browse all categories.
+          </p>
+          <button
+            onClick={() => { setQuery(''); setCategory('All'); }}
+            className="px-5 py-2 rounded-full text-sm font-bold bg-gold text-primary hover:brightness-110 transition-all"
+          >
+            Clear filters
+          </button>
+        </div>
+      )}
 
       <div className="space-y-6">
         {filtered.map((a) => (

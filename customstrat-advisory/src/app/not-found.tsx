@@ -23,6 +23,17 @@ export default function NotFound() {
           <ArrowLeft size={18} aria-hidden="true" />
           Back to home
         </Link>
+        <div className="mt-10 pt-8 border-t border-white/10 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm">
+          <Link href="/insights" className="text-white/70 hover:text-white font-semibold underline underline-offset-4 decoration-white/25 transition-colors">
+            Browse articles
+          </Link>
+          <Link href="/services" className="text-white/70 hover:text-white font-semibold underline underline-offset-4 decoration-white/25 transition-colors">
+            Case studies
+          </Link>
+          <Link href="/contact" className="text-white/70 hover:text-white font-semibold underline underline-offset-4 decoration-white/25 transition-colors">
+            Contact us
+          </Link>
+        </div>
       </div>
     </main>
   );

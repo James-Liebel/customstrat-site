@@ -5,6 +5,7 @@ import Atmosphere from "@/components/Atmosphere";
 import { siteContent } from "@/content/siteContent";
 import { Mail, Phone, MapPin } from "lucide-react";
 import LinkedinIcon from "@/components/LinkedinIcon";
+import CopyEmailButton from "@/components/CopyEmailButton";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -73,6 +74,7 @@ export default function ContactPage() {
                       >
                         {contact.email}
                       </a>
+                      <CopyEmailButton email={contact.email} />
                     </div>
                   </div>
 
