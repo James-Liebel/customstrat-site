@@ -715,6 +715,12 @@
     background: linear-gradient(90deg, var(--color-gold), var(--color-accent));
   }
 
+  /* When the section head scroll-reveals, the rule draws in from the center
+     just after the text settles (fx gate = JS on + motion welcome) */
+  .fx .cs-section-head.fx-in .cs-section-title::after {
+    animation: cs-rule-draw 600ms var(--motion-easing-premium) calc(var(--fxd, 0ms) + 260ms) backwards;
+  }
+
   .cs-section-subtitle {
     margin-top: 0.75rem;
   }
@@ -776,6 +782,31 @@
     color: rgba(255, 255, 255, 0.75);
     font-size: 12px;
     font-weight: 600;
+  }
+
+  /* Desktop nav links: gradient underline grows from center on hover.
+     Active links use the filled pill instead (see Header.tsx). */
+  .cs-nav-link {
+    position: relative;
+  }
+
+  .cs-nav-link::after {
+    content: '';
+    position: absolute;
+    left: 1rem;
+    right: 1rem;
+    bottom: 0.35rem;
+    height: 2px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--color-gold), var(--color-accent));
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 260ms var(--motion-easing-premium);
+  }
+
+  .cs-nav-link:hover::after,
+  .cs-nav-link:focus-visible::after {
+    transform: scaleX(1);
   }
 
   /* Inline link */
@@ -918,6 +949,15 @@
 
   .cs-card.fx-tilting::after {
     opacity: 1;
+  }
+
+  /* Hairline ring warms up on hover (gradient can't transition; filter can) */
+  .cs-card::before {
+    transition: filter var(--motion-duration-base) var(--motion-easing-premium);
+  }
+
+  .cs-card--hover:hover::before {
+    filter: brightness(1.45) saturate(1.15);
   }
 
   .cs-card--soft {
@@ -1212,6 +1252,27 @@
     background: radial-gradient(circle, rgba(107, 160, 212, 0.85), transparent 65%);
   }
 
+  /* Orbit rings: dashed hairline circles that rotate very slowly behind the
+     content. Radial mask fades the far edge so they read as arcs, not shapes. */
+  .fx-halo {
+    position: absolute;
+    border-radius: 999px;
+    border: 1px dashed rgba(255, 255, 255, 0.10);
+    opacity: 0.55;
+    -webkit-mask-image: radial-gradient(closest-side, #000 55%, transparent 100%);
+    mask-image: radial-gradient(closest-side, #000 55%, transparent 100%);
+    will-change: transform;
+    pointer-events: none;
+  }
+
+  .fx-halo--gold {
+    border-color: rgba(201, 169, 97, 0.18);
+  }
+
+  .fx-halo--accent {
+    border-color: rgba(107, 160, 212, 0.16);
+  }
+
   .fx-grain {
     position: absolute;
     inset: 0;
@@ -1351,6 +1412,16 @@
   }
 }
 
+@keyframes cs-rule-draw {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
 @keyframes fx-drift-a {
 
   0%,
@@ -1467,6 +1538,11 @@
 @media (prefers-reduced-motion: no-preference) {
   .fx-aurora {
     animation: fx-rotate 110s linear infinite;
+  }
+
+  .fx-halo {
+    animation: fx-rotate var(--dur, 180s) linear infinite;
+    animation-direction: var(--dir, normal);
   }
 
   .fx-glow-drift-a {

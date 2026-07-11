@@ -75,7 +75,7 @@ export default function Header() {
                     className={`px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
                       active
                         ? 'bg-primary text-white shadow-md'
-                        : 'text-slate-600 hover:text-primary hover:bg-slate-100'
+                        : 'cs-nav-link text-slate-600 hover:text-primary hover:bg-slate-100'
                     }`}
                   >
                     {item.label}

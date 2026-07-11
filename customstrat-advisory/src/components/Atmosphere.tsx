@@ -97,6 +97,13 @@ export default function Atmosphere({
     >
       <div className="fx-aurora" />
 
+      {/* Slow-rotating orbit rings: dashed hairline circles anchored to the
+          page corners; the dash pattern makes the rotation legible at very
+          low opacity. Static under prefers-reduced-motion. */}
+      <div className="fx-halo fx-halo--gold" style={{ top: '-8%', left: '-6%', width: 520, height: 520, '--dur': '160s' } as React.CSSProperties} />
+      <div className="fx-halo fx-halo--accent" style={{ top: '38%', left: '82%', width: 640, height: 640, '--dur': '210s', '--dir': 'reverse' } as React.CSSProperties} />
+      <div className="fx-halo" style={{ top: '78%', left: '-10%', width: 460, height: 460, '--dur': '185s' } as React.CSSProperties} />
+
       <PatternLayer pattern={theme.pattern} opacity={opacity * 0.4} />
 
       {/* Outer-gutter diamond field with scroll parallax (--sy is written by
