@@ -1,3 +1,9 @@
+// CustomStrat Advisory was founded in 2019. Deriving the "N+ years" line from
+// this constant keeps it from going stale — a static export bakes the value at
+// build time, so it refreshes on every deploy (same as the Footer's copyright).
+const FOUNDED_YEAR = 2019;
+const yearsInBusiness = new Date().getFullYear() - FOUNDED_YEAR;
+
 export const siteContent = {
   // Company Info
   company: {
@@ -15,7 +21,7 @@ export const siteContent = {
       title: "Helping mid-sized banks and insurance companies grow and transform, anchored in a customer perspective",
       subtitle: "",
     },
-    successMessage: "Successfully serving financial services companies for 5+ years",
+    successMessage: `Successfully serving financial services companies for ${yearsInBusiness}+ years`,
     sections: {
       servicesOffered: {
         title: "Areas of Expertise",
@@ -535,6 +541,5 @@ Resources are always limited and particularly constrained in the current environ
       { label: "Endorsements", href: "/endorsements" },
       { label: "Contact", href: "/contact" },
     ],
-    copyright: "© 2024 CustomStrat Advisory, LLC. All rights reserved.",
   }
 };

@@ -47,11 +47,11 @@ GitHub Pages will automatically update the live site.
 
 For detailed information about:
 - **Development**: See [`customstrat-advisory/README.md`](./customstrat-advisory/README.md)
-- **Deployment**: See [`customstrat-advisory/DEPLOY.md`](./customstrat-advisory/DEPLOY.md)
+- **Deployment**: See [`customstrat-advisory/docs/DEPLOY.md`](./customstrat-advisory/docs/DEPLOY.md)
 
 ## 🔧 Technical Stack
 
-- **Framework**: Next.js 14 (App Router)
+- **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Hosting**: GitHub Pages with custom domain
