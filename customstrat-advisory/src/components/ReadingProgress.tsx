@@ -1,15 +1,23 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useSyncExternalStore } from 'react';
 import { createPortal } from 'react-dom';
+
+// Hydration-safe "are we on the client yet?" check: false during SSR and the
+// initial hydration pass, true from the first commit onward. Replaces a
+// setMounted(true) in an effect, which costs a cascading re-render on every
+// article page (react-hooks/set-state-in-effect).
+const subscribeToNothing = () => () => {};
 
 export default function ReadingProgress() {
   const [progress, setProgress] = useState(0);
-  const [mounted, setMounted] = useState(false);
+  const mounted = useSyncExternalStore(
+    subscribeToNothing,
+    () => true,
+    () => false
+  );
 
   useEffect(() => {
-    setMounted(true);
-
     const updateProgress = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
