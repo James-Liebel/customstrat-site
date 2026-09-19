@@ -5,6 +5,8 @@ import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
 import { ArrowLeft } from "lucide-react";
 import RelatedArticles from "@/components/RelatedArticles";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Beyond Scale: Winning Strategies for Today's P&C Insurers",
@@ -14,6 +16,9 @@ export const metadata: Metadata = {
 export default function BeyondScalePCInsurers() {
   return (
     <main className="cs-shell--library relative">
+      {/* Article + breadcrumb structured data, derived from content/articles.ts */}
+      <JsonLd schema={articleSchema("beyond-scale-pc-insurers")} />
+      <JsonLd schema={articleBreadcrumbSchema("beyond-scale-pc-insurers")} />
       {/* Atmosphere: ink-dots theme (reading-focused, low intensity) */}
       <Atmosphere themeKey="ink-dots" intensity="low" />
       <div className="relative z-10">

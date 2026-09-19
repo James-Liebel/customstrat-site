@@ -5,6 +5,8 @@ import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
 import { ArrowLeft } from "lucide-react";
 import RelatedArticles from "@/components/RelatedArticles";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "P&C Carriers - Preparing for the Stormy Seas",
@@ -14,6 +16,9 @@ export const metadata: Metadata = {
 export default function PCcarriersPreparingForTheStormySeas() {
   return (
     <main className="cs-shell--library relative">
+      {/* Article + breadcrumb structured data, derived from content/articles.ts */}
+      <JsonLd schema={articleSchema("pc-carriers-stormy-seas")} />
+      <JsonLd schema={articleBreadcrumbSchema("pc-carriers-stormy-seas")} />
       {/* Atmosphere: ink-dots theme (reading-focused) */}
       <Atmosphere themeKey="ink-dots" intensity="low" />
       <div className="relative z-10">

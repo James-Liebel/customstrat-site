@@ -5,6 +5,8 @@ import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
 import { ArrowLeft } from "lucide-react";
 import RelatedArticles from "@/components/RelatedArticles";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Contingency Planning for the Next Worst-Case Scenario",
@@ -14,6 +16,9 @@ export const metadata: Metadata = {
 export default function ContingencyPlanningForTheNextWorstCaseScenarioInsuranceEdition() {
   return (
     <main className="cs-shell--library relative">
+      {/* Article + breadcrumb structured data, derived from content/articles.ts */}
+      <JsonLd schema={articleSchema("contingency-planning-worst-case")} />
+      <JsonLd schema={articleBreadcrumbSchema("contingency-planning-worst-case")} />
       {/* Atmosphere: ink-dots theme (reading-focused) */}
       <Atmosphere themeKey="ink-dots" intensity="low" />
       <div className="relative z-10">

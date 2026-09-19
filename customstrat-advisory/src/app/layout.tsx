@@ -8,6 +8,8 @@ import VisualEffects from '@/components/VisualEffects';
 import '@/styles/globals.css';
 import { siteContent } from '@/content/siteContent';
 import { Inter, Manrope } from 'next/font/google';
+import JsonLd from '@/components/JsonLd';
+import { organizationSchema, websiteSchema } from '@/lib/structuredData';
 
 // Microsoft Clarity Project ID
 // Get it from: https://clarity.microsoft.com
@@ -85,6 +87,10 @@ export default function RootLayout({
           <meta httpEquiv="Content-Security-Policy" content={CONTENT_SECURITY_POLICY} />
         )}
         <meta name="referrer" content="strict-origin-when-cross-origin" />
+        {/* Site-wide structured data. Every other page's JSON-LD refers back
+            to these two nodes by @id rather than repeating them. */}
+        <JsonLd schema={organizationSchema()} />
+        <JsonLd schema={websiteSchema()} />
       </head>
       <body className="flex flex-col min-h-screen antialiased font-sans text-slate-900 overflow-x-hidden">
         {/* fx gate: lets globals.css hide reveal targets before first paint,

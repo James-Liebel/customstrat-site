@@ -5,6 +5,8 @@ import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
 import { ArrowLeft } from "lucide-react";
 import RelatedArticles from "@/components/RelatedArticles";
+import JsonLd from "@/components/JsonLd";
+import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "Three Simple Strategy Tests Every Leadership Team Should Apply",
@@ -14,6 +16,9 @@ export const metadata: Metadata = {
 export default function ThreeStrategyTests() {
   return (
     <main className="cs-shell--library relative">
+      {/* Article + breadcrumb structured data, derived from content/articles.ts */}
+      <JsonLd schema={articleSchema("three-strategy-tests")} />
+      <JsonLd schema={articleBreadcrumbSchema("three-strategy-tests")} />
       {/* Atmosphere: ink-dots theme (reading-focused) */}
       <Atmosphere themeKey="ink-dots" intensity="low" />
       <div className="relative z-10">

@@ -5,6 +5,8 @@ import Atmosphere from "@/components/Atmosphere";
 import { siteContent } from "@/content/siteContent";
 import { ExternalLink } from "lucide-react";
 import AboutClient from "./AboutClient";
+import JsonLd from "@/components/JsonLd";
+import { katieSchema } from "@/lib/structuredData";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -54,6 +56,8 @@ export default function AboutPage() {
 
   return (
     <main className="cs-shell--editorial relative">
+      {/* Katie as a Person node — this is the page carrying her biography. */}
+      <JsonLd schema={katieSchema()} />
       {/* Atmosphere: aura-strata theme */}
       <Atmosphere themeKey="aura-strata" />
       <div className="relative z-10">

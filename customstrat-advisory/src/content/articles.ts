@@ -11,6 +11,8 @@ export type Article = {
   categories: string[];
   excerpt: string;
   readTime: string;
+  /** Bylines, in the order they appear on the article page. Used for Article JSON-LD. */
+  authors: string[];
 };
 
 export const allArticles: Article[] = [
@@ -23,6 +25,7 @@ export const allArticles: Article[] = [
     excerpt:
       'The same strategic questions—where, how, and when to compete—carry higher stakes for community and mid-size banks in the age of AI.',
     readTime: '7 min read',
+    authors: ['Katie Liebel'],
   },
   {
     title: 'Three Simple Strategy Tests Every Leadership Team Should Apply',
@@ -33,6 +36,7 @@ export const allArticles: Article[] = [
     excerpt:
       'How to ensure your strategy is grounded in customer choice, economic logic, and real commitment. Three questions every leadership team should answer with confidence.',
     readTime: '6 min read',
+    authors: ['Katie Liebel'],
   },
   {
     title: 'Relationship Banking Needs a Higher Standard',
@@ -43,6 +47,7 @@ export const allArticles: Article[] = [
     excerpt:
       'If banks want to call something a "relationship," they should be willing to hold it to the same standards people apply in real human relationships.',
     readTime: '7 min read',
+    authors: ['Katie Liebel'],
   },
   {
     title: "Beyond Scale: Winning Strategies for Today's P&C Insurers",
@@ -53,6 +58,7 @@ export const allArticles: Article[] = [
     excerpt:
       'Insights from a decade of market data reveal what winners do differently',
     readTime: '5 min read',
+    authors: ['Katie Liebel', 'Rohini Reddy', 'Luiz Zorzella'],
   },
   {
     title: 'Secrets to Survival in Community Banking',
@@ -63,6 +69,7 @@ export const allArticles: Article[] = [
     excerpt:
       'What is and is NOT correlated to Success',
     readTime: '6 min read',
+    authors: ['Katie Liebel', 'Luiz Zorzella'],
   },
   {
     title: 'Linking Customer Experience to Strategy and Value',
@@ -73,6 +80,7 @@ export const allArticles: Article[] = [
     excerpt:
       'A practical framework for connecting CX investments to measurable business outcomes',
     readTime: '5 min read',
+    authors: ['Katie Liebel', 'TV Kumaresh'],
   },
   {
     title: 'Strategic Planning Best Practices for Board Directors',
@@ -83,6 +91,7 @@ export const allArticles: Article[] = [
     excerpt:
       'A practical guide for boards to steward the development of a winning corporate strategy',
     readTime: '5 min read',
+    authors: ['Katie Liebel'],
   },
   {
     title: 'Integrated Planning Amidst the Headwinds',
@@ -93,6 +102,7 @@ export const allArticles: Article[] = [
     excerpt:
       'Building resilient strategic plans through prioritized investment and organizational accountability',
     readTime: '7 min read',
+    authors: ['Katie Liebel', 'TV Kumaresh'],
   },
   {
     title: "The Softer Side of Transformation - The 5 C's",
@@ -103,6 +113,7 @@ export const allArticles: Article[] = [
     excerpt:
       'Why addressing commitment, culture, and communication is vital for sustainable change',
     readTime: '5 min read',
+    authors: ['Katie Liebel', 'TV Kumaresh'],
   },
   {
     title: 'A Strategic Planning Tune-Up for Uncertain Times',
@@ -113,6 +124,7 @@ export const allArticles: Article[] = [
     excerpt:
       'Adjusting your strategic approach to maintain competitive advantage in a volatile market',
     readTime: '5 min read',
+    authors: ['Katie Liebel', 'TV Kumaresh'],
   },
   {
     title: 'P&C Carriers - Preparing for the Stormy Seas',
@@ -123,6 +135,7 @@ export const allArticles: Article[] = [
     excerpt:
       'Five strategic priorities for insurers to navigate economic volatility and industry disruption',
     readTime: '5 min read',
+    authors: ['Katie Liebel', 'TV Kumaresh'],
   },
   {
     title: 'Contingency Planning for the Next Worst-Case Scenario',
@@ -133,6 +146,7 @@ export const allArticles: Article[] = [
     excerpt:
       'Building organizational resilience through comprehensive risk assessment and adaptive strategy',
     readTime: '4 min read',
+    authors: ['Katie Liebel'],
   },
   {
     title: 'Banking on a Better Position After the Crisis',
@@ -143,5 +157,6 @@ export const allArticles: Article[] = [
     excerpt:
       'Strategic imperatives for banks to emerge stronger from short-term financial disruption',
     readTime: '5 min read',
+    authors: ['Katie Liebel'],
   },
 ];
