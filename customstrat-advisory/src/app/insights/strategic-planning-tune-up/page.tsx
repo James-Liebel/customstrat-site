@@ -1,5 +1,6 @@
 // AStrategicPlanningTuneUpForUncertainTimes.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("strategic-planning-tune-up", {
   title: "A Strategic Planning Tune-Up for Uncertain Times",
   description: "How to build resilient strategic plans that adapt to changing market conditions through assumption-based planning and agile execution.",
-};
+});
 
 export default function AStrategicPlanningTuneUpForUncertainTimes() {
   return (

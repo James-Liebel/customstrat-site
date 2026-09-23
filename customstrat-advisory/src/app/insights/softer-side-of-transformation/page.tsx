@@ -1,5 +1,6 @@
 // TheSofterSideOfTransformationFiveCs.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("softer-side-of-transformation", {
   title: "The Softer Side of Transformation - Five C's",
   description: "Why addressing commitment, culture, and communication is vital for sustainable change. The 5Cs approach to business transformation.",
-};
+});
 
 export default function TheSofterSideOfTransformationFiveCs() {
   return (

@@ -1,5 +1,6 @@
 // ContingencyPlanningForTheNextWorstCaseScenarioInsuranceEdition.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("contingency-planning-worst-case", {
   title: "Contingency Planning for the Next Worst-Case Scenario",
   description: "Building organizational resilience through comprehensive risk assessment and adaptive strategy for insurance carriers.",
-};
+});
 
 export default function ContingencyPlanningForTheNextWorstCaseScenarioInsuranceEdition() {
   return (

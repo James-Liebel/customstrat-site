@@ -1,5 +1,6 @@
 // PCcarriersPreparingForTheStormySeas.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("pc-carriers-stormy-seas", {
   title: "P&C Carriers - Preparing for the Stormy Seas",
   description: "Five strategic priorities for Property & Casualty insurance carriers to navigate economic volatility and industry disruption.",
-};
+});
 
 export default function PCcarriersPreparingForTheStormySeas() {
   return (

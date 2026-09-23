@@ -1,13 +1,14 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/services/operational-improvements/', {
   title: "Customer Experience & Performance Improvement",
   description: "Driving bottom-line performance and client impact by leveraging data-driven insights to prioritize operational improvements and optimize end-to-end customer journeys.",
-};
+});
 
 const examples = [
   {

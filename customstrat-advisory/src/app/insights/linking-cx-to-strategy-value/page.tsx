@@ -1,5 +1,6 @@
 // LinkingCustomerExperienceToStrategyAndValue.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("linking-cx-to-strategy-value", {
   title: "Linking Customer Experience to Strategy and Value",
   description: "A practical framework for connecting CX investments to measurable business outcomes and demonstrating the ROI of customer experience initiatives.",
-};
+});
 
 export default function LinkingCustomerExperienceToStrategyAndValue() {
   return (

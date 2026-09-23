@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
@@ -7,10 +8,10 @@ import { siteContent } from "@/content/siteContent";
 import { ArrowRight } from "lucide-react";
 
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/services/', {
   title: "Our Strategic Impact: Real-World Case Studies",
   description: "Strategy, transformation, and execution support for midsize institutions.",
-};
+});
 
 const caseStudies = [
   {

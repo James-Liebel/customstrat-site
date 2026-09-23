@@ -2,7 +2,15 @@ import { siteContent } from "@/content/siteContent";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import type { Metadata } from "next";
 import Atmosphere from "@/components/Atmosphere";
+import { allArticles } from "@/content/articles";
+
+// Home keeps the layout's default title and Open Graph card; it only needs
+// its own canonical.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function HomePage() {
   const engagementModes = [
@@ -137,6 +145,34 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Latest insights: a compact list so the newest articles are one
+              click from the home page */}
+          <div className="mt-20 max-w-3xl mx-auto">
+            <div className="flex items-baseline justify-between gap-4 border-b-2 border-accent pb-2">
+              <h2 className="text-primary text-base font-bold uppercase tracking-widest">
+                Latest insights
+              </h2>
+              <Link href="/insights" className="text-sm text-primary font-semibold hover:text-accent transition-colors inline-flex items-center gap-1 shrink-0">
+                All articles <ArrowRight size={14} aria-hidden="true" />
+              </Link>
+            </div>
+            <ul className="divide-y divide-slate-100">
+              {allArticles.slice(0, 3).map((article) => (
+                <li key={article.slug}>
+                  <Link
+                    href={`/insights/${article.slug}`}
+                    className="group flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-6 py-3"
+                  >
+                    <span className="text-slate-700 group-hover:text-primary transition-colors">
+                      {article.title}
+                    </span>
+                    <span className="text-xs text-slate-500 shrink-0">{article.date}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* Success Message & CTA */}

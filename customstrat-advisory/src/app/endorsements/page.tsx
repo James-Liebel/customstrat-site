@@ -1,13 +1,14 @@
 import type { Metadata } from 'next';
+import { pageMetadata } from "@/lib/seo";
 import Hero from '@/components/Hero';
 import Atmosphere from '@/components/Atmosphere';
 import { siteContent } from '@/content/siteContent';
 import EndorsementsClient from './EndorsementsClient';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/endorsements/', {
   title: 'Endorsements',
   description: 'Client testimonials and recommendations for CustomStrat Advisory.',
-};
+});
 
 export default function EndorsementsPage() {
   return (

@@ -1,5 +1,6 @@
 // IntegratedPlanningAmidstTheHeadwinds.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("integrated-planning-headwinds", {
   title: "Integrated Planning Amidst the Headwinds",
   description: "Building resilient strategic plans through prioritized investment and organizational accountability in uncertain economic times.",
-};
+});
 
 export default function IntegratedPlanningAmidstTheHeadwinds() {
   return (

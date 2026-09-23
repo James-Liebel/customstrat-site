@@ -1,15 +1,16 @@
 // src/app/insights/page.tsx
 import type { Metadata } from 'next';
+import { pageMetadata } from "@/lib/seo";
 import Hero from '@/components/Hero';
 import Atmosphere from '@/components/Atmosphere';
 import InsightsClient from './InsightsClient';
 import { allArticles } from '@/content/articles';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/insights/', {
   title: 'Articles',
   description:
     'Insights and thought leadership on strategy, customer experience, and transformation.',
-};
+});
 
 export default function InsightsPage() {
   return (

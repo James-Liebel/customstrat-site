@@ -1,13 +1,14 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/services/strategy-development/', {
   title: "Strategy Development",
   description: "Defining corporate and business unit strategies that identify where to compete and how to sharpen competitive advantage.",
-};
+});
 
 const examples = [
   {

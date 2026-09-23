@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
@@ -7,10 +8,10 @@ import { Mail, Phone, MapPin } from "lucide-react";
 import LinkedinIcon from "@/components/LinkedinIcon";
 import CopyEmailButton from "@/components/CopyEmailButton";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/contact/', {
   title: "Contact",
   description: "Get in touch with CustomStrat Advisory to discuss your strategic needs.",
-};
+});
 
 export default function ContactPage() {
   const contact = siteContent.contact.info;

@@ -1,13 +1,14 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/services/strategy-execution/', {
   title: "Strategy Execution & Transformation",
   description: "Accelerating change through the design of workstreams, governance, and roadmaps, supported by rigorous delivery oversight and deep knowledge of change management.",
-};
+});
 
 const examples = [
   {

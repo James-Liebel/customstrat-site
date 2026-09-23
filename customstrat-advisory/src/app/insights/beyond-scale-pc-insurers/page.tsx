@@ -1,5 +1,6 @@
 // BeyondScalePCInsurers.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("beyond-scale-pc-insurers", {
   title: "Beyond Scale: Winning Strategies for Today's P&C Insurers",
   description: "Insights from a decade of market data reveal what winners do differently. Analysis of the largest 100 U.S. P&C carriers to identify key success factors.",
-};
+});
 
 export default function BeyondScalePCInsurers() {
   return (

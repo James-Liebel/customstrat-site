@@ -1,5 +1,6 @@
 // StrategicPlanningBestPracticesForBoardDirectors.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("strategic-planning-board-directors", {
   title: "Strategic Planning Best Practices for Board Directors",
   description: "A practical guide for boards to steward the development of a winning corporate strategy with key questions for effective oversight.",
-};
+});
 
 export default function StrategicPlanningBestPracticesForBoardDirectors() {
   return (

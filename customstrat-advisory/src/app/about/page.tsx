@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import Image from "next/image";
 import Hero from "@/components/Hero";
 import Atmosphere from "@/components/Atmosphere";
@@ -8,10 +9,10 @@ import AboutClient from "./AboutClient";
 import JsonLd from "@/components/JsonLd";
 import { katieSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata('/about/', {
   title: "About Us",
   description: "Learn about CustomStrat Advisory leadership and approach to client engagement.",
-};
+});
 
 export default function AboutPage() {
   const leader = siteContent.about.leadership.members[0];

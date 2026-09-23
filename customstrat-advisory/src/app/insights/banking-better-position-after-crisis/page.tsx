@@ -1,5 +1,6 @@
 // BankingOnABetterPositionAfterTheCrisis.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("banking-better-position-after-crisis", {
   title: "Banking on a Better Position After the Crisis",
   description: "Strategic imperatives for banks to emerge stronger from short-term financial disruption and build competitive advantage.",
-};
+});
 
 export default function BankingOnABetterPositionAfterTheCrisis() {
   return (

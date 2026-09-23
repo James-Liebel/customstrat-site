@@ -1,5 +1,6 @@
 // StrategyInTheAgeOfAI.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,11 +9,11 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("strategy-in-the-age-of-ai", {
   title: "Strategy in the Age of AI: A Community and Mid-Size Bank Perspective",
   description:
     "The same strategic questions—where, how, and when to compete—carry higher stakes for community and mid-size banks in the age of AI.",
-};
+});
 
 export default function StrategyInTheAgeOfAI() {
   return (

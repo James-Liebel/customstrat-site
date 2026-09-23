@@ -1,5 +1,6 @@
 // RelationshipBankingHigherStandard.tsx
 import type { Metadata } from "next";
+import { articleMetadata } from "@/lib/seo";
 import Link from "next/link";
 import Atmosphere from "@/components/Atmosphere";
 import ReadingProgress from "@/components/ReadingProgress";
@@ -8,10 +9,10 @@ import RelatedArticles from "@/components/RelatedArticles";
 import JsonLd from "@/components/JsonLd";
 import { articleSchema, articleBreadcrumbSchema } from "@/lib/structuredData";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = articleMetadata("relationship-banking-higher-standard", {
   title: "Relationship Banking Needs a Higher Standard",
   description: "If banks want to call something a 'relationship,' they should be willing to hold it to the same standards people apply in real human relationships.",
-};
+});
 
 export default function RelationshipBankingHigherStandard() {
   return (
