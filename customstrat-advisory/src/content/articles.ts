@@ -17,6 +17,17 @@ export type Article = {
 
 export const allArticles: Article[] = [
   {
+    title: 'An Update on the Community Bank Landscape: Where Are They Now?',
+    slug: 'community-bank-landscape-where-are-they-now',
+    date: 'September 2026',
+    dateValue: 202609,
+    categories: ['Banking', 'Strategy'],
+    excerpt:
+      'Two years after our study of 230 community banks, we revisit the Winners and Laggards to see who held their position, who slipped, and who was acquired.',
+    readTime: '5 min read',
+    authors: ['Katie Liebel', 'Luiz Zorzella'],
+  },
+  {
     title: 'Strategy in the Age of AI: A Community and Mid-Size Bank Perspective',
     slug: 'strategy-in-the-age-of-ai',
     date: 'June 2026',
