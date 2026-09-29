@@ -5,4 +5,4 @@
 :HL["/images/survival-exhibit-4.png","image"]
 :HL["/images/survival-exhibit-3.png","image"]
 :HL["/images/survival-exhibit-2.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"insights","param":null,"prefetchHints":4160,"slots":{"children":{"name":"secrets-to-survival-community-banking","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"rSP575H87dFuT-XgT4RME"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4112,"slots":{"children":{"name":"insights","param":null,"prefetchHints":4160,"slots":{"children":{"name":"secrets-to-survival-community-banking","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"JNs3-Ex5A4uqCo2Ce5a-p"}

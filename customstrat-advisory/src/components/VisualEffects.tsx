@@ -30,9 +30,6 @@ export default function VisualEffects() {
     root.classList.add('fx');
 
     // --- Scroll reveal ---
-    const targets = Array.from(
-      document.querySelectorAll<HTMLElement>(REVEAL_SELECTOR)
-    );
     const io = new IntersectionObserver(
       (entries) => {
         let batch = 0;
@@ -46,7 +43,6 @@ export default function VisualEffects() {
       },
       { threshold: 0.15, rootMargin: '0px 0px -6% 0px' }
     );
-    targets.forEach((t) => io.observe(t));
 
     // --- Scroll-linked ambient parallax (consumed by .fx-diamond) ---
     let scrollRaf = 0;
@@ -62,42 +58,66 @@ export default function VisualEffects() {
 
     // --- Pointer tilt + glare on cards ---
     const cleanups: Array<() => void> = [];
-    if (window.matchMedia('(pointer: fine)').matches) {
-      document.querySelectorAll<HTMLElement>('.cs-card').forEach((card) => {
-        let raf = 0;
-        const move = (e: PointerEvent) => {
-          if (raf) return;
-          raf = requestAnimationFrame(() => {
-            raf = 0;
-            const r = card.getBoundingClientRect();
-            const px = (e.clientX - r.left) / r.width;
-            const py = (e.clientY - r.top) / r.height;
-            card.style.setProperty('--ry', `${((px - 0.5) * 2 * MAX_TILT_DEG).toFixed(2)}deg`);
-            card.style.setProperty('--rx', `${((0.5 - py) * 2 * MAX_TILT_DEG).toFixed(2)}deg`);
-            card.style.setProperty('--gx', `${(px * 100).toFixed(1)}%`);
-            card.style.setProperty('--gy', `${(py * 100).toFixed(1)}%`);
-            card.classList.add('fx-tilting');
-          });
-        };
-        const leave = () => {
-          if (raf) cancelAnimationFrame(raf);
+    const canTilt = window.matchMedia('(pointer: fine)').matches;
+    const addTilt = (card: HTMLElement) => {
+      let raf = 0;
+      const move = (e: PointerEvent) => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
           raf = 0;
-          card.style.setProperty('--rx', '0deg');
-          card.style.setProperty('--ry', '0deg');
-          card.classList.remove('fx-tilting');
-        };
-        card.addEventListener('pointermove', move);
-        card.addEventListener('pointerleave', leave);
-        cleanups.push(() => {
-          card.removeEventListener('pointermove', move);
-          card.removeEventListener('pointerleave', leave);
-          leave();
+          const r = card.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width;
+          const py = (e.clientY - r.top) / r.height;
+          card.style.setProperty('--ry', `${((px - 0.5) * 2 * MAX_TILT_DEG).toFixed(2)}deg`);
+          card.style.setProperty('--rx', `${((0.5 - py) * 2 * MAX_TILT_DEG).toFixed(2)}deg`);
+          card.style.setProperty('--gx', `${(px * 100).toFixed(1)}%`);
+          card.style.setProperty('--gy', `${(py * 100).toFixed(1)}%`);
+          card.classList.add('fx-tilting');
         });
+      };
+      const leave = () => {
+        if (raf) cancelAnimationFrame(raf);
+        raf = 0;
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
+        card.classList.remove('fx-tilting');
+      };
+      card.addEventListener('pointermove', move);
+      card.addEventListener('pointerleave', leave);
+      cleanups.push(() => {
+        card.removeEventListener('pointermove', move);
+        card.removeEventListener('pointerleave', leave);
+        leave();
       });
-    }
+    };
+
+    // Enhance every reveal target once — including ones React mounts later
+    // (e.g. cards re-rendered by the Insights category filter), which would
+    // otherwise stay hidden behind the `.fx ... :not(.fx-in)` rule.
+    const seen = new WeakSet<HTMLElement>();
+    const enhance = (el: HTMLElement) => {
+      if (seen.has(el)) return;
+      seen.add(el);
+      io.observe(el);
+      if (canTilt && el.classList.contains('cs-card')) addTilt(el);
+    };
+    const scan = (node: ParentNode) => {
+      if (node instanceof HTMLElement && node.matches(REVEAL_SELECTOR)) enhance(node);
+      node.querySelectorAll<HTMLElement>(REVEAL_SELECTOR).forEach(enhance);
+    };
+    scan(document);
+    const mo = new MutationObserver((mutations) => {
+      for (const m of mutations) {
+        m.addedNodes.forEach((n) => {
+          if (n instanceof HTMLElement) scan(n);
+        });
+      }
+    });
+    mo.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       io.disconnect();
+      mo.disconnect();
       window.removeEventListener('scroll', onScroll);
       if (scrollRaf) cancelAnimationFrame(scrollRaf);
       cleanups.forEach((fn) => fn());
