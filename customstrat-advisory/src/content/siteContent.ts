@@ -1,8 +1,9 @@
 // CustomStrat Advisory was founded in 2019. Deriving the "N+ years" line from
 // this constant keeps it from going stale — a static export bakes the value at
 // build time, so it refreshes on every deploy (same as the Footer's copyright).
+// Counted inclusively (2019 through the current year), so 2026 reads "8+".
 const FOUNDED_YEAR = 2019;
-const yearsInBusiness = new Date().getFullYear() - FOUNDED_YEAR;
+const yearsInBusiness = new Date().getFullYear() - FOUNDED_YEAR + 1;
 
 export const siteContent = {
   // Company Info
